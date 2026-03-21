@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       
       {/* Google Maps Integration - Now at the Very Top of Footer */}
-      <div className="w-full h-[300px] sm:h-[400px] overflow-hidden border-b border-white/5 relative group">
+      <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden border-b border-white/5 relative group">
         <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
         <iframe 
           src={siteConfig.contact.mapsEmbed}
@@ -37,7 +37,7 @@ export const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-6 pt-20 sm:pt-24 relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 sm:gap-20 mb-20 sm:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 md:gap-16 lg:gap-20 mb-20 sm:mb-24">
           {/* Brand Info */}
           <div className="space-y-8 sm:space-y-10 text-center sm:text-left">
             <Link to="/" className="inline-block group transition-transform duration-500 hover:scale-105" aria-label="Ir para a página inicial">

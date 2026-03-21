@@ -123,12 +123,12 @@ export const Quote = () => {
             </p>
 
             {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <div className="flex gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide">
               {quotePage.categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap flex-shrink-0 transition-all ${
                     selectedCategory === category.id
                       ? 'bg-white text-black'
                       : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
@@ -184,7 +184,7 @@ export const Quote = () => {
         </motion.div>
 
         {/* Quote Form Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -210,7 +210,7 @@ export const Quote = () => {
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                       <div className="space-y-3">
                         <label htmlFor="name" className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-white/30 font-black ml-1">Nome Completo</label>
                         <input

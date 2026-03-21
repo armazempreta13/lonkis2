@@ -38,13 +38,13 @@ export const QuoteModal = ({ isOpen, onClose, serviceName, price = "Sob orçamen
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 40 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="bg-zinc-900 border border-white/10 w-full max-w-lg rounded-[3.5rem] p-10 shadow-[0_0_100px_rgba(0,0,0,0.5)] relative overflow-hidden"
+            className="bg-zinc-900 border border-white/10 w-full max-w-lg rounded-[3.5rem] p-6 sm:p-8 md:p-10 shadow-[0_0_100px_rgba(0,0,0,0.5)] relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             
             <button 
               onClick={onClose} 
-              className="absolute top-8 right-8 text-white/20 hover:text-white transition-all hover:rotate-90 duration-300"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 text-white/20 hover:text-white transition-all hover:rotate-90 duration-300"
               aria-label="Fechar modal"
             >
               <X className="w-8 h-8" />

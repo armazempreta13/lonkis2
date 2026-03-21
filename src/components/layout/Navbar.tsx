@@ -22,7 +22,7 @@ export const Navbar = () => {
           <img 
             src={siteConfig.brand.logo} 
             alt={`${siteConfig.brand.name} Logo`} 
-            className="h-14 md:h-20 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
+            className="h-14 md:h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -43,7 +43,7 @@ export const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="hidden xl:flex items-center gap-4 border-r border-white/10 pr-6 mr-2">
+        <div className="hidden lg:flex items-center gap-4 border-r border-white/10 pr-6 mr-2">
           <a href={`tel:${siteConfig.contact.phone}`} className="flex items-center gap-2 group" aria-label={`Ligar para ${siteConfig.contact.phoneDisplay}`}>
             <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all border border-white/10">
               <Phone className="w-4 h-4 text-white group-hover:text-black" />
