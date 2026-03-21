@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Mail, MapPin, Instagram, Facebook, MessageCircle, CheckCircle2, Calculator, Clock, ShieldCheck, Star, Zap, Wrench, Smartphone, Battery, Cpu, Camera } from 'lucide-react';
+import * as Icons from 'lucide-react';
+import { CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { useState, FormEvent } from 'react';
 import { SEO } from '../components/ui/SEO';
@@ -70,25 +71,28 @@ export const Quote = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {quotePage.process.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className="p-8 sm:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] sm:rounded-[3rem] text-center group hover:bg-white hover:border-white transition-all duration-700 hover:shadow-2xl"
-              >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:scale-110 transition-all duration-500 mx-auto">
-                  <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white/40 group-hover:text-white" />
-                </div>
-                <h3 className="font-display text-xl sm:text-2xl font-black uppercase text-white group-hover:text-black mb-4 tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-white/40 group-hover:text-black/60 text-sm leading-relaxed font-medium">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
+            {quotePage.process.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="p-8 sm:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] sm:rounded-[3rem] text-center group hover:bg-white hover:border-white transition-all duration-700 hover:shadow-2xl"
+                >
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:scale-110 transition-all duration-500 mx-auto">
+                    {Icon && <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white/40 group-hover:text-white" />}
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl font-black uppercase text-white group-hover:text-black mb-4 tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/40 group-hover:text-black/60 text-sm leading-relaxed font-medium">
+                    {step.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
@@ -126,38 +130,41 @@ export const Quote = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredServices.map((service) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="p-6 sm:p-8 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2rem] sm:rounded-[2.5rem] group hover:bg-white hover:border-white transition-all duration-700 hover:shadow-2xl"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:scale-110 transition-all duration-500">
-                    <service.icon className="w-6 h-6 text-white/40 group-hover:text-white" />
+            {filteredServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className="p-6 sm:p-8 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2rem] sm:rounded-[2.5rem] group hover:bg-white hover:border-white transition-all duration-700 hover:shadow-2xl"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:scale-110 transition-all duration-500">
+                      {Icon && <Icon className="w-6 h-6 text-white/40 group-hover:text-white" />}
+                    </div>
+                    <span className="text-xs font-bold text-white/20 group-hover:text-black/40 uppercase tracking-wider">
+                      {service.category}
+                    </span>
                   </div>
-                  <span className="text-xs font-bold text-white/20 group-hover:text-black/40 uppercase tracking-wider">
-                    {service.category}
-                  </span>
-                </div>
-                <h3 className="font-display text-lg sm:text-xl font-black uppercase text-white group-hover:text-black mb-2 tracking-tight">
-                  {service.name}
-                </h3>
-                <p className="text-white/40 group-hover:text-black/60 text-sm leading-relaxed font-medium mb-4">
-                  {service.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg sm:text-xl font-black text-white group-hover:text-black">
-                    {service.price}
-                  </span>
-                  <button className="px-4 py-2 bg-white/5 group-hover:bg-black text-white/60 group-hover:text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all">
-                    Solicitar
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+                  <h3 className="font-display text-lg sm:text-xl font-black uppercase text-white group-hover:text-black mb-2 tracking-tight">
+                    {service.name}
+                  </h3>
+                  <p className="text-white/40 group-hover:text-black/60 text-sm leading-relaxed font-medium mb-4">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg sm:text-xl font-black text-white group-hover:text-black">
+                      {service.price}
+                    </span>
+                    <button className="px-4 py-2 bg-white/5 group-hover:bg-black text-white/60 group-hover:text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all">
+                      Solicitar
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
@@ -294,21 +301,24 @@ export const Quote = () => {
                 Por que nos escolher?
               </h3>
               <div className="space-y-6">
-                {quotePage.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                      <benefit.icon className="w-4 h-4 text-white/40" />
+                {quotePage.benefits.map((benefit, index) => {
+                  const Icon = benefit.icon;
+                  return (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        {Icon && <Icon className="w-4 h-4 text-white/40" />}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-1">
+                          {benefit.title}
+                        </h4>
+                        <p className="text-white/40 text-xs leading-relaxed font-light">
+                          {benefit.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-1">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-white/40 text-xs leading-relaxed font-light">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -351,5 +361,4 @@ export const Quote = () => {
       </div>
     </motion.div>
   );
-};</content>
-<parameter name="filePath">c:\Users\Philippe\Downloads\lk-imports (1)\src\pages\Quote.tsx
+};
