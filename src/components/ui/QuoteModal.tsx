@@ -8,10 +8,10 @@ interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
   serviceName: string;
-  price: string;
+  price?: string;
 }
 
-export const QuoteModal = ({ isOpen, onClose, serviceName, price }: QuoteModalProps) => {
+export const QuoteModal = ({ isOpen, onClose, serviceName, price = "Sob orçamento" }: QuoteModalProps) => {
   const [formData, setFormData] = useState({ name: '', model: '', phone: '' });
 
   const handleSubmit = (e: React.FormEvent) => {

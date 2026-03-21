@@ -190,6 +190,8 @@ export const siteConfig = {
         badge: "O Padrão LK",
         title: "Por que nos",
         titleAccent: "Escolher?",
+        description: "Somos referência em Brasília pela qualidade dos nossos reparos e transparência no atendimento. Cada serviço é executado com dedicação e expertise acumulada em 17 anos de mercado.",
+        ctaText: "Conheça nossa história",
         items: [
           { icon: ShieldCheck, title: "Garantia Real", description: "90 dias de garantia em todos os serviços. Seu equipamento protegido." },
           { icon: Award, title: "Peças Premium", description: "Trabalhamos apenas com componentes de alta qualidade, testados e homologados." },
@@ -203,6 +205,7 @@ export const siteConfig = {
         titleAccent: "Nossos Clientes",
         googleRating: "4.9",
         totalReviews: "150+",
+        ctaText: "Ver todas as avaliações",
         items: [
           { name: "Carlos Silva", text: "Excelente atendimento! Meu iPhone estava condenado e a LK Imports recuperou a placa. Preço justo e muita transparência.", rating: 5, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" },
           { name: "Mariana Costa", text: "Troquei a tela do meu Samsung e ficou perfeito. O serviço foi super rápido, entregaram no mesmo dia. Recomendo!", rating: 5, image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" },
@@ -214,6 +217,7 @@ export const siteConfig = {
         title: "Nossa",
         titleAccent: "Unidade",
         subtitle: "Visite nossa loja física em Samambaia e conheça nossa estrutura completa de atendimento e laboratório.",
+        description: "Localizada em Samambaia Norte, nossa unidade oferece atendimento personalizado e infraestrutura completa para todos os tipos de reparo."
       },
       cta: {
         badge: "Atendimento Imediato",

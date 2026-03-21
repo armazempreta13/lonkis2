@@ -8,7 +8,7 @@ interface Product {
   category: string;
   price: number;
   image: string;
-  colors: string[];
+  colors?: string[];
   badge: string;
 }
 

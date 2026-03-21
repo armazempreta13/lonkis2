@@ -12,8 +12,8 @@ export const ProductsPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('name');
   const [maxPrice, setMaxPrice] = useState(10000);
 
-  const products = siteConfig.products.items;
-  const categories = siteConfig.products.categories;
+  const products = siteConfig.pages.products.items;
+  const categories = siteConfig.pages.products.categories;
   const maxProductPrice = Math.max(...products.map(p => p.price));
 
   const filteredProducts = useMemo(() => {

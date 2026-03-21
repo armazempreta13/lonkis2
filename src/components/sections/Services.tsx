@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { siteConfig } from '../../siteConfig';
 
 export const Services = () => {
-  const [selectedService, setSelectedService] = useState<{title: string, price: string} | null>(null);
+  const [selectedService, setSelectedService] = useState<{title: string} | null>(null);
 
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
@@ -72,13 +72,12 @@ export const Services = () => {
               
               <div className="relative z-10 space-y-3 sm:space-y-4 mb-10 sm:mb-12">
                 <h3 className="font-display text-2xl sm:text-3xl font-black text-white group-hover:text-black uppercase tracking-tight transition-colors leading-tight">{service.title}</h3>
-                <p className="text-white/40 group-hover:text-black/60 font-black text-base sm:text-lg tracking-tight">{service.price}</p>
                 <p className="text-white/30 group-hover:text-black/40 text-xs sm:text-sm leading-relaxed font-medium transition-colors">{service.description}</p>
               </div>
               
               <Button 
                 className="mt-auto w-full py-6 bg-white/5 text-white border border-white/10 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em]"
-                onClick={() => setSelectedService({title: service.title, price: service.price})}
+                onClick={() => setSelectedService({title: service.title})}
                 ariaLabel={`Solicitar orçamento para ${service.title}`}
               >
                 Solicitar Orçamento
@@ -93,7 +92,7 @@ export const Services = () => {
           isOpen={!!selectedService} 
           onClose={() => setSelectedService(null)} 
           serviceName={selectedService.title}
-          price={selectedService.price}
+
         />
       )}
     </section>

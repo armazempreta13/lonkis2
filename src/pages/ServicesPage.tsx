@@ -95,7 +95,7 @@ export const ServicesPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl">
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service, index) => {
-              const Icon = Icons[service.icon as keyof typeof Icons] as React.ElementType;
+              const Icon = service.icon;
               return (
                 <motion.div
                   key={service.id}
@@ -172,7 +172,7 @@ export const ServicesPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {siteConfig.pages.services.supportedDevices.brands.map((item, index) => {
-              const Icon = Icons[item.icon as keyof typeof Icons] as React.ElementType;
+              const Icon = item.icon;
               return (
                 <motion.div
                   key={item.brand}

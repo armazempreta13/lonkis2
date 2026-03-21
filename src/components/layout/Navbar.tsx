@@ -56,10 +56,10 @@ export const Navbar = () => {
         </div>
         
         <div className="flex items-center gap-4">
-          <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Instagram">
+          <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Instagram">
             <Instagram className="w-5 h-5" />
           </a>
-          <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Facebook">
+          <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Facebook">
             <Facebook className="w-5 h-5" />
           </a>
         </div>
@@ -149,10 +149,10 @@ export const Navbar = () => {
                   transition={{ delay: 0.5 }}
                   className="flex gap-4"
                 >
-                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
+                  <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
                     <Instagram className="w-7 h-7" />
                   </a>
-                  <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
+                  <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
                     <Facebook className="w-7 h-7" />
                   </a>
                 </motion.div>

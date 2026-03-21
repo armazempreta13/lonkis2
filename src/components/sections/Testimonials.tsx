@@ -26,7 +26,6 @@ const FALLBACK_REVIEWS: Review[] = siteConfig.pages.home.testimonials.items.map(
   text: item.text,
   initial: item.name.charAt(0).toUpperCase(),
   color: COLORS[Math.floor(Math.random() * COLORS.length)],
-  time: item.time,
   profilePhotoUrl: item.image
 }));
 

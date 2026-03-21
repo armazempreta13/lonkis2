@@ -86,10 +86,10 @@ export const Footer = () => {
           <div className="space-y-12">
             <h4 className="font-display font-black uppercase text-[11px] tracking-[0.4em] mb-10 text-white/20">Siga-nos</h4>
             <div className="flex items-center gap-8">
-              <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125" aria-label="Instagram">
+              <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125" aria-label="Instagram">
                 <Instagram className="w-7 h-7" />
               </a>
-              <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125" aria-label="Facebook">
+              <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125" aria-label="Facebook">
                 <Facebook className="w-7 h-7" />
               </a>
             </div>

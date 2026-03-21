@@ -179,10 +179,10 @@ export const Contact = () => {
             </div>
 
             <div className="flex gap-4 sm:gap-6">
-              <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-16 sm:h-16 bg-zinc-900/40 rounded-2xl sm:rounded-3xl flex items-center justify-center border border-white/5 hover:bg-white hover:text-black transition-all duration-500 shadow-lg" aria-label="Siga-nos no Instagram">
+              <a href={social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-16 sm:h-16 bg-zinc-900/40 rounded-2xl sm:rounded-3xl flex items-center justify-center border border-white/5 hover:bg-white hover:text-black transition-all duration-500 shadow-lg" aria-label="Siga-nos no Instagram">
                 <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
               </a>
-              <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-16 sm:h-16 bg-zinc-900/40 rounded-2xl sm:rounded-3xl flex items-center justify-center border border-white/5 hover:bg-white hover:text-black transition-all duration-500 shadow-lg" aria-label="Siga-nos no Facebook">
+              <a href={social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-16 sm:h-16 bg-zinc-900/40 rounded-2xl sm:rounded-3xl flex items-center justify-center border border-white/5 hover:bg-white hover:text-black transition-all duration-500 shadow-lg" aria-label="Siga-nos no Facebook">
                 <Facebook className="w-6 h-6 sm:w-7 sm:h-7" />
               </a>
             </div>
