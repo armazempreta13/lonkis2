@@ -1,0 +1,6 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Helmet } from 'react-helmet-async';
+import { siteConfig } from '../../siteConfig';
+export const SEO = ({ title = siteConfig.seo.title, description = siteConfig.seo.description, keywords = siteConfig.seo.keywords, ogImage = siteConfig.seo.ogImage, url = siteConfig.seo.url }) => {
+    return (_jsxs(Helmet, { children: [_jsx("title", { children: title }), _jsx("meta", { name: "description", content: description }), _jsx("meta", { name: "keywords", content: keywords }), _jsx("meta", { name: "author", content: siteConfig.seo.author }), _jsx("meta", { name: "robots", content: "index, follow" }), _jsx("meta", { property: "og:type", content: "website" }), _jsx("meta", { property: "og:url", content: url }), _jsx("meta", { property: "og:title", content: title }), _jsx("meta", { property: "og:description", content: description }), _jsx("meta", { property: "og:image", content: ogImage }), _jsx("meta", { property: "twitter:card", content: "summary_large_image" }), _jsx("meta", { property: "twitter:url", content: url }), _jsx("meta", { property: "twitter:title", content: title }), _jsx("meta", { property: "twitter:description", content: description }), _jsx("meta", { property: "twitter:image", content: ogImage }), _jsx("link", { rel: "canonical", href: url })] }));
+};

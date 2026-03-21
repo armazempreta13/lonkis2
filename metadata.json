@@ -1,0 +1,7 @@
+{
+  "name": "LK Imports",
+  "description": "Assistência técnica especializada e soluções rápidas para o seu smartphone. Referência em Samambaia, Ceilândia e Taguatinga.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
