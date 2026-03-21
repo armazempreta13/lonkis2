@@ -46,7 +46,9 @@ import {
   Fingerprint,
   Thermometer,
   RefreshCw,
-  HardDrive
+  HardDrive,
+  Calculator,
+  Clock
 } from 'lucide-react';
 
 // ---------------------------------------------------------------------------
