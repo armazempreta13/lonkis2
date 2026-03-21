@@ -96,7 +96,7 @@ export const siteConfig = {
       { label: "Produtos", href: "/produtos" },
       { label: "Sobre", href: "/sobre" },
       { label: "Contato", href: "/contato" },
-      { label: "Orçamento", href: "/contato#orcamento", highlight: true },
+      { label: "Orçamento", href: "/orcamento", highlight: true },
     ],
     hasSearch: true,
     hasUserActions: true,
