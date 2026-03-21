@@ -57,7 +57,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-display font-black uppercase text-[11px] tracking-[0.4em] mb-10 text-white/20">{siteConfig.footer.quickLinksTitle}</h4>
             <ul className="space-y-5 text-sm text-white/40 font-bold uppercase tracking-widest">
-              {siteConfig.nav.map((item) => (
+              {siteConfig.navbar.navItems.map((item) => (
                 <li key={item.label}><Link to={item.href} className="hover:text-white transition-all hover:translate-x-2 inline-block">{item.label}</Link></li>
               ))}
             </ul>

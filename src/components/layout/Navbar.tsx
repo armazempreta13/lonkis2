@@ -8,7 +8,7 @@ export const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  const navItems = siteConfig.nav;
+  const navItems = siteConfig.navbar.navItems;
 
   return (
     <>
