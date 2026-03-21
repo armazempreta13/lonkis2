@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { siteConfig } from '../../siteConfig';
 
 export const Differentials = () => {
-  const { badge, title, titleAccent, description, ctaText, items } = siteConfig.home.differentials;
+  const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.differentials;
   return (
     <section id="differentials" className="py-32 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">

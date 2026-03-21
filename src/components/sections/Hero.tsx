@@ -36,7 +36,7 @@ const BadgeRow = () => (
       className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md"
     >
       <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/60">
-        {siteConfig.home.hero.badge}
+        {siteConfig.pages.home.hero.badge}
       </span>
     </motion.div>
 
@@ -48,7 +48,7 @@ const BadgeRow = () => (
     >
       <Award className="h-4 w-4" aria-hidden="true" />
       <span className="text-[10px] font-black uppercase tracking-[0.3em]">
-        {siteConfig.home.hero.experience}
+        {siteConfig.pages.home.hero.experience}
       </span>
     </motion.div>
   </div>
@@ -56,17 +56,17 @@ const BadgeRow = () => (
 
 const Heading = () => (
   <h1 className="mb-10 font-display text-5xl font-black uppercase leading-[0.8] tracking-tighter text-white sm:text-7xl md:text-9xl">
-    {siteConfig.home.hero.title}
+    {siteConfig.pages.home.hero.title}
     <br />
     <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-      {siteConfig.home.hero.titleAccent}
+      {siteConfig.pages.home.hero.titleAccent}
     </span>
   </h1>
 );
 
 const Subtitle = () => (
   <p className="mx-auto mb-12 max-w-lg text-base font-medium leading-relaxed text-white/40 sm:text-lg md:text-xl lg:mx-0">
-    {siteConfig.home.hero.subtitle}
+    {siteConfig.pages.home.hero.subtitle}
   </p>
 );
 
@@ -79,18 +79,18 @@ const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
     <Button
       className="rounded-2xl px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
       onClick={onQuoteClick}
-      ariaLabel={siteConfig.home.hero.ctaPrimary}
+      ariaLabel={siteConfig.pages.home.hero.ctaPrimary}
     >
-      {siteConfig.home.hero.ctaPrimary}
+      {siteConfig.pages.home.hero.ctaPrimary}
     </Button>
 
     <Button
       variant="outline"
       className="rounded-2xl border-white/10 px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] transition-all hover:border-white hover:bg-white/5"
       onClick={scrollToServices}
-      ariaLabel={siteConfig.home.hero.ctaSecondary}
+      ariaLabel={siteConfig.pages.home.hero.ctaSecondary}
     >
-      {siteConfig.home.hero.ctaSecondary}
+      {siteConfig.pages.home.hero.ctaSecondary}
     </Button>
   </div>
 );

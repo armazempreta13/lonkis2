@@ -14,7 +14,7 @@ export const Location = () => {
               viewport={{ once: true }}
               className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black block"
             >
-              {siteConfig.home.location.badge}
+              {siteConfig.pages.home.location.badge}
             </motion.span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -22,12 +22,12 @@ export const Location = () => {
               viewport={{ once: true }}
               className="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-white"
             >
-              {siteConfig.home.location.title} <br />
-              <span className="text-white/20">{siteConfig.home.location.titleAccent}</span>
+              {siteConfig.pages.home.location.title} <br />
+              <span className="text-white/20">{siteConfig.pages.home.location.titleAccent}</span>
             </motion.h2>
           </div>
           <p className="text-white/40 max-w-xs font-medium leading-relaxed">
-            {siteConfig.home.location.description}
+            {siteConfig.pages.home.location.description}
           </p>
         </div>
 

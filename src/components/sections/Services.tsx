@@ -9,7 +9,7 @@ import { siteConfig } from '../../siteConfig';
 export const Services = () => {
   const [selectedService, setSelectedService] = useState<{title: string, price: string} | null>(null);
 
-  const { badge, title, titleAccent, description, ctaText, items } = siteConfig.home.services;
+  const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
   return (
     <section id="services" className="py-32 px-6 bg-black relative overflow-hidden">
