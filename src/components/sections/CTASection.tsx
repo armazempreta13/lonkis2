@@ -25,32 +25,32 @@ export const CTASection = () => {
               viewport={{ once: true }}
               className="inline-block px-4 py-1 bg-white/5 backdrop-blur-md rounded-full border border-white/10"
             >
-              <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">{siteConfig.cta.badge}</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">{siteConfig.pages.home.cta.badge}</span>
             </motion.div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[0.9] uppercase tracking-tighter">
-              {siteConfig.cta.title} <span className="text-white/20">{siteConfig.cta.titleAccent}</span>
+              {siteConfig.pages.home.cta.title} <span className="text-white/20">{siteConfig.pages.home.cta.titleAccent}</span>
             </h2>
           </div>
           
           <div className="space-y-6 text-white/40 text-base sm:text-lg font-medium leading-relaxed max-w-lg">
             <p>
-              {siteConfig.cta.subtitle1}
+              {siteConfig.pages.home.cta.subtitle1}
             </p>
             <p>
-              {siteConfig.cta.subtitle2}
+              {siteConfig.pages.home.cta.subtitle2}
             </p>
             <p className="text-xs sm:text-sm opacity-60">
-              {siteConfig.cta.subtitle3}
+              {siteConfig.pages.home.cta.subtitle3}
             </p>
           </div>
 
           <Button 
             className="w-full sm:w-auto px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] rounded-2xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-white/5"
             onClick={() => window.open(siteConfig.contact.whatsapp, '_blank')}
-            ariaLabel={siteConfig.cta.buttonText}
+            ariaLabel={siteConfig.pages.home.cta.buttonText}
           >
             <MessageCircle className="w-5 h-5" />
-            {siteConfig.cta.buttonText}
+            {siteConfig.pages.home.cta.buttonText}
           </Button>
         </motion.div>
 
@@ -64,7 +64,7 @@ export const CTASection = () => {
           >
             <div className="absolute inset-0 bg-white/5 blur-3xl -z-10 group-hover:bg-white/10 transition-colors duration-1000"></div>
             <img 
-              src={siteConfig.cta.image} 
+              src={siteConfig.pages.home.cta.image} 
               alt="LK Imports Solutions" 
               className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 scale-[1.05] group-hover:scale-100"
               referrerPolicy="no-referrer"
@@ -81,8 +81,8 @@ export const CTASection = () => {
             className="absolute -bottom-12 -left-12 bg-white text-black px-12 py-12 rounded-[3.5rem] shadow-2xl hidden md:flex flex-col items-center justify-center border border-black/5 z-20"
           >
             <div className="absolute inset-0 bg-white/40 backdrop-blur-xl rounded-[3.5rem] -z-10"></div>
-            <p className="font-display font-black text-6xl tracking-tighter leading-none mb-2">{siteConfig.cta.floatingBadge.number}</p>
-            <p className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40 whitespace-pre-line">{siteConfig.cta.floatingBadge.text}</p>
+            <p className="font-display font-black text-6xl tracking-tighter leading-none mb-2">{siteConfig.pages.home.cta.floatingBadge.number}</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40 whitespace-pre-line">{siteConfig.pages.home.cta.floatingBadge.text}</p>
           </motion.div>
         </div>
       </div>

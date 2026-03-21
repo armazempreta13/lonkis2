@@ -12,7 +12,7 @@ export const ServicesPage = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
 
   const filteredServices = useMemo(() => {
-    return siteConfig.servicesPage.detailedServices.filter(service => {
+    return siteConfig.pages.services.items.filter(service => {
       const matchesSearch = service.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = activeCategory === "Todos" || service.category === activeCategory;
       return matchesSearch && matchesCategory;
@@ -42,7 +42,7 @@ export const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-1 bg-white/5 backdrop-blur-md rounded-full mb-6 border border-white/10"
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold">{siteConfig.servicesPage.hero.badge}</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold">{siteConfig.pages.services.hero.badge}</span>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -50,13 +50,13 @@ export const ServicesPage = () => {
             transition={{ delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 text-white leading-[0.85]"
           >
-            {siteConfig.servicesPage.hero.title} <br />
-            <span className="text-white/20">{siteConfig.servicesPage.hero.titleAccent}</span>
+            {siteConfig.pages.services.hero.title} <br />
+            <span className="text-white/20">{siteConfig.pages.services.hero.titleAccent}</span>
           </motion.h1>
 
           <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between">
             <div className="flex flex-wrap sm:flex-nowrap sm:overflow-x-auto gap-3 pb-4 sm:pb-0 w-full lg:w-auto no-scrollbar">
-              {siteConfig.servicesPage.categories.map((cat) => (
+              {siteConfig.pages.services.categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
@@ -163,15 +163,15 @@ export const ServicesPage = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold block mb-4">{siteConfig.servicesPage.supportedDevices.badge}</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold block mb-4">{siteConfig.pages.services.supportedDevices.badge}</span>
             <h2 className="font-display text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
-              {siteConfig.servicesPage.supportedDevices.title} <br />
-              <span className="text-white/20">{siteConfig.servicesPage.supportedDevices.titleAccent}</span>
+              {siteConfig.pages.services.supportedDevices.title} <br />
+              <span className="text-white/20">{siteConfig.pages.services.supportedDevices.titleAccent}</span>
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {siteConfig.servicesPage.supportedDevices.brands.map((item, index) => {
+            {siteConfig.pages.services.supportedDevices.brands.map((item, index) => {
               const Icon = Icons[item.icon as keyof typeof Icons] as React.ElementType;
               return (
                 <motion.div

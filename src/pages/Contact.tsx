@@ -14,7 +14,8 @@ export const Contact = () => {
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
-  const { contactPage, contact, social } = siteConfig;
+  const contactPage = siteConfig.pages.contact;
+  const { contact, social } = siteConfig;
 
   return (
     <motion.div
