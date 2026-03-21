@@ -433,6 +433,90 @@ export const siteConfig = {
         socialDesc: "Acompanhe nosso trabalho"
       }
     },
+    // -------------------------------------------------------------------------
+    // Página de Orçamento
+    // -------------------------------------------------------------------------
+    quote: {
+      hero: {
+        badge: "Avaliação Gratuita",
+        title: "Solicite seu",
+        titleAccent: "Orçamento",
+        description: "Orçamento 100% gratuito e sem compromisso. Nossa avaliação técnica identifica o problema e oferece a solução mais econômica para seu dispositivo."
+      },
+      process: [
+        {
+          icon: Calculator,
+          title: "Avaliação",
+          description: "Análise técnica completa do seu aparelho para identificar todos os problemas e necessidades de reparo."
+        },
+        {
+          icon: Clock,
+          title: "Orçamento",
+          description: "Elaboração de orçamento detalhado com valores transparentes e opções de reparo."
+        },
+        {
+          icon: ShieldCheck,
+          title: "Aprovação",
+          description: "Você aprova o serviço e agendamos a realização do reparo com garantia estendida."
+        }
+      ],
+      categories: [
+        { id: "todos", label: "Todos" },
+        { id: "hardware", label: "Hardware" },
+        { id: "avancado", label: "Avançado" },
+        { id: "sistema", label: "Sistema" },
+        { id: "energia", label: "Energia" },
+        { id: "estetica", label: "Estética" }
+      ],
+      services: [
+        { id: 1, name: "Reparos em Placa", price: "Sob orçamento", category: "avancado", icon: Cpu, description: "Recuperação de placas com microsoldagem avançada" },
+        { id: 2, name: "Troca de Tela", price: "A partir de R$ 149", category: "hardware", icon: Smartphone, description: "Manutenção da tela original, troca apenas do vidro" },
+        { id: 3, name: "Troca de Conector", price: "A partir de R$ 89", category: "hardware", icon: Zap, description: "Reparo de conectores de carregamento danificados" },
+        { id: 4, name: "Troca de Bateria", price: "A partir de R$ 89", category: "energia", icon: Battery, description: "Baterias de alta capacidade com garantia estendida" },
+        { id: 5, name: "Troca de Tampa", price: "A partir de R$ 99", category: "estetica", icon: Smartphone, description: "Reparo estético para tampa traseira danificada" },
+        { id: 6, name: "Limpeza (Desoxidação)", price: "A partir de R$ 120", category: "avancado", icon: Wrench, description: "Limpeza especializada para corrosão e oxidação" },
+        { id: 7, name: "Desbloqueio de Conta", price: "A partir de R$ 79", category: "sistema", icon: Star, description: "Remoção de bloqueios de conta iCloud/Google" },
+        { id: 8, name: "Troca de Câmera", price: "A partir de R$ 110", category: "hardware", icon: Camera, description: "Reparo de câmera frontal e traseira" },
+        { id: 9, name: "Reparo de Face ID", price: "Sob orçamento", category: "avancado", icon: Star, description: "Calibração e reparo do sistema de reconhecimento facial" },
+        { id: 10, name: "Reparo de Wi-Fi", price: "A partir de R$ 99", category: "hardware", icon: Zap, description: "Solução para problemas de conectividade Wi-Fi" },
+        { id: 11, name: "Reparo de Superaquecimento", price: "Sob orçamento", category: "avancado", icon: Zap, description: "Diagnóstico e reparo de problemas de aquecimento" },
+        { id: 12, name: "Atualização de Sistema", price: "A partir de R$ 59", category: "sistema", icon: Star, description: "Atualização de software e sistema operacional" }
+      ],
+      form: {
+        serviceOptions: [
+          "Reparo em Placa",
+          "Troca de Tela",
+          "Troca de Bateria",
+          "Reparo de Software",
+          "Limpeza Especializada",
+          "Reparo de Câmera",
+          "Reparo de Áudio",
+          "Outro"
+        ]
+      },
+      benefits: [
+        {
+          icon: ShieldCheck,
+          title: "Garantia Estendida",
+          description: "90 dias de garantia em todos os serviços realizados"
+        },
+        {
+          icon: Clock,
+          title: "Agilidade Máxima",
+          description: "A maioria dos reparos é feita no mesmo dia"
+        },
+        {
+          icon: Star,
+          title: "Peças Premium",
+          description: "Trabalhamos apenas com componentes de alta qualidade"
+        },
+        {
+          icon: Calculator,
+          title: "Transparência Total",
+          description: "Orçamento detalhado sem valores ocultos"
+        }
+      ]
+    },
   },
 
   // ---------------------------------------------------------------------------

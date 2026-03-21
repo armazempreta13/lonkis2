@@ -5,6 +5,7 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { Quote } from './pages/Quote';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
 import { Footer } from './components/layout/Footer';
@@ -46,6 +47,7 @@ export default function App() {
               <Route path="/produtos" element={<ProductsPage />} />
               <Route path="/sobre" element={<About />} />
               <Route path="/contato" element={<Contact />} />
+              <Route path="/orcamento" element={<Quote />} />
               <Route path="/privacidade" element={<PrivacyPolicy />} />
               <Route path="/termos" element={<TermsOfService />} />
             </Routes>
