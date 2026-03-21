@@ -67,7 +67,7 @@ export const siteConfig = {
       mobile: 60,  // Ex: 60px de altura em telas pequenas
     },
     slogan: "Especialistas em Alta Performance",
-    description: "Assistência técnica de alta precisão para smartphones, tablets e smartwatches. Com 17 anos de experiência, garantimos qualidade premium, agilidade e total transparência em cada serviço.",
+    description: "Assistência técnica de alta precisão para smartphones, tablets e smartwatches. Com 2 anos de experiência, garantimos qualidade premium, agilidade e total transparência em cada serviço.",
     since: 2007,
   },
 
@@ -76,7 +76,7 @@ export const siteConfig = {
   // ---------------------------------------------------------------------------
   seo: {
     title: "LK Imports | Assistência Técnica de Celulares em Brasília",
-    description: "Especialistas em conserto de iPhone, Samsung, Xiaomi e tablets em Samambaia. 17 anos de experiência, peças premium e garantia de 90 dias.",
+    description: "Especialistas em conserto de iPhone, Samsung, Xiaomi e tablets em Samambaia. 2 anos de experiência, peças premium e garantia de 90 dias.",
     keywords: "assistência técnica, conserto de celular, brasília, samambaia, df, iphone, samsung, motorola, xiaomi, troca de tela, troca de bateria, lk imports",
     author: "LK Imports",
     // Imagem para compartilhamento em redes sociais (Open Graph)
@@ -96,6 +96,13 @@ export const siteConfig = {
       { label: "Produtos", href: "/produtos" },
       { label: "Sobre", href: "/sobre" },
       { label: "Contato", href: "/contato" },
+      { label: "Orçamento", href: "/contato#orcamento", highlight: true },
+    ],
+    hasSearch: true,
+    hasUserActions: true,
+    userActions: [
+      { label: "Login", href: "/login" },
+      { label: "Cadastro", href: "/cadastro", variant: "secondary" },
     ],
     // Textos da UI da Navbar
     ui: {
@@ -105,6 +112,7 @@ export const siteConfig = {
       mobileNavTitle: "Navegação",
       mobileContactTitle: "Contato Direto",
       mobileSocialTitle: "Redes Sociais",
+      searchPlaceholder: "Buscar serviço ou produto",
     }
   },
 
@@ -133,18 +141,84 @@ export const siteConfig = {
   contact: {
     phone: "+556195191308",
     phoneDisplay: "(61) 9519-1308",
+    email: "contato@lkimports.com.br",
     whatsapp: "https://wa.me/556195191308",
     address: "QR 429 Conjunto 16 Loja 01, Samambaia Norte",
     city: "Brasília - DF, 72322-516",
     mapsUrl: "https://www.google.com/maps/place/LK+Imports+-+Assist%C3%AAncia+T%C3%A9cnica+de+Celulares/@-15.867958,-48.106456,17z",
     mapsEmbed: "https://www.google.com/maps?q=QR+429+Conjunto+16+Loja+01+Brasilia+DF&output=embed",
-    hours: "Segunda a Sexta\n08:00 — 19:30",
+    hours: {
+      mondayToFriday: "08:00 — 19:30",
+      saturday: "08:00 — 14:00",
+      sunday: "Fechado",
+      holiday: "Consulte no WhatsApp",
+    },
+    support: {
+      phone: "+556195191308",
+      email: "suporte@lkimports.com.br",
+      responseTime: "Até 2 horas em horário comercial",
+    },
+  },
+
+  // ---------------------------------------------------------------------------
+  // Configurações e Opções Gerais
+  // ---------------------------------------------------------------------------
+  settings: {
+    siteLanguage: "pt-BR",
+    currency: "BRL",
+    vatIncluded: true,
+    showPrices: true,
+    enableDarkMode: true,
+    enableAnimations: true,
+    enableNewsletter: true,
+    allowedRoutes: ["/", "/servicos", "/produtos", "/sobre", "/contato"],
+  },
+
+  promoBanner: {
+    active: true,
+    text: "Semana de descontos especiais: até 20% off em serviços de bateria e tela!",
+    ctaText: "Confira agora",
+    ctaLink: "/servicos",
+    backgroundColor: "#10b981",
+    textColor: "#ffffff",
+  },
+
+  theme: {
+    primaryColor: "#0f766e",
+    secondaryColor: "#14b8a6",
+    accentColor: "#f87171",
+    background: "#0f172a",
+    text: "#f8fafc",
+    fontFamily: "Inter, Roboto, sans-serif",
+    borderRadius: "1rem",
+    shadow: "0 20px 40px rgba(15,23,42,0.35)",
   },
 
   // ---------------------------------------------------------------------------
   // Redes Sociais
   // ---------------------------------------------------------------------------
   social: {
+    instagram: {
+      url: "https://www.instagram.com/lkimports_061?igsh=MWR5dWZ2bjFkOGxsZQ%3D%3D&utm_source=qr",
+      ariaLabel: "Siga-nos no Instagram",
+    },
+    facebook: {
+      url: "https://www.facebook.com/share/18DjhAuiMA/?mibextid=wwXIfr",
+      ariaLabel: "Acompanhe no Facebook",
+    },
+    tiktok: {
+      url: "https://www.tiktok.com/@lkimports",
+      ariaLabel: "Acompanhe no TikTok",
+    },
+    youtube: {
+      url: "https://www.youtube.com/channel/UC-LKImports",
+      ariaLabel: "Inscreva-se no YouTube",
+    },
+    linkedin: {
+      url: "https://www.linkedin.com/company/lkimports",
+      ariaLabel: "Conecte-se no LinkedIn",
+    },
+  },
     instagram: {
       url: "https://www.instagram.com/lkimports_061?igsh=MWR5dWZ2bjFkOGxsZQ%3D%3D&utm_source=qr",
       ariaLabel: "Siga-nos no Instagram",
@@ -165,7 +239,7 @@ export const siteConfig = {
     home: {
       hero: {
         badge: "Referência em Soluções Tecnológicas",
-        experience: "17 Anos de Experiência",
+        experience: "2 Anos de Experiência",
         title: "LK",
         titleAccent: "Imports",
         subtitle: "Especialistas em reparos de alta precisão para smartphones e tablets. Qualidade premium, agilidade e garantia total em cada serviço.",
@@ -190,7 +264,7 @@ export const siteConfig = {
         badge: "O Padrão LK",
         title: "Por que nos",
         titleAccent: "Escolher?",
-        description: "Somos referência em Brasília pela qualidade dos nossos reparos e transparência no atendimento. Cada serviço é executado com dedicação e expertise acumulada em 17 anos de mercado.",
+        description: "Somos referência em Brasília pela qualidade dos nossos reparos e transparência no atendimento. Cada serviço é executado com dedicação e expertise acumulada em 2 anos de mercado.",
         ctaText: "Conheça nossa história",
         items: [
           { icon: ShieldCheck, title: "Garantia Real", description: "90 dias de garantia em todos os serviços. Seu equipamento protegido." },
@@ -229,7 +303,7 @@ export const siteConfig = {
         buttonText: "Solicitar Orçamento via WhatsApp",
         image: "https://images.unsplash.com/photo-1556656793-062ff9878258?q=80&w=1000&auto=format&fit=crop",
         floatingBadge: {
-          number: "17",
+          number: "2",
           text: "Anos de\nExperiência"
         }
       }
@@ -244,7 +318,7 @@ export const siteConfig = {
           titleAccent: "Somos",
           paragraphs: [
             "A LK Imports nasceu da paixão pela tecnologia e do compromisso em oferecer o melhor serviço de assistência técnica da região.",
-            "Com mais de 17 anos de experiência, nos tornamos referência em Samambaia, Ceilândia e Taguatinga pela qualidade de nossos reparos e pela transparência no atendimento.",
+            "Com mais de 2 anos de experiência, nos tornamos referência em Samambaia, Ceilândia e Taguatinga pela qualidade de nossos reparos e pela transparência no atendimento.",
             "Nossa missão é garantir que você nunca fique desconectado. Por isso, investimos constantemente em treinamento técnico e em componentes de primeira linha para oferecer soluções rápidas e definitivas."
           ],
           image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
@@ -264,7 +338,7 @@ export const siteConfig = {
         stats: {
           title: "Nossos Números",
           items: [
-            { icon: Award, value: "17 Anos", label: "De experiência no mercado" },
+            { icon: Award, value: "2 Anos", label: "De experiência no mercado" },
             { icon: ShieldCheck, value: "15k+", label: "Aparelhos recuperados" },
             { icon: Star, value: "4.9/5", label: "Avaliação no Google" },
             { icon: MapPin, value: "1", label: "Laboratório avançado" },
@@ -279,7 +353,7 @@ export const siteConfig = {
         badge: "Catálogo de Serviços",
         title: "Nossas",
         titleAccent: "Especialidades",
-        subtitle: "Soluções completas e definitivas para o seu dispositivo, executadas por especialistas com mais de 17 anos de experiência."
+        subtitle: "Soluções completas e definitivas para o seu dispositivo, executadas por especialistas com mais de 2 anos de experiência."
       },
       categories: ["Todos", "Hardware", "Avançado", "Sistema", "Energia", "Estética"],
       // Lista detalhada de todos os serviços oferecidos
