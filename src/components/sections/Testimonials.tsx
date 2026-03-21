@@ -20,14 +20,14 @@ const COLORS = [
   'bg-pink-600', 'bg-teal-600'
 ];
 
-const FALLBACK_REVIEWS: Review[] = siteConfig.pages.home.testimonials.items.map(item => ({
+const FALLBACK_REVIEWS: Review[] = siteConfig.pages.home.testimonials?.items?.map(item => ({
   name: item.name,
   rating: item.rating,
   text: item.text,
   initial: item.name.charAt(0).toUpperCase(),
   color: COLORS[Math.floor(Math.random() * COLORS.length)],
   profilePhotoUrl: item.image
-}));
+})) || [];
 
 export const Testimonials = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -112,7 +112,7 @@ export const Testimonials = () => {
               viewport={{ once: true }}
               className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black block"
             >
-              {siteConfig.pages.home.testimonials.badge}
+              {siteConfig.pages.home.testimonials?.badge || 'Avaliações Reais'}
             </motion.span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -120,8 +120,8 @@ export const Testimonials = () => {
               viewport={{ once: true }}
               className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.9]"
             >
-              {siteConfig.pages.home.testimonials.title} <br />
-              <span className="text-white/20">{siteConfig.pages.home.testimonials.titleAccent}</span>
+              {siteConfig.pages.home.testimonials?.title || 'O que dizem'} <br />
+              <span className="text-white/20">{siteConfig.pages.home.testimonials?.titleAccent || 'Nossos Clientes'}</span>
             </motion.h2>
           </div>
           
@@ -140,7 +140,7 @@ export const Testimonials = () => {
               onClick={() => window.open(siteConfig.contact.whatsapp, '_blank')}
             >
               <MessageCircle className="w-5 h-5" />
-              {siteConfig.pages.home.testimonials.ctaText}
+              {siteConfig.pages.home.testimonials?.ctaText || 'Ver todas as avaliações'}
             </Button>
           </div>
         </div>

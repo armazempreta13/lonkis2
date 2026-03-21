@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h3 className="font-display text-xl sm:text-2xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight uppercase group-hover:text-white transition-colors">{product.name}</h3>
         
         <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8" aria-label="Cores disponíveis">
-          {product.colors.map((color, idx) => (
+          {(product.colors ?? []).map((color, idx) => (
             <div 
               key={idx} 
               className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-white/10 shadow-2xl ring-2 ring-transparent hover:ring-white/30 transition-all cursor-help" 
