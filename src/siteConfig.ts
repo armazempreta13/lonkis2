@@ -219,15 +219,6 @@ export const siteConfig = {
       ariaLabel: "Conecte-se no LinkedIn",
     },
   },
-    instagram: {
-      url: "https://www.instagram.com/lkimports_061?igsh=MWR5dWZ2bjFkOGxsZQ%3D%3D&utm_source=qr",
-      ariaLabel: "Siga-nos no Instagram",
-    },
-    facebook: {
-      url: "https://www.facebook.com/share/18DjhAuiMA/?mibextid=wwXIfr",
-      ariaLabel: "Acompanhe no Facebook",
-    }
-  },
 
   // ---------------------------------------------------------------------------
   // Conteúdo das Páginas
