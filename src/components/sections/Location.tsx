@@ -60,7 +60,7 @@ export const Location = () => {
               </div>
               <h3 className="font-display text-xl font-black uppercase text-white group-hover:text-black mb-4 tracking-tight">Horários</h3>
               <p className="text-white/40 group-hover:text-black/60 text-sm leading-relaxed font-medium uppercase tracking-widest whitespace-pre-line">
-                {siteConfig.contact.hours}
+                {`Segunda a Sexta: ${siteConfig.contact.hours.mondayToFriday}\nSábado: ${siteConfig.contact.hours.saturday}\nDomingo: ${siteConfig.contact.hours.sunday}\nFeriados: ${siteConfig.contact.hours.holiday}`}
               </p>
             </motion.div>
 

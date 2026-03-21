@@ -97,7 +97,9 @@ export const Footer = () => {
             <div className="pt-6">
               <div className="inline-block bg-white/5 px-8 py-4 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <p className="text-[10px] text-white/60 uppercase tracking-[0.3em] font-black mb-1">Horário</p>
-                <p className="text-xs text-white font-bold whitespace-pre-line">{siteConfig.contact.hours}</p>
+                <p className="text-xs text-white font-bold whitespace-pre-line">
+                  {`Segunda a Sexta: ${siteConfig.contact.hours.mondayToFriday}\nSábado: ${siteConfig.contact.hours.saturday}\nDomingo: ${siteConfig.contact.hours.sunday}\nFeriados: ${siteConfig.contact.hours.holiday}`}
+                </p>
               </div>
             </div>
           </div>
