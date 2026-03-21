@@ -9,6 +9,17 @@ import { siteConfig } from '../siteConfig';
 export const Quote = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('todos');
+  const [selectedService, setSelectedService] = useState('');
+
+  const scrollToForm = () => {
+    const section = document.getElementById('quote-form');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleServiceSelect = (service: string) => {
+    setSelectedService(service);
+    scrollToForm();
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -158,7 +169,11 @@ export const Quote = () => {
                     <span className="text-lg sm:text-xl font-black text-white group-hover:text-black">
                       {service.price}
                     </span>
-                    <button className="px-4 py-2 bg-white/5 group-hover:bg-black text-white/60 group-hover:text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all">
+                    <button
+                      className="px-4 py-2 bg-white/5 group-hover:bg-black text-white/60 group-hover:text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all"
+                      onClick={() => handleServiceSelect(service.name)}
+                      aria-label={`Solicitar orçamento de ${service.name}`}
+                    >
                       Solicitar
                     </button>
                   </div>
@@ -179,6 +194,7 @@ export const Quote = () => {
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
                   <motion.form
+                    id="quote-form"
                     key="form"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -233,10 +249,20 @@ export const Quote = () => {
                       <div className="relative">
                         <select
                           id="service"
+                          value={selectedService || undefined}
+                          onChange={(e) => setSelectedService(e.target.value)}
                           className="w-full bg-white/5 border border-white/10 px-5 sm:px-6 py-4 sm:py-5 text-[11px] sm:text-xs text-white focus:outline-none focus:border-white focus:ring-4 focus:ring-white/5 transition-all rounded-2xl appearance-none font-light cursor-pointer"
                         >
+                          <option value="" disabled hidden>
+                            Selecione um serviço
+                          </option>
+                          {selectedService && !quotePage.form.serviceOptions.includes(selectedService) && (
+                            <option value={selectedService}>{selectedService}</option>
+                          )}
                           {quotePage.form.serviceOptions.map((option, idx) => (
-                            <option key={idx} className="bg-zinc-900">{option}</option>
+                            <option key={idx} className="bg-zinc-900" value={option}>
+                              {option}
+                            </option>
                           ))}
                         </select>
                         <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
