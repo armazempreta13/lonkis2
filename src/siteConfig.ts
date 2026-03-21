@@ -213,46 +213,32 @@ export const siteConfig = {
       { id: 21, name: "Recuperação de Sistema", price: "A partir de R$ 89", category: "Sistema", icon: "RefreshCw" },
     ],
     supportedDevices: {
-      badge: "Marcas & Modelos",
+      badge: "Marcas e Modelos",
       title: "Dispositivos",
       titleAccent: "Suportados",
       brands: [
-        { brand: 'Apple', icon: "Smartphone", models: ['iPhone 15 Pro Max', 'iPhone 14 Series', 'iPhone 13 Series', 'iPhone 12 Series', 'iPhone 11 Series', 'iPhone XR/X', 'iPhone 8/7'] },
-        { brand: 'Samsung', icon: "Zap", models: ['Linha S (S24, S23, S22)', 'Linha A (A54, A34, A14)', 'Linha M (M54, M34)', 'Linha Z (Fold, Flip)'] },
-        { brand: 'Xiaomi', icon: "Cpu", models: ['Linha Mi (14, 13, 12)', 'Redmi Note (13, 12, 11)', 'Poco (F5, X6, M6)', 'Black Shark'] },
-        { brand: 'Motorola', icon: "Shield", models: ['Linha Edge (40, 30)', 'Linha Moto G (G84, G54)', 'Linha Razr', 'Moto E'] }
-      ]
+        {
+          brand: "Apple",
+          icon: "Apple",
+          models: ["iPhone 15 Pro Max", "iPhone 14", "iPhone SE", "iPad Pro", "Apple Watch Series 9"],
+        },
+        {
+          brand: "Samsung",
+          icon: "Smartphone",
+          models: ["Galaxy S24 Ultra", "Galaxy Z Fold 5", "Galaxy A54", "Galaxy Tab S9", "Galaxy Watch 6"],
+        },
+        {
+          brand: "Xiaomi",
+          icon: "Zap",
+          models: ["Xiaomi 14 Ultra", "Redmi Note 13 Pro+", "POCO F5 Pro", "Xiaomi Pad 6", "Xiaomi Watch S1 Pro"],
+        },
+        {
+          brand: "Motorola",
+          icon: "MessageSquare",
+          models: ["Motorola Edge 40 Pro", "Moto G Stylus", "Moto G Power 5G", "Moto Tab G70", "Moto Watch 100"],
+        },
+      ],
     },
-    items: [
-      {
-        id: "reparo-placa",
-        title: "Reparo em Placa",
-        description: "Diagnóstico avançado e microsoldagem para recuperar placas que outras assistências condenam. Resolvemos problemas de áudio, touch, Wi-Fi, carregamento e aparelhos que não ligam.",
-        image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?q=80&w=800&auto=format&fit=crop",
-        features: ["Microsoldagem Avançada", "Recuperação de Dados", "Reparo de Face ID", "Curto-circuito"]
-      },
-      {
-        id: "troca-vidro",
-        title: "Troca de Vidro",
-        description: "Seu display original ainda funciona? Trocamos apenas o vidro trincado. Processo feito com maquinário industrial (OCA) que mantém a originalidade e qualidade da imagem.",
-        image: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?q=80&w=800&auto=format&fit=crop",
-        features: ["Mantém Display Original", "Economia de até 60%", "Acabamento Perfeito", "Tecnologia OCA"]
-      },
-      {
-        id: "bateria",
-        title: "Troca de Bateria",
-        description: "Substituição rápida e segura da bateria do seu dispositivo. Trabalhamos com células de alta capacidade que devolvem a autonomia original do seu aparelho.",
-        image: "https://images.unsplash.com/photo-1601524909162-ae8725290836?q=80&w=800&auto=format&fit=crop",
-        features: ["Baterias Premium", "Troca em 30 minutos", "Garantia de 90 dias", "Saúde 100%"]
-      },
-      {
-        id: "apple-watch",
-        title: "Reparo de Apple Watch",
-        description: "Assistência especializada na linha de smartwatches da Apple. Realizamos troca de vidro, bateria e reparos em placa com vedação profissional.",
-        image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?q=80&w=800&auto=format&fit=crop",
-        features: ["Troca de Vidro", "Troca de Bateria", "Vedação Profissional", "Reparo de Placa"]
-      }
-    ]
   },
   productsPage: {
     hero: {
