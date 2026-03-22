@@ -469,7 +469,7 @@ export const siteConfig = {
         titleAccent: "Premium",
         subtitle: "Acessórios e dispositivos seminovos com garantia e procedência verificada pela nossa equipe técnica."
       },
-      categories: ["Todos", "RELÓGIOS", "ACESSÓRIOS", "RASTREADORES", "CELULARES", "FONES"],
+      categories: ["Todos", "ACESSÓRIOS", "APARELHOS PARA TV", "CAIXAS DE SOM", "CANETAS", "CARREGADORES", "CELULARES", "CLIMATIZADORES", "COMPUTADORES", "FONES", "GAMER", "RASTREADORES", "RELÓGIOS", "ROBÔ ASPIRADOR", "STARLINK", "TABLETS"],
       items: scrapedProducts,
     },
     // -------------------------------------------------------------------------
