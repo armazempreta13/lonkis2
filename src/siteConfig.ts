@@ -259,6 +259,10 @@ export const siteConfig = {
     shadow: "0 20px 40px rgba(15,23,42,0.35)",
   },
 
+  animations: {
+    logoHover: 'underlineAnimated', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+  },
+
   // ---------------------------------------------------------------------------
   // Redes Sociais
   // ---------------------------------------------------------------------------

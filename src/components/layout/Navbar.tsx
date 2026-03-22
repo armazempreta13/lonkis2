@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { siteConfig } from '../../siteConfig';
+import { getLogoAnimation } from '../../animations/logoAnimations';
 
 export const Navbar = () => {
   const location = useLocation();
@@ -17,13 +18,17 @@ export const Navbar = () => {
         @media (max-width: 768px) {
           .navbar-logo { height: ${siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile}px; }
         }
+        ${getLogoAnimation(siteConfig.animations?.logoHover).css}
       `}</style>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 md:px-12 py-4 flex justify-between items-center"
       >
-      <Link to="/" className="flex items-center group">
+      <Link 
+        to="/" 
+        className={`flex items-center group ${getLogoAnimation(siteConfig.animations?.logoHover).className}`}
+      >
         <div className="flex items-center gap-2">
           <img 
             src={siteConfig.brand.logo} 
