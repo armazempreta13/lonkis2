@@ -67,6 +67,14 @@ export const siteConfig = {
     logoSize: {
       desktop: 80, // Ex: 80px de altura em telas grandes
       mobile: 60,  // Ex: 60px de altura em telas pequenas
+      navbar: {
+        desktop: 72,
+        mobile: 60,
+      },
+      footer: {
+        desktop: 96,
+        mobile: 80,
+      },
     },
     slogan: "Especialistas em Alta Performance",
     description: "Assistência técnica de alta precisão para smartphones, tablets e smartwatches. Com 2 anos de experiência, garantimos qualidade premium, agilidade e total transparência em cada serviço.",
@@ -84,7 +92,7 @@ export const siteConfig = {
     // Imagem para compartilhamento em redes sociais (Open Graph)
     ogImage: "https://i.imgur.com/Ga4bMmk.png",
     // URL canônica do site
-    url: "https://lkimports.com.br",
+    url: "https://lkimports.net",
   },
 
   // ---------------------------------------------------------------------------

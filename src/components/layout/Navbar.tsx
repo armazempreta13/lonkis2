@@ -12,6 +12,12 @@ export const Navbar = () => {
 
   return (
     <>
+      <style>{`
+        .navbar-logo { height: ${siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop}px; }
+        @media (max-width: 768px) {
+          .navbar-logo { height: ${siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile}px; }
+        }
+      `}</style>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -22,7 +28,10 @@ export const Navbar = () => {
           <img 
             src={siteConfig.brand.logo} 
             alt={`${siteConfig.brand.name} Logo`} 
-            className="h-16 md:h-18 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
+            className="w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform navbar-logo"
+            style={{
+              height: `${siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop}px`,
+            }}
             referrerPolicy="no-referrer"
           />
         </div>
