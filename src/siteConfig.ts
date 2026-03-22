@@ -472,7 +472,8 @@ export const siteConfig = {
         { id: 4, name: "AirPods Pro 2", category: "Acessórios", price: 1200, image: "https://picsum.photos/seed/airpodspro2/400/400", badge: "Novo" },
         { id: 5, name: "Apple Watch Series 9", category: "Acessórios", price: 3000, image: "https://picsum.photos/seed/watch9/400/400", badge: "Novo" },
         { id: 6, name: "JBL Flip 6", category: "Acessórios", price: 600, image: "https://picsum.photos/seed/jblflip6/400/400", badge: "Novo" },
-        { id: 7, name: "iPhone 17 Pro Max", category: "Iphones", price: 600, image: "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00FF669A-6B4F-4997-AF41-0ADD29E99C3D.jpg?alt=media", badge: "Novo" },
+        { id: 7, name: "iPhone 17 Pro Max", category: "iPhones", price: 7999, image: "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00FF669A-6B4F-4997-AF41-0ADD29E99C3D.jpg?alt=media", badge: "Novo" },
+
       ]
     },
     // -------------------------------------------------------------------------
