@@ -48,17 +48,55 @@ async function startServer() {
     return candidate;
   };
 
-  // Dev HMR port resolver for dynamic CSP
-  const hmrPort = process.env.NODE_ENV !== 'production'
-    ? await getAvailablePort(HMR_PORT > 0 ? HMR_PORT : 24690)
-    : undefined;
-
-  const connectSrc = ["'self'", 'ws://localhost'];
-  if (process.env.NODE_ENV !== 'production' && hmrPort) {
-    connectSrc.push(`ws://localhost:${hmrPort}`);
-  } else {
-    connectSrc.push('ws://localhost:24683', 'ws://localhost:24690', 'ws://localhost:24691', 'ws://localhost:24692');
+  // Dev HMR port resolver (needed for CSP connectSrc)
+  let hmrPort: number | undefined = undefined;
+  if (process.env.NODE_ENV !== 'production') {
+    hmrPort = await getAvailablePort(HMR_PORT > 0 ? HMR_PORT : 24690);
   }
+
+  // =========================================================================
+  // CORS & SECURITY CONFIGURATION FOR PRODUCTION
+  // =========================================================================
+
+  // Get domain from environment or use current host
+  const getOrigins = () => {
+    if (process.env.CORS_ORIGIN) {
+      // Allow multiple origins from env (comma-separated)
+      return process.env.CORS_ORIGIN.split(',').map(o => o.trim());
+    }
+    
+    if (process.env.NODE_ENV === 'production') {
+      // In production without CORS_ORIGIN, reject cross-origin requests
+      return [];
+    }
+
+    // Development: allow local ports
+    return ['http://localhost:5173', 'http://localhost:3006', 'http://127.0.0.1:5173', 'http://127.0.0.1:3006'];
+  };
+
+  const connectSrcForCSP = () => {
+    const sources = ["'self'"];
+    
+    if (process.env.NODE_ENV === 'production') {
+      // Production: only allow self
+      return sources;
+    }
+
+    // Development: add HMR ports for Vite hot reload
+    sources.push('ws://localhost', 'ws://127.0.0.1');
+    if (hmrPort) {
+      sources.push(`ws://localhost:${hmrPort}`);
+      sources.push(`ws://127.0.0.1:${hmrPort}`);
+    }
+    
+    // Add production ports for backup HMR
+    sources.push('ws://localhost:24683', 'ws://localhost:24690', 'ws://localhost:24691', 'ws://localhost:24692');
+    
+    return sources;
+  };
+
+  const origins = getOrigins();
+  const connectSrc = connectSrcForCSP();
 
   // =========================================================================
   // SECURITY MIDDLEWARE STACK (Order matters!)
@@ -102,9 +140,14 @@ async function startServer() {
   // 5. Additional security headers
   app.use(responseSecurityHeaders);
 
-  // 6. CORS configuration (restrictive but sufficient)
+  // 6. CORS configuration (restrictive for security)
+  if (origins.length === 0 && process.env.NODE_ENV === 'production') {
+    console.warn('⚠️  CORS_ORIGIN not set in production! Cross-origin requests will be blocked.');
+    console.warn('   Set CORS_ORIGIN environment variable to your domain(s) to fix this.');
+  }
+
   app.use(cors({
-    origin: process.env.CORS_ORIGIN || ['http://localhost:5173', 'http://localhost:3006'],
+    origin: origins.length > 0 ? origins : false, // false = deny all in production without CORS_ORIGIN
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -241,6 +284,23 @@ async function startServer() {
     console.log('  ✅ Audit Logging');
     console.log('  ✅ Performance Monitoring');
     console.log('');
+    
+    if (process.env.NODE_ENV === 'production') {
+      console.log('📋 Production Configuration:');
+      console.log(`  - CORS_ORIGIN: ${process.env.CORS_ORIGIN || '❌ NOT SET (blocking cross-origin)'}`) ;
+      console.log(`  - TRUST_PROXY: ${process.env.TRUST_PROXY === 'true' ? '✅ Enabled' : '⚠️  Disabled'}`);
+      console.log(`  - JWT_SECRET: ${process.env.JWT_SECRET ? '✅ Set' : '❌ NOT SET (using default - INSECURE!)'}`);
+      console.log('');
+      
+      if (!process.env.CORS_ORIGIN) {
+        console.warn('⚠️  WARN: CORS_ORIGIN not configured. Your frontend cannot make requests to this API!');
+        console.warn('   Set CORS_ORIGIN=https://yourdomain.com in your environment variables.');
+      }
+      if (!process.env.JWT_SECRET || process.env.JWT_SECRET === 'your-super-secret-jwt-key-change-this-in-production') {
+        console.error('❌ ERROR: JWT_SECRET is using default value! This is a CRITICAL security issue!');
+        console.error('   Set JWT_SECRET to a strong random value (40+ characters).');
+      }
+    }
   });
 }
 

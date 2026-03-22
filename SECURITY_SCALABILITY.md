@@ -351,32 +351,129 @@ object-src: 'none'                               # Flash, plugins bloqueados
 
 ## 🔧 Configuração em Produção
 
-### Variáveis de Ambiente Recomendadas
+### ✅ Variáveis de Ambiente Obrigatórias
 
 ```bash
-# .env.production
-NODE_ENV=production
-JWT_SECRET="gK9xQ2mL8pW5jD3nR7vF1bC4tE6aS9hU0wX..." # 40+ chars
-PORT=3006
-TRUST_PROXY=true                                 # se atrás de reverse proxy
-CORS_ORIGIN="https://lkimports.com"             # domínio próprio
-RATE_LIMIT_WINDOW=15
-RATE_LIMIT_MAX_GLOBAL=500
-RATE_LIMIT_MAX_AUTH=5
+# .env.production (ou configurar no painel do seu hostinger/platform)
+
+# CRÍTICO para segurança
+NODE_ENV="production"
+JWT_SECRET="gK9xQ2mL8pW5jD3nR7vF1bC4tE6aS9hU0wX..."  # Mínimo 40 chars aleatórios
+
+# CRÍTICO para funcionamento da API
+CORS_ORIGIN="https://lkimports.com,https://www.lkimports.com"
+
+# Se atrás de reverse proxy (Cloudflare, nginx, HAProxy, etc)
+TRUST_PROXY="true"
+
+# Opcional - Google reviews
+VITE_GOOGLE_PLACES_API_KEY="sk-..."
+VITE_GOOGLE_PLACES_PLACE_ID="ChIJ..."
 ```
 
-### Deployment Checklist
+### 🎯 Guia por Plataforma de Deployment
 
-- [ ] Mudar credenciais de admin padrão
-- [ ] Definir `JWT_SECRET` forte (40+ caracteres aleatórios)
-- [ ] Configurar `CORS_ORIGIN` para domínio real
-- [ ] Habilitar `TRUST_PROXY` se usar Cloudflare/nginx
+#### **Cloudflare Pages**
+```bash
+# wrangler.toml (remover se usando Pages, não Workers)
+# Configure as seguintes variáveis:
+
+CORS_ORIGIN="https://seu-dominio.com"
+TRUST_PROXY="true"                              # Cloudflare é reverse proxy
+NODE_ENV="production"
+JWT_SECRET="seu-secret-super-longo-aqui"
+```
+
+**Em qual plataforma seu site está?** Posso adequar as configurações perfeitamente.
+
+#### **Vercel**
+```bash
+# Vercel Settings → Environment Variables
+
+CORS_ORIGIN="https://seu-projeto.vercel.app"
+TRUST_PROXY="true"                              # Vercel usa Cloudflare
+NODE_ENV="production"
+JWT_SECRET="seu-secret-super-longo-aqui"
+```
+
+#### **AWS (EC2, ECS, Lambda)**
+```bash
+# AWS Systems Manager → Parameter Store
+
+CORS_ORIGIN="https://seu-dominio.com"
+TRUST_PROXY="true"                              # Se atrás de ALB
+NODE_ENV="production"
+JWT_SECRET="seu-secret-super-longo-aqui"
+```
+
+#### **Render.com**
+```bash
+# Render Dashboard → Environment → Environment Variables
+
+CORS_ORIGIN="https://seu-projeto.onrender.com"
+TRUST_PROXY="false"                             # Render não é reverse proxy
+NODE_ENV="production"
+JWT_SECRET="seu-secret-super-longo-aqui"
+```
+
+#### **Digital Ocean**
+```bash
+# /root/.env
+
+CORS_ORIGIN="https://seu-dominio.com"
+TRUST_PROXY="true"                              # Se atrás de nginx/reverse proxy
+NODE_ENV="production"
+JWT_SECRET="seu-secret-super-longo-aqui"
+```
+
+### ⚠️ Deployment Checklist (OBRIGATÓRIO!)
+
+**SEGURANÇA CRÍTICA:**
+- [ ] Alterar credenciais de admin padrão (`admin@lkimports.com / admin123`)
+- [ ] Gerar `JWT_SECRET` forte (veja abaixo)
+- [ ] Definir `CORS_ORIGIN` para seu domínio real
+- [ ] Verificar `TRUST_PROXY` conforme sua arquitetura
+
+**CONFIGURAÇÃO:**
 - [ ] Validar todas as variáveis de `.env.production`
-- [ ] Testar rate limiting com `curl` ou `ApacheBench`
-- [ ] Monitorar `/api/health` e `/api/metrics`
-- [ ] Configurar alertas para status 500
+- [ ] Testar `/api/health` endpoint (GET)
+- [ ] Testar `/api/metrics` endpoint (GET)
+- [ ] Verificar rate limiting funciona (simular 10+ requisições)
+- [ ] Confirmar compressão de resposta ativa (curl -H "Accept-Encoding: gzip")
 
-### Teste de Carga Simples
+**MONITORAMENTO:**
+- [ ] Configurar alertas para status codes 500
+- [ ] Monitorar `/api/metrics` periodicamente
+- [ ] Revisar logs de auditoria em `logs/audit.log`
+- [ ] Verificar `[SLOW REQUEST]` alerts (> 1s)
+- [ ] Observar `[SECURITY]` alerts em caso de suspeição
+
+### 🔐 Como Gerar JWT_SECRET Forte
+
+**Opção 1: Node.js**
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+# Resultado esperado:
+# f3d8e9c2b7a1f6d4e8c1b3a5f7d9e2c4a6b8e1d3f5a7c9e2b4d6f8a1c3e5
+```
+
+**Opção 2: OpenSSL**
+```bash
+openssl rand -hex 32
+
+# Resultado esperado:
+# a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
+```
+
+**Opção 3: Python**
+```bash
+python3 -c "import secrets; print(secrets.token_hex(32))"
+```
+
+**Resultado:** Copie a string de 64 caracteres hexadecimais para `JWT_SECRET`.
+
+### Test de Carga Simples
 
 ```bash
 # Instalar ApacheBench
