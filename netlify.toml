@@ -1,12 +1,2 @@
-[build]
-command = "npm ci --prefer-offline --no-audit && npm run build"
-functions = "functions"
-publish = "dist"
-
-[build.environment]
-NODE_VERSION = "22"
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+# This file can be deleted - using wrangler.toml for Cloudflare Pages instead
+# Kept for reference only
