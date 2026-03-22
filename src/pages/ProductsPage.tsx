@@ -12,6 +12,8 @@ export const ProductsPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('name');
   const [maxPrice, setMaxPrice] = useState(10000);
   const [showFilters, setShowFilters] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
 
   const products = siteConfig.pages.products?.items || [];
   const categories = siteConfig.pages.products?.categories || ['Todos'];
@@ -31,11 +33,18 @@ export const ProductsPage: React.FC = () => {
     return filtered;
   }, [searchTerm, selectedCategory, sortBy, maxPrice]);
 
+  // Pagination logic
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
   const handleClearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('Todos');
     setMaxPrice(maxProductPrice);
     setSortBy('name');
+    setCurrentPage(1);
   };
 
   return (
@@ -314,32 +323,130 @@ export const ProductsPage: React.FC = () => {
               >
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                    Exibindo <span className="text-white">{filteredProducts.length}</span> de <span className="text-white">{products.length}</span> produtos
+                    Exibindo <span className="text-white">{startIndex + 1}</span> a <span className="text-white">{Math.min(endIndex, filteredProducts.length)}</span> de <span className="text-white">{filteredProducts.length}</span> produtos
                   </p>
                 </div>
               </motion.div>
 
               {/* Products Grid */}
               {filteredProducts.length > 0 ? (
-                <motion.div 
-                  layout
-                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"
-                >
-                  <AnimatePresence mode="popLayout">
-                    {filteredProducts.map((product, index) => (
-                      <motion.div
-                        key={product.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ delay: index * 0.05 }}
-                        layout
+                <>
+                  <motion.div 
+                    layout
+                    className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"
+                  >
+                    <AnimatePresence mode="popLayout">
+                      {paginatedProducts.map((product, index) => (
+                        <motion.div
+                          key={product.id}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ delay: index * 0.05 }}
+                          layout
+                        >
+                          <ProductCard product={product} />
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </motion.div>
+
+                  {/* Pagination */}
+                  {totalPages > 1 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="mt-16 flex items-center justify-center gap-3 flex-wrap"
+                    >
+                      {/* Previous Button */}
+                      <button
+                        onClick={() => {
+                          setCurrentPage(Math.max(1, currentPage - 1));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        disabled={currentPage === 1}
+                        className={`px-4 py-3 rounded-lg font-black text-[10px] uppercase tracking-[0.2em] transition-all border ${
+                          currentPage === 1
+                            ? 'bg-white/5 text-white/20 border-white/10 cursor-not-allowed'
+                            : 'bg-white/10 text-white/40 border-white/20 hover:bg-white/20 hover:text-white hover:border-white/40'
+                        }`}
                       >
-                        <ProductCard product={product} />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                </motion.div>
+                        ← Anterior
+                      </button>
+
+                      {/* Page Numbers */}
+                      <div className="flex items-center gap-2">
+                        {Array.from({ length: totalPages }, (_, index) => {
+                          const pageNum = index + 1;
+                          const isFirstPage = pageNum === 1;
+                          const isLastPage = pageNum === totalPages;
+                          const isNearCurrentPage = Math.abs(pageNum - currentPage) <= 1;
+                          const shouldShow = isFirstPage || isLastPage || isNearCurrentPage;
+
+                          if (!shouldShow) {
+                            // Check if we should show ellipsis
+                            if ((pageNum === 2 && currentPage > 3) || (pageNum === totalPages - 1 && currentPage < totalPages - 2)) {
+                              return null; // Will be handled by ellipsis logic below
+                            }
+                            return null;
+                          }
+
+                          if (pageNum === 2 && currentPage > 3) {
+                            return (
+                              <span key="ellipsis-left" className="text-white/20 px-1">
+                                ...
+                              </span>
+                            );
+                          }
+
+                          if (pageNum === totalPages - 1 && currentPage < totalPages - 2) {
+                            return (
+                              <span key="ellipsis-right" className="text-white/20 px-1">
+                                ...
+                              </span>
+                            );
+                          }
+
+                          return (
+                            <motion.button
+                              key={pageNum}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => {
+                                setCurrentPage(pageNum);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className={`w-10 h-10 rounded-lg font-black text-[10px] transition-all border ${
+                                currentPage === pageNum
+                                  ? 'bg-white text-black border-white shadow-lg shadow-white/20'
+                                  : 'bg-white/10 text-white/40 border-white/20 hover:bg-white/20 hover:text-white hover:border-white/40'
+                              }`}
+                            >
+                              {pageNum}
+                            </motion.button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Next Button */}
+                      <button
+                        onClick={() => {
+                          setCurrentPage(Math.min(totalPages, currentPage + 1));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        disabled={currentPage === totalPages}
+                        className={`px-4 py-3 rounded-lg font-black text-[10px] uppercase tracking-[0.2em] transition-all border ${
+                          currentPage === totalPages
+                            ? 'bg-white/5 text-white/20 border-white/10 cursor-not-allowed'
+                            : 'bg-white/10 text-white/40 border-white/20 hover:bg-white/20 hover:text-white hover:border-white/40'
+                        }`}
+                      >
+                        Próximo →
+                      </button>
+                    </motion.div>
+                  )}
+                </>
               ) : (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
