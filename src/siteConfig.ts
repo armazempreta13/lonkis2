@@ -90,7 +90,7 @@ export const siteConfig = {
     keywords: "assistência técnica, conserto de celular, brasília, samambaia, df, iphone, samsung, motorola, xiaomi, troca de tela, troca de bateria, lk imports",
     author: "LK Imports",
     ogImage: "https://i.imgur.com/Ga4bMmk.png",
-    url: "https://lkimports.com.br",
+    url: "https://lkimports.net",
     siteName: "LK Imports",
     locale: "pt_BR",
     themeColor: "#0f766e",
