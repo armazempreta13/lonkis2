@@ -1,0 +1,25 @@
+# Robots.txt para LK Imports
+# Permite que os bots do Google indexem o site
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /servicos
+Allow: /produtos
+Allow: /sobre
+Allow: /contato
+Allow: /orcamento
+
+# Desabilita acesso a arquivos sensíveis
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /dist-server/
+
+# Sitemap
+Sitemap: https://lkimports.com.br/sitemap.xml
+
+# Crawl delay (em segundos)
+Crawl-delay: 1
+
+# Máximo de conexões simultâneas (Google não respeita, mas é bom ter)
+Request-rate: 1/1s
