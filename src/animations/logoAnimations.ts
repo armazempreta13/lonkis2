@@ -1,145 +1,151 @@
 /**
- * Logo Hover Animations
- * Centralized animations for the logo with easy configuration
+ * Logo Hover Animations - Refined & Subtle
+ * Smooth, elegant animations with fade transitions
  */
 
 export const logoAnimations = {
-  // 1. Glow Pulse - Elegant glow effect
+  // 1. Glow Pulse - Subtle, elegant glow
   glowPulse: {
     name: 'glowPulse',
     css: `
-      @keyframes glowPulse {
+      @keyframes glowPulseSubtle {
         0%, 100% {
-          text-shadow: 0 0 10px rgba(0, 229, 160, 0.5), 0 0 20px rgba(0, 229, 160, 0.3);
+          text-shadow: 0 0 5px rgba(0, 229, 160, 0.2);
           color: #ffffff;
         }
         50% {
-          text-shadow: 0 0 20px rgba(0, 229, 160, 0.8), 0 0 40px rgba(0, 229, 160, 0.5);
-          color: #00e5a0;
+          text-shadow: 0 0 12px rgba(0, 229, 160, 0.4);
+          color: #ffffff;
         }
       }
+      .logo-glow-pulse {
+        transition: all 0.3s ease-in-out;
+      }
       .logo-glow-pulse:hover {
-        animation: glowPulse 2s ease-in-out infinite;
+        animation: glowPulseSubtle 2.5s ease-in-out infinite;
       }
     `,
     className: 'logo-glow-pulse',
   },
 
-  // 2. Split Letter Reveal - Futuristic vibration
+  // 2. Split Letter Reveal - Gentle micro-vibration
   splitLetterReveal: {
     name: 'splitLetterReveal',
     css: `
-      @keyframes letterVibrate {
-        0%, 100% { transform: translateX(0) translateY(0); }
-        25% { transform: translateX(1px) translateY(-1px); }
-        50% { transform: translateX(-1px) translateY(1px); }
-        75% { transform: translateX(1px) translateY(1px); }
+      @keyframes letterTremolo {
+        0%, 100% { transform: translateX(0) translateY(0); opacity: 1; }
+        50% { transform: translateX(0.3px) translateY(-0.3px); opacity: 0.95; }
+      }
+      .logo-split-reveal {
+        transition: opacity 0.3s ease-in-out;
       }
       .logo-split-reveal:hover {
-        animation: letterVibrate 0.5s ease-in-out infinite;
+        animation: letterTremolo 1.2s ease-in-out infinite;
       }
     `,
     className: 'logo-split-reveal',
   },
 
-  // 3. Gradient Flow - Color gradient transition
+  // 3. Gradient Flow - Subtle color shift
   gradientFlow: {
     name: 'gradientFlow',
     css: `
-      @keyframes gradientFlow {
-        0% {
-          background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+      @keyframes subtleGradient {
+        0%, 100% {
+          color: #ffffff;
+          opacity: 1;
         }
         50% {
-          background: linear-gradient(90deg, #00e5a0 0%, #ffffff 50%, #00e5a0 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        100% {
-          background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #00e5a0;
+          opacity: 0.95;
         }
       }
+      .logo-gradient-flow {
+        transition: all 0.4s ease-in-out;
+      }
       .logo-gradient-flow:hover {
-        animation: gradientFlow 1.5s ease-in-out;
+        animation: subtleGradient 2s ease-in-out forwards;
       }
     `,
     className: 'logo-gradient-flow',
   },
 
-  // 4. Letter Spacing Expand - Classic and effective
+  // 4. Letter Spacing Expand - Minimal, refined
   letterSpaceExpand: {
     name: 'letterSpaceExpand',
     css: `
-      @keyframes letterSpaceExpand {
+      @keyframes gentleExpand {
         0% {
           letter-spacing: normal;
           color: #ffffff;
           transform: scale(1);
+          opacity: 1;
         }
         100% {
-          letter-spacing: 2px;
-          color: #00e5a0;
-          transform: scale(1.03);
+          letter-spacing: 0.8px;
+          color: #ffffff;
+          transform: scale(1.01);
+          opacity: 0.95;
         }
       }
+      .logo-letter-space {
+        transition: all 0.3s ease-in-out;
+      }
       .logo-letter-space:hover {
-        animation: letterSpaceExpand 0.6s ease-out forwards;
+        animation: gentleExpand 0.8s ease-out forwards;
       }
     `,
     className: 'logo-letter-space',
   },
 
-  // 5. Underline Animated + Scale + Glow (RECOMMENDED)
+  // 5. Underline Animated + Subtle Glow (RECOMMENDED)
   underlineAnimated: {
     name: 'underlineAnimated',
     css: `
-      @keyframes underlineDraw {
+      @keyframes underlineDrawSubtle {
         0% {
           width: 0;
           opacity: 0;
         }
         100% {
           width: 100%;
-          opacity: 1;
+          opacity: 0.8;
         }
       }
-      @keyframes glowBrighten {
+      @keyframes subtleGlowBrighten {
         0% {
           text-shadow: none;
           color: #ffffff;
           transform: scale(1);
+          opacity: 1;
         }
         100% {
-          text-shadow: 0 0 15px rgba(0, 229, 160, 0.6);
+          text-shadow: 0 0 8px rgba(0, 229, 160, 0.3);
           color: #ffffff;
-          transform: scale(1.03);
+          transform: scale(1.01);
+          opacity: 0.98;
         }
       }
       .logo-underline-animated {
         position: relative;
         display: inline-block;
+        transition: all 0.3s ease-in-out;
       }
       .logo-underline-animated::after {
         content: '';
         position: absolute;
         bottom: -4px;
         left: 0;
-        height: 2px;
+        height: 1.5px;
         background: linear-gradient(90deg, #00e5a0, #009e6e);
-        transition: none;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
       }
       .logo-underline-animated:hover::after {
-        animation: underlineDraw 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        animation: underlineDrawSubtle 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
       }
       .logo-underline-animated:hover {
-        animation: glowBrighten 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        animation: subtleGlowBrighten 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
       }
     `,
     className: 'logo-underline-animated',
