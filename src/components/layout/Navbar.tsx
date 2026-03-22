@@ -3,14 +3,22 @@ import { Link, useLocation } from 'react-router-dom';
 import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { siteConfig } from '../../siteConfig';
+import { useAuth } from '../../contexts/AuthContext';
 import { useAnimationConfig } from '../../hooks/useAnimationConfig';
 
 export const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
   const animationConfig = useAnimationConfig();
   
-  const navItems = siteConfig.navbar.navItems;
+  const adminNavItem = user
+    ? user.role === 'admin'
+      ? { label: 'Admin', href: '/admin' }
+      : { label: 'Área Admin', href: '/login' }
+    : { label: 'Área Admin', href: '/login' };
+
+  const navItems = [...siteConfig.navbar.navItems, adminNavItem];
   const logoSize = useMemo(() => ({
     desktop: siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop,
     mobile: siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile,
