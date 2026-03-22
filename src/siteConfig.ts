@@ -19,6 +19,11 @@
  */
 
 // ---------------------------------------------------------------------------
+// Importações
+// ---------------------------------------------------------------------------
+import scrapedProducts from './data/scrapedProducts.json';
+
+// ---------------------------------------------------------------------------
 // Ícones
 // ---------------------------------------------------------------------------
 // Importe todos os ícones da biblioteca lucide-react aqui.
@@ -464,17 +469,8 @@ export const siteConfig = {
         titleAccent: "Premium",
         subtitle: "Acessórios e dispositivos seminovos com garantia e procedência verificada pela nossa equipe técnica."
       },
-      categories: ["Todos", "iPhones", "Video Games", "Acessórios"],
-      items: [
-        { id: 1, name: "iPhone 15 Pro Max", category: "iPhones", price: 7999, image: "https://picsum.photos/seed/iphone15promax/400/400", badge: "Novo" },
-        { id: 2, name: "iPhone 14 Pro", category: "iPhones", price: 5999, image: "https://picsum.photos/seed/iphone14pro/400/400", badge: "Seminovo" },
-        { id: 3, name: "PS5 Slim Mídia Física", category: "Video Games", price: 4200, image: "https://picsum.photos/seed/ps5slimf/400/400", badge: "Novo" },
-        { id: 4, name: "AirPods Pro 2", category: "Acessórios", price: 1200, image: "https://picsum.photos/seed/airpodspro2/400/400", badge: "Novo" },
-        { id: 5, name: "Apple Watch Series 9", category: "Acessórios", price: 3000, image: "https://picsum.photos/seed/watch9/400/400", badge: "Novo" },
-        { id: 6, name: "JBL Flip 6", category: "Acessórios", price: 600, image: "https://picsum.photos/seed/jblflip6/400/400", badge: "Novo" },
-        { id: 7, name: "iPhone 17 Pro Max", category: "iPhones", price: 7999, image: "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00FF669A-6B4F-4997-AF41-0ADD29E99C3D.jpg?alt=media", badge: "Novo" },
-
-      ]
+      categories: ["Todos", "RELÓGIOS", "ACESSÓRIOS", "RASTREADORES", "CELULARES", "FONES"],
+      items: scrapedProducts,
     },
     // -------------------------------------------------------------------------
     // Página de Contato

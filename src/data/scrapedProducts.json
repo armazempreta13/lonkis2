@@ -1,0 +1,264 @@
+[
+  {
+    "id": 1,
+    "name": "APPLE WATCH S11 46MM",
+    "category": "RELÓGIOS",
+    "price": 2750,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media",
+    "colors": ["#555555", "#000000"],
+    "badge": "Premium"
+  },
+  {
+    "id": 2,
+    "name": "APPLE WATCH SE 2 40MM",
+    "category": "RELÓGIOS",
+    "price": 1650,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/fObHdRhW2XRIv2dxu1nzGYC59Xh2%2F2B12F4FF-7CB4-4DC7-9DDD-B3DBF584EF4B.jpg?alt=media",
+    "colors": ["#F5F5F5", "#1a1a1a"],
+    "badge": "Novo"
+  },
+  {
+    "id": 3,
+    "name": "APPLE WATCH ULTRA 3",
+    "category": "RELÓGIOS",
+    "price": 4950,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/fObHdRhW2XRIv2dxu1nzGYC59Xh2%2FA49DFB42-8762-4322-96DC-80C24CE3060F.jpg?alt=media",
+    "colors": ["#2c2c2c"],
+    "badge": "Premium"
+  },
+  {
+    "id": 4,
+    "name": "APPLE WATCH SE 2 44MM",
+    "category": "RELÓGIOS",
+    "price": 1750,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/fObHdRhW2XRIv2dxu1nzGYC59Xh2%2F2B12F4FF-7CB4-4DC7-9DDD-B3DBF584EF4B.jpg?alt=media",
+    "colors": ["#1a1a1a"],
+    "badge": "Novo"
+  },
+  {
+    "id": 5,
+    "name": "BOLSA BOOMBOX 3 SLIM",
+    "category": "ACESSÓRIOS",
+    "price": 75,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F1DDA8439-700A-47D9-B9C5-C3F455048E16.jpg?alt=media",
+    "badge": "Acessório"
+  },
+  {
+    "id": 6,
+    "name": "BOLSA BOOMBOX 4 SLIM",
+    "category": "ACESSÓRIOS",
+    "price": 125,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FD1E4748E-3355-4708-9DBE-4DBF40F6DFF6.jpg?alt=media",
+    "badge": "Acessório"
+  },
+  {
+    "id": 7,
+    "name": "CAPA PUREGEAR",
+    "category": "ACESSÓRIOS",
+    "price": 150,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00B79A9B-7D80-48FD-9C98-99D3B9D64761.jpg?alt=media",
+    "badge": "Proteção"
+  },
+  {
+    "id": 8,
+    "name": "CAPA TECLADO JACK",
+    "category": "ACESSÓRIOS",
+    "price": 350,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF50C643C-F54A-4393-BD77-8D88BB8D2E3E.jpg?alt=media",
+    "badge": "Premium"
+  },
+  {
+    "id": 9,
+    "name": "MALA BOOMBOX",
+    "category": "ACESSÓRIOS",
+    "price": 200,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB0391305-2794-4176-A898-005985CF9312.jpg?alt=media",
+    "badge": "Acessório"
+  },
+  {
+    "id": 10,
+    "name": "MALA ENCORE 1/2",
+    "category": "ACESSÓRIOS",
+    "price": 200,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3992B0EF-7E54-4FB7-ACDC-73F210B5C35C.jpg?alt=media",
+    "badge": "Acessório"
+  },
+  {
+    "id": 11,
+    "name": "APPLE PENCIL USB-C",
+    "category": "ACESSÓRIOS",
+    "price": 700,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/L31evguEK7ahw2kZi9DcPld0n3T2%2F36572B7C-2716-4101-A4DC-9A69BE887673.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 12,
+    "name": "AIRTAG PACK",
+    "category": "RASTREADORES",
+    "price": 650,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F62C19CAA-D47B-487F-93D7-41CEFB257DF9.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 13,
+    "name": "AIRTAG UN",
+    "category": "RASTREADORES",
+    "price": 220,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB976B5F0-9621-4164-9D40-DFA02264A5A5.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 14,
+    "name": "iPhone 13 PRO MAX 128GB CPO",
+    "category": "CELULARES",
+    "price": 3700,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F39EE862B-D43C-44A8-814B-22EFF5EF96FF.jpg?alt=media",
+    "colors": ["#000000"],
+    "badge": "CPO"
+  },
+  {
+    "id": 15,
+    "name": "iPhone 13 PRO MAX 256GB CPO",
+    "category": "CELULARES",
+    "price": 3900,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F93010BB1-3916-4151-946F-D00AE6D31DCC.jpg?alt=media",
+    "colors": ["#5a5a5a"],
+    "badge": "CPO"
+  },
+  {
+    "id": 16,
+    "name": "iPhone 15 PLUS 128GB",
+    "category": "CELULARES",
+    "price": 4300,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3213EA8D-68E6-499A-83B0-B6718F0935F1.jpg?alt=media",
+    "colors": ["#000000", "#0066FF", "#00AA33"],
+    "badge": "Novo"
+  },
+  {
+    "id": 17,
+    "name": "iPhone 15 PRO 128GB CPO",
+    "category": "CELULARES",
+    "price": 4500,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F4DFD1276-2E54-46FC-AC55-7CAE09676D64.jpg?alt=media",
+    "colors": ["#D4AF37", "#000000", "#FFFFFF", "#1E90FF"],
+    "badge": "CPO"
+  },
+  {
+    "id": 18,
+    "name": "iPhone 15 PRO 256GB CPO",
+    "category": "CELULARES",
+    "price": 4900,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3654CE17-4FAD-4C26-93BB-E9B030F1C4A2.jpg?alt=media",
+    "colors": ["#D4AF37", "#1E90FF"],
+    "badge": "CPO"
+  },
+  {
+    "id": 19,
+    "name": "iPhone 15 PRO MAX 256GB",
+    "category": "CELULARES",
+    "price": 5900,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F316D4D23-87BE-4FEC-8E66-F71811494654.jpg?alt=media",
+    "colors": ["#D4AF37", "#000000", "#FFFFFF", "#1E90FF"],
+    "badge": "Premium"
+  },
+  {
+    "id": 20,
+    "name": "Samsung A5 3RAM 64GB",
+    "category": "CELULARES",
+    "price": 500,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0B216EFC-F8C2-42FB-ABB6-656532E437F1.jpg?alt=media",
+    "colors": ["#000000", "#0066FF", "#00AA33", "#FFD700"],
+    "badge": "Novo"
+  },
+  {
+    "id": 21,
+    "name": "Samsung A5 4RAM 128GB",
+    "category": "CELULARES",
+    "price": 600,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FAD1F98BF-50F1-491A-8B5F-CA0EEB7FF39B.jpg?alt=media",
+    "colors": ["#000000", "#0066FF"],
+    "badge": "Novo"
+  },
+  {
+    "id": 22,
+    "name": "iPhone 13 128GB CPO",
+    "category": "CELULARES",
+    "price": 2850,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media",
+    "colors": ["#F5F5F5", "#000080"],
+    "badge": "CPO"
+  },
+  {
+    "id": 23,
+    "name": "iPhone 13 128GB",
+    "category": "CELULARES",
+    "price": 3050,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media",
+    "colors": ["#F5F5F5", "#000080"],
+    "badge": "Novo"
+  },
+  {
+    "id": 24,
+    "name": "AirPods Pro 3",
+    "category": "FONES",
+    "price": 1650,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F2CB4B51D-90C8-49C3-80F5-68F3137E7CFE.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 25,
+    "name": "FONE LIGHTNING 1LINHA",
+    "category": "FONES",
+    "price": 30,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F834E9FC1-1AE0-497E-845E-4D430A99FF9D.jpg?alt=media",
+    "badge": "Original"
+  },
+  {
+    "id": 26,
+    "name": "FONE XIAOMI C/ FIO ORIGINAL P2",
+    "category": "FONES",
+    "price": 45,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F671BC3EE-5534-455B-A9A6-6E1C170D70CD.jpg?alt=media",
+    "badge": "Original"
+  },
+  {
+    "id": 27,
+    "name": "MICROFONE LAPELA LARK M2",
+    "category": "FONES",
+    "price": 900,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F60C802D5-FE54-498E-9B98-B813AD80999D.jpg?alt=media",
+    "badge": "Profissional"
+  },
+  {
+    "id": 28,
+    "name": "AirPods 2",
+    "category": "FONES",
+    "price": 700,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8D087CB8-89F4-4414-8E29-7E2FADD6043E.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 29,
+    "name": "AirPods 4",
+    "category": "FONES",
+    "price": 790,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6C82C7D7-073F-4D12-860F-4EE82BAD9CAF.jpg?alt=media",
+    "badge": "Apple"
+  },
+  {
+    "id": 30,
+    "name": "AirPods 4 C/CANCELAMENTO",
+    "category": "FONES",
+    "price": 1090,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8BBF008A-9815-47B8-BB20-D5AF8109468F.jpg?alt=media",
+    "badge": "Premium"
+  },
+  {
+    "id": 31,
+    "name": "FONE PARA IPHONE C/ FIO ORIGINAL USB-C",
+    "category": "FONES",
+    "price": 120,
+    "image": "https://firebasestorage.googleapis.com/v0/b/armazempreta-bbf0f.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F9C222246-9095-44A4-9BEB-5EFED2B9786A.jpg?alt=media",
+    "badge": "Original"
+  }
+]
