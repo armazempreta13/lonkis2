@@ -250,7 +250,6 @@ export const siteConfig = {
           { icon: Cpu, title: "Reparo em Placa", description: "Recuperação de placas com microsoldagem avançada." },
           { icon: Smartphone, title: "Troca de Vidro", description: "Mantemos sua tela original, trocando apenas o vidro." },
           { icon: Battery, title: "Bateria Premium", description: "Baterias de alta capacidade com garantia estendida." },
-          { icon: Watch, title: "Apple Watch", description: "Reparos especializados em todos os modelos de Watch." },
         ]
       },
       differentials: {
