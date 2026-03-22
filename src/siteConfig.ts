@@ -94,7 +94,7 @@ export const siteConfig = {
     siteName: "LK Imports",
     locale: "pt_BR",
     themeColor: "#0f766e",
-    canonical: "https://lkimports.com.br",
+    canonical: "https://lkimports.net",
     twitterHandle: "@lkimports_061",
     facebookAppId: "1234567890",
     googleSiteVerification: "abcde12345verify",
@@ -111,6 +111,37 @@ export const siteConfig = {
       "https://www.instagram.com/lkimports_061",
       "https://www.tiktok.com/@lkimports",
       "https://www.linkedin.com/company/lkimports"
+    ],
+    organization: {
+      ratingValue: 4.9,
+      ratingCount: 150,
+      reviewCount: 150,
+    },
+    faq: [
+      {
+        question: "Qual é o tempo médio de reparo?",
+        answer: "A maioria dos reparos é concluída em 1-3 dias úteis. Consertos simples podem ser feitos no mesmo dia."
+      },
+      {
+        question: "Vocês oferecem garantia?",
+        answer: "Sim, todos os nossos serviços incluem garantia de 90 dias contra defeitos de fabricação e mão de obra."
+      },
+      {
+        question: "Como funciona o diagnóstico?",
+        answer: "Realizamos diagnóstico gratuito e sem compromisso. Você recebe um orçamento detalhado antes de autorizar qualquer reparo."
+      },
+      {
+        question: "Qual é a diferença entre troca de vidro e tela completa?",
+        answer: "Na troca de vidro mantemos seu display original, trocando apenas a camada externa. Na tela completa, substituímos todo o painel."
+      },
+      {
+        question: "Vocês trabalham com qual marcas?",
+        answer: "Trabalhamos com iPhone, Samsung, Xiaomi, Motorola, Nokia, LG, OnePlus e tablets de todas as marcas."
+      }
+    ],
+    breadcrumbs: [
+      { name: "Início", url: "https://lkimports.com.br/" },
+      { name: "Serviços", url: "https://lkimports.com.br/servicos" },
     ],
   },
 
