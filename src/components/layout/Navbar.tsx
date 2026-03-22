@@ -1,14 +1,16 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { siteConfig } from '../../siteConfig';
 import { useAuth } from '../../contexts/AuthContext';
+import { useAnimationConfig } from '../../hooks/useAnimationConfig';
 
 export const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
+  const animationConfig = useAnimationConfig();
   
   const adminNavItem = user
     ? user.role === 'admin'
@@ -17,20 +19,37 @@ export const Navbar = () => {
     : { label: 'Área Admin', href: '/login' };
 
   const navItems = [...siteConfig.navbar.navItems, adminNavItem];
+  const logoSize = useMemo(() => ({
+    desktop: siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop,
+    mobile: siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile,
+  }), []);
 
   return (
     <>
+      <style>{`
+        .navbar-logo { height: ${logoSize.desktop}px; }
+        @media (max-width: 768px) {
+          .navbar-logo { height: ${logoSize.mobile}px; }
+        }
+        ${animationConfig.animation.css}
+      `}</style>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 md:px-12 py-4 flex justify-between items-center"
       >
-      <Link to="/" className="flex items-center group">
+      <Link 
+        to="/" 
+        className={`flex items-center group ${animationConfig.animation.className}`}
+      >
         <div className="flex items-center gap-2">
           <img 
             src={siteConfig.brand.logo} 
             alt={`${siteConfig.brand.name} Logo`} 
-            className="h-14 md:h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
+            className="w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform navbar-logo"
+            style={{
+              height: `${siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop}px`,
+            }}
             referrerPolicy="no-referrer"
           />
         </div>

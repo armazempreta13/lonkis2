@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Star, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { siteConfig } from '../../siteConfig';
+import { useGoogleReviews } from '../../hooks/useGoogleReviews';
 
 interface Review {
   name: string;
@@ -12,6 +13,7 @@ interface Review {
   color: string;
   time?: string;
   profilePhotoUrl?: string;
+  isFromGoogle?: boolean;
 }
 
 const COLORS = [
@@ -26,80 +28,42 @@ const FALLBACK_REVIEWS: Review[] = siteConfig.pages.home.testimonials?.items?.ma
   text: item.text,
   initial: item.name.charAt(0).toUpperCase(),
   color: COLORS[Math.floor(Math.random() * COLORS.length)],
-  profilePhotoUrl: item.image
+  profilePhotoUrl: item.image,
+  isFromGoogle: false
 })) || [];
 
 export const Testimonials = () => {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [overallRating, setOverallRating] = useState(5.0);
-  const [totalReviews, setTotalReviews] = useState(124);
+  const { reviews: googleReviews, ratingData, isLoading } = useGoogleReviews();
+  const [reviews, setReviews] = useState<Review[]>(FALLBACK_REVIEWS);
+  const [overallRating, setOverallRating] = useState(siteConfig.pages.home.testimonials?.googleRating ? parseFloat(siteConfig.pages.home.testimonials.googleRating) : 5.0);
+  const [totalReviewsCount, setTotalReviewsCount] = useState(parseInt(siteConfig.pages.home.testimonials?.totalReviews || '150'));
 
+  // Atualizar reviews quando dados do Google chegam
   useEffect(() => {
-    // To make this 100% functional and dynamic, add VITE_GOOGLE_PLACES_API_KEY to your .env file
-    // and VITE_GOOGLE_PLACES_PLACE_ID for the specific place you want to fetch reviews from.
-    // We use the fallback data for testing as requested ("coloca desse pra testar").
-    const apiKey = (import.meta as any).env.VITE_GOOGLE_PLACES_API_KEY;
-    const placeId = (import.meta as any).env.VITE_GOOGLE_PLACES_PLACE_ID || 'ChIJP1hJOMm_W5MR9pafUPQ5Nts'; // Placeholder Place ID
-
-    if (!apiKey) {
-      console.warn('VITE_GOOGLE_PLACES_API_KEY is not set. Using fallback reviews for testing.');
+    if (googleReviews.length > 0) {
+      const formattedGoogleReviews: Review[] = googleReviews.map((review, index) => ({
+        name: review.name,
+        rating: review.rating,
+        text: review.text,
+        initial: review.name.charAt(0).toUpperCase(),
+        color: COLORS[index % COLORS.length],
+        profilePhotoUrl: review.image,
+        isFromGoogle: true
+      }));
+      setReviews(formattedGoogleReviews);
+    } else {
+      // Usar mockadas se não conseguir puxar do Google
       setReviews(FALLBACK_REVIEWS);
-      setLoading(false);
-      return;
     }
+  }, [googleReviews]);
 
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    
-    script.onload = () => {
-      const win = window as any;
-      if (!win.google || !win.google.maps || !win.google.maps.places) {
-        setReviews(FALLBACK_REVIEWS);
-        setLoading(false);
-        return;
-      }
-
-      const service = new win.google.maps.places.PlacesService(document.createElement('div'));
-      service.getDetails({
-        placeId: placeId,
-        fields: ['reviews', 'rating', 'user_ratings_total']
-      }, (place: any, status: any) => {
-        if (status === win.google.maps.places.PlacesServiceStatus.OK && place?.reviews) {
-          const formattedReviews = place.reviews.map((review: any) => ({
-            name: review.author_name,
-            rating: review.rating,
-            text: review.text,
-            initial: review.author_name.charAt(0).toUpperCase(),
-            color: COLORS[Math.floor(Math.random() * COLORS.length)],
-            time: review.relative_time_description,
-            profilePhotoUrl: review.profile_photo_url
-          }));
-          setReviews(formattedReviews);
-          if (place.rating) setOverallRating(place.rating);
-          if (place.user_ratings_total) setTotalReviews(place.user_ratings_total);
-        } else {
-          console.error('Failed to fetch reviews:', status);
-          setReviews(FALLBACK_REVIEWS);
-        }
-        setLoading(false);
-      });
-    };
-
-    script.onerror = () => {
-      console.error('Failed to load Google Maps script');
-      setReviews(FALLBACK_REVIEWS);
-      setLoading(false);
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  // Atualizar rating quando dados do Google chegam
+  useEffect(() => {
+    if (ratingData) {
+      setOverallRating(ratingData.rating);
+      setTotalReviewsCount(ratingData.totalReviews);
+    }
+  }, [ratingData]);
 
   return (
     <section className="py-32 px-6 bg-brand-gray overflow-hidden">
@@ -133,7 +97,7 @@ export const Testimonials = () => {
                 ))}
               </div>
               <span className="text-white font-black text-sm">{overallRating.toFixed(1)} no Google</span>
-              <span className="text-white/40 text-xs">({totalReviews} avaliações)</span>
+              <span className="text-white/40 text-xs">({totalReviewsCount} avaliações)</span>
             </div>
             <Button 
               className="bg-white hover:bg-gray-200 text-black w-full sm:w-auto px-10 py-5 rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-white/5 text-[10px] font-black uppercase tracking-[0.2em]"
@@ -145,9 +109,12 @@ export const Testimonials = () => {
           </div>
         </div>
 
-        {loading ? (
+        {isLoading && reviews.length === FALLBACK_REVIEWS.length ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-10 h-10 text-white/20 animate-spin" />
+            <div className="flex flex-col items-center gap-4">
+              <Loader2 className="w-10 h-10 text-emerald-500 animate-spin" />
+              <p className="text-white/40 text-sm">Carregando avaliações...</p>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -187,11 +154,7 @@ export const Testimonials = () => {
                     </div>
                   </div>
                   <div className="flex-shrink-0">
-                    <img 
-                      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                      alt="Google" 
-                      className="h-4 w-auto opacity-80" 
-                    />
+                    <span className="text-xs font-bold text-blue-600">Google</span>
                   </div>
                 </div>
                 
@@ -220,7 +183,7 @@ export const Testimonials = () => {
         >
           <button 
             className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black hover:text-white transition-colors border-b border-white/10 pb-2"
-            onClick={() => window.open('https://www.google.com/maps/place/Armaz%C3%A9m+da+Preta/@-15.8158668,-48.1652517,17z/data=!4m8!3m7!1s0x935bcfc43849ebf7:0xdb3639f4509f96f6!8m2!3d-15.8158668!4d-48.1626768!9m1!1b1!16s%2Fg%2F11fnfl55wx?entry=ttu', '_blank')}
+            onClick={() => window.open('https://www.google.com/maps/place/LK+Imports/@-15.867958,-48.106456,17z', '_blank')}
           >
             Ver todas as avaliações no Google
           </button>

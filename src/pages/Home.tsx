@@ -22,8 +22,8 @@ export const Home = () => {
       <Services />
       <Differentials />
       <Testimonials />
-      <Location />
       <CTASection />
+      <Location />
     </motion.div>
   );
 };

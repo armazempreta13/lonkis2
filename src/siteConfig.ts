@@ -67,6 +67,14 @@ export const siteConfig = {
     logoSize: {
       desktop: 80, // Ex: 80px de altura em telas grandes
       mobile: 60,  // Ex: 60px de altura em telas pequenas
+      navbar: {
+        desktop: 72,
+        mobile: 60,
+      },
+      footer: {
+        desktop: 96,
+        mobile: 80,
+      },
     },
     slogan: "Especialistas em Alta Performance",
     description: "Assistência técnica de alta precisão para smartphones, tablets e smartwatches. Com 2 anos de experiência, garantimos qualidade premium, agilidade e total transparência em cada serviço.",
@@ -81,10 +89,60 @@ export const siteConfig = {
     description: "Especialistas em conserto de iPhone, Samsung, Xiaomi e tablets em Samambaia. 2 anos de experiência, peças premium e garantia de 90 dias.",
     keywords: "assistência técnica, conserto de celular, brasília, samambaia, df, iphone, samsung, motorola, xiaomi, troca de tela, troca de bateria, lk imports",
     author: "LK Imports",
-    // Imagem para compartilhamento em redes sociais (Open Graph)
     ogImage: "https://i.imgur.com/Ga4bMmk.png",
-    // URL canônica do site
-    url: "https://lkimports.com.br",
+    url: "https://lkimports.net",
+    siteName: "LK Imports",
+    locale: "pt_BR",
+    themeColor: "#0f766e",
+    canonical: "https://lkimports.net",
+    twitterHandle: "@lkimports_061",
+    facebookAppId: "1234567890",
+    googleSiteVerification: "abcde12345verify",
+    logo: "https://i.imgur.com/Ga4bMmk.png",
+    company: {
+      name: "LK Imports",
+      legalName: "LK Imports Ltda",
+      phone: "+556195191308",
+      email: "contato@lkimports.com.br",
+      address: "QR 429 Conjunto 16 Loja 01, Samambaia Norte, Brasília - DF, 72322-516"
+    },
+    socialProfiles: [
+      "https://www.facebook.com/lkimports",
+      "https://www.instagram.com/lkimports_061",
+      "https://www.tiktok.com/@lkimports",
+      "https://www.linkedin.com/company/lkimports"
+    ],
+    organization: {
+      ratingValue: 4.9,
+      ratingCount: 150,
+      reviewCount: 150,
+    },
+    faq: [
+      {
+        question: "Qual é o tempo médio de reparo?",
+        answer: "A maioria dos reparos é concluída em 1-3 dias úteis. Consertos simples podem ser feitos no mesmo dia."
+      },
+      {
+        question: "Vocês oferecem garantia?",
+        answer: "Sim, todos os nossos serviços incluem garantia de 90 dias contra defeitos de fabricação e mão de obra."
+      },
+      {
+        question: "Como funciona o diagnóstico?",
+        answer: "Realizamos diagnóstico gratuito e sem compromisso. Você recebe um orçamento detalhado antes de autorizar qualquer reparo."
+      },
+      {
+        question: "Qual é a diferença entre troca de vidro e tela completa?",
+        answer: "Na troca de vidro mantemos seu display original, trocando apenas a camada externa. Na tela completa, substituímos todo o painel."
+      },
+      {
+        question: "Vocês trabalham com qual marcas?",
+        answer: "Trabalhamos com iPhone, Samsung, Xiaomi, Motorola, Nokia, LG, OnePlus e tablets de todas as marcas."
+      }
+    ],
+    breadcrumbs: [
+      { name: "Início", url: "https://lkimports.com.br/" },
+      { name: "Serviços", url: "https://lkimports.com.br/servicos" },
+    ],
   },
 
   // ---------------------------------------------------------------------------
@@ -134,7 +192,12 @@ export const siteConfig = {
       cookies: "Preferências de Cookies",
     },
     mapButton: "Abrir no Google Maps",
-    contactOnline: "WhatsApp Online"
+    contactOnline: "WhatsApp Online",
+    credit: {
+      text: "Site desenvolvido por",
+      name: "phstatic.com.br",
+      url: "https://phstatic.com.br"
+    }
   },
 
   // ---------------------------------------------------------------------------
@@ -157,7 +220,7 @@ export const siteConfig = {
     },
     support: {
       phone: "+556195191308",
-      email: "suporte@lkimports.com.br",
+      email: "suporte@lkimports.net",
       responseTime: "Até 2 horas em horário comercial",
     },
   },
@@ -195,6 +258,18 @@ export const siteConfig = {
     borderRadius: "1rem",
     shadow: "0 20px 40px rgba(15,23,42,0.35)",
   },
+
+  animations: {
+    logoHover: 'splitLetterReveal', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+  },
+//   ---------------------------------------------------------------------------
+// Opções: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+// glowPulse - Brilho pulsante sofisticado
+// splitLetterReveal - Vibração futurista discreta
+// gradientFlow - Fluxo de gradiente suave
+// letterSpaceExpand - Espaçamento + escala clássico
+// underlineAnimated ⭐ (DEFAULT) - Seu favorito: sublinhado verde + glow + scale
+//   --------------------------------------------------------------------------- 
 
   // ---------------------------------------------------------------------------
   // Redes Sociais
@@ -250,7 +325,6 @@ export const siteConfig = {
           { icon: Cpu, title: "Reparo em Placa", description: "Recuperação de placas com microsoldagem avançada." },
           { icon: Smartphone, title: "Troca de Vidro", description: "Mantemos sua tela original, trocando apenas o vidro." },
           { icon: Battery, title: "Bateria Premium", description: "Baterias de alta capacidade com garantia estendida." },
-          { icon: Watch, title: "Apple Watch", description: "Reparos especializados em todos os modelos de Watch." },
         ]
       },
       differentials: {

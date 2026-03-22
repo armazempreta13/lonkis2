@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Award, ChevronDown } from 'lucide-react';
 
 import { siteConfig } from '../../siteConfig';
+import { useAnimationConfig } from '../../hooks/useAnimationConfig';
 import { Button } from '../ui/Button';
 import { QuoteModal } from '../ui/QuoteModal';
 
@@ -54,15 +55,22 @@ const BadgeRow = () => (
   </div>
 );
 
-const Heading = () => (
-  <h1 className="mb-10 font-display text-5xl font-black uppercase leading-[0.8] tracking-tighter text-white sm:text-7xl md:text-9xl">
-    {siteConfig.pages.home.hero.title}
-    <br />
-    <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-      {siteConfig.pages.home.hero.titleAccent}
-    </span>
-  </h1>
-);
+const Heading = () => {
+  const animationConfig = useAnimationConfig();
+  
+  return (
+    <>
+      <style>{animationConfig.animation.css}</style>
+      <h1 className={`mb-10 font-display text-5xl font-black uppercase leading-[0.8] tracking-tighter text-white sm:text-7xl md:text-9xl ${animationConfig.animation.className}`}>
+        {siteConfig.pages.home.hero.title}
+        <br />
+        <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+          {siteConfig.pages.home.hero.titleAccent}
+        </span>
+      </h1>
+    </>
+  );
+};
 
 const Subtitle = () => (
   <p className="mx-auto mb-12 max-w-lg text-base font-medium leading-relaxed text-white/40 sm:text-lg md:text-xl lg:mx-0">

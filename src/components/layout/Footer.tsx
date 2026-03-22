@@ -5,7 +5,14 @@ import { siteConfig } from '../../siteConfig';
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white pt-0 pb-16 border-t border-white/5 overflow-hidden relative">
+    <>
+      <style>{`
+        .footer-logo { height: ${siteConfig.brand.logoSize?.footer?.desktop ?? siteConfig.brand.logoSize.desktop}px; }
+        @media (max-width: 768px) {
+          .footer-logo { height: ${siteConfig.brand.logoSize?.footer?.mobile ?? siteConfig.brand.logoSize.mobile}px; }
+        }
+      `}</style>
+      <footer className="bg-black text-white pt-0 pb-16 border-t border-white/5 overflow-hidden relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       
       {/* Google Maps Integration - Now at the Very Top of Footer */}
@@ -44,7 +51,8 @@ export const Footer = () => {
               <img 
                 src={siteConfig.brand.logo} 
                 alt={`${siteConfig.brand.name} Logo`} 
-                className="h-20 sm:h-32 w-auto object-contain brightness-0 invert group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all mx-auto sm:mx-0"
+                className="w-auto object-contain brightness-0 invert group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all mx-auto sm:mx-0 footer-logo"
+                style={{ height: `${siteConfig.brand.logoSize?.footer?.desktop ?? siteConfig.brand.logoSize.desktop}px` }}
                 referrerPolicy="no-referrer"
               />
             </Link>
@@ -120,7 +128,22 @@ export const Footer = () => {
             </button>
           </div>
         </div>
+
+        <div className="pt-12 text-center border-t border-white/10">
+          <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] font-medium">
+            {siteConfig.footer.credit?.text}{' '}
+            <a 
+              href={siteConfig.footer.credit?.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors font-black underline decoration-dotted underline-offset-2"
+            >
+              {siteConfig.footer.credit?.name}
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
+    </>
   );
 };

@@ -15,10 +15,39 @@ export default defineConfig(({mode}) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      target: 'esnext',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          pure_funcs: ['console.log', 'console.info'],
+        },
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            'vendor-motion': ['motion/react'],
+            'vendor-icons': ['lucide-react'],
+            'vendor-utils': ['react-helmet-async'],
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1000,
+      sourcemap: false,
+      cssCodeSplit: true,
+      copyPublicDir: true,
+    },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
+      middlewareMode: true,
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom', 'motion/react', 'lucide-react'],
+      esbuildOptions: {
+        target: 'esnext',
+      },
     },
   };
 });
