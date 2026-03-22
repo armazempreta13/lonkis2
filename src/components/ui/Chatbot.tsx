@@ -539,11 +539,11 @@ export const Chatbot = () => {
         }
         .lk-toggle {
           position: relative;
-          width: 60px; height: 60px;
-          border-radius: 20px;
+          width: 74px; height: 74px;
+          border-radius: 24px;
           display: flex; align-items: center; justify-content: center;
           background: linear-gradient(145deg, var(--lk-green) 0%, var(--lk-green-dk) 100%);
-          box-shadow: 0 8px 32px rgba(0,229,160,0.35), 0 0 0 1px rgba(0,229,160,0.2);
+          box-shadow: 0 12px 38px rgba(0,229,160,0.45), 0 0 0 1px rgba(0,229,160,0.2);
           border: none; cursor: pointer; outline: none;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           animation: lk-pulse-glow 2.5s infinite;
@@ -654,7 +654,7 @@ export const Chatbot = () => {
         }
       `}</style>
 
-      <div className={`fixed bottom-6 right-6 z-[200] lk-root ${theme === 'light' ? 'lk-light' : ''}`}>
+      <div className={`fixed bottom-4 right-4 z-[220] lk-root ${theme === 'light' ? 'lk-light' : ''}`}>
 
         <Toggle isOpen={isOpen} hasNew={messages.length === 0} onClick={() => setIsOpen(p => !p)} />
 
