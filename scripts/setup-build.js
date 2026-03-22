@@ -24,15 +24,19 @@ const nativeModules = [];
 if (platform === 'linux' && arch === 'x64') {
   nativeModules.push('@rollup/rollup-linux-x64-gnu');
   nativeModules.push('lightningcss-linux-x64-gnu');
+  nativeModules.push('@tailwindcss/oxide-linux-x64-gnu');
 } else if (platform === 'darwin' && arch === 'x64') {
   nativeModules.push('@rollup/rollup-darwin-x64');
   nativeModules.push('lightningcss-darwin-x64');
+  nativeModules.push('@tailwindcss/oxide-darwin-x64');
 } else if (platform === 'darwin' && arch === 'arm64') {
   nativeModules.push('@rollup/rollup-darwin-arm64');
   nativeModules.push('lightningcss-darwin-arm64');
+  nativeModules.push('@tailwindcss/oxide-darwin-arm64');
 } else if (platform === 'win32' && arch === 'x64') {
   nativeModules.push('@rollup/rollup-win32-x64-msvc');
   nativeModules.push('lightningcss-win32-x64-msvc');
+  nativeModules.push('@tailwindcss/oxide-win32-x64-msvc');
 }
 
 if (nativeModules.length === 0) {
