@@ -128,6 +128,20 @@ export const Footer = () => {
             </button>
           </div>
         </div>
+
+        <div className="pt-12 text-center border-t border-white/10">
+          <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] font-medium">
+            {siteConfig.footer.credit?.text}{' '}
+            <a 
+              href={siteConfig.footer.credit?.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors font-black underline decoration-dotted underline-offset-2"
+            >
+              {siteConfig.footer.credit?.name}
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
     </>

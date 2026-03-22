@@ -192,7 +192,12 @@ export const siteConfig = {
       cookies: "Preferências de Cookies",
     },
     mapButton: "Abrir no Google Maps",
-    contactOnline: "WhatsApp Online"
+    contactOnline: "WhatsApp Online",
+    credit: {
+      text: "Site desenvolvido por",
+      name: "phstatic.com.br",
+      url: "https://phstatic.com.br"
+    }
   },
 
   // ---------------------------------------------------------------------------
