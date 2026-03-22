@@ -35,7 +35,43 @@ A **LK Imports** é uma plataforma moderna de assistência técnica baseada em w
 
 ---
 
-## 🔗 Links Importantes
+## � Deploy
+
+Este projeto está configurado para deploy automático no **Cloudflare Pages**.
+
+### Em Desenvolvimento Localmente
+
+```bash
+# Instalar dependências
+npm install
+
+# Executar em desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview do build
+npm run preview
+```
+
+### Deploy no Cloudflare Pages
+
+Veja [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md) para instruções completas.
+
+**Resumo:**
+1. O repositório está conectado ao Cloudflare Pages
+2. Pushes para `master` disparam deploy automático
+3. Configure o build command no dashboard como:
+   ```
+   npm install --include=optional --legacy-peer-deps && npm run build
+   ```
+
+📌 **URL de Produção**: [lonkis2.pages.dev](https://lonkis2.pages.dev)
+
+---
+
+## �🔗 Links Importantes
 
 - 🌐 **Site**: [lkimports.com.br](https://lkimports.com.br)
 - 📱 **WhatsApp**: [(61) 9519-1308](https://wa.me/556195191308)
