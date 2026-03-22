@@ -124,7 +124,7 @@ const ProductImage = () => (
       {/* Card */}
       <div className="relative overflow-hidden rounded-[3.5rem] border border-white/10 shadow-2xl">
         <img
-          src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=1000&auto=format&fit=crop"
+          src="https://i.imgur.com/VOKsdKH.png"
           alt="Smartphone premium em destaque"
           className="h-auto w-full scale-[1.05] grayscale transition-all duration-1000 group-hover:scale-100 group-hover:grayscale-0"
           referrerPolicy="no-referrer"
