@@ -89,10 +89,29 @@ export const siteConfig = {
     description: "Especialistas em conserto de iPhone, Samsung, Xiaomi e tablets em Samambaia. 2 anos de experiência, peças premium e garantia de 90 dias.",
     keywords: "assistência técnica, conserto de celular, brasília, samambaia, df, iphone, samsung, motorola, xiaomi, troca de tela, troca de bateria, lk imports",
     author: "LK Imports",
-    // Imagem para compartilhamento em redes sociais (Open Graph)
     ogImage: "https://i.imgur.com/Ga4bMmk.png",
-    // URL canônica do site
-    url: "https://lkimports.net",
+    url: "https://lkimports.com.br",
+    siteName: "LK Imports",
+    locale: "pt_BR",
+    themeColor: "#0f766e",
+    canonical: "https://lkimports.com.br",
+    twitterHandle: "@lkimports_061",
+    facebookAppId: "1234567890",
+    googleSiteVerification: "abcde12345verify",
+    logo: "https://i.imgur.com/Ga4bMmk.png",
+    company: {
+      name: "LK Imports",
+      legalName: "LK Imports Ltda",
+      phone: "+556195191308",
+      email: "contato@lkimports.com.br",
+      address: "QR 429 Conjunto 16 Loja 01, Samambaia Norte, Brasília - DF, 72322-516"
+    },
+    socialProfiles: [
+      "https://www.facebook.com/lkimports",
+      "https://www.instagram.com/lkimports_061",
+      "https://www.tiktok.com/@lkimports",
+      "https://www.linkedin.com/company/lkimports"
+    ],
   },
 
   // ---------------------------------------------------------------------------
