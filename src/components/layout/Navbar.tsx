@@ -1,24 +1,29 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { siteConfig } from '../../siteConfig';
-import { getLogoAnimation } from '../../animations/logoAnimations';
+import { useAnimationConfig } from '../../hooks/useAnimationConfig';
 
 export const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const animationConfig = useAnimationConfig();
   
   const navItems = siteConfig.navbar.navItems;
+  const logoSize = useMemo(() => ({
+    desktop: siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop,
+    mobile: siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile,
+  }), []);
 
   return (
     <>
       <style>{`
-        .navbar-logo { height: ${siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop}px; }
+        .navbar-logo { height: ${logoSize.desktop}px; }
         @media (max-width: 768px) {
-          .navbar-logo { height: ${siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile}px; }
+          .navbar-logo { height: ${logoSize.mobile}px; }
         }
-        ${getLogoAnimation(siteConfig.animations?.logoHover).css}
+        ${animationConfig.animation.css}
       `}</style>
       <motion.nav
         initial={{ y: -100 }}
@@ -27,7 +32,7 @@ export const Navbar = () => {
       >
       <Link 
         to="/" 
-        className={`flex items-center group ${getLogoAnimation(siteConfig.animations?.logoHover).className}`}
+        className={`flex items-center group ${animationConfig.animation.className}`}
       >
         <div className="flex items-center gap-2">
           <img 
