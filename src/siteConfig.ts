@@ -260,8 +260,16 @@ export const siteConfig = {
   },
 
   animations: {
-    logoHover: 'underlineAnimated', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+    logoHover: 'glowPulse', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
   },
+//   ---------------------------------------------------------------------------
+// Opções: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+// glowPulse - Brilho pulsante sofisticado
+// splitLetterReveal - Vibração futurista discreta
+// gradientFlow - Fluxo de gradiente suave
+// letterSpaceExpand - Espaçamento + escala clássico
+// underlineAnimated ⭐ (DEFAULT) - Seu favorito: sublinhado verde + glow + scale
+//   --------------------------------------------------------------------------- 
 
   // ---------------------------------------------------------------------------
   // Redes Sociais
