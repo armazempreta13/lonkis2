@@ -6,11 +6,16 @@ Este projeto está configurado para deploy automático no **Cloudflare Pages**.
 
 ### ⚠️ IMPORTANTE: Comando de Build Correto
 
-Para evitar erros do Rollup, use EXATAMENTE este comando:
+Use este comando exato no Cloudflare Pages:
 
 ```
-npm install --legacy-peer-deps --force && npm run build
+rm -f package-lock.json && npm install --legacy-peer-deps --force && npm run build
 ```
+
+**Explicação:**
+- `rm -f package-lock.json` - Remove o lockfile para força reinstalação limpa
+- `npm install --legacy-peer-deps --force` - Instala com flags de força para módulos nativos
+- `npm run build` - Executa build (que tem um `prebuild` hook)
 
 ### Passos de Configuração:
 
@@ -23,7 +28,7 @@ npm install --legacy-peer-deps --force && npm run build
 2. **Configurar Build Settings** ⚠️ **EXATAMENTE ASSIM:**
    
    ```
-   Build command:     npm install --legacy-peer-deps --force && npm run build
+   Build command:     rm -f package-lock.json && npm install --legacy-peer-deps --force && npm run build
    Build output dir:  dist
    Root directory:    (deixar vazio)
    Node.js version:   22
@@ -47,10 +52,13 @@ Após o deploy:
 2. Clique em **Edit configuration**
 3. Altere Build command para:
    ```
-   npm install --legacy-peer-deps --force && npm run build
+   rm -f package-lock.json && npm install --legacy-peer-deps --force && npm run build
    ```
 4. Clique em **Save and Deploy**
-5. Se ainda falhar, clique **Clear build cache** e tente novamente
+5. Se ainda falhar:
+   - Vá para **Builds & deployments** > último deployment
+   - Clique em **Clear build cache**
+   - Clique **Retry deployment**
 
 ## 📋 Configurações Importantes
 
