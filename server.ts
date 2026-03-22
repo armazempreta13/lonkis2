@@ -155,23 +155,45 @@ async function startServer() {
     maxAge: 86400, // 24 hours
   }));
 
-  // 7. Body parsing with size limits
+  // 7. Image caching middleware (Cloudflare optimization)
+  // Serves images with aggressive caching and compression headers
+  app.use((req, res, next) => {
+    // Only apply to image requests
+    if (/\.(png|jpg|jpeg|gif|webp|avif|svg)$/i.test(req.path)) {
+      // Long-term caching (1 year) for versioned/hashed images
+      if (/\.[a-f0-9]{8,}\.(png|jpg|jpeg|gif|webp|avif)$/i.test(req.path)) {
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+        res.set('CDN-Cache-Control', 'max-age=31536000');
+      } else {
+        // Standard caching for other images
+        res.set('Cache-Control', 'public, max-age=604800'); // 7 days
+        res.set('CDN-Cache-Control', 'max-age=604800');
+      }
+      
+      // Allow Cloudflare to serve these from cache
+      res.set('Vary', 'Accept-Encoding');
+      res.set('X-Content-Type-Options', 'nosniff');
+    }
+    next();
+  });
+
+  // 8. Body parsing with size limits
   app.use(express.json({ limit: '5mb' })); // Reduced from 10mb
   app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
-  // 8. Payload validation (detects injection attempts)
+  // 9. Payload validation (detects injection attempts)
   app.use(payloadValidator);
 
-  // 9. Global rate limiter (applies to all endpoints except /health)
+  // 10. Global rate limiter (applies to all endpoints except /health)
   app.use(rateLimiters.global);
 
-  // 10. Request fingerprinting (detects suspicious patterns)
+  // 11. Request fingerprinting (detects suspicious patterns)
   app.use(requestFingerprinting);
 
-  // 11. Metrics collection (for monitoring)
+  // 12. Metrics collection (for monitoring)
   app.use(metricsMiddleware);
 
-  // 12. Audit logging
+  // 13. Audit logging
   app.use(auditLog);
 
   // =========================================================================
