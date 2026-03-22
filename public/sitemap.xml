@@ -1,144 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- ============================================================================
-       PÁGINAS PRINCIPAIS - Prioridade Alta
-       ============================================================================ -->
-
-  <!-- Página Inicial - HOME -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lkimports.net/</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>LK Imports - Assistência Técnica de Celulares em Brasília</image:title>
-      <image:caption>Logo da LK Imports - Especialistas em reparos de smartphones</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=1200&auto=format&fit=crop</image:loc>
-      <image:title>Assistência Técnica Premium</image:title>
-      <image:caption>Laboratório avançado de reparos de celulares</image:caption>
-    </image:image>
   </url>
-
-  <!-- Página de Serviços - SERVIÇOS -->
   <url>
     <loc>https://lkimports.net/servicos</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Serviços de Assistência Técnica</image:title>
-      <image:caption>Catálogo completo de serviços: troca de tela, bateria, placa e mais</image:caption>
-    </image:image>
   </url>
-
-  <!-- Página de Orçamento - CTA Principal -->
   <url>
     <loc>https://lkimports.net/orcamento</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1556656793-062ff9878258?q=80&w=1200&auto=format&fit=crop</image:loc>
-      <image:title>Solicitar Orçamento</image:title>
-      <image:caption>Orçamento gratuito e sem compromisso para seu dispositivo</image:caption>
-    </image:image>
   </url>
-
-  <!-- Página de Produtos - LOJA -->
   <url>
     <loc>https://lkimports.net/produtos</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Produtos Premium</image:title>
-      <image:caption>Acessórios e dispositivos seminovos com garantia</image:caption>
-    </image:image>
   </url>
-
-  <!-- ============================================================================
-       PÁGINAS INSTITUCIONAIS - Prioridade Média
-       ============================================================================ -->
-
-  <!-- Página Sobre - QUEM SOMOS -->
   <url>
     <loc>https://lkimports.net/sobre</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop</image:loc>
-      <image:title>Sobre a LK Imports</image:title>
-      <image:caption>Conheça nossa história, missão e valores - 2 anos de experiência</image:caption>
-    </image:image>
   </url>
-
-  <!-- Página de Contato -->
   <url>
     <loc>https://lkimports.net/contato</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Entre em Contato</image:title>
-      <image:caption>Endereço, telefone e formulário de contato da LK Imports em Brasília</image:caption>
-    </image:image>
   </url>
-
-  <!-- ============================================================================
-       PÁGINAS LEGAIS - Prioridade Baixa
-       ============================================================================ -->
-
-  <!-- Página de Política de Privacidade -->
   <url>
     <loc>https://lkimports.net/privacidade</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
-
-  <!-- Página de Termos de Serviço -->
   <url>
     <loc>https://lkimports.net/termos</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
-
-  <!-- Página de Política de Cookies -->
   <url>
     <loc>https://lkimports.net/cookies</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
-
-  <!-- ============================================================================
-       MAPA DO SITE - META
-       ============================================================================ -->
-  <url>
-    <loc>https://lkimports.net/sitemap.xml</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.30</priority>
-  </url>
-
-  <!-- Arquivo de Robots -->
-  <url>
-    <loc>https://lkimports.net/robots.txt</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
-
 </urlset>

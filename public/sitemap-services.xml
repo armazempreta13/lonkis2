@@ -9,97 +9,15 @@
 
   <!-- CATEGORIA: Reparos em Placa -->
   <url>
-    <loc>https://lkimports.net/servicos?categoria=avancado#reparos-em-placa</loc>
+    <loc>https://lkimports.net/servicos</loc>
     <lastmod>2026-03-22T10:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
     <image:image>
       <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Reparos em Placa - LK Imports</image:title>
-      <image:caption>Recuperação de placas com microsoldagem avançada</image:caption>
+      <image:title>Serviços da LK Imports</image:title>
+      <image:caption>Catálogo completo de serviços de assistência técnica</image:caption>
     </image:image>
-  </url>
-
-  <!-- CATEGORIA: Troca de Tela -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=hardware#troca-de-tela</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Troca de Tela - LK Imports</image:title>
-      <image:caption>Manutenção da tela original, troca apenas do vidro</image:caption>
-    </image:image>
-  </url>
-
-  <!-- CATEGORIA: Troca de Bateria -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=energia#troca-de-bateria</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-    <image:image>
-      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
-      <image:title>Troca de Bateria - LK Imports</image:title>
-      <image:caption>Baterias de alta capacidade com garantia estendida</image:caption>
-    </image:image>
-  </url>
-
-  <!-- CATEGORIA: Troca de Conector -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=hardware#troca-de-conector</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- CATEGORIA: Limpeza (Desoxidação) -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=avancado#limpeza-desoxidacao</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- CATEGORIA: Desbloqueio de Conta -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=sistema#desbloqueio-conta</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- CATEGORIA: Troca de Câmera -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=hardware#troca-de-camera</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- CATEGORIA: Reparo de Face ID -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=avancado#reparo-face-id</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- CATEGORIA: Reparo de Wi-Fi -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=hardware#reparo-wifi</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- CATEGORIA: Reparo de Superaquecimento -->
-  <url>
-    <loc>https://lkimports.net/servicos?categoria=avancado#reparo-superaquecimento</loc>
-    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
   </url>
 
 </urlset>
