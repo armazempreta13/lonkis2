@@ -260,7 +260,7 @@ export const siteConfig = {
   },
 
   animations: {
-    logoHover: 'glowPulse', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
+    logoHover: 'splitLetterReveal', // Options: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
   },
 //   ---------------------------------------------------------------------------
 // Opções: glowPulse, splitLetterReveal, gradientFlow, letterSpaceExpand, underlineAnimated
