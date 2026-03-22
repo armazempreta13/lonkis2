@@ -31,8 +31,8 @@ export const Location = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-          <div className="lg:col-span-4 grid grid-cols-1 gap-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -80,28 +80,6 @@ export const Location = () => {
               </p>
             </motion.div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-8 min-h-[500px] rounded-[4rem] border border-white/10 overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative group shadow-2xl"
-          >
-            <iframe 
-              src={siteConfig.contact.mapsEmbed} 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              title={`Localização da ${siteConfig.brand.name} no Google Maps`}
-              aria-label={`Mapa mostrando a localização da ${siteConfig.brand.name}`}
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0"
-            ></iframe>
-            <div className="absolute inset-0 pointer-events-none border-[30px] border-black/20 group-hover:border-transparent transition-all duration-700"></div>
-          </motion.div>
         </div>
       </div>
     </section>
