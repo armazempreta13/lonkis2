@@ -22,6 +22,7 @@ export const useAnimationConfig = () => {
     });
 
     // Se em dev mode, detecta mudanças via hot reload
+    // @ts-ignore
     if (import.meta.hot) {
       const handleHotUpdate = () => {
         const newAnimationName = siteConfig.animations?.logoHover || 'underlineAnimated';
@@ -32,6 +33,7 @@ export const useAnimationConfig = () => {
       };
 
       // Re-subscrive a mudanças
+      // @ts-ignore
       import.meta.hot.on('full-reload', handleHotUpdate);
     }
   }, []);

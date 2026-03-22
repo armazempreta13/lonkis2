@@ -17,7 +17,7 @@ export const useLazyImage = () => {
             img.removeAttribute('data-src');
           }
           if (srcSet) {
-            img.srcSet = srcSet;
+            img.srcset = srcSet;
             img.removeAttribute('data-srcset');
           }
 

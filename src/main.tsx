@@ -4,6 +4,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Performance optimizations
+// @ts-ignore
 if (import.meta.env.PROD) {
   // Disable console in production
   console.log = () => {};
@@ -26,6 +27,7 @@ if ('requestIdleCallback' in window) {
 }
 
 // Register Service Worker for caching
+// @ts-ignore
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   navigator.serviceWorker
     .register('/sw.js', { scope: '/' })

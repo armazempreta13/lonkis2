@@ -33,8 +33,11 @@ const CACHE_KEY = 'lk_imports_google_reviews';
  * Busca reviews do Google Places API
  */
 export const fetchGoogleReviews = async (): Promise<TransformedReview[]> => {
+  // @ts-ignore
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+  // @ts-ignore
   const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID;
+  // @ts-ignore
   const maxReviews = import.meta.env.VITE_MAX_REVIEWS || '3';
 
   // Validar credenciais
@@ -108,7 +111,9 @@ export const clearReviewsCache = () => {
  * Obter estatísticas do Google
  */
 export const fetchGoogleRating = async (): Promise<{ rating: number; totalReviews: number } | null> => {
+  // @ts-ignore
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+  // @ts-ignore
   const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID;
 
   if (!apiKey || !placeId) return null;
