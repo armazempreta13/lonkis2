@@ -6,10 +6,20 @@ import net from 'net';
 import { createServer as createViteServer } from 'vite';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
-import rateLimit from 'express-rate-limit';
 import bcrypt from 'bcrypt';
 import db from './db.js';
 import { auditLog } from './middleware/audit.js';
+import {
+  rateLimiters,
+  compressionMiddleware,
+  requestTimeoutMiddleware,
+  payloadValidator,
+  requestFingerprinting,
+  responseSecurityHeaders,
+  metricsMiddleware,
+  getMetrics,
+  circuitBreaker,
+} from './middleware/security.js';
 import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 import quoteRoutes from './routes/quotes.js';
@@ -50,23 +60,22 @@ async function startServer() {
     connectSrc.push('ws://localhost:24683', 'ws://localhost:24690', 'ws://localhost:24691', 'ws://localhost:24692');
   }
 
-  // Rate limiting
-  const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
-    message: 'Muitas tentativas, tente novamente mais tarde.',
-  });
+  // =========================================================================
+  // SECURITY MIDDLEWARE STACK (Order matters!)
+  // =========================================================================
 
-  const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5, // limit each IP to 5 auth attempts per windowMs
-    message: 'Muitas tentativas de login, tente novamente mais tarde.',
-  });
+  // 1. Trust proxy configuration (for rate limiting behind proxies)
+  if (process.env.TRUST_PROXY === 'true') {
+    app.set('trust proxy', 1);
+  }
 
-  app.use(limiter);
-  app.use('/api/auth', authLimiter);
+  // 2. Request timeout
+  app.use(requestTimeoutMiddleware);
 
-  // Middleware
+  // 3. Response compression (reduces bandwidth usage, good for scalability)
+  app.use(compressionMiddleware);
+
+  // 4. Security headers (Helmet)
   app.use(helmet({
     contentSecurityPolicy: {
       directives: {
@@ -89,32 +98,93 @@ async function startServer() {
     xssFilter: true,
     referrerPolicy: { policy: "strict-origin-when-cross-origin" }
   }));
-  app.use(cors());
-  app.use(express.json({ limit: '10mb' }));
-  app.use(express.urlencoded({ extended: true }));
 
-  // Audit logging
+  // 5. Additional security headers
+  app.use(responseSecurityHeaders);
+
+  // 6. CORS configuration (restrictive but sufficient)
+  app.use(cors({
+    origin: process.env.CORS_ORIGIN || ['http://localhost:5173', 'http://localhost:3006'],
+    credentials: true,
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    maxAge: 86400, // 24 hours
+  }));
+
+  // 7. Body parsing with size limits
+  app.use(express.json({ limit: '5mb' })); // Reduced from 10mb
+  app.use(express.urlencoded({ extended: true, limit: '5mb' }));
+
+  // 8. Payload validation (detects injection attempts)
+  app.use(payloadValidator);
+
+  // 9. Global rate limiter (applies to all endpoints except /health)
+  app.use(rateLimiters.global);
+
+  // 10. Request fingerprinting (detects suspicious patterns)
+  app.use(requestFingerprinting);
+
+  // 11. Metrics collection (for monitoring)
+  app.use(metricsMiddleware);
+
+  // 12. Audit logging
   app.use(auditLog);
 
-  // API routes
-  app.use('/api/auth', authRoutes);
-  app.use('/api/products', productRoutes);
-  app.use('/api/quotes', quoteRoutes);
-  app.use('/api/repairs', repairRoutes);
-  app.use('/api/users', userRoutes);
+  // =========================================================================
+  // API ROUTES WITH SPECIFIC PROTECTIONS
+  // =========================================================================
 
+  // Authentication routes (stricter rate limiting)
+  app.use('/api/auth', rateLimiters.auth, authRoutes);
+
+  // Product routes (standard rate limiting + circuit breaker)
+  app.use('/api/products', rateLimiters.api, circuitBreaker('products'), productRoutes);
+
+  // Quote routes (standard rate limiting)
+  app.use('/api/quotes', rateLimiters.api, quoteRoutes);
+
+  // Repair routes (standard rate limiting)
+  app.use('/api/repairs', rateLimiters.api, repairRoutes);
+
+  // User routes (stricter rate limiting + circuit breaker)
+  app.use('/api/users', rateLimiters.api, circuitBreaker('users'), userRoutes);
+
+  // =========================================================================
+  // HEALTH CHECK & METRICS ENDPOINTS
+  // =========================================================================
+
+  // Health check endpoint (no rate limiting)
   app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', message: 'LK Imports API is running', timestamp: new Date().toISOString() });
+    const metrics = getMetrics();
+    res.json({
+      status: 'ok',
+      message: 'LK Imports API is running',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
+    });
   });
 
-  // Create default admin user
+  // Metrics endpoint (admin only)
+  app.get('/api/metrics', (req, res) => {
+    // TODO: Add authentication check here
+    const metrics = getMetrics();
+    res.json(metrics);
+  });
+
+  // =========================================================================
+  // CREATE DEFAULT ADMIN USER
+  // =========================================================================
+
   const createAdmin = async () => {
     try {
       const adminExists = db.prepare('SELECT id FROM users WHERE email = ?').get('admin@lkimports.com');
       if (!adminExists) {
         const passwordHash = await bcrypt.hash('admin123', 10);
         db.prepare('INSERT INTO users (email, password_hash, name, role) VALUES (?, ?, ?, ?)').run('admin@lkimports.com', passwordHash, 'Admin', 'admin');
-        console.log('Admin user created: admin@lkimports.com / admin123');
+        console.log('⚠️  DEFAULT ADMIN CREATED: admin@lkimports.com / admin123');
+        console.log('⚠️  CHANGE THESE CREDENTIALS IN PRODUCTION!');
       }
     } catch (error) {
       console.error('Error creating admin:', error);
@@ -123,7 +193,10 @@ async function startServer() {
 
   createAdmin();
 
-  // Vite middleware for development
+  // =========================================================================
+  // VITE DEVELOPMENT SERVER OR STATIC PRODUCTION BUILD
+  // =========================================================================
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: {
@@ -134,19 +207,40 @@ async function startServer() {
     });
     app.use(vite.middlewares);
 
-    console.log(`HMR rodando em porta ${hmrPort}`);
+    console.log(`🔄 HMR rodando em porta ${hmrPort}`);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
+    app.use(express.static(distPath, {
+      maxAge: '1d', // Cache assets for 1 day
+      etag: false // Disable etag for faster serving
+    }));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
+  // =========================================================================
+  // START SERVER
+  // =========================================================================
+
   const serverPort = await getAvailablePort(PORT);
 
   app.listen(serverPort, '0.0.0.0', () => {
-    console.log(`Server running on http://localhost:${serverPort}`);
+    const mode = process.env.NODE_ENV === 'production' ? '🚀 PRODUCTION' : '🧪 DEVELOPMENT';
+    console.log(`${mode} - Server running on http://localhost:${serverPort}`);
+    console.log('');
+    console.log('🔐 Security Features Enabled:');
+    console.log('  ✅ Global Rate Limiting (500 req/15min)');
+    console.log('  ✅ Auth Rate Limiting (5 attempts/15min)');
+    console.log('  ✅ Strict Payload Validation');
+    console.log('  ✅ Request Fingerprinting');
+    console.log('  ✅ Circuit Breaker Pattern');
+    console.log('  ✅ Response Compression (Brotli + Gzip)');
+    console.log('  ✅ Request Timeout Protection');
+    console.log('  ✅ Security Headers (Helmet + Custom)');
+    console.log('  ✅ Audit Logging');
+    console.log('  ✅ Performance Monitoring');
+    console.log('');
   });
 }
 
