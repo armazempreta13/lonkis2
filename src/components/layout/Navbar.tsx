@@ -11,14 +11,11 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
   const animationConfig = useAnimationConfig();
-  
-  const adminNavItem = user
-    ? user.role === 'admin'
-      ? { label: 'Admin', href: '/admin' }
-      : { label: 'Área Admin', href: '/login' }
-    : { label: 'Área Admin', href: '/login' };
 
-  const navItems = [...siteConfig.navbar.navItems, adminNavItem];
+  // Remover o item de área/admin do navbar enquanto essa funcionalidade está desabilitada
+  const navItems = [...siteConfig.navbar.navItems];
+
+  // Se quiser reativar, pode voltar o adminNavItem com condicional de role 'admin'.
   const logoSize = useMemo(() => ({
     desktop: siteConfig.brand.logoSize?.navbar?.desktop ?? siteConfig.brand.logoSize.desktop,
     mobile: siteConfig.brand.logoSize?.navbar?.mobile ?? siteConfig.brand.logoSize.mobile,
