@@ -1,2 +1,2 @@
-# This file can be deleted - using wrangler.toml for Cloudflare Pages instead
-# Kept for reference only
+# OBSOLETO - Usar Cloudflare Pages
+# Ver wrangler.toml para configuração de deployment
