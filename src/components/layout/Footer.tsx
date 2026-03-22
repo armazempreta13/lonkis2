@@ -44,7 +44,7 @@ export const Footer = () => {
               <img 
                 src={siteConfig.brand.logo} 
                 alt={`${siteConfig.brand.name} Logo`} 
-                className="h-20 sm:h-32 w-auto object-contain brightness-0 invert group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all mx-auto sm:mx-0"
+                className="h-24 sm:h-36 w-auto object-contain brightness-0 invert group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all mx-auto sm:mx-0"
                 referrerPolicy="no-referrer"
               />
             </Link>

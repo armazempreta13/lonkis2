@@ -22,7 +22,7 @@ export const Navbar = () => {
           <img 
             src={siteConfig.brand.logo} 
             alt={`${siteConfig.brand.name} Logo`} 
-            className="h-14 md:h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
+            className="h-16 md:h-18 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
             referrerPolicy="no-referrer"
           />
         </div>

@@ -157,7 +157,7 @@ export const siteConfig = {
     },
     support: {
       phone: "+556195191308",
-      email: "suporte@lkimports.com.br",
+      email: "suporte@lkimports.net",
       responseTime: "Até 2 horas em horário comercial",
     },
   },
