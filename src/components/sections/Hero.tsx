@@ -113,12 +113,12 @@ const ProductImage = () => (
     <motion.div
       animate={{ y: [0, -20, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      className="group relative w-full max-w-[500px]"
+      className="group relative w-full max-w-[700px]"
     >
       {/* Glow */}
       <div
         aria-hidden="true"
-        className="absolute -inset-4 -z-10 rounded-[4rem] bg-white/5 blur-3xl transition-all duration-1000 group-hover:bg-white/10"
+        className="absolute -inset-5 -z-10 rounded-[4.5rem] bg-white/5 blur-3xl transition-all duration-1000 group-hover:bg-white/10"
       />
 
       {/* Card */}
@@ -126,10 +126,7 @@ const ProductImage = () => (
         <img
           src="https://i.imgur.com/VOKsdKH.png"
           alt="Smartphone premium em destaque"
-          className="h-auto w-full scale-[1.05] grayscale transition-all duration-1000 group-hover:scale-100 group-hover:grayscale-0"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
+          className="h-auto w-full scale-[1.12] grayscale transition-all duration-1000 group-hover:scale-[1.22] group-hover:grayscale-0"
 
         {/* Overlay gradient on hover */}
         <div
