@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================================
+       PRODUTOS - Sitemap Especializado
+       Categorias e produtos individuais para melhor indexação
+       ============================================================================ -->
+
+  <!-- CATEGORIA: iPhones -->
+  <url>
+    <loc>https://lkimports.net/produtos?categoria=iphones</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/iphone15promax/400/400</image:loc>
+      <image:title>iPhones - LK Imports</image:title>
+      <image:caption>iPhone 15, 14, 13 e mais - Seminovos com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: iPhone 15 Pro Max -->
+  <url>
+    <loc>https://lkimports.net/produtos/iphone-15-pro-max</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/iphone15promax/400/400</image:loc>
+      <image:title>iPhone 15 Pro Max</image:title>
+      <image:caption>iPhone 15 Pro Max - R$ 7.999,00 - Novo com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: iPhone 14 Pro -->
+  <url>
+    <loc>https://lkimports.net/produtos/iphone-14-pro</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/iphone14pro/400/400</image:loc>
+      <image:title>iPhone 14 Pro</image:title>
+      <image:caption>iPhone 14 Pro - R$ 5.999,00 - Seminovo com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- CATEGORIA: Video Games -->
+  <url>
+    <loc>https://lkimports.net/produtos?categoria=video-games</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/ps5slimf/400/400</image:loc>
+      <image:title>Video Games - LK Imports</image:title>
+      <image:caption>PlayStation 5 Slim e outros consoles com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: PS5 Slim Mídia Física -->
+  <url>
+    <loc>https://lkimports.net/produtos/ps5-slim-midia-fisica</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/ps5slimf/400/400</image:loc>
+      <image:title>PS5 Slim Mídia Física</image:title>
+      <image:caption>PlayStation 5 Slim com mídia física - R$ 4.200,00 - Novo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- CATEGORIA: Acessórios -->
+  <url>
+    <loc>https://lkimports.net/produtos?categoria=acessorios</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/airpodspro2/400/400</image:loc>
+      <image:title>Acessórios - LK Imports</image:title>
+      <image:caption>AirPods Pro, Apple Watch, JBL e mais - Com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: AirPods Pro 2 -->
+  <url>
+    <loc>https://lkimports.net/produtos/airpods-pro-2</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/airpodspro2/400/400</image:loc>
+      <image:title>AirPods Pro 2</image:title>
+      <image:caption>AirPods Pro 2ª Geração - R$ 1.200,00 - Novo com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: Apple Watch Series 9 -->
+  <url>
+    <loc>https://lkimports.net/produtos/apple-watch-series-9</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/watch9/400/400</image:loc>
+      <image:title>Apple Watch Series 9</image:title>
+      <image:caption>Apple Watch Series 9 - R$ 3.000,00 - Novo com garantia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PRODUTO: JBL Flip 6 -->
+  <url>
+    <loc>https://lkimports.net/produtos/jbl-flip-6</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/jblflip6/400/400</image:loc>
+      <image:title>JBL Flip 6</image:title>
+      <image:caption>JBL Flip 6 - Caixa de som portátil - R$ 600,00 - Novo</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
