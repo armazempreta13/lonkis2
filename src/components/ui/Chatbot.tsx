@@ -234,59 +234,63 @@ Bubble.displayName = 'Bubble';
 // ─── Chips ─────────────────────────────────────────────────────────────────────
 
 const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r: QuickReply) => void }) => {
-  const [page, setPage] = useState(0);
-  const itemsPerPage = 2;
-  const totalPages = Math.ceil(replies.length / itemsPerPage);
-  
-  useEffect(() => { setPage(0); }, [replies]);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const dragStartX = useRef(0);
+  const scrollStartX = useRef(0);
+  const dragging = useRef(false);
 
-  const currentReplies = replies.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!trackRef.current) return;
+    dragging.current = true;
+    dragStartX.current = event.clientX;
+    scrollStartX.current = trackRef.current.scrollLeft;
+    trackRef.current.setPointerCapture(event.pointerId);
+    trackRef.current.style.cursor = 'grabbing';
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging.current || !trackRef.current) return;
+    const dx = event.clientX - dragStartX.current;
+    trackRef.current.scrollLeft = scrollStartX.current - dx;
+  };
+
+  const endDrag = () => {
+    if (!trackRef.current) return;
+    dragging.current = false;
+    trackRef.current.style.cursor = 'grab';
+  };
 
   return (
-    <div className="flex flex-col items-center w-full lk-chips-wrap py-4">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={page}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.2 }}
-          className="flex gap-2.5 justify-center w-full px-4"
-        >
-          {currentReplies.map((r) => {
-            const Icon = r.icon ? IconMap[r.icon] : null;
-            const isPrimary = r.action === 'link' || r.icon === 'Zap';
-            
-            return (
-              <motion.button
-                key={r.id}
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={() => onSelect(r)}
-                className={`lk-chip flex-1 flex flex-col items-center justify-center gap-2 p-3 text-center ${isPrimary ? 'lk-chip-primary' : ''}`}
-                style={{ minHeight: '80px', maxWidth: '50%' }}
-              >
-                {Icon && <Icon size={18} strokeWidth={isPrimary ? 2.5 : 2} />}
-                <span className="font-semibold text-[11px] leading-tight">{r.label}</span>
-              </motion.button>
-            );
-          })}
-        </motion.div>
-      </AnimatePresence>
-      
-      {totalPages > 1 && (
-        <div className="flex gap-2 mt-4">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPage(i)}
-              className={`w-2 h-2 rounded-full transition-all cursor-pointer ${i === page ? 'scale-125' : 'hover:scale-110'}`}
-              style={{ background: i === page ? 'var(--lk-green)' : 'var(--lk-muted)' }}
-              aria-label={`Ir para página ${i + 1}`}
-            />
-          ))}
-        </div>
-      )}
+    <div className="flex flex-col items-start w-full lk-chips-wrap py-3">
+      <div
+        ref={trackRef}
+        className="flex gap-2.5 w-full overflow-x-auto no-scrollbar px-3 py-2 cursor-grab"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        onPointerCancel={endDrag}
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
+        {replies.map((r) => {
+          const Icon = r.icon ? IconMap[r.icon] : null;
+          const isPrimary = r.action === 'link' || r.icon === 'Zap';
+
+          return (
+            <motion.button
+              key={r.id}
+              whileHover={{ y: -1, scale: 1.01 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => onSelect(r)}
+              className={`lk-chip flex-none flex flex-col items-center justify-center gap-1 p-2 text-center ${isPrimary ? 'lk-chip-primary' : ''}`}
+              style={{ minWidth: '115px', maxWidth: '170px', minHeight: '58px' }}
+            >
+              {Icon && <Icon size={16} strokeWidth={isPrimary ? 2.5 : 2} />}
+              <span className="font-semibold text-[11px] leading-tight">{r.label}</span>
+            </motion.button>
+          );
+        })}
+      </div>
     </div>
   );
 });
@@ -621,21 +625,28 @@ export const Chatbot = () => {
         .lk-chips-wrap {
           border-top: 1px solid var(--lk-border);
           background: rgba(0,0,0,0.15);
-          mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
-          -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
+          border-bottom-left-radius: 12px;
+          border-bottom-right-radius: 12px;
         }
+        .lk-chips-wrap .no-scrollbar::-webkit-scrollbar { display: none; }
+        .lk-chips-wrap .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         .lk-chip {
-          padding: 10px 18px;
-          border-radius: 14px;
+          padding: 8px 14px;
+          border-radius: 12px;
           font-size: 11px; font-weight: 600;
           color: var(--lk-text);
           border: 1px solid var(--lk-border);
           background: rgba(255,255,255,0.04);
-          white-space: nowrap;
+          white-space: normal;
           cursor: pointer; outline: none;
           transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
           font-family: 'DM Sans', sans-serif;
           backdrop-filter: blur(10px);
+          min-width: 115px;
+          max-width: 170px;
+          min-height: 56px;
+          justify-content: center;
         }
         .lk-chip:hover {
           background: rgba(255,255,255,0.08);
