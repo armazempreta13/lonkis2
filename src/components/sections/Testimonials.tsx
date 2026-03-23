@@ -33,6 +33,11 @@ const FALLBACK_REVIEWS: Review[] = siteConfig.pages.home.testimonials?.items?.ma
 })) || [];
 
 export const Testimonials = () => {
+  // Verificar se o componente está habilitado no siteConfig
+  if (!siteConfig.pages.home.testimonials?.enabled) {
+    return null; // Componente desabilitado
+  }
+
   const { reviews: googleReviews, ratingData, isLoading } = useGoogleReviews();
   const [reviews, setReviews] = useState<Review[]>(FALLBACK_REVIEWS);
   const [overallRating, setOverallRating] = useState(siteConfig.pages.home.testimonials?.googleRating ? parseFloat(siteConfig.pages.home.testimonials.googleRating) : 5.0);

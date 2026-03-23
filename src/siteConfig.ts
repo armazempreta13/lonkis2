@@ -347,6 +347,7 @@ export const siteConfig = {
         ]
       },
       testimonials: {
+        enabled: false, // Desabilitado - componente não está funcionando corretamente
         badge: "Avaliações Reais",
         title: "O que dizem",
         titleAccent: "Nossos Clientes",
