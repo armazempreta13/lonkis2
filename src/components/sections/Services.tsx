@@ -1,13 +1,16 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Info } from 'lucide-react';
 import { useState } from 'react';
 import { QuoteModal } from '../ui/QuoteModal';
+import { ServiceDetailModal } from '../ui/ServiceDetailModal';
 import { Button } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../../siteConfig';
 
 export const Services = () => {
   const [selectedService, setSelectedService] = useState<{title: string} | null>(null);
+  const [serviceDetailsOpen, setServiceDetailsOpen] = useState(false);
+  const [selectedServiceDetails, setSelectedServiceDetails] = useState<any>(null);
 
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
@@ -75,13 +78,26 @@ export const Services = () => {
                 <p className="text-white/30 group-hover:text-black/40 text-xs sm:text-sm leading-relaxed font-medium transition-colors">{service.description}</p>
               </div>
               
-              <Button 
-                className="mt-auto w-full py-6 bg-white/5 text-white border border-white/10 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em]"
-                onClick={() => setSelectedService({title: service.title})}
-                ariaLabel={`Solicitar orçamento para ${service.title}`}
-              >
-                Solicitar Orçamento
-              </Button>
+              <div className="mt-auto w-full space-y-3 flex flex-col gap-3">
+                <Button 
+                  className="w-full py-6 bg-white text-black hover:bg-white/90 border border-white group-hover:text-white transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em]"
+                  onClick={() => setSelectedService({title: service.title})}
+                  ariaLabel={`Solicitar orçamento para ${service.title}`}
+                >
+                  Solicitar Orçamento
+                </Button>
+                <Button 
+                  className="w-full py-4 bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2"
+                  onClick={() => {
+                    setSelectedServiceDetails(service);
+                    setServiceDetailsOpen(true);
+                  }}
+                  ariaLabel={`Saiba mais sobre ${service.title}`}
+                >
+                  <Info className="w-3.5 h-3.5" />
+                  Saiba Mais
+                </Button>
+              </div>
             </motion.div>
           )})}
         </div>
@@ -92,7 +108,14 @@ export const Services = () => {
           isOpen={!!selectedService} 
           onClose={() => setSelectedService(null)} 
           serviceName={selectedService.title}
+        />
+      )}
 
+      {selectedServiceDetails && (
+        <ServiceDetailModal
+          isOpen={serviceDetailsOpen}
+          onClose={() => setServiceDetailsOpen(false)}
+          service={selectedServiceDetails}
         />
       )}
     </section>

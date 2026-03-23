@@ -328,9 +328,48 @@ export const siteConfig = {
         description: "Do reparo de placa à troca de tela, oferecemos um ecossistema completo de soluções para o seu dispositivo.",
         ctaText: "Ver todos os serviços",
         items: [
-          { icon: Cpu, title: "Reparo em Placa", description: "Recuperação de placas com microsoldagem avançada." },
-          { icon: Smartphone, title: "Troca de Vidro", description: "Mantemos sua tela original, trocando apenas o vidro." },
-          { icon: Battery, title: "Bateria Premium", description: "Baterias de alta capacidade com garantia estendida." },
+          {
+            icon: Cpu,
+            title: "Reparo em Placa",
+            description: "Recuperação de placas com microsoldagem avançada.",
+            details: [
+              "Diagnóstico completo com testes avançados",
+              "Microsoldagem de componentes SMD",
+              "Recuperação de pontos de solda frios",
+              "Troca de circuitos integrados danificados",
+              "Teste final de funcionamento completo",
+            ],
+            warranty: "90 dias",
+            timeline: "1-2 dias"
+          },
+          {
+            icon: Smartphone,
+            title: "Troca de Vidro",
+            description: "Mantemos sua tela original, trocando apenas o vidro.",
+            details: [
+              "Remoção cuidadosa do vidro danificado",
+              "Limpeza profunda da tela LCD/OLED",
+              "Aplicação de adesivo de alta qualidade",
+              "Instalação de vidro premium resistente",
+              "Teste completo de touch e cores",
+            ],
+            warranty: "90 dias",
+            timeline: "2-3 horas"
+          },
+          {
+            icon: Battery,
+            title: "Bateria Premium",
+            description: "Baterias de alta capacidade com garantia estendida.",
+            details: [
+              "Testes de voltagem e capacidade",
+              "Bateria original ou equivalente premium",
+              "Troca com dados preservados",
+              "Calibração do sistema de bateria",
+              "Configurações otimizadas de consumo",
+            ],
+            warranty: "6 meses",
+            timeline: "30 minutos"
+          },
         ]
       },
       differentials: {
