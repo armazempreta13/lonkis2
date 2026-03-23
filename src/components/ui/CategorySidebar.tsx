@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, Filter, RotateCcw, Check, Circle } from 'lucide-react';
+import { ChevronDown, RotateCcw, Check } from 'lucide-react';
 
 interface CategorySidebarProps {
   categories: Record<string, {
@@ -24,8 +24,7 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
   onSubcategoryChange,
 }) => {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
-  
-  // Sincronizar expandedCategory com selectedMainCategory quando muda
+
   useEffect(() => {
     if (selectedMainCategory && selectedMainCategory !== expandedCategory) {
       setExpandedCategory(selectedMainCategory);
@@ -37,10 +36,8 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
 
   const handleCategoryClick = (categoryId: string) => {
     if (expandedCategory === categoryId) {
-      // Já está expandido, apenas colapsa o menu
       setExpandedCategory(null);
     } else {
-      // Expande a nova categoria
       setExpandedCategory(categoryId);
       onMainCategoryChange(categoryId);
       onSubcategoryChange(null);
@@ -61,14 +58,12 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-4">
       {/* Header */}
-      <div className="mb-8 flex items-center gap-3">
-        <div className="h-1 w-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-        <h3 className="text-white font-black uppercase tracking-[0.35em] text-xs">
-          FILTROS
+      <div className="mb-6">
+        <h3 className="text-[10px] font-black text-white/40 uppercase tracking-[0.35em] mb-4">
+          🏷️ Categorias
         </h3>
-        <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent" />
       </div>
 
       {/* Clear Button */}
@@ -80,20 +75,19 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             onClick={handleClearFilters}
-            className="w-full mb-6 px-4 py-3 bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/30 hover:to-pink-500/30 border border-red-500/40 hover:border-red-500/60 rounded-xl flex items-center justify-center gap-2 text-red-300 hover:text-red-200 transition-all text-xs font-bold uppercase tracking-wider"
+            className="w-full px-4 py-3 bg-gradient-to-br from-zinc-700/40 to-zinc-800/40 hover:from-zinc-700/60 hover:to-zinc-800/60 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-2xl flex items-center justify-center gap-2.5 text-white/70 hover:text-white transition-all text-[10px] font-black uppercase tracking-wider shadow-lg hover:shadow-xl hover:shadow-white/5"
           >
-            <RotateCcw size={14} />
-            Limpar Tudo
+            <RotateCcw size={13} strokeWidth={2.5} />
+            Limpar
           </motion.button>
         )}
       </AnimatePresence>
 
       {/* Categories List */}
-      <div className="space-y-2">
+      <div className="space-y-2.5">
         {categoryList.map((cat, idx) => {
           const isExpanded = expandedCategory === cat.id;
           const isSelected = selectedMainCategory === cat.id;
-          const hasSubSelected = isSelected && selectedSubcategory;
 
           return (
             <motion.div
@@ -106,48 +100,39 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
               <motion.button
                 type="button"
                 onClick={() => handleCategoryClick(cat.id)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full px-4 py-4 rounded-2xl flex items-center justify-between transition-all duration-200 group relative overflow-hidden ${
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                className={`w-full px-4 py-3.5 rounded-2xl flex items-center justify-between transition-all duration-200 group overflow-hidden ${
                   isSelected
-                    ? `bg-gradient-to-r ${cat.color} text-white shadow-xl shadow-white/20 border border-white/40`
-                    : 'bg-white/5 hover:bg-white/8 text-white/80 hover:text-white border border-white/10 hover:border-white/20'
+                    ? `bg-gradient-to-br from-zinc-700/60 to-zinc-800/40 text-white shadow-lg shadow-white/10 border border-white/20`
+                    : 'bg-gradient-to-br from-zinc-800/40 to-zinc-900/60 hover:from-zinc-800/60 hover:to-zinc-900/50 text-white/80 hover:text-white border border-white/8 hover:border-white/15'
                 }`}
               >
-                {/* Animated background gradient */}
-                {isSelected && (
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white to-transparent"
-                    initial={{ x: -100 }}
-                    whileHover={{ x: 100 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                )}
-
-                <div className="flex items-center gap-3 flex-1 text-left relative z-10">
-                  {/* Icon Container */}
+                {/* Content */}
+                <div className="flex items-center gap-3 flex-1 text-left">
+                  {/* Icon */}
                   <motion.div
                     animate={{
-                      scale: isSelected ? 1.15 : 1,
-                      rotate: isSelected ? 5 : 0,
+                      scale: isSelected ? 1.1 : 1,
                     }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center flex-shrink-0 shadow-lg ${
-                      !isSelected ? 'opacity-70 group-hover:opacity-100' : 'shadow-white/30'
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                    className={`w-9 h-9 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center flex-shrink-0 shadow-lg ${
+                      !isSelected ? 'opacity-70 group-hover:opacity-100' : 'shadow-white/20'
                     } transition-opacity`}
                   >
                     {React.createElement(cat.icon, {
-                      size: 18,
-                      className: 'text-white font-bold',
+                      size: 17,
+                      className: 'text-white',
+                      strokeWidth: 2.5,
                     })}
                   </motion.div>
 
                   {/* Text */}
-                  <div className="text-left">
-                    <p className={`font-black text-sm tracking-tight ${isSelected ? 'text-white' : 'text-white/90'}`}>
+                  <div className="text-left min-w-0">
+                    <p className={`font-black text-xs tracking-tight truncate ${isSelected ? 'text-white' : 'text-white/90'}`}>
                       {cat.name}
                     </p>
-                    <p className={`text-xs font-semibold ${isSelected ? 'text-white/80' : 'text-white/40'}`}>
+                    <p className={`text-[9px] font-semibold ${isSelected ? 'text-white/60' : 'text-white/30'}`}>
                       {cat.subcategories.length} itens
                     </p>
                   </div>
@@ -156,14 +141,14 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
                 {/* Chevron */}
                 <motion.div
                   animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
-                  className={`relative z-10 ${isSelected ? 'text-white' : 'text-white/40 group-hover:text-white/60'}`}
+                  transition={{ duration: 0.3 }}
+                  className={`flex-shrink-0 ${isSelected ? 'text-white' : 'text-white/30 group-hover:text-white/50'}`}
                 >
-                  <ChevronDown size={20} strokeWidth={2.5} />
+                  <ChevronDown size={18} strokeWidth={2.5} />
                 </motion.div>
               </motion.button>
 
-              {/* Subcategories Expandable */}
+              {/* Subcategories */}
               <AnimatePresence>
                 {isExpanded && cat.subcategories.length > 0 && (
                   <motion.div
@@ -173,29 +158,29 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
                   >
-                    <div className="ml-4 pl-4 border-l-2 border-gradient-to-b from-white/30 to-white/5 space-y-2 pb-2">
-                      {/* "All" option */}
+                    <div className="ml-3 pl-3 border-l border-white/10 space-y-2">
+                      {/* All option */}
                       <motion.button
                         type="button"
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
                         onClick={(e) => {
                           e.stopPropagation();
                           onSubcategoryChange(null);
                         }}
-                        whileHover={{ x: 4 }}
-                        className={`w-full text-left px-4 py-2.5 rounded-lg transition-all text-sm font-bold tracking-tight flex items-center gap-2.5 group ${
+                        whileHover={{ x: 2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`w-full text-left px-3 py-2 rounded-lg transition-all text-[11px] font-black tracking-tight flex items-center gap-2 group ${
                           selectedSubcategory === null && isSelected
-                            ? `bg-gradient-to-r ${cat.color} text-white shadow-lg shadow-white/10`
-                            : 'text-white/60 hover:text-white hover:bg-white/5'
+                            ? `bg-gradient-to-br from-zinc-700/40 to-zinc-800/30 text-white`
+                            : 'text-white/50 hover:text-white/70 hover:bg-white/5'
                         }`}
                       >
-                        <Circle size={10} className="flex-shrink-0 fill-current opacity-60" />
+                        <div className="w-3 h-3 rounded-full border border-current opacity-60 flex-shrink-0" />
                         <span>Todos</span>
                       </motion.button>
 
-                      {/* Individual Subcategories */}
+                      {/* Subcategories */}
                       {cat.subcategories.map((subcat, subIdx) => {
                         const isSubSelected = selectedSubcategory === subcat;
                         return (
@@ -207,31 +192,22 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
                             exit={{ opacity: 0, x: -10 }}
                             transition={{ delay: subIdx * 0.04 }}
                             onClick={(e) => handleSubcategoryClick(e, subcat)}
-                            whileHover={{ x: 4 }}
+                            whileHover={{ x: 2 }}
                             whileTap={{ scale: 0.98 }}
-                            className={`w-full text-left px-4 py-2.5 rounded-lg transition-all text-sm font-bold tracking-tight flex items-center gap-2.5 group relative overflow-hidden ${
+                            className={`w-full text-left px-3 py-2 rounded-lg transition-all text-[11px] font-black tracking-tight flex items-center gap-2 group ${
                               isSubSelected
-                                ? `bg-gradient-to-r ${cat.color} text-white shadow-lg shadow-white/10`
-                                : 'text-white/50 hover:text-white/80 hover:bg-white/5'
+                                ? `bg-gradient-to-br from-zinc-700/40 to-zinc-800/30 text-white`
+                                : 'text-white/40 hover:text-white/60 hover:bg-white/5'
                             }`}
                           >
-                            <AnimatePresence>
+                            <div className="flex-shrink-0 w-3 h-3 flex items-center justify-center">
                               {isSubSelected ? (
-                                <motion.div
-                                  initial={{ scale: 0, rotate: -180 }}
-                                  animate={{ scale: 1, rotate: 0 }}
-                                  exit={{ scale: 0, rotate: 180 }}
-                                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                                >
-                                  <Check size={14} className="flex-shrink-0 font-bold" />
-                                </motion.div>
+                                <Check size={12} className="text-white font-black" />
                               ) : (
-                                <motion.div
-                                  className="w-3.5 h-3.5 rounded-full border-2 border-current opacity-40 group-hover:opacity-60 flex-shrink-0"
-                                />
+                                <div className="w-2 h-2 rounded-full border border-current opacity-40" />
                               )}
-                            </AnimatePresence>
-                            <span>{subcat}</span>
+                            </div>
+                            <span className="truncate">{subcat}</span>
                           </motion.button>
                         );
                       })}
@@ -244,39 +220,36 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
         })}
       </div>
 
-      {/* Active Filters Badge */}
+      {/* Active Filters */}
       <AnimatePresence>
         {(selectedMainCategory || selectedSubcategory) && (
           <motion.div
             key="active-filters"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            className="mt-8 pt-6 border-t border-white/10"
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="mt-6 pt-4 border-t border-white/10 space-y-2"
           >
-            <p className="text-xs text-white/40 uppercase tracking-[0.3em] font-black mb-4 flex items-center gap-2">
-              <Filter size={12} />
-              FILTROS ATIVOS
+            <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] font-black">
+              Filtro Ativo
             </p>
-            <div className="space-y-2">
-              {selectedMainCategory && selectedCategory && (
-                <motion.div
-                  layout
-                  className={`px-4 py-2.5 rounded-xl bg-gradient-to-r ${selectedCategory.color} text-white text-xs font-black tracking-tight shadow-lg shadow-white/20`}
-                >
-                  ✦ {selectedCategory.name}
-                </motion.div>
-              )}
-              {selectedSubcategory && (
-                <motion.div
-                  layout
-                  className="px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm text-white/90 text-xs font-black tracking-tight border border-white/20"
-                >
-                  └─ {selectedSubcategory}
-                </motion.div>
-              )}
-            </div>
+            {selectedMainCategory && selectedCategory && (
+              <motion.div
+                layout
+                className={`px-3 py-2 rounded-lg bg-gradient-to-br from-zinc-700/40 to-zinc-800/30 text-white/90 text-[10px] font-black tracking-tight border border-white/10`}
+              >
+                {selectedCategory.name}
+              </motion.div>
+            )}
+            {selectedSubcategory && (
+              <motion.div
+                layout
+                className="px-3 py-2 rounded-lg bg-white/5 text-white/70 text-[10px] font-black tracking-tight border border-white/8"
+              >
+                → {selectedSubcategory}
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
