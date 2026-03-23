@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductCard } from '../components/ui/ProductCard';
+import { CategoryFilter } from '../components/ui/CategoryFilter';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 
 import { SEO } from '../components/ui/SEO';
@@ -8,7 +9,8 @@ import { siteConfig } from '../siteConfig';
 
 export const ProductsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [selectedMainCategory, setSelectedMainCategory] = useState<string | null>(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState('name');
   const [maxPrice, setMaxPrice] = useState(10000);
   const [showFilters, setShowFilters] = useState(false);
@@ -16,22 +18,61 @@ export const ProductsPage: React.FC = () => {
   const productsPerPage = 12;
 
   const products = siteConfig.pages.products?.items || [];
-  const categories = siteConfig.pages.products?.categories || ['Todos'];
+  const categories = siteConfig.pages.products?.categories || {};
   const maxProductPrice = products.length > 0 ? Math.max(...products.map(p => p.price)) : 10000;
 
+  // Map old category strings to new main categories (fallback mapping)
+  const mapLegacyCategory = (productCategory: string): string | null => {
+    const categoryMap: Record<string, string> = {
+      'iPhone Novos': 'smartphones',
+      'iPhone': 'smartphones',
+      'Video Game': 'gaming',
+      'PS5': 'gaming',
+      'XBOX': 'gaming',
+      'AirPods': 'audio',
+      'Apple Watch': 'wearables',
+      'JBL': 'audio',
+      'ACESSÓRIOS': 'acessorios',
+      'CARREGADORES': 'acessorios',
+      'CABOS': 'acessorios',
+      'FONES': 'audio',
+      'CAIXAS DE SOM': 'audio',
+      'CELULARES': 'smartphones',
+      'TABLETS': 'tablets',
+      'RELÓGIOS': 'wearables',
+      'CANETAS': 'acessorios',
+      'COMPUTADORES': 'acessorios',
+      'GAMER': 'gaming',
+      'SMARTWATCH': 'wearables',
+    };
+    return categoryMap[productCategory] || null;
+  };
+
   const filteredProducts = useMemo(() => {
-    let filtered = products.filter(p => 
-      p.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory === 'Todos' || p.category === selectedCategory) &&
-      p.price <= maxPrice
-    );
+    let filtered = products.filter(p => {
+      const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesPrice = p.price <= maxPrice;
+      
+      // If no main category selected, show all
+      if (!selectedMainCategory) {
+        return matchesSearch && matchesPrice;
+      }
+      
+      // Map the product's legacy category to new system
+      const productMainCategory = mapLegacyCategory(p.category);
+      
+      // If product doesn't map to any category, still show it
+      const matchesMainCategory = !productMainCategory || productMainCategory === selectedMainCategory;
+      
+      return matchesSearch && matchesPrice && matchesMainCategory;
+    });
 
     if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
     if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
     if (sortBy === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
 
     return filtered;
-  }, [searchTerm, selectedCategory, sortBy, maxPrice]);
+  }, [searchTerm, selectedMainCategory, selectedSubcategory, sortBy, maxPrice]);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -41,7 +82,8 @@ export const ProductsPage: React.FC = () => {
 
   const handleClearFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('Todos');
+    setSelectedMainCategory(null);
+    setSelectedSubcategory(null);
     setMaxPrice(maxProductPrice);
     setSortBy('name');
     setCurrentPage(1);
@@ -243,33 +285,16 @@ export const ProductsPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Categories */}
+                {/* New Category Filter Component */}
                 <div className="mb-12">
-                  <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-6">Categorias</label>
-                  <div className="flex flex-col gap-4 space-y-2">
-                    {categories.map((cat, index) => (
-                      <motion.button
-                        key={cat}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.05 }}
-                        onClick={() => setSelectedCategory(cat)}
-                        className={`px-5 py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-2xl border flex items-center justify-between group ${
-                          selectedCategory === cat 
-                            ? "bg-white text-black border-white shadow-lg" 
-                            : "bg-white/5 text-white/40 border-white/10 hover:border-white/30 hover:text-white hover:bg-white/10"
-                        }`}
-                      >
-                        <span>{cat}</span>
-                        {selectedCategory === cat && (
-                          <motion.div 
-                            className="w-2 h-2 bg-black rounded-full"
-                            layoutId="activeCategory"
-                          />
-                        )}
-                      </motion.button>
-                    ))}
-                  </div>
+                  <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-6">Categorias & Subcategorias</label>
+                  <CategoryFilter
+                    categories={categories}
+                    selectedMainCategory={selectedMainCategory}
+                    selectedSubcategory={selectedSubcategory}
+                    onMainCategoryChange={setSelectedMainCategory}
+                    onSubcategoryChange={setSelectedSubcategory}
+                  />
                 </div>
 
                 {/* Price Range */}
@@ -300,7 +325,7 @@ export const ProductsPage: React.FC = () => {
                 </div>
 
                 {/* Clear Filters Button */}
-                {(searchTerm || selectedCategory !== 'Todos' || maxPrice !== maxProductPrice) && (
+                {(searchTerm || selectedMainCategory || selectedSubcategory || maxPrice !== maxProductPrice) && (
                   <motion.button
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

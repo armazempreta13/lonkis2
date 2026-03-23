@@ -469,7 +469,17 @@ export const siteConfig = {
         titleAccent: "Premium",
         subtitle: "Acessórios e dispositivos seminovos com garantia e procedência verificada pela nossa equipe técnica."
       },
-      categories: ["Todos", "ACESSÓRIOS", "APARELHOS PARA TV", "CAIXAS DE SOM", "CANETAS", "CARREGADORES", "CELULARES", "CLIMATIZADORES", "COMPUTADORES", "FONES", "GAMER", "RASTREADORES", "RELÓGIOS", "ROBÔ ASPIRADOR", "STARLINK", "TABLETS"],
+      // Novos dados indexados por ID para facilitar busca
+      categories: {
+        smartphones: { id: "smartphones", name: "Smartphones", icon: Smartphone, color: "from-blue-500 to-cyan-500", subcategories: ["iPhone", "Samsung", "Xiaomi", "Motorola", "Outros"] },
+        tablets: { id: "tablets", name: "Tablets", icon: Smartphone, color: "from-purple-500 to-pink-500", subcategories: ["iPad", "Samsung Galaxy Tab", "Outros"] },
+        wearables: { id: "wearables", name: "Wearables", icon: Watch, color: "from-orange-500 to-red-500", subcategories: ["Apple Watch", "Smartband", "Relógios"] },
+        audio: { id: "audio", name: "Áudio", icon: Speaker, color: "from-green-500 to-emerald-500", subcategories: ["Fones Bluetooth", "Caixas de Som", "Headphones", "Auriculares"] },
+        acessorios: { id: "acessorios", name: "Acessórios", icon: Battery, color: "from-yellow-500 to-orange-500", subcategories: ["Carregadores", "Cabos", "Capinhas", "Película de Vidro", "Suportes"] },
+        gaming: { id: "gaming", name: "Gaming", icon: Zap, color: "from-red-600 to-pink-600", subcategories: ["PlayStation", "Xbox", "Acessórios Gamer"] },
+        smart_home: { id: "smart_home", name: "Smart Home", icon: Wifi, color: "from-indigo-500 to-blue-500", subcategories: ["Assistentes", "Câmeras", "Controles Inteligentes"] },
+        outros: { id: "outros", name: "Outros", icon: Package, color: "from-gray-500 to-slate-500", subcategories: ["Diversos"] },
+      },
       items: scrapedProducts,
     },
     // -------------------------------------------------------------------------
