@@ -62,7 +62,7 @@ export const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-zinc-900/40 backdrop-blur-sm p-8 sm:p-12 flex flex-col items-start hover:bg-white transition-all duration-700 border border-white/5 hover:border-white rounded-[2.5rem] sm:rounded-[3.5rem] relative overflow-hidden shadow-2xl"
+              className="group bg-zinc-900/40 backdrop-blur-sm p-8 sm:p-12 flex flex-col items-start hover:bg-zinc-800 transition-all duration-700 border border-white/5 hover:border-white/40 rounded-[2.5rem] sm:rounded-[3.5rem] relative overflow-hidden shadow-2xl"
             >
               <div className="flex justify-between w-full items-start mb-10 sm:mb-16 relative z-10">
                 <span className="font-display text-5xl sm:text-7xl font-black text-white/5 group-hover:text-black/5 transition-colors">
@@ -74,13 +74,13 @@ export const Services = () => {
               </div>
               
               <div className="relative z-10 space-y-3 sm:space-y-4 mb-10 sm:mb-12">
-                <h3 className="font-display text-2xl sm:text-3xl font-black text-white group-hover:text-black uppercase tracking-tight transition-colors leading-tight">{service.title}</h3>
-                <p className="text-white/30 group-hover:text-black/40 text-xs sm:text-sm leading-relaxed font-medium transition-colors">{service.description}</p>
+                <h3 className="font-display text-2xl sm:text-3xl font-black text-white group-hover:text-white uppercase tracking-tight transition-colors leading-tight">{service.title}</h3>
+                <p className="text-white/30 group-hover:text-white/50 text-xs sm:text-sm leading-relaxed font-medium transition-colors">{service.description}</p>
               </div>
               
               <div className="mt-auto w-full space-y-3 flex flex-col gap-3">
                 <Button 
-                  className="w-full py-6 bg-white text-black hover:bg-white/90 border border-white group-hover:text-white transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em]"
+                  className="w-full py-6 bg-white text-black hover:bg-white/90 border border-white transition-all rounded-2xl text-[10px] font-black uppercase tracking-[0.3em]"
                   onClick={() => setSelectedService({title: service.title})}
                   ariaLabel={`Solicitar orçamento para ${service.title}`}
                 >

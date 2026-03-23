@@ -3,11 +3,14 @@ import * as Icons from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { Button } from '../components/ui/Button';
 import { QuoteModal } from '../components/ui/QuoteModal';
+import { ServiceDetailModal } from '../components/ui/ServiceDetailModal';
 import { SEO } from '../components/ui/SEO';
 import { siteConfig } from '../siteConfig';
 
 export const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState<{title: string, price: string} | null>(null);
+  const [serviceDetailsOpen, setServiceDetailsOpen] = useState(false);
+  const [selectedServiceDetails, setSelectedServiceDetails] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("Todos");
 
@@ -104,34 +107,58 @@ export const ServicesPage = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="group bg-zinc-900/40 p-8 sm:p-10 flex flex-col items-start hover:bg-white transition-all duration-700 border border-white/5 relative overflow-hidden"
+                  className="group bg-zinc-900/40 p-8 sm:p-10 flex flex-col items-start hover:bg-zinc-800 transition-all duration-700 border border-white/5 hover:border-white/40 relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 p-6 sm:p-8 opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="w-2 h-2 rounded-full bg-black animate-pulse"></div>
                   </div>
 
                   <div className="flex justify-between w-full items-start mb-10 sm:mb-12">
-                    <span className="font-display text-5xl sm:text-6xl font-black text-white/5 group-hover:text-black/5 transition-colors">
+                    <span className="font-display text-5xl sm:text-6xl font-black text-white/5 group-hover:text-white/5 transition-colors">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <div className="p-4 sm:p-5 bg-white/5 rounded-[1.2rem] sm:rounded-[1.5rem] group-hover:bg-black group-hover:scale-110 transition-all duration-500">
-                      {Icon && <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white/40 group-hover:text-white transition-colors" />}
+                    <div className="p-4 sm:p-5 bg-white/5 rounded-[1.2rem] sm:rounded-[1.5rem] group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+                      {Icon && <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white/40 group-hover:text-black transition-colors" />}
                     </div>
                   </div>
                   
                   <div className="space-y-2 mb-8 sm:mb-10">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-white/30 group-hover:text-black/40 font-black block">{service.category}</span>
-                    <h3 className="font-display text-xl sm:text-2xl font-black text-white group-hover:text-black mb-2 uppercase tracking-tight transition-colors leading-tight">{service.name}</h3>
-                    <p className="text-white/40 group-hover:text-black/60 font-black text-base sm:text-lg tracking-tight">{service.price}</p>
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-white/30 group-hover:text-white/50 font-black block">{service.category}</span>
+                    <h3 className="font-display text-xl sm:text-2xl font-black text-white group-hover:text-white mb-2 uppercase tracking-tight transition-colors leading-tight">{service.name}</h3>
+                    <p className="text-white/40 group-hover:text-white/60 font-black text-base sm:text-lg tracking-tight">{service.price}</p>
                   </div>
                   
-                  <Button 
-                    className="mt-auto w-full py-5 bg-white/5 text-white border border-white/10 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all rounded-2xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em]"
-                    onClick={() => setSelectedService({title: service.name, price: service.price})}
-                    ariaLabel={`Solicitar orçamento para ${service.name}`}
-                  >
-                    Solicitar Orçamento
-                  </Button>
+                  <div className="mt-auto w-full space-y-3 flex flex-col gap-3">
+                    <Button 
+                      className="w-full py-5 bg-white text-black hover:bg-white/90 border border-white transition-all rounded-2xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em]"
+                      onClick={() => setSelectedService({title: service.name, price: service.price})}
+                      ariaLabel={`Solicitar orçamento para ${service.name}`}
+                    >
+                      Solicitar Orçamento
+                    </Button>
+                    <Button 
+                      className="w-full py-3 bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-all rounded-2xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2"
+                      onClick={() => {
+                        setSelectedServiceDetails({
+                          title: service.name,
+                          description: service.description || 'Serviço especializado de reparação',
+                          details: [
+                            'Diagnóstico completo',
+                            'Execução por especialistas',
+                            'Peças de qualidade premium',
+                            'Teste final de funcionamento',
+                          ],
+                          warranty: '90 dias',
+                          timeline: 'Consulte para prazo'
+                        });
+                        setServiceDetailsOpen(true);
+                      }}
+                      ariaLabel={`Saiba mais sobre ${service.name}`}
+                    >
+                      <Icons.Info className="w-3.5 h-3.5" />
+                      Saiba Mais
+                    </Button>
+                  </div>
                 </motion.div>
               );
             })}
@@ -210,6 +237,14 @@ export const ServicesPage = () => {
           onClose={() => setSelectedService(null)} 
           serviceName={selectedService.title}
           price={selectedService.price}
+        />
+      )}
+
+      {selectedServiceDetails && (
+        <ServiceDetailModal
+          isOpen={serviceDetailsOpen}
+          onClose={() => setServiceDetailsOpen(false)}
+          service={selectedServiceDetails}
         />
       )}
     </motion.div>
