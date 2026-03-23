@@ -44,8 +44,73 @@ export const ProductsPage: React.FC = () => {
       'COMPUTADORES': 'acessorios',
       'GAMER': 'gaming',
       'SMARTWATCH': 'wearables',
+      'APARELHOS PARA TV': 'acessorios',
+      'RASTREADORES': 'acessorios',
+      'ROBÔ ASPIRADOR': 'acessorios',
+      'STARLINK': 'smart_home',
+      'CLIMATIZADORES': 'acessorios',
     };
     return categoryMap[productCategory] || null;
+  };
+
+  // Map product name to subcategory
+  const getProductSubcategory = (productName: string, mainCategory: string): string | null => {
+    const name = productName.toUpperCase();
+    
+    if (mainCategory === 'smartphones') {
+      if (name.includes('IPHONE')) return 'iPhone';
+      if (name.includes('SAMSUNG') || name.includes('GALAXY')) return 'Samsung';
+      if (name.includes('XIAOMI') || name.includes('REDMI') || name.includes('POCO') || name.includes('NOTE')) return 'Xiaomi';
+      if (name.includes('MOTOROLA')) return 'Motorola';
+      return 'Outros';
+    }
+    
+    if (mainCategory === 'tablets') {
+      if (name.includes('IPAD') || name.includes('MAGIC KEYBOARD')) return 'iPad';
+      if (name.includes('SAMSUNG') || name.includes('GALAXY TAB')) return 'Samsung Galaxy Tab';
+      return 'Outros';
+    }
+    
+    if (mainCategory === 'wearables') {
+      if (name.includes('APPLE WATCH')) return 'Apple Watch';
+      if (name.includes('SMARTBAND') || name.includes('XIAOMI') || name.includes('REDMI')) return 'Smartband';
+      if (name.includes('RELÓGIO')) return 'Relógios';
+      return 'Relógios';
+    }
+    
+    if (mainCategory === 'audio') {
+      if (name.includes('AIRPODS')) return 'Fones Bluetooth';
+      if (name.includes('JBL') || name.includes('CAIXA') || name.includes('BOOMBOX')) return 'Caixas de Som';
+      if (name.includes('FONE') || name.includes('HEADPHONES')) return 'Headphones';
+      if (name.includes('MICROFONE') || name.includes('LAPELA')) return 'Auriculares';
+      return 'Fones Bluetooth';
+    }
+    
+    if (mainCategory === 'acessorios') {
+      if (name.includes('CARREGADOR') || name.includes('FONTE') || name.includes('ANATEL')) return 'Carregadores';
+      if (name.includes('CABO') || name.includes('USB')) return 'Cabos';
+      if (name.includes('CAPA') || name.includes('CAPINHA')) return 'Capinhas';
+      if (name.includes('PELÍCULA') || name.includes('VIDRO') || name.includes('PROTETOR')) return 'Película de Vidro';
+      if (name.includes('SUPORTE') || name.includes('MALA') || name.includes('BOLSA')) return 'Suportes';
+      if (name.includes('PENCIL') || name.includes('CANETA')) return 'Canetas';
+      return 'Diversos';
+    }
+    
+    if (mainCategory === 'gaming') {
+      if (name.includes('PS5') || name.includes('PLAYSTATION')) return 'PlayStation';
+      if (name.includes('XBOX')) return 'Xbox';
+      if (name.includes('NINTENDO') || name.includes('VR') || name.includes('CONTROLE') || name.includes('FONE')) return 'Acessórios Gamer';
+      return 'Acessórios Gamer';
+    }
+    
+    if (mainCategory === 'smart_home') {
+      if (name.includes('STARLINK')) return 'Assistentes';
+      if (name.includes('CÂMERA')) return 'Câmeras';
+      if (name.includes('WIFI') || name.includes('CONTROLE')) return 'Controles Inteligentes';
+      return 'Assistentes';
+    }
+    
+    return null;
   };
 
   const filteredProducts = useMemo(() => {
@@ -64,13 +129,18 @@ export const ProductsPage: React.FC = () => {
       // Check main category match
       const matchesMainCategory = !productMainCategory || productMainCategory === selectedMainCategory;
       
-      // If subcategory is selected, also filter by product category (as subcategory)
-      if (selectedSubcategory && matchesMainCategory) {
-        const matchesSubcategory = p.category.toUpperCase() === selectedSubcategory.toUpperCase();
+      if (!matchesMainCategory) {
+        return false;
+      }
+      
+      // If subcategory is selected, filter by product subcategory (derived from name)
+      if (selectedSubcategory) {
+        const productSubcategory = getProductSubcategory(p.name, selectedMainCategory);
+        const matchesSubcategory = productSubcategory === selectedSubcategory;
         return matchesSearch && matchesPrice && matchesSubcategory;
       }
       
-      return matchesSearch && matchesPrice && matchesMainCategory;
+      return matchesSearch && matchesPrice;
     });
 
     if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
