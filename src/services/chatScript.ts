@@ -246,7 +246,7 @@ export const CHAT_SCRIPT: Record<string, ChatStep> = {
   reparo_tela: {
     id: 'reparo_tela',
     message: '**Troca de Tela / Display** 📱\n\nSua tela quebrou ou o touch parou? Trocamos por uma nova com qualidade premium (OLED/AMOLED/LCD), mantendo cores vivas e touch perfeito.\n\n- ⏱️ **Fica pronto em:** 1 a 2 horas\n- ✅ **Garantia:** 90 dias\n\n*Dica: Evite usar com o vidro trincado para não danificar outros componentes.*',
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    video: '',
     quickReplies: [
       WHATSAPP_REPLY('📅 Agendar Reparo'),
       { id: 'qr_manual', label: '📄 Baixar Tabela PDF', action: 'message', value: 'download_manual', icon: 'Download' },
@@ -297,7 +297,7 @@ export const CHAT_SCRIPT: Record<string, ChatStep> = {
 
   reparo_molhou: {
     id: 'reparo_molhou',
-    message: '💧 **Aparelho Molhado — Aja AGORA!**\n\nPara salvar seu celular, siga estes passos:\n1. NÃO tente ligar ou carregar\n2. NÃO use secador de cabelo\n3. NÃO coloque no arroz (isso não funciona)\n4. Seque o exterior com um pano\n5. Traga IMEDIATAMENTE para nós!\n\nFazemos um banho químico ultrassônico que remove a oxidação e maximiza as chances de salvação.\n\n- ⏱️ **Prazo:** 24 a 48 horas\n- ✅ **Garantia:** 90 dias',
+    message: '💧 **Aparelho Molhado — Aja AGORA!**\n\nPara salvar seu celular, siga estes passos:\n1. NÃO tente ligar ou carregar\n2. NÃO use secador de cabelo\n3. NÃO coloque no arroz (isso não funciona)\n4. Seque o exterior com um pano\n5. Traga IMEDIATAMENTE para nós!\n\nFazemos um banho químico ultrassônico que remove a oxidação e maximiza as chances de salvação.\n\n- ⏱️ **Prazo:** 2 horas\n-',
     quickReplies: [
       WHATSAPP_REPLY('🚨 Avisar que Estou Indo Agora'),
       BACK_TO_MENU,
@@ -398,7 +398,7 @@ export const CHAT_SCRIPT: Record<string, ChatStep> = {
         ['Troca de Conector',      '1 a 3 horas'      ],
         ['Câmera, Som, Botões',    '1 a 2 horas'      ],
         ['Desbloqueio de Conta',   '1 a 4 horas'      ],
-        ['Desoxidação',            '24 a 48 horas'    ],
+        ['Desoxidação',            '1 a 2 horas'      ],
         ['Reparo em Placa',        '2 a 5 dias úteis' ],
         ['Recuperação de Sistema', '2 a 5 dias úteis' ],
       ],

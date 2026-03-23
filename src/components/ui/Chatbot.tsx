@@ -238,19 +238,26 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
   const dragStartX = useRef(0);
   const scrollStartX = useRef(0);
   const dragging = useRef(false);
+  const velocity = useRef(0);
+  const lastX = useRef(0);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!trackRef.current) return;
     dragging.current = true;
     dragStartX.current = event.clientX;
+    lastX.current = event.clientX;
     scrollStartX.current = trackRef.current.scrollLeft;
+    velocity.current = 0;
     trackRef.current.setPointerCapture(event.pointerId);
     trackRef.current.style.cursor = 'grabbing';
+    if (trackRef.current.style) trackRef.current.style.scrollBehavior = 'auto';
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging.current || !trackRef.current) return;
     const dx = event.clientX - dragStartX.current;
+    velocity.current = event.clientX - lastX.current;
+    lastX.current = event.clientX;
     trackRef.current.scrollLeft = scrollStartX.current - dx;
   };
 
@@ -258,35 +265,53 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
     if (!trackRef.current) return;
     dragging.current = false;
     trackRef.current.style.cursor = 'grab';
+    if (trackRef.current.style) trackRef.current.style.scrollBehavior = 'smooth';
+    
+    // Inertia scrolling
+    if (Math.abs(velocity.current) > 2) {
+      let currentVelocity = velocity.current;
+      const friction = 0.95;
+      const interval = setInterval(() => {
+        currentVelocity *= friction;
+        if (trackRef.current && Math.abs(currentVelocity) > 0.1) {
+          trackRef.current.scrollLeft -= currentVelocity;
+        } else {
+          clearInterval(interval);
+        }
+      }, 16);
+    }
   };
 
   return (
-    <div className="flex flex-col items-start w-full lk-chips-wrap py-3">
+    <div className="flex flex-col items-start w-full lk-chips-wrap py-2">
       <div
         ref={trackRef}
-        className="flex gap-2.5 w-full overflow-x-auto no-scrollbar px-3 py-2 cursor-grab"
+        className="flex gap-2 w-full overflow-x-auto no-scrollbar px-2 py-1.5 cursor-grab active:cursor-grabbing transition-[cursor] lk-chips-track"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         onPointerCancel={endDrag}
-        style={{ WebkitOverflowScrolling: 'touch' }}
+        style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
       >
-        {replies.map((r) => {
+        {replies.map((r, idx) => {
           const Icon = r.icon ? IconMap[r.icon] : null;
           const isPrimary = r.action === 'link' || r.icon === 'Zap';
 
           return (
             <motion.button
               key={r.id}
-              whileHover={{ y: -1, scale: 1.01 }}
-              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.02 }}
+              whileHover={{ y: -0.5, scale: 1.02 }}
+              whileTap={{ scale: 0.95, y: 0 }}
               onClick={() => onSelect(r)}
-              className={`lk-chip flex-none flex flex-col items-center justify-center gap-1 p-2 text-center ${isPrimary ? 'lk-chip-primary' : ''}`}
-              style={{ minWidth: '115px', maxWidth: '170px', minHeight: '58px' }}
+              className={`lk-chip flex-none flex flex-col items-center justify-center gap-0.5 p-1.5 text-center select-none ${isPrimary ? 'lk-chip-primary' : ''}`}
+              style={{ minWidth: '75px', maxWidth: '110px', minHeight: '46px' }}
             >
-              {Icon && <Icon size={16} strokeWidth={isPrimary ? 2.5 : 2} />}
-              <span className="font-semibold text-[11px] leading-tight">{r.label}</span>
+              {Icon && <Icon size={13} strokeWidth={isPrimary ? 2.5 : 2} />}
+              <span className="font-semibold text-[9px] leading-tight break-words w-full">{r.label}</span>
             </motion.button>
           );
         })}
@@ -624,44 +649,57 @@ export const Chatbot = () => {
         /* Chips */
         .lk-chips-wrap {
           border-top: 1px solid var(--lk-border);
-          background: rgba(0,0,0,0.15);
+          background: rgba(0,0,0,0.2);
           border-bottom-left-radius: 12px;
           border-bottom-right-radius: 12px;
+          padding: 0;
+        }
+        .lk-chips-track {
+          -webkit-overflow-scrolling: touch;
+          scroll-behavior: smooth;
         }
         .lk-chips-wrap .no-scrollbar::-webkit-scrollbar { display: none; }
         .lk-chips-wrap .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         .lk-chip {
-          padding: 8px 14px;
-          border-radius: 12px;
-          font-size: 11px; font-weight: 600;
+          padding: 6px 10px;
+          border-radius: 10px;
+          font-size: 9px; font-weight: 700;
           color: var(--lk-text);
           border: 1px solid var(--lk-border);
-          background: rgba(255,255,255,0.04);
+          background: rgba(255,255,255,0.05);
           white-space: normal;
-          cursor: pointer; outline: none;
-          transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+          cursor: grab;
+          outline: none;
+          transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
           font-family: 'DM Sans', sans-serif;
-          backdrop-filter: blur(10px);
-          min-width: 115px;
-          max-width: 170px;
-          min-height: 56px;
+          backdrop-filter: blur(12px);
+          min-width: 75px;
+          max-width: 110px;
+          min-height: 46px;
           justify-content: center;
+          user-select: none;
+          text-transform: capitalize;
+          letter-spacing: 0.02em;
+        }
+        .lk-chip:active {
+          cursor: grabbing;
         }
         .lk-chip:hover {
-          background: rgba(255,255,255,0.08);
-          border-color: rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.1);
+          border-color: rgba(255,255,255,0.25);
           color: white;
+          transform: translateY(-1px);
         }
         .lk-chip-primary {
-          background: rgba(0,229,160,0.08);
-          border-color: rgba(0,229,160,0.25);
+          background: rgba(0,229,160,0.12);
+          border-color: rgba(0,229,160,0.3);
           color: var(--lk-green);
         }
         .lk-chip-primary:hover {
-          background: rgba(0,229,160,0.15);
-          border-color: var(--lk-green);
-          box-shadow: 0 8px 20px -5px rgba(0,229,160,0.25);
+          background: rgba(0,229,160,0.18);
+          border-color: rgba(0,229,160,0.5);
+          box-shadow: 0 6px 16px -4px rgba(0,229,160,0.2);
         }
       `}</style>
 
