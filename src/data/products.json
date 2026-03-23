@@ -1,7 +1,7 @@
 [
-  { "id": 1, "name": "iPhone 16", "category": "iPhone Novos", "price": 6249, "image": "https://picsum.photos/seed/iphone16/300/300", "colors": ["#FFC0CB", "#FFD700", "#000000"], "badge": "Lacrado" },
-  { "id": 2, "name": "iPhone 16 Pro", "category": "iPhone Novos", "price": 8249, "image": "https://picsum.photos/seed/iphone16pro/300/300", "colors": ["#FFFFFF", "#000000"], "badge": "Lacrado" },
-  { "id": 3, "name": "iPhone 16 Pro Max", "category": "iPhone Novos", "price": 9249, "image": "https://picsum.photos/seed/iphone16promax/300/300", "colors": ["#FFFFFF", "#000000"], "badge": "Lacrado" },
+  { "id": 1, "name": "iPhone 16", "category": "iPhone Novos", "price": 6499, "image": "https://picsum.photos/seed/iphone16/300/300", "colors": ["#FFC0CB", "#FFD700", "#000000"], "badge": "Lacrado" },
+  { "id": 2, "name": "iPhone 16 Pro", "category": "iPhone Novos", "price": 8499, "image": "https://picsum.photos/seed/iphone16pro/300/300", "colors": ["#FFFFFF", "#000000"], "badge": "Lacrado" },
+  { "id": 3, "name": "iPhone 16 Pro Max", "category": "iPhone Novos", "price": 9499, "image": "https://picsum.photos/seed/iphone16promax/300/300", "colors": ["#FFFFFF", "#000000"], "badge": "Lacrado" },
   { "id": 4, "name": "PS5 Slim Mídia Digital", "category": "Video Game", "price": 3800, "image": "https://picsum.photos/seed/ps5slim/300/300", "colors": ["#FFFFFF"], "badge": "Novo" },
   { "id": 5, "name": "PS5 Slim Mídia Física", "category": "Video Game", "price": 4200, "image": "https://picsum.photos/seed/ps5slimf/300/300", "colors": ["#FFFFFF"], "badge": "Novo" },
   { "id": 6, "name": "XBOX Séries S 512GB", "category": "Video Game", "price": 2500, "image": "https://picsum.photos/seed/xboxs/300/300", "colors": ["#FFFFFF"], "badge": "Novo" },
