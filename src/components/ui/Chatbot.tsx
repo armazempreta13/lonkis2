@@ -243,6 +243,13 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!trackRef.current) return;
+    
+    // Check if the click target is a button (chip) - if so, don't initiate drag
+    const target = event.target as HTMLElement;
+    if (target.closest('button')) {
+      return;
+    }
+    
     dragging.current = true;
     dragStartX.current = event.clientX;
     lastX.current = event.clientX;
@@ -255,6 +262,13 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging.current || !trackRef.current) return;
+    
+    const target = event.target as HTMLElement;
+    if (target.closest('button')) {
+      endDrag();
+      return;
+    }
+    
     const dx = event.clientX - dragStartX.current;
     velocity.current = event.clientX - lastX.current;
     lastX.current = event.clientX;
@@ -263,6 +277,7 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
 
   const endDrag = () => {
     if (!trackRef.current) return;
+    
     dragging.current = false;
     trackRef.current.style.cursor = 'grab';
     if (trackRef.current.style) trackRef.current.style.scrollBehavior = 'smooth';
