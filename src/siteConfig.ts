@@ -53,7 +53,8 @@ import {
   RefreshCw,
   HardDrive,
   Calculator,
-  Clock
+  Clock,
+  Package
 } from 'lucide-react';
 
 // ---------------------------------------------------------------------------
