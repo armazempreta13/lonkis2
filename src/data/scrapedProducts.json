@@ -1,143 +1,794 @@
 [
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ACESSÓRIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 1,"name": "APPLE  PENCIL USB-C","category": "ACESSÓRIOS","price": 700.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/L31evguEK7ahw2kZi9DcPld0n3T2%2F36572B7C-2716-4101-A4DC-9A69BE887673.jpg?alt=media","badge": "Esgotado"},
-  {"id": 2,"name": "BOLSA BOOMBOX 3 SLIM","category": "ACESSÓRIOS","price": 75.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F1DDA8439-700A-47D9-B9C5-C3F455048E16.jpg?alt=media"},
-  {"id": 3,"name": "BOLSA BOOMBOX 4 SLIM","category": "ACESSÓRIOS","price": 125.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FD1E4748E-3355-4708-9DBE-4DBF40F6DFF6.jpg?alt=media"},
-  {"id": 4,"name": "CAPA PUREGEAR","category": "ACESSÓRIOS","price": 150.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00B79A9B-7D80-48FD-9C98-99D3B9D64761.jpg?alt=media"},
-  {"id": 5,"name": "CAPA TECLADO JACK","category": "ACESSÓRIOS","price": 350.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF50C643C-F54A-4393-BD77-8D88BB8D2E3E.jpg?alt=media"},
-  {"id": 6,"name": "MALA ENCORE 1/2","category": "ACESSÓRIOS","price": 200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3992B0EF-7E54-4FB7-ACDC-73F210B5C35C.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ APARELHOS PARA TV ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 7,"name": "BTV 13","category": "APARELHOS PARA TV","price": 1020.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2F52E5029F-DB6B-43BC-A807-D140A7FCB81E.jpg?alt=media","badge": "Esgotado"},
-  {"id": 8,"name": "RECEPTOR IN XPLUS","category": "APARELHOS PARA TV","price": 325.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F649D1636-E96D-46F2-B3F0-2170DDCF2B68.jpg?alt=media"},
-  {"id": 9,"name": "UNITV V10","category": "APARELHOS PARA TV","price": 235.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F277A14C8-8BDF-4E40-92EB-168C08FAFA62.jpg?alt=media","badge": "Esgotado"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CAIXAS DE SOM ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 10,"name": "CAIXA AIWA","category": "CAIXAS DE SOM","price": 1200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F33FD38B5-42CF-4C17-B5FD-5B49427695CB.jpg?alt=media"},
-  {"id": 11,"name": "JBL BOOMBOX 4","category": "CAIXAS DE SOM","price": 3000.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEB7590B5-E96F-41E5-B96F-871473D102FE.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CANETAS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 12,"name": "APPLE  PENCIL PRO","category": "CANETAS","price": 840.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/L31evguEK7ahw2kZi9DcPld0n3T2%2F24886E3E-5A49-459A-AA4B-76EBF6EC17CB.jpg?alt=media","badge": "Esgotado"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CARREGADORES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 13,"name": "CABO ORIGINAL 2M IP 15/16","category": "CARREGADORES","price": 180.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6EED380C-A59A-4440-A261-84A916469AD9.jpg?alt=media"},
-  {"id": 14,"name": "FONTE ANATEL ORIGINAL","category": "CARREGADORES","price": 140.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2F607E907B-51CF-499B-8FF8-90E95A57B282.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CELULARES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 15,"name": "13 PRO MAX 128GB CPO","category": "CELULARES","price": 3950.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F39EE862B-D43C-44A8-814B-22EFF5EF96FF.jpg?alt=media"},
-  {"id": 16,"name": "13 PRO MAX 256GB CPO","category": "CELULARES","price": 5200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F93010BB1-3916-4151-946F-D00AE6D31DCC.jpg?alt=media"},
-  {"id": 17,"name": "15 PLUS 128GB","category": "CELULARES","price": 4550.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3213EA8D-68E6-499A-83B0-B6718F0935F1.jpg?alt=media"},
-  {"id": 18,"name": "15 PRO 128GB CPO","category": "CELULARES","price": 4650.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F4DFD1276-2E54-46FC-AC55-7CAE09676D64.jpg?alt=media"},
-  {"id": 19,"name": "15 PRO 256GB CPO","category": "CELULARES","price": 5150.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3654CE17-4FAD-4C26-93BB-E9B030F1C4A2.jpg?alt=media"},
-  {"id": 20,"name": "15 PRO MAX 256GB","category": "CELULARES","price": 6250.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F316D4D23-87BE-4FEC-8E66-F71811494654.jpg?alt=media"},
-  {"id": 21,"name": "A5 (3 RAM) 64GB","category": "CELULARES","price": 700.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0B216EFC-F8C2-42FB-ABB6-656532E437F1.jpg?alt=media"},
-  {"id": 22,"name": "A5 (4 RAM) 128GB","category": "CELULARES","price": 830.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FAD1F98BF-50F1-491A-8B5F-CA0EEB7FF39B.jpg?alt=media"},
-  {"id": 23,"name": "IPHONE 13 128GB","category": "CELULARES","price": 3200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"},
-  {"id": 24,"name": "IPHONE 13 128GB CPO","category": "CELULARES","price": 3100.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"},
-  {"id": 25,"name": "IPHONE 13 256GB CPO","category": "CELULARES","price": 3400.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"},
-  {"id": 26,"name": "IPHONE 13 512GB CPO","category": "CELULARES","price": 3500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"},
-  {"id": 27,"name": "IPHONE 13 PRO 128GB CPO","category": "CELULARES","price": 3500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F9D2E94A7-1A7D-4E0F-9B1E-F802ADE14E11.jpg?alt=media"},
-  {"id": 28,"name": "IPHONE 14 128GB","category": "CELULARES","price": 3600.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F834DD6E5-B2A6-4052-A261-63FE57FF84E8.jpg?alt=media"},
-  {"id": 29,"name": "IPHONE 14 256GB","category": "CELULARES","price": 4050.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F834DD6E5-B2A6-4052-A261-63FE57FF84E8.jpg?alt=media"},
-  {"id": 30,"name": "IPHONE 14 PLUS 128GB","category": "CELULARES","price": 3900.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F29370679-498D-4147-80A1-A3AEA516DD65.jpg?alt=media"},
-  {"id": 31,"name": "IPHONE 14 PLUS 256GB CPO","category": "CELULARES","price": 3950.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F29370679-498D-4147-80A1-A3AEA516DD65.jpg?alt=media"},
-  {"id": 32,"name": "IPHONE 14 PRO 128GB CPO","category": "CELULARES","price": 4250.0,"image": ""},
-  {"id": 33,"name": "IPHONE 14 PRO MAX 128GB CPO","category": "CELULARES","price": 4900.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F7510838F-E479-4E39-9037-994FDE1068AC.jpg?alt=media"},
-  {"id": 34,"name": "IPHONE 15 128GB","category": "CELULARES","price": 4050.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FEFF1DC5C-1BA7-49E9-A304-36E349086D61.jpg?alt=media"},
-  {"id": 35,"name": "IPHONE 16 128GB","category": "CELULARES","price": 4850.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F03DEDEFC-3308-44B5-A1F2-9AEB4AD56732.jpg?alt=media"},
-  {"id": 36,"name": "IPHONE 16 PLUS 128GB","category": "CELULARES","price": 5650.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F43170F53-FEA3-4927-ADB4-1404B48507B5.jpg?alt=media"},
-  {"id": 37,"name": "IPHONE 16 PRO 128GB","category": "CELULARES","price": 6050.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0F8F6892-58CC-459A-894F-820559F26759.jpg?alt=media"},
-  {"id": 38,"name": "IPHONE 16 PRO 128GB CPO","category": "CELULARES","price": 5650.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0F8F6892-58CC-459A-894F-820559F26759.jpg?alt=media"},
-  {"id": 39,"name": "IPHONE 16 PRO MAX 512GB CPO","category": "CELULARES","price": 7050.0,"image": ""},
-  {"id": 40,"name": "IPHONE 16 PRO MAX 512GB LL","category": "CELULARES","price": 8750.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB3074CB3-AF9A-4AD4-87C0-F5B83598FF2C.jpg?alt=media"},
-  {"id": 41,"name": "IPHONE 16E 128GB","category": "CELULARES","price": 3750.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F6F0B31CB-A42C-4631-BC3A-1E5660AB1C14.jpg?alt=media"},
-  {"id": 42,"name": "IPHONE 17 256GB","category": "CELULARES","price": 6350.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEA8F64FC-639D-44A0-877B-B49B639AF099.jpg?alt=media"},
-  {"id": 43,"name": "IPHONE 17 AIR 1TB","category": "CELULARES","price": 9250.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF1545E09-5063-4BD1-ADD5-DCDE706F614B.jpg?alt=media"},
-  {"id": 44,"name": "IPHONE 17 PRO 256GB","category": "CELULARES","price": 358.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3F71F9B9-E520-4675-9A61-FC6894BBCE73.jpg?alt=media"},
-  {"id": 45,"name": "IPHONE 17 PRO 512GB","category": "CELULARES","price": 9250.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FBDCCA4BA-72F2-4F9F-B7C1-DB89FE50EA5B.jpg?alt=media"},
-  {"id": 46,"name": "IPHONE 17 PRO MAX 1TB","category": "CELULARES","price": 375.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00FF669A-6B4F-4997-AF41-0ADD29E99C3D.jpg?alt=media"},
-  {"id": 47,"name": "IPHONE 17 PRO MAX 256GB","category": "CELULARES","price": 365.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F333BFE9B-28D3-4A20-B753-4ACC5044BA19.jpg?alt=media"},
-  {"id": 48,"name": "IPHONE 17 PRO MAX 512GB","category": "CELULARES","price": 370.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FE388FB49-4882-4BE1-AE2B-CC8B0FE55C48.jpg?alt=media"},
-  {"id": 49,"name": "NOTE 14 (8RAM) 256GB","category": "CELULARES","price": 1270.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FD786B6C1-8C34-4992-AFAB-A856F7BDF0E6.jpg?alt=media"},
-  {"id": 50,"name": "NOTE 14 5G(8 RAM) 256GB","category": "CELULARES","price": 1550.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F369B7F1F-3C11-4CE9-8CD1-0FCA900005DB.jpg?alt=media"},
-  {"id": 51,"name": "NOTE 14 PRO 5G  (8 RAM) 256GB","category": "CELULARES","price": 1820.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F27F03DCF-FBC0-439E-B4C3-1C1C0ABC15A3.jpg?alt=media"},
-  {"id": 52,"name": "NOTE 14 PRO PLUS 5G  (12RAM) 512GB","category": "CELULARES","price": 2520.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F4970C369-9BB7-4214-8C08-7262A080FDC4.jpg?alt=media"},
-  {"id": 53,"name": "NOTE 15 (8RAM) 256GB","category": "CELULARES","price": 1580.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEE8AC42D-70FC-426A-8702-C17D543489F4.jpg?alt=media"},
-  {"id": 54,"name": "NOTE 15 5G (8RAM) 256GB","category": "CELULARES","price": 1670.0,"image": ""},
-  {"id": 55,"name": "NOTE 15 PRO (8RAM) 256GB","category": "CELULARES","price": 1750.0,"image": ""},
-  {"id": 56,"name": "NOTE 15 PRO 5G (8RAM) 256GB","category": "CELULARES","price": 2010.0,"image": ""},
-  {"id": 57,"name": "NOTE 15 PRO+ 5G (12RAM) 512GB","category": "CELULARES","price": 2670.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FDE2E766E-1DEF-4B23-8123-BB54ED4D442F.jpg?alt=media"},
-  {"id": 58,"name": "POCO C71 (4RAM ) 128GB","category": "CELULARES","price": 800.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF1BCCC73-BDFE-4846-92B3-6D49E21D1B2A.jpg?alt=media"},
-  {"id": 59,"name": "POCO C85 (8RAM) 256GB","category": "CELULARES","price": 1150.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FCF9EA280-8FAB-457D-9E25-26DB69A3B412.jpg?alt=media"},
-  {"id": 60,"name": "POCO X7  (8RAM) 256GB","category": "CELULARES","price": 1850.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FAE3F1700-43A7-4AC0-865D-F0BABD43A339.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CLIMATIZADORES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 61,"name": "CLIMATIZADOR VENTISOL 70L","category": "CLIMATIZADORES","price": 1450.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FC20737EB-138F-49FE-9A01-7DF0EBDCE6BB.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ COMPUTADORES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 62,"name": "IMAC M4 24POL 16RAM 256GB","category": "COMPUTADORES","price": 118.0,"image": ""},
-  {"id": 63,"name": "MAC AIR M3 15POL 256GB 16 RAM","category": "COMPUTADORES","price": 8500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F86BFAF8C-13B3-47E6-8620-09A445B72835.jpg?alt=media"},
-  {"id": 64,"name": "MAC AIR M4 13.6POL 16GB RAM 512GB","category": "COMPUTADORES","price": 8100.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F051CD567-BFE4-4107-A409-CC24051D821D.jpg?alt=media"},
-  {"id": 65,"name": "MAC AIR M4 13POL 16GB RAM 256GB","category": "COMPUTADORES","price": 6500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F426F50DA-76F8-4A1D-8610-C64EF5B914AA.jpg?alt=media"},
-  {"id": 66,"name": "MAC AIR M5 13POL 512GB 16RAM","category": "COMPUTADORES","price": 9800.0,"image": ""},
-  {"id": 67,"name": "MAC MINI M4 16RAM 256GB","category": "COMPUTADORES","price": 4200.0,"image": ""},
-  {"id": 68,"name": "MACBOOK AIR M3 13.6POL 512GB 8RAM","category": "COMPUTADORES","price": 7000.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2FDF81F09D-0075-42CF-9741-BD8708FC8484.jpg?alt=media"},
-  {"id": 69,"name": "MACBOOK AIR M3 15 POL/ 16GB RAM/256GB","category": "COMPUTADORES","price": 8500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2FDF81F09D-0075-42CF-9741-BD8708FC8484.jpg?alt=media"},
-  {"id": 70,"name": "MACBOOK PRO 14 POL/M5 /16GB RAM/ 512GB","category": "COMPUTADORES","price": 115.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC08F8CE7-56C5-4B2D-9BB6-21C6BAC17CEF.jpg?alt=media"},
-  {"id": 71,"name": "MACBOOK PRO 16 POL/M4 /24GB RAM/ 512GB","category": "COMPUTADORES","price": 125.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC08F8CE7-56C5-4B2D-9BB6-21C6BAC17CEF.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FONES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 72,"name": "AIRPODS 2","category": "FONES","price": 700.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8D087CB8-89F4-4414-8E29-7E2FADD6043E.jpg?alt=media","badge": "Esgotado"},
-  {"id": 73,"name": "AIRPODS 4","category": "FONES","price": 790.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6C82C7D7-073F-4D12-860F-4EE82BAD9CAF.jpg?alt=media","badge": "Esgotado"},
-  {"id": 74,"name": "AIRPODS 4 C/CANCELAMENTO","category": "FONES","price": 1090.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8BBF008A-9815-47B8-BB20-D5AF8109468F.jpg?alt=media","badge": "Esgotado"},
-  {"id": 75,"name": "AIRPODS PRO 3","category": "FONES","price": 1650.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F2CB4B51D-90C8-49C3-80F5-68F3137E7CFE.jpg?alt=media"},
-  {"id": 76,"name": "FONE LIGHTNING 1LINHA","category": "FONES","price": 30.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F834E9FC1-1AE0-497E-845E-4D430A99FF9D.jpg?alt=media"},
-  {"id": 77,"name": "FONE PARA IPHONE C/ FIO ORIGINAL usb-c-","category": "FONES","price": 120.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F9C222246-9095-44A4-9BEB-5EFED2B9786A.jpg?alt=media","badge": "Esgotado"},
-  {"id": 78,"name": "FONE XIAOMI C/ FIO ORIGINAL P2","category": "FONES","price": 45.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F671BC3EE-5534-455B-A9A6-6E1C170D70CD.jpg?alt=media"},
-  {"id": 79,"name": "MICROFONE LAPELA LARK M2","category": "FONES","price": 900.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F60C802D5-FE54-498E-9B98-B813AD80999D.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ GAMER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 80,"name": "CONTROLE EDGE PS5","category": "GAMER","price": 1100.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FD4D15EBC-36FD-4EC3-860B-BC1D510B6672.jpg?alt=media"},
-  {"id": 81,"name": "CONTROLE PS5 COLORIDOS","category": "GAMER","price": 370.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FCE98039D-923A-4FB1-A19D-86624818A628.jpg?alt=media"},
-  {"id": 82,"name": "CONTROLE XBOX COLORIDOS","category": "GAMER","price": 350.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F02ECF662-EE9C-406F-8B4F-2D372290B8C5.jpg?alt=media"},
-  {"id": 83,"name": "FONE PULSE 3D PS5","category": "GAMER","price": 480.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA111D426-CF89-4CDF-BC3C-91D43188C6CD.jpg?alt=media"},
-  {"id": 84,"name": "FONE PULSE ELITE PS5","category": "GAMER","price": 780.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F67247E9A-CE4F-4550-AF61-92B173AFFB22.jpg?alt=media"},
-  {"id": 85,"name": "FONE PULSE EXPLORE PS5","category": "GAMER","price": 760.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F22BDBDF3-5E55-4778-9DAE-365D5C6E2DB0.jpg?alt=media"},
-  {"id": 86,"name": "NITENDO SWITC OLED 64GB MARIO","category": "GAMER","price": 2300.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FB37B292A-85D2-4672-9BCA-335D16270593.jpg?alt=media"},
-  {"id": 87,"name": "PLAYSTATION PORTAL PS5","category": "GAMER","price": 1200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FFD0987FA-EE7A-4698-9D22-74C2C788F443.jpg?alt=media"},
-  {"id": 88,"name": "PS5 MIDIA FÍSICA COM 2 JOGOS","category": "GAMER","price": 3900.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6AC41F16-D293-4C46-BC44-2A967FA8BD4D.jpg?alt=media"},
-  {"id": 89,"name": "PS5 MÍDIA DIGITAL SEM JOGOS","category": "GAMER","price": 3400.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3D01676D-2266-44F7-8AC9-3669CD71D39A.jpg?alt=media"},
-  {"id": 90,"name": "PS5 PRO SEM JOGOS","category": "GAMER","price": 5400.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FAB350F8B-D604-4D2B-B02C-F77E2F14C678.jpg?alt=media"},
-  {"id": 91,"name": "VR 2 PS 5","category": "GAMER","price": 2300.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F14989F89-66C2-4777-95E9-E1A04F6F93D5.jpg?alt=media"},
-  {"id": 92,"name": "VR META QUEST 3s 256GB","category": "GAMER","price": 3300.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FFB649C73-931A-4E87-987F-AE7D257F077B.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RASTREADORES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 93,"name": "AIRTAG PACK","category": "RASTREADORES","price": 650.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F62C19CAA-D47B-487F-93D7-41CEFB257DF9.jpg?alt=media"},
-  {"id": 94,"name": "AIRTAG UN","category": "RASTREADORES","price": 220.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB976B5F0-9621-4164-9D40-DFA02264A5A5.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RELÓGIOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 95,"name": "APPLE WATCH S11 42MM","category": "RELÓGIOS","price": 2850.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media"},
-  {"id": 96,"name": "APPLE WATCH S11 46MM","category": "RELÓGIOS","price": 2950.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media"},
-  {"id": 97,"name": "APPLE WATCH SE 3 40MM","category": "RELÓGIOS","price": 2000.0,"image": ""},
-  {"id": 98,"name": "APPLE WATCH SE 3 44MM","category": "RELÓGIOS","price": 1950.0,"image": ""},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ROBÔ ASPIRADOR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 99,"name": "XIAOMI ROBOT VACUM X20 MAX","category": "ROBÔ ASPIRADOR","price": 4700.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F5DFDC52A-4DC7-462B-B16E-906418993BA3.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ STARLINK ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 100,"name": "ANTENA STARLINK MINI","category": "STARLINK","price": 840.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F2E4258AA-F75A-41CC-BFB2-3B93633BD82B.jpg?alt=media"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TABLETS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {"id": 101,"name": "IPAD 11 128GB","category": "TABLETS","price": 2700.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F7893A7AD-6FF1-4B5B-870B-FB929518BC59.jpg?alt=media"},
-  {"id": 102,"name": "IPAD AIR M3 11POL 128GB","category": "TABLETS","price": 4500.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"},
-  {"id": 103,"name": "IPAD AIR M3 11POL 256GB","category": "TABLETS","price": 5450.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"},
-  {"id": 104,"name": "IPAD AIR M3 13POL 128GB","category": "TABLETS","price": 5850.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"},
-  {"id": 105,"name": "IPAD MINI 7 (A17 PRO) 128GB","category": "TABLETS","price": 3650.0,"image": ""},
-  {"id": 106,"name": "IPAD PRO M5 11POL 256GB","category": "TABLETS","price": 7100.0,"image": ""},
-  {"id": 107,"name": "IPAD PRO M5 11POL 512GB","category": "TABLETS","price": 9250.0,"image": ""},
-  {"id": 108,"name": "IPAD PRO M5 13POL 256GB (WI-FI + CEL)","category": "TABLETS","price": 10050.0,"image": ""},
-  {"id": 109,"name": "IPAD PRO M5 13POL 256GB (WI-FI)","category": "TABLETS","price": 9400.0,"image": ""},
-  {"id": 110,"name": "MAGIC KEYBOARD IPAD PRO 12.9 3ª à 6ª geração","category": "TABLETS","price": 2200.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC4605C85-7B15-4E79-AA03-2634E622D564.jpg?alt=media"},
-  {"id": 111,"name": "REDMI PAD 2 256GB 8RAM","category": "TABLETS","price": 1450.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F79DDD83F-12A3-4B4F-8584-EC89A86C0BD4.jpg?alt=media"},
-  {"id": 112,"name": "REDMI PAD PRO 5G (8RAM) 256GB","category": "TABLETS","price": 2170.0,"image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F8AEAD874-5EEB-485C-BC5D-267AA6758EB7.jpg?alt=media"}
+  {
+    "id": 1,
+    "name": "APPLE  PENCIL USB-C",
+    "category": "ACESSÓRIOS",
+    "price": 700.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/L31evguEK7ahw2kZi9DcPld0n3T2%2F36572B7C-2716-4101-A4DC-9A69BE887673.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 2,
+    "name": "BOLSA BOOMBOX 3 SLIM",
+    "category": "ACESSÓRIOS",
+    "price": 75.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F1DDA8439-700A-47D9-B9C5-C3F455048E16.jpg?alt=media"
+  },
+  {
+    "id": 3,
+    "name": "BOLSA BOOMBOX 4 SLIM",
+    "category": "ACESSÓRIOS",
+    "price": 125.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FD1E4748E-3355-4708-9DBE-4DBF40F6DFF6.jpg?alt=media"
+  },
+  {
+    "id": 4,
+    "name": "CAPA PUREGEAR",
+    "category": "ACESSÓRIOS",
+    "price": 150.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00B79A9B-7D80-48FD-9C98-99D3B9D64761.jpg?alt=media"
+  },
+  {
+    "id": 5,
+    "name": "CAPA TECLADO JACK",
+    "category": "ACESSÓRIOS",
+    "price": 350.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF50C643C-F54A-4393-BD77-8D88BB8D2E3E.jpg?alt=media"
+  },
+  {
+    "id": 6,
+    "name": "MALA ENCORE 1/2",
+    "category": "ACESSÓRIOS",
+    "price": 200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3992B0EF-7E54-4FB7-ACDC-73F210B5C35C.jpg?alt=media"
+  },
+  {
+    "id": 7,
+    "name": "BTV 13",
+    "category": "APARELHOS PARA TV",
+    "price": 1020.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2F52E5029F-DB6B-43BC-A807-D140A7FCB81E.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 8,
+    "name": "RECEPTOR IN XPLUS",
+    "category": "APARELHOS PARA TV",
+    "price": 325.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F649D1636-E96D-46F2-B3F0-2170DDCF2B68.jpg?alt=media"
+  },
+  {
+    "id": 9,
+    "name": "UNITV V10",
+    "category": "APARELHOS PARA TV",
+    "price": 235.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F277A14C8-8BDF-4E40-92EB-168C08FAFA62.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 10,
+    "name": "CAIXA AIWA",
+    "category": "CAIXAS DE SOM",
+    "price": 1200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F33FD38B5-42CF-4C17-B5FD-5B49427695CB.jpg?alt=media"
+  },
+  {
+    "id": 11,
+    "name": "JBL BOOMBOX 4",
+    "category": "CAIXAS DE SOM",
+    "price": 3000.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEB7590B5-E96F-41E5-B96F-871473D102FE.jpg?alt=media"
+  },
+  {
+    "id": 12,
+    "name": "APPLE  PENCIL PRO",
+    "category": "CANETAS",
+    "price": 840.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/L31evguEK7ahw2kZi9DcPld0n3T2%2F24886E3E-5A49-459A-AA4B-76EBF6EC17CB.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 13,
+    "name": "CABO ORIGINAL 2M IP 15/16",
+    "category": "CARREGADORES",
+    "price": 180.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6EED380C-A59A-4440-A261-84A916469AD9.jpg?alt=media"
+  },
+  {
+    "id": 14,
+    "name": "FONTE ANATEL ORIGINAL",
+    "category": "CARREGADORES",
+    "price": 140.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2F607E907B-51CF-499B-8FF8-90E95A57B282.jpg?alt=media"
+  },
+  {
+    "id": 15,
+    "name": "13 PRO MAX 128GB CPO",
+    "category": "CELULARES",
+    "price": 3950.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F39EE862B-D43C-44A8-814B-22EFF5EF96FF.jpg?alt=media"
+  },
+  {
+    "id": 16,
+    "name": "13 PRO MAX 256GB CPO",
+    "category": "CELULARES",
+    "price": 5200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F93010BB1-3916-4151-946F-D00AE6D31DCC.jpg?alt=media"
+  },
+  {
+    "id": 17,
+    "name": "15 PLUS 128GB",
+    "category": "CELULARES",
+    "price": 4550.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3213EA8D-68E6-499A-83B0-B6718F0935F1.jpg?alt=media"
+  },
+  {
+    "id": 18,
+    "name": "15 PRO 128GB CPO",
+    "category": "CELULARES",
+    "price": 4650.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F4DFD1276-2E54-46FC-AC55-7CAE09676D64.jpg?alt=media"
+  },
+  {
+    "id": 19,
+    "name": "15 PRO 256GB CPO",
+    "category": "CELULARES",
+    "price": 5150.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F3654CE17-4FAD-4C26-93BB-E9B030F1C4A2.jpg?alt=media"
+  },
+  {
+    "id": 20,
+    "name": "15 PRO MAX 256GB",
+    "category": "CELULARES",
+    "price": 6250.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F316D4D23-87BE-4FEC-8E66-F71811494654.jpg?alt=media"
+  },
+  {
+    "id": 21,
+    "name": "A5 (3 RAM) 64GB",
+    "category": "CELULARES",
+    "price": 700.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0B216EFC-F8C2-42FB-ABB6-656532E437F1.jpg?alt=media"
+  },
+  {
+    "id": 22,
+    "name": "A5 (4 RAM) 128GB",
+    "category": "CELULARES",
+    "price": 830.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FAD1F98BF-50F1-491A-8B5F-CA0EEB7FF39B.jpg?alt=media"
+  },
+  {
+    "id": 23,
+    "name": "IPHONE 13 128GB",
+    "category": "CELULARES",
+    "price": 3200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"
+  },
+  {
+    "id": 24,
+    "name": "IPHONE 13 128GB CPO",
+    "category": "CELULARES",
+    "price": 3100.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"
+  },
+  {
+    "id": 25,
+    "name": "IPHONE 13 256GB CPO",
+    "category": "CELULARES",
+    "price": 3400.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"
+  },
+  {
+    "id": 26,
+    "name": "IPHONE 13 512GB CPO",
+    "category": "CELULARES",
+    "price": 3500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0FD20A80-EBA4-416C-A28E-207A97373FCD.jpg?alt=media"
+  },
+  {
+    "id": 27,
+    "name": "IPHONE 13 PRO 128GB CPO",
+    "category": "CELULARES",
+    "price": 3500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F9D2E94A7-1A7D-4E0F-9B1E-F802ADE14E11.jpg?alt=media"
+  },
+  {
+    "id": 28,
+    "name": "IPHONE 14 128GB",
+    "category": "CELULARES",
+    "price": 3600.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F834DD6E5-B2A6-4052-A261-63FE57FF84E8.jpg?alt=media"
+  },
+  {
+    "id": 29,
+    "name": "IPHONE 14 256GB",
+    "category": "CELULARES",
+    "price": 4050.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F834DD6E5-B2A6-4052-A261-63FE57FF84E8.jpg?alt=media"
+  },
+  {
+    "id": 30,
+    "name": "IPHONE 14 PLUS 128GB",
+    "category": "CELULARES",
+    "price": 3900.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F29370679-498D-4147-80A1-A3AEA516DD65.jpg?alt=media"
+  },
+  {
+    "id": 31,
+    "name": "IPHONE 14 PLUS 256GB CPO",
+    "category": "CELULARES",
+    "price": 3950.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F29370679-498D-4147-80A1-A3AEA516DD65.jpg?alt=media"
+  },
+  {
+    "id": 32,
+    "name": "IPHONE 14 PRO 128GB CPO",
+    "category": "CELULARES",
+    "price": 4250.0,
+    "image": ""
+  },
+  {
+    "id": 33,
+    "name": "IPHONE 14 PRO MAX 128GB CPO",
+    "category": "CELULARES",
+    "price": 4900.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F7510838F-E479-4E39-9037-994FDE1068AC.jpg?alt=media"
+  },
+  {
+    "id": 34,
+    "name": "IPHONE 15 128GB",
+    "category": "CELULARES",
+    "price": 4050.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FEFF1DC5C-1BA7-49E9-A304-36E349086D61.jpg?alt=media"
+  },
+  {
+    "id": 35,
+    "name": "IPHONE 16 128GB",
+    "category": "CELULARES",
+    "price": 4850.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F03DEDEFC-3308-44B5-A1F2-9AEB4AD56732.jpg?alt=media"
+  },
+  {
+    "id": 36,
+    "name": "IPHONE 16 PLUS 128GB",
+    "category": "CELULARES",
+    "price": 5650.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F43170F53-FEA3-4927-ADB4-1404B48507B5.jpg?alt=media"
+  },
+  {
+    "id": 37,
+    "name": "IPHONE 16 PRO 128GB",
+    "category": "CELULARES",
+    "price": 6050.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0F8F6892-58CC-459A-894F-820559F26759.jpg?alt=media"
+  },
+  {
+    "id": 38,
+    "name": "IPHONE 16 PRO 128GB CPO",
+    "category": "CELULARES",
+    "price": 5650.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F0F8F6892-58CC-459A-894F-820559F26759.jpg?alt=media"
+  },
+  {
+    "id": 39,
+    "name": "IPHONE 16 PRO MAX 512GB CPO",
+    "category": "CELULARES",
+    "price": 7050.0,
+    "image": ""
+  },
+  {
+    "id": 40,
+    "name": "IPHONE 16 PRO MAX 512GB LL",
+    "category": "CELULARES",
+    "price": 8750.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB3074CB3-AF9A-4AD4-87C0-F5B83598FF2C.jpg?alt=media"
+  },
+  {
+    "id": 41,
+    "name": "IPHONE 16E 128GB",
+    "category": "CELULARES",
+    "price": 3750.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F6F0B31CB-A42C-4631-BC3A-1E5660AB1C14.jpg?alt=media"
+  },
+  {
+    "id": 42,
+    "name": "IPHONE 17 256GB",
+    "category": "CELULARES",
+    "price": 6350.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEA8F64FC-639D-44A0-877B-B49B639AF099.jpg?alt=media"
+  },
+  {
+    "id": 43,
+    "name": "IPHONE 17 AIR 1TB",
+    "category": "CELULARES",
+    "price": 9250.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF1545E09-5063-4BD1-ADD5-DCDE706F614B.jpg?alt=media"
+  },
+  {
+    "id": 44,
+    "name": "IPHONE 17 PRO 256GB",
+    "category": "CELULARES",
+    "price": 358.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3F71F9B9-E520-4675-9A61-FC6894BBCE73.jpg?alt=media"
+  },
+  {
+    "id": 45,
+    "name": "IPHONE 17 PRO 512GB",
+    "category": "CELULARES",
+    "price": 9250.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FBDCCA4BA-72F2-4F9F-B7C1-DB89FE50EA5B.jpg?alt=media"
+  },
+  {
+    "id": 46,
+    "name": "IPHONE 17 PRO MAX 1TB",
+    "category": "CELULARES",
+    "price": 375.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F00FF669A-6B4F-4997-AF41-0ADD29E99C3D.jpg?alt=media"
+  },
+  {
+    "id": 47,
+    "name": "IPHONE 17 PRO MAX 256GB",
+    "category": "CELULARES",
+    "price": 365.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F333BFE9B-28D3-4A20-B753-4ACC5044BA19.jpg?alt=media"
+  },
+  {
+    "id": 48,
+    "name": "IPHONE 17 PRO MAX 512GB",
+    "category": "CELULARES",
+    "price": 370.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FE388FB49-4882-4BE1-AE2B-CC8B0FE55C48.jpg?alt=media"
+  },
+  {
+    "id": 49,
+    "name": "NOTE 14 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1270.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2FD786B6C1-8C34-4992-AFAB-A856F7BDF0E6.jpg?alt=media"
+  },
+  {
+    "id": 50,
+    "name": "NOTE 14 5G(8 RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1550.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F369B7F1F-3C11-4CE9-8CD1-0FCA900005DB.jpg?alt=media"
+  },
+  {
+    "id": 51,
+    "name": "NOTE 14 PRO 5G  (8 RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1820.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F27F03DCF-FBC0-439E-B4C3-1C1C0ABC15A3.jpg?alt=media"
+  },
+  {
+    "id": 52,
+    "name": "NOTE 14 PRO PLUS 5G  (12RAM) 512GB",
+    "category": "CELULARES",
+    "price": 2520.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F4970C369-9BB7-4214-8C08-7262A080FDC4.jpg?alt=media"
+  },
+  {
+    "id": 53,
+    "name": "NOTE 15 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1580.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FEE8AC42D-70FC-426A-8702-C17D543489F4.jpg?alt=media"
+  },
+  {
+    "id": 54,
+    "name": "NOTE 15 5G (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1670.0,
+    "image": ""
+  },
+  {
+    "id": 55,
+    "name": "NOTE 15 PRO (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1750.0,
+    "image": ""
+  },
+  {
+    "id": 56,
+    "name": "NOTE 15 PRO 5G (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 2010.0,
+    "image": ""
+  },
+  {
+    "id": 57,
+    "name": "NOTE 15 PRO+ 5G (12RAM) 512GB",
+    "category": "CELULARES",
+    "price": 2670.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FDE2E766E-1DEF-4B23-8123-BB54ED4D442F.jpg?alt=media"
+  },
+  {
+    "id": 58,
+    "name": "POCO C71 (4RAM ) 128GB",
+    "category": "CELULARES",
+    "price": 800.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF1BCCC73-BDFE-4846-92B3-6D49E21D1B2A.jpg?alt=media"
+  },
+  {
+    "id": 59,
+    "name": "POCO C85 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1150.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FCF9EA280-8FAB-457D-9E25-26DB69A3B412.jpg?alt=media"
+  },
+  {
+    "id": 60,
+    "name": "POCO X7  (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1850.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FAE3F1700-43A7-4AC0-865D-F0BABD43A339.jpg?alt=media"
+  },
+  {
+    "id": 61,
+    "name": "CLIMATIZADOR VENTISOL 70L",
+    "category": "CLIMATIZADORES",
+    "price": 1450.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FC20737EB-138F-49FE-9A01-7DF0EBDCE6BB.jpg?alt=media"
+  },
+  {
+    "id": 62,
+    "name": "IMAC M4 24POL 16RAM 256GB",
+    "category": "COMPUTADORES",
+    "price": 118.0,
+    "image": ""
+  },
+  {
+    "id": 63,
+    "name": "MAC AIR M3 15POL 256GB 16 RAM",
+    "category": "COMPUTADORES",
+    "price": 8500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F86BFAF8C-13B3-47E6-8620-09A445B72835.jpg?alt=media"
+  },
+  {
+    "id": 64,
+    "name": "MAC AIR M4 13.6POL 16GB RAM 512GB",
+    "category": "COMPUTADORES",
+    "price": 8100.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F051CD567-BFE4-4107-A409-CC24051D821D.jpg?alt=media"
+  },
+  {
+    "id": 65,
+    "name": "MAC AIR M4 13POL 16GB RAM 256GB",
+    "category": "COMPUTADORES",
+    "price": 6500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F426F50DA-76F8-4A1D-8610-C64EF5B914AA.jpg?alt=media"
+  },
+  {
+    "id": 66,
+    "name": "MAC AIR M5 13POL 512GB 16RAM",
+    "category": "COMPUTADORES",
+    "price": 9800.0,
+    "image": ""
+  },
+  {
+    "id": 67,
+    "name": "MAC MINI M4 16RAM 256GB",
+    "category": "COMPUTADORES",
+    "price": 4200.0,
+    "image": ""
+  },
+  {
+    "id": 68,
+    "name": "MACBOOK AIR M3 13.6POL 512GB 8RAM",
+    "category": "COMPUTADORES",
+    "price": 7000.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2FDF81F09D-0075-42CF-9741-BD8708FC8484.jpg?alt=media"
+  },
+  {
+    "id": 69,
+    "name": "MACBOOK AIR M3 15 POL/ 16GB RAM/256GB",
+    "category": "COMPUTADORES",
+    "price": 8500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/ZrMoZhsJGYeXBoiNcTQULHaRvxb2%2FDF81F09D-0075-42CF-9741-BD8708FC8484.jpg?alt=media"
+  },
+  {
+    "id": 70,
+    "name": "MACBOOK PRO 14 POL/M5 /16GB RAM/ 512GB",
+    "category": "COMPUTADORES",
+    "price": 115.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC08F8CE7-56C5-4B2D-9BB6-21C6BAC17CEF.jpg?alt=media"
+  },
+  {
+    "id": 71,
+    "name": "MACBOOK PRO 16 POL/M4 /24GB RAM/ 512GB",
+    "category": "COMPUTADORES",
+    "price": 125.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC08F8CE7-56C5-4B2D-9BB6-21C6BAC17CEF.jpg?alt=media"
+  },
+  {
+    "id": 72,
+    "name": "AIRPODS 2",
+    "category": "FONES",
+    "price": 700.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8D087CB8-89F4-4414-8E29-7E2FADD6043E.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 73,
+    "name": "AIRPODS 4",
+    "category": "FONES",
+    "price": 790.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6C82C7D7-073F-4D12-860F-4EE82BAD9CAF.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 74,
+    "name": "AIRPODS 4 C/CANCELAMENTO",
+    "category": "FONES",
+    "price": 1090.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F8BBF008A-9815-47B8-BB20-D5AF8109468F.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 75,
+    "name": "AIRPODS PRO 3",
+    "category": "FONES",
+    "price": 1650.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F2CB4B51D-90C8-49C3-80F5-68F3137E7CFE.jpg?alt=media"
+  },
+  {
+    "id": 76,
+    "name": "FONE LIGHTNING 1LINHA",
+    "category": "FONES",
+    "price": 30.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F834E9FC1-1AE0-497E-845E-4D430A99FF9D.jpg?alt=media"
+  },
+  {
+    "id": 77,
+    "name": "FONE PARA IPHONE C/ FIO ORIGINAL usb-c-",
+    "category": "FONES",
+    "price": 120.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F9C222246-9095-44A4-9BEB-5EFED2B9786A.jpg?alt=media",
+    "badge": "Esgotado"
+  },
+  {
+    "id": 78,
+    "name": "FONE XIAOMI C/ FIO ORIGINAL P2",
+    "category": "FONES",
+    "price": 45.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F671BC3EE-5534-455B-A9A6-6E1C170D70CD.jpg?alt=media"
+  },
+  {
+    "id": 79,
+    "name": "MICROFONE LAPELA LARK M2",
+    "category": "FONES",
+    "price": 900.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F60C802D5-FE54-498E-9B98-B813AD80999D.jpg?alt=media"
+  },
+  {
+    "id": 80,
+    "name": "CONTROLE EDGE PS5",
+    "category": "GAMER",
+    "price": 1100.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FD4D15EBC-36FD-4EC3-860B-BC1D510B6672.jpg?alt=media"
+  },
+  {
+    "id": 81,
+    "name": "CONTROLE PS5 COLORIDOS",
+    "category": "GAMER",
+    "price": 370.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FCE98039D-923A-4FB1-A19D-86624818A628.jpg?alt=media"
+  },
+  {
+    "id": 82,
+    "name": "CONTROLE XBOX COLORIDOS",
+    "category": "GAMER",
+    "price": 350.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F02ECF662-EE9C-406F-8B4F-2D372290B8C5.jpg?alt=media"
+  },
+  {
+    "id": 83,
+    "name": "FONE PULSE 3D PS5",
+    "category": "GAMER",
+    "price": 480.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA111D426-CF89-4CDF-BC3C-91D43188C6CD.jpg?alt=media"
+  },
+  {
+    "id": 84,
+    "name": "FONE PULSE ELITE PS5",
+    "category": "GAMER",
+    "price": 780.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F67247E9A-CE4F-4550-AF61-92B173AFFB22.jpg?alt=media"
+  },
+  {
+    "id": 85,
+    "name": "FONE PULSE EXPLORE PS5",
+    "category": "GAMER",
+    "price": 760.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F22BDBDF3-5E55-4778-9DAE-365D5C6E2DB0.jpg?alt=media"
+  },
+  {
+    "id": 86,
+    "name": "NITENDO SWITC OLED 64GB MARIO",
+    "category": "GAMER",
+    "price": 2300.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FB37B292A-85D2-4672-9BCA-335D16270593.jpg?alt=media"
+  },
+  {
+    "id": 87,
+    "name": "PLAYSTATION PORTAL PS5",
+    "category": "GAMER",
+    "price": 1200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FFD0987FA-EE7A-4698-9D22-74C2C788F443.jpg?alt=media"
+  },
+  {
+    "id": 88,
+    "name": "PS5 MIDIA FÍSICA COM 2 JOGOS",
+    "category": "GAMER",
+    "price": 3900.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F6AC41F16-D293-4C46-BC44-2A967FA8BD4D.jpg?alt=media"
+  },
+  {
+    "id": 89,
+    "name": "PS5 MÍDIA DIGITAL SEM JOGOS",
+    "category": "GAMER",
+    "price": 3400.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F3D01676D-2266-44F7-8AC9-3669CD71D39A.jpg?alt=media"
+  },
+  {
+    "id": 90,
+    "name": "PS5 PRO SEM JOGOS",
+    "category": "GAMER",
+    "price": 5400.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FAB350F8B-D604-4D2B-B02C-F77E2F14C678.jpg?alt=media"
+  },
+  {
+    "id": 91,
+    "name": "VR 2 PS 5",
+    "category": "GAMER",
+    "price": 2300.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2F14989F89-66C2-4777-95E9-E1A04F6F93D5.jpg?alt=media"
+  },
+  {
+    "id": 92,
+    "name": "VR META QUEST 3s 256GB",
+    "category": "GAMER",
+    "price": 3300.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FFB649C73-931A-4E87-987F-AE7D257F077B.jpg?alt=media"
+  },
+  {
+    "id": 93,
+    "name": "AIRTAG PACK",
+    "category": "RASTREADORES",
+    "price": 650.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F62C19CAA-D47B-487F-93D7-41CEFB257DF9.jpg?alt=media"
+  },
+  {
+    "id": 94,
+    "name": "AIRTAG UN",
+    "category": "RASTREADORES",
+    "price": 220.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FB976B5F0-9621-4164-9D40-DFA02264A5A5.jpg?alt=media"
+  },
+  {
+    "id": 95,
+    "name": "APPLE WATCH S11 42MM",
+    "category": "RELÓGIOS",
+    "price": 2850.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media"
+  },
+  {
+    "id": 96,
+    "name": "APPLE WATCH S11 46MM",
+    "category": "RELÓGIOS",
+    "price": 2950.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media"
+  },
+  {
+    "id": 97,
+    "name": "APPLE WATCH SE 3 40MM",
+    "category": "RELÓGIOS",
+    "price": 2000.0,
+    "image": ""
+  },
+  {
+    "id": 98,
+    "name": "APPLE WATCH SE 3 44MM",
+    "category": "RELÓGIOS",
+    "price": 1950.0,
+    "image": ""
+  },
+  {
+    "id": 99,
+    "name": "XIAOMI ROBOT VACUM X20 MAX",
+    "category": "ROBÔ ASPIRADOR",
+    "price": 4700.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F5DFDC52A-4DC7-462B-B16E-906418993BA3.jpg?alt=media"
+  },
+  {
+    "id": 100,
+    "name": "ANTENA STARLINK MINI",
+    "category": "STARLINK",
+    "price": 840.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F2E4258AA-F75A-41CC-BFB2-3B93633BD82B.jpg?alt=media"
+  },
+  {
+    "id": 101,
+    "name": "IPAD 11 128GB",
+    "category": "TABLETS",
+    "price": 2700.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F7893A7AD-6FF1-4B5B-870B-FB929518BC59.jpg?alt=media"
+  },
+  {
+    "id": 102,
+    "name": "IPAD AIR M3 11POL 128GB",
+    "category": "TABLETS",
+    "price": 4500.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"
+  },
+  {
+    "id": 103,
+    "name": "IPAD AIR M3 11POL 256GB",
+    "category": "TABLETS",
+    "price": 5450.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"
+  },
+  {
+    "id": 104,
+    "name": "IPAD AIR M3 13POL 128GB",
+    "category": "TABLETS",
+    "price": 5850.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FA410135B-CCCE-4EAE-B220-CDA72EBA0523.jpg?alt=media"
+  },
+  {
+    "id": 105,
+    "name": "IPAD MINI 7 (A17 PRO) 128GB",
+    "category": "TABLETS",
+    "price": 3650.0,
+    "image": ""
+  },
+  {
+    "id": 106,
+    "name": "IPAD PRO M5 11POL 256GB",
+    "category": "TABLETS",
+    "price": 7100.0,
+    "image": ""
+  },
+  {
+    "id": 107,
+    "name": "IPAD PRO M5 11POL 512GB",
+    "category": "TABLETS",
+    "price": 9250.0,
+    "image": ""
+  },
+  {
+    "id": 108,
+    "name": "IPAD PRO M5 13POL 256GB (WI-FI + CEL)",
+    "category": "TABLETS",
+    "price": 10050.0,
+    "image": ""
+  },
+  {
+    "id": 109,
+    "name": "IPAD PRO M5 13POL 256GB (WI-FI)",
+    "category": "TABLETS",
+    "price": 9400.0,
+    "image": ""
+  },
+  {
+    "id": 110,
+    "name": "MAGIC KEYBOARD IPAD PRO 12.9 3ª à 6ª geração",
+    "category": "TABLETS",
+    "price": 2200.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FC4605C85-7B15-4E79-AA03-2634E622D564.jpg?alt=media"
+  },
+  {
+    "id": 111,
+    "name": "REDMI PAD 2 256GB 8RAM",
+    "category": "TABLETS",
+    "price": 1450.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F79DDD83F-12A3-4B4F-8584-EC89A86C0BD4.jpg?alt=media"
+  },
+  {
+    "id": 112,
+    "name": "REDMI PAD PRO 5G (8RAM) 256GB",
+    "category": "TABLETS",
+    "price": 2170.0,
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F8AEAD874-5EEB-485C-BC5D-267AA6758EB7.jpg?alt=media"
+  }
 ]
