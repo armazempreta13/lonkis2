@@ -61,8 +61,14 @@ export const ProductsPage: React.FC = () => {
       // Map the product's legacy category to new system
       const productMainCategory = mapLegacyCategory(p.category);
       
-      // If product doesn't map to any category, still show it
+      // Check main category match
       const matchesMainCategory = !productMainCategory || productMainCategory === selectedMainCategory;
+      
+      // If subcategory is selected, also filter by product category (as subcategory)
+      if (selectedSubcategory && matchesMainCategory) {
+        const matchesSubcategory = p.category.toUpperCase() === selectedSubcategory.toUpperCase();
+        return matchesSearch && matchesPrice && matchesSubcategory;
+      }
       
       return matchesSearch && matchesPrice && matchesMainCategory;
     });
