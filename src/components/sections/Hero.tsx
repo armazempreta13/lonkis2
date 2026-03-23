@@ -127,6 +127,7 @@ const ProductImage = () => (
           src="https://i.imgur.com/VOKsdKH.png"
           alt="Smartphone premium em destaque"
           className="h-auto w-full scale-[1.12] grayscale transition-all duration-1000 group-hover:scale-[1.22] group-hover:grayscale-0"
+        />
 
         {/* Overlay gradient on hover */}
         <div
