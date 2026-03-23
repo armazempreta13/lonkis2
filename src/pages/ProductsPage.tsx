@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductCard } from '../components/ui/ProductCard';
-import { CategoryFilter } from '../components/ui/CategoryFilter';
+import { CategorySidebar } from '../components/ui/CategorySidebar';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 
 import { SEO } from '../components/ui/SEO';
@@ -309,10 +309,9 @@ export const ProductsPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* New Category Filter Component */}
+                {/* Category Sidebar */}
                 <div className="mb-12">
-                  <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-6">Categorias & Subcategorias</label>
-                  <CategoryFilter
+                  <CategorySidebar
                     categories={categories}
                     selectedMainCategory={selectedMainCategory}
                     selectedSubcategory={selectedSubcategory}
