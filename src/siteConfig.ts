@@ -21,7 +21,7 @@
 // ---------------------------------------------------------------------------
 // Importações
 // ---------------------------------------------------------------------------
-import scrapedProducts from './data/scrapedProducts.json';
+import products from './data/products.json';
 
 // ---------------------------------------------------------------------------
 // Ícones
@@ -482,7 +482,7 @@ export const siteConfig = {
         smart_home: { id: "smart_home", name: "Smart Home", icon: Wifi, color: "from-teal-600/50 to-teal-700/40", subcategories: ["Assistentes", "Câmeras", "Controles Inteligentes"] },
         outros: { id: "outros", name: "Outros", icon: Package, color: "from-zinc-600/50 to-zinc-700/40", subcategories: ["Diversos"] },
       },
-      items: scrapedProducts,
+      items: products,
     },
     // -------------------------------------------------------------------------
     // Página de Contato
