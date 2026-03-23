@@ -184,7 +184,7 @@
       "descricao": "Limpeza química para remover oxidação.",
       "solucao": "Desoxidação química.",
       "possiveis_causas": ["Contato com líquido", "Umidade"],
-      "tempo_estimado": "24 a 48 horas",
+      "tempo_estimado": "2 horas",
       "urgente": true,
       "recomendacao": "Traga imediatamente após o contato com líquido."
     },

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, Bot, RotateCcw, Info, CheckCheck, Zap, Shield, Wrench, Package, MapPin, CreditCard, Clock, Sun, Moon, FileText, Play, Volume2, Download } from 'lucide-react';
+import { Send, Bot, RotateCcw, Info, CheckCheck, Zap, Shield, Wrench, Package, MapPin, CreditCard, Clock, Sun, Moon, FileText, Play, Volume2, Download, Smartphone } from 'lucide-react';
 import { CHAT_SCRIPT, ChatMessage, QuickReply } from '../../services/chatScript';
 import { identifyIntent, getResponseForIntent } from '../../services/chatbotLogic';
 
@@ -12,7 +12,7 @@ const MIN_DELAY_MS = 700;
 const MAX_DELAY_MS = 2000;
 
 const IconMap: Record<string, React.ElementType> = {
-  Wrench, Package, MapPin, CreditCard, Clock, Shield, Zap,
+  Wrench, Package, MapPin, CreditCard, Clock, Shield, Zap, FileText, RotateCcw, Smartphone, Download,
 };
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
