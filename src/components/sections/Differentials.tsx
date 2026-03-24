@@ -17,7 +17,7 @@ export const Differentials = () => {
           >
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-[0.4em] text-black/40 font-black block">{badge}</span>
-              <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black">
                 {title} <br />
                 <span className="text-black/20">{titleAccent}</span>
               </h2>
@@ -43,7 +43,7 @@ export const Differentials = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group p-8 sm:p-10 bg-zinc-50 border border-zinc-100 hover:border-black hover:bg-white transition-all duration-700 rounded-[2.5rem] sm:rounded-[3rem] relative overflow-hidden shadow-sm hover:shadow-2xl"
+                className="group p-6 sm:p-8 lg:p-10 bg-zinc-50 border border-zinc-100 hover:border-black hover:bg-white transition-all duration-700 rounded-2xl sm:rounded-[2.5rem] lg:rounded-[3rem] relative overflow-hidden shadow-sm hover:shadow-2xl"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-black/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-black/10 transition-colors"></div>
                 
@@ -52,7 +52,7 @@ export const Differentials = () => {
                 </div>
                 
                 <div className="relative z-10 space-y-2 sm:space-y-3">
-                  <h3 className="font-display text-xl sm:text-2xl font-black uppercase text-black tracking-tight leading-tight">{item.title}</h3>
+                  <h3 className="font-display text-lg sm:text-2xl font-black uppercase text-black tracking-tight leading-tight">{item.title}</h3>
                   <p className="text-gray-400 text-xs sm:text-sm leading-relaxed font-medium group-hover:text-gray-600 transition-colors">{item.description}</p>
                 </div>
               </motion.div>

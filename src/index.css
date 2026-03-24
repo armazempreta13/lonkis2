@@ -109,5 +109,35 @@
       opacity: 1;
     }
   }
+
+  /* Mobile-first responsive adjustments */
+  @media (max-width: 480px) {
+    /* Ensure text is readable on very small phones */
+    body {
+      font-size: 14px; /* Slight increase for readability */
+    }
+
+    /* Reduce padding on smaller screens */
+    .px-6 { @apply px-4; }
+    .py-32 { @apply py-20; }
+    .py-24 { @apply py-16; }
+    
+    /* Better touch targets for mobile */
+    button, a {
+      min-height: 44px; /* Minimum touch target size */
+    }
+  }
+
+  /* Tablet optimization */
+  @media (min-width: 481px) and (max-width: 820px) {
+    .py-32 { @apply py-24; }
+  }
+
+  /* Hide scrollbar indicators on small screens */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
 }
 

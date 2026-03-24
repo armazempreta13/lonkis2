@@ -29,14 +29,14 @@ const BackgroundFx = () => (
 );
 
 const BadgeRow = () => (
-  <div className="mb-10 flex flex-col items-center gap-6 lg:flex-row lg:items-start">
+  <div className="mb-8 sm:mb-10 flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:items-start">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.2 }}
-      className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1 backdrop-blur-md"
+      className="inline-block rounded-full border border-white/10 bg-white/5 px-3 sm:px-4 py-1 backdrop-blur-md"
     >
-      <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/60">
+      <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/60">
         {siteConfig.pages.home.hero.badge}
       </span>
     </motion.div>
@@ -47,8 +47,8 @@ const BadgeRow = () => (
       transition={{ delay: 0.4 }}
       className="flex items-center gap-2 text-emerald-500/80"
     >
-      <Award className="h-4 w-4" aria-hidden="true" />
-      <span className="text-[10px] font-black uppercase tracking-[0.3em]">
+      <Award className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
+      <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em]">
         {siteConfig.pages.home.hero.experience}
       </span>
     </motion.div>
@@ -61,7 +61,7 @@ const Heading = () => {
   return (
     <>
       <style>{animationConfig.animation.css}</style>
-      <h1 className={`mb-10 font-display text-5xl font-black uppercase leading-[0.8] tracking-tighter text-white sm:text-7xl md:text-9xl ${animationConfig.animation.className}`}>
+      <h1 className={`mb-10 font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
         {siteConfig.pages.home.hero.title}
         <br />
         <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
@@ -73,7 +73,7 @@ const Heading = () => {
 };
 
 const Subtitle = () => (
-  <p className="mx-auto mb-12 max-w-lg text-base font-medium leading-relaxed text-white/40 sm:text-lg md:text-xl lg:mx-0">
+  <p className="mx-auto mb-8 sm:mb-12 max-w-lg text-sm sm:text-base font-medium leading-relaxed text-white/40 md:text-lg lg:mx-0">
     {siteConfig.pages.home.hero.subtitle}
   </p>
 );
@@ -83,9 +83,9 @@ interface CtaGroupProps {
 }
 
 const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
-  <div className="flex flex-col justify-center gap-6 sm:flex-row lg:justify-start">
+  <div className="flex flex-col gap-3 sm:gap-6 sm:flex-row lg:justify-start">
     <Button
-      className="rounded-2xl px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
+      className="rounded-2xl px-8 sm:px-12 py-4 sm:py-6 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
       onClick={onQuoteClick}
       ariaLabel={siteConfig.pages.home.hero.ctaPrimary}
     >
@@ -94,7 +94,7 @@ const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
 
     <Button
       variant="outline"
-      className="rounded-2xl border-white/10 px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] transition-all hover:border-white hover:bg-white/5"
+      className="rounded-2xl border-white/10 px-8 sm:px-12 py-4 sm:py-6 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all hover:border-white hover:bg-white/5"
       onClick={scrollToServices}
       ariaLabel={siteConfig.pages.home.hero.ctaSecondary}
     >

@@ -35,10 +35,10 @@ export const Contact = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-12 sm:mb-16">
-          <div className="inline-block px-4 py-1 bg-white/5 backdrop-blur-md rounded-full mb-6 border border-white/10">
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold">{contactPage.hero.badge}</span>
+          <div className="inline-block px-3 sm:px-4 py-1 bg-white/5 backdrop-blur-md rounded-full mb-6 border border-white/10">
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/40 font-bold">{contactPage.hero.badge}</span>
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-white leading-[0.85]">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-4 text-white leading-[0.85]">
             {contactPage.hero.title} <br />
             <span className="text-white/20">{contactPage.hero.titleAccent}</span>
           </h1>
@@ -50,7 +50,7 @@ export const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-zinc-900/40 backdrop-blur-sm p-8 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border border-white/5 relative overflow-hidden shadow-2xl">
+            <div className="bg-zinc-900/40 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl md:rounded-[3rem] border border-white/5 relative overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
                   <motion.form

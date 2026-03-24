@@ -16,7 +16,7 @@ export const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       
       {/* Google Maps Integration - Now at the Very Top of Footer */}
-      <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden border-b border-white/5 relative group">
+      <div className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] overflow-hidden border-b border-white/5 relative group">
         <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
         <iframe 
           src={siteConfig.contact.mapsEmbed}
@@ -29,14 +29,14 @@ export const Footer = () => {
           title={`Localização ${siteConfig.brand.name}`}
           className="grayscale invert opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:invert-0 transition-all duration-1000"
         ></iframe>
-        <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-3rem)] sm:w-auto">
+        <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-1.5rem)] sm:w-auto">
           <a 
             href={siteConfig.contact.mapsUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-white text-black px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-2xl hover:bg-emerald-500 hover:text-white transition-all active:scale-95 whitespace-nowrap"
+            className="bg-white text-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] flex items-center justify-center gap-2 shadow-2xl hover:bg-emerald-500 hover:text-white transition-all active:scale-95 whitespace-nowrap"
           >
-            <MapPin size={18} />
+            <MapPin size={16} className="sm:size-18" />
             Abrir no Google Maps
           </a>
         </div>
@@ -44,9 +44,9 @@ export const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-6 pt-20 sm:pt-24 relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 md:gap-16 lg:gap-20 mb-20 sm:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-16 mb-16 sm:mb-20 md:mb-24">
           {/* Brand Info */}
-          <div className="space-y-8 sm:space-y-10 text-center sm:text-left">
+          <div className="space-y-6 sm:space-y-8 text-center sm:text-left">
             <Link to="/" className="inline-block group transition-transform duration-500 hover:scale-105" aria-label="Ir para a página inicial">
               <img 
                 src={siteConfig.brand.logo} 
@@ -56,15 +56,15 @@ export const Footer = () => {
                 referrerPolicy="no-referrer"
               />
             </Link>
-            <p className="text-white/30 text-sm font-medium leading-relaxed max-w-xs mx-auto sm:mx-0">
+            <p className="text-white/30 text-xs sm:text-sm font-medium leading-relaxed max-w-xs mx-auto sm:mx-0">
               {siteConfig.footer.description}
             </p>
           </div>
 
           {/* Useful Links */}
           <div>
-            <h4 className="font-display font-black uppercase text-[11px] tracking-[0.4em] mb-10 text-white/20">{siteConfig.footer.quickLinksTitle}</h4>
-            <ul className="space-y-5 text-sm text-white/40 font-bold uppercase tracking-widest">
+            <h4 className="font-display font-black uppercase text-[10px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-6 sm:mb-10 text-white/20">{siteConfig.footer.quickLinksTitle}</h4>
+            <ul className="space-y-4 sm:space-y-5 text-xs sm:text-sm text-white/40 font-bold uppercase tracking-widest">
               {siteConfig.navbar.navItems.map((item) => (
                 <li key={item.label}><Link to={item.href} className="hover:text-white transition-all hover:translate-x-2 inline-block">{item.label}</Link></li>
               ))}
@@ -73,8 +73,8 @@ export const Footer = () => {
 
           {/* Contacts */}
           <div>
-            <h4 className="font-display font-black uppercase text-[11px] tracking-[0.4em] mb-10 text-white/20">{siteConfig.footer.contactTitle}</h4>
-            <ul className="space-y-8 text-sm text-white/40 font-bold">
+            <h4 className="font-display font-black uppercase text-[10px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-6 sm:mb-10 text-white/20">{siteConfig.footer.contactTitle}</h4>
+            <ul className="space-y-6 sm:space-y-8 text-xs sm:text-sm text-white/40 font-bold">
               <li className="flex items-start gap-4 group">
                 <MapPin className="w-5 h-5 text-white/20 group-hover:text-white transition-colors shrink-0 mt-1" />
                 <span className="leading-relaxed group-hover:text-white transition-colors">{siteConfig.contact.address}</span>
@@ -91,9 +91,9 @@ export const Footer = () => {
           </div>
 
           {/* Social & CTA */}
-          <div className="space-y-12">
-            <h4 className="font-display font-black uppercase text-[11px] tracking-[0.4em] mb-10 text-white/20">Siga-nos</h4>
-            <div className="flex items-center gap-8">
+          <div className="space-y-8 sm:space-y-12">
+            <h4 className="font-display font-black uppercase text-[10px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-6 sm:mb-10 text-white/20">Siga-nos</h4>
+            <div className="flex items-center justify-center sm:justify-start gap-6 sm:gap-8">
               <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125" aria-label="Instagram">
                 <Instagram className="w-7 h-7" />
               </a>

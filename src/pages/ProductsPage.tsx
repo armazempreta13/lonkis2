@@ -204,7 +204,7 @@ export const ProductsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.85]"
+              className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.85]"
             >
               {siteConfig.pages.products.hero.title} <br />
               <span className="text-white/20">{siteConfig.pages.products.hero.titleAccent}</span>
@@ -214,7 +214,7 @@ export const ProductsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="max-w-2xl text-white/40 text-base md:text-lg font-medium leading-relaxed"
+              className="max-w-2xl text-white/40 text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed"
             >
               {siteConfig.pages.products.hero.subtitle}
             </motion.p>
@@ -230,19 +230,19 @@ export const ProductsPage: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-12 p-6 md:p-8 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 rounded-3xl backdrop-blur-sm"
+            className="mb-8 sm:mb-10 md:mb-12 p-4 sm:p-6 md:p-8 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 rounded-2xl sm:rounded-3xl backdrop-blur-sm"
           >
-            <div className="flex gap-4 md:gap-6 items-start">
+            <div className="flex gap-3 sm:gap-4 md:gap-6 items-start">
               <div className="flex-shrink-0 mt-1">
-                <div className="flex items-center justify-center h-8 w-8 rounded-full bg-amber-500/20">
-                  <span className="text-lg">ℹ️</span>
+                <div className="flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-amber-500/20">
+                  <span className="text-base sm:text-lg">ℹ️</span>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-sm md:text-base font-black text-amber-400 uppercase tracking-wider mb-2">
+                <h3 className="text-xs sm:text-sm md:text-base font-black text-amber-400 uppercase tracking-widest mb-1 sm:mb-2">
                   Importante - Loja Física
                 </h3>
-                <p className="text-xs md:text-sm text-white/70 leading-relaxed">
+                <p className="text-[11px] sm:text-xs md:text-sm text-white/70 leading-relaxed">
                   <span className="text-white font-semibold">Os produtos mostrados aqui são do nosso mostruário.</span> Todas as compras são realizadas presencialmente em nossa loja física. Não realizamos envios pelos Correios ou qualquer outro serviço de entrega. Visite-nos para conhecer os produtos e finalizar sua compra!
                 </p>
               </div>

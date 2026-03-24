@@ -123,8 +123,8 @@ export const Navbar = () => {
               </button>
             </div>
             
-            <div className="flex flex-col gap-4 mb-12">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-black mb-4">Navegação</span>
+            <div className="flex flex-col gap-3 sm:gap-4 mb-12">
+              <span className="text-[9px] uppercase tracking-[0.3em] text-white/20 font-black mb-6">Navegação</span>
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -135,7 +135,7 @@ export const Navbar = () => {
                   <Link
                     to={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-4xl sm:text-5xl font-display font-black uppercase tracking-tighter transition-all block py-2 ${
+                    className={`text-2xl sm:text-4xl font-display font-black uppercase tracking-tighter transition-all block py-3 ${
                       location.pathname === item.href ? 'text-white' : 'text-white/20 active:text-white'
                     }`}
                   >
@@ -145,9 +145,9 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="mt-auto pt-10 border-t border-white/10 space-y-10">
-              <div className="space-y-6">
-                <span className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-black">Contato Direto</span>
+            <div className="mt-auto pt-8 sm:pt-10 border-t border-white/10 space-y-8 sm:space-y-10">
+              <div className="space-y-5 sm:space-y-6">
+                <span className="text-[9px] uppercase tracking-[0.3em] text-white/20 font-black">Contato Direto</span>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

@@ -87,29 +87,29 @@ export const Testimonials = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.9]"
+              className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter leading-[0.9]"
             >
               {siteConfig.pages.home.testimonials?.title || 'O que dizem'} <br />
               <span className="text-white/20">{siteConfig.pages.home.testimonials?.titleAccent || 'Nossos Clientes'}</span>
             </motion.h2>
           </div>
           
-          <div className="flex flex-col items-stretch sm:items-start md:items-end gap-6 w-full md:w-auto">
-            <div className="flex items-center justify-center sm:justify-start gap-4 bg-white/5 px-6 py-3 rounded-2xl border border-white/10">
+          <div className="flex flex-col items-stretch gap-4 sm:gap-6 w-full md:items-end md:w-auto">
+            <div className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4 bg-white/5 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl border border-white/10">
               <div className="flex gap-1">
                 {[...Array(Math.round(overallRating))].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-white font-black text-sm">{overallRating.toFixed(1)} no Google</span>
-              <span className="text-white/40 text-xs">({totalReviewsCount} avaliações)</span>
+              <span className="text-white font-black text-xs sm:text-sm">{overallRating.toFixed(1)} no Google</span>
+              <span className="text-white/40 text-[10px] sm:text-xs">({totalReviewsCount})</span>
             </div>
             <Button 
-              className="bg-white hover:bg-gray-200 text-black w-full sm:w-auto px-10 py-5 rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-white/5 text-[10px] font-black uppercase tracking-[0.2em]"
+              className="bg-white hover:bg-gray-200 text-black w-full px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-2 sm:gap-3 shadow-2xl shadow-white/5 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em]"
               onClick={() => window.open(siteConfig.contact.whatsapp, '_blank')}
             >
-              <MessageCircle className="w-5 h-5" />
-              {siteConfig.pages.home.testimonials?.ctaText || 'Ver todas as avaliações'}
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              Ver avaliações
             </Button>
           </div>
         </div>

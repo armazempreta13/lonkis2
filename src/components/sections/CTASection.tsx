@@ -10,7 +10,7 @@ export const CTASection = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-24 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -27,12 +27,12 @@ export const CTASection = () => {
             >
               <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">{siteConfig.pages.home.cta.badge}</span>
             </motion.div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[0.9] uppercase tracking-tighter">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] uppercase tracking-tighter">
               {siteConfig.pages.home.cta.title} <span className="text-white/20">{siteConfig.pages.home.cta.titleAccent}</span>
             </h2>
           </div>
           
-          <div className="space-y-6 text-white/40 text-base sm:text-lg font-medium leading-relaxed max-w-lg">
+          <div className="space-y-6 text-white/40 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-lg">
             <p>
               {siteConfig.pages.home.cta.subtitle1}
             </p>
@@ -45,7 +45,7 @@ export const CTASection = () => {
           </div>
 
           <Button 
-            className="w-full sm:w-auto px-12 py-6 text-[11px] font-black uppercase tracking-[0.3em] rounded-2xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-white/5"
+            className="w-full sm:w-auto px-10 sm:px-12 py-5 sm:py-6 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] rounded-2xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-white/5"
             onClick={() => window.open(siteConfig.contact.whatsapp, '_blank')}
             ariaLabel={siteConfig.pages.home.cta.buttonText}
           >
