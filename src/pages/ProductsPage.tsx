@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductCard } from '../components/ui/ProductCard';
 import { CategorySidebar } from '../components/ui/CategorySidebar';
-import { Search, SlidersHorizontal, X } from 'lucide-react';
+import { Search, SlidersHorizontal, X, ChevronDown } from 'lucide-react';
 
 import { SEO } from '../components/ui/SEO';
 import { siteConfig } from '../siteConfig';
@@ -15,7 +15,21 @@ export const ProductsPage: React.FC = () => {
   const [maxPrice, setMaxPrice] = useState(10000);
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const [productsPerPage, setProductsPerPage] = useState<number>(12);
+
+  // Load products per page preference from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('productsPerPage');
+    if (saved) {
+      setProductsPerPage(Number(saved));
+    }
+  }, []);
+
+  const handleProductsPerPageChange = (value: number) => {
+    setProductsPerPage(value);
+    localStorage.setItem('productsPerPage', String(value));
+    setCurrentPage(1); // Reset to first page
+  };
 
   const products = siteConfig.pages.products?.items || [];
   const categories = siteConfig.pages.products?.categories || {};
@@ -146,9 +160,11 @@ export const ProductsPage: React.FC = () => {
     if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
     if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
     if (sortBy === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+    if (sortBy === 'newest') filtered.sort((a, b) => b.id - a.id);
+    if (sortBy === 'random') filtered.sort(() => Math.random() - 0.5);
 
     return filtered;
-  }, [searchTerm, selectedMainCategory, selectedSubcategory, sortBy, maxPrice]);
+  }, [searchTerm, selectedMainCategory, selectedSubcategory, sortBy, maxPrice, productsPerPage]);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -251,7 +267,7 @@ export const ProductsPage: React.FC = () => {
 
           {/* Controls Bar */}
           <div className="mb-8 md:mb-12">
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 md:items-end md:justify-between">
+            <div className="flex flex-col gap-4 md:gap-6 md:grid md:grid-cols-2 md:items-end md:justify-between">
               {/* Search and Sort on Desktop */}
               <div className="flex-1 flex flex-col sm:flex-row gap-4 sm:gap-6">
                 {/* Search */}
@@ -275,7 +291,7 @@ export const ProductsPage: React.FC = () => {
                 </div>
 
                 {/* Sort */}
-                <div className="sm:min-w-[200px] relative">
+                <div className="sm:min-w-[220px] relative">
                   <select 
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
@@ -284,20 +300,31 @@ export const ProductsPage: React.FC = () => {
                     <option value="name" className="bg-zinc-900">Nome (A-Z)</option>
                     <option value="price-asc" className="bg-zinc-900">Menor Preço</option>
                     <option value="price-desc" className="bg-zinc-900">Maior Preço</option>
+                    <option value="newest" className="bg-zinc-900">Mais Novo</option>
+                    <option value="random" className="bg-zinc-900">Aleatório</option>
                   </select>
                   <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <ChevronDown size={16} />
                   </div>
                 </div>
               </div>
 
-              {/* Filter Toggle Button */}
+              {/* Filter Toggle Button with Active Filters Badge */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="md:hidden flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-[10px] font-black text-white/40 hover:text-white hover:border-white/30 uppercase tracking-[0.3em] transition-all"
+                className="md:hidden flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-[10px] font-black text-white/40 hover:text-white hover:border-white/30 uppercase tracking-[0.3em] transition-all relative"
               >
                 <SlidersHorizontal size={18} />
                 Filtros
+                {(searchTerm || selectedMainCategory || selectedSubcategory || maxPrice !== maxProductPrice || sortBy !== 'name') && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="absolute -top-2 -right-2 bg-emerald-500 text-black text-[7px] font-black px-2 py-1 rounded-full h-5 w-5 flex items-center justify-center"
+                  >
+                    {[searchTerm ? 1 : 0, selectedMainCategory ? 1 : 0, selectedSubcategory ? 1 : 0, maxPrice !== maxProductPrice ? 1 : 0, sortBy !== 'name' ? 1 : 0].reduce((a, b) => a + b, 0)}
+                  </motion.div>
+                )}
               </button>
             </div>
 
@@ -310,27 +337,16 @@ export const ProductsPage: React.FC = () => {
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-6 p-6 bg-zinc-900/40 backdrop-blur-sm border border-white/10 rounded-2xl md:hidden"
                 >
-                  {/* Categories */}
+                  {/* Categories - Now using CategorySidebar for mobile */}
                   <div className="mb-8">
                     <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-4">Categorias</label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {categories.map(cat => (
-                        <button
-                          key={cat}
-                          onClick={() => {
-                            setSelectedCategory(cat);
-                            setShowFilters(false);
-                          }}
-                          className={`px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.2em] transition-all border ${
-                            selectedCategory === cat 
-                              ? "bg-white text-black border-white" 
-                              : "bg-white/5 text-white/40 border-white/10 hover:border-white/30 hover:text-white"
-                          }`}
-                        >
-                          {cat}
-                        </button>
-                      ))}
-                    </div>
+                    <CategorySidebar
+                      categories={categories}
+                      selectedMainCategory={selectedMainCategory}
+                      selectedSubcategory={selectedSubcategory}
+                      onMainCategoryChange={setSelectedMainCategory}
+                      onSubcategoryChange={setSelectedSubcategory}
+                    />
                   </div>
 
                   {/* Price Range */}

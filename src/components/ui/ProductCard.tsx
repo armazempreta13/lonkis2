@@ -1,5 +1,5 @@
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { MessageCircle, Package } from 'lucide-react';
 import { siteConfig } from '../../siteConfig';
 
 interface Product {
@@ -16,7 +16,9 @@ interface ProductCardProps {
   product: Product;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCardComponent: React.FC<ProductCardProps> = ({ product }) => {
+  const [imageError, setImageError] = useState(false);
+
   const handleWhatsApp = () => {
     const message = `Olá! Tenho interesse no produto: ${product.name} (R$ ${product.price.toLocaleString('pt-BR')})`;
     window.open(`${siteConfig.contact.whatsapp}?text=${encodeURIComponent(message)}`, '_blank');
@@ -29,13 +31,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Image container */}
       <div className="relative w-full h-56 sm:h-64 mb-5 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/5 to-black/20 flex items-center justify-center group-hover:from-white/8 transition-all duration-500">
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="w-full h-full object-contain p-4 sm:p-5 transition-transform duration-700 group-hover:scale-105" 
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
+        {imageError ? (
+          <div className="flex flex-col items-center justify-center gap-3 w-full h-full">
+            <Package size={40} className="text-white/20" />
+            <span className="text-[10px] text-white/30 font-black uppercase text-center px-4">Imagem indisponível</span>
+          </div>
+        ) : (
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            className="w-full h-full object-contain p-4 sm:p-5 transition-transform duration-700 group-hover:scale-105" 
+            referrerPolicy="no-referrer"
+            loading="lazy"
+            onError={() => setImageError(true)}
+          />
+        )}
         {/* Badge */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
           <span className="bg-white/95 text-black text-[7px] sm:text-[8px] font-black px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-lg uppercase tracking-widest shadow-lg">
@@ -67,6 +77,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 className="w-4 h-4 rounded-full border border-white/20 hover:border-white/40 shadow-md transition-all cursor-pointer hover:scale-110" 
                 style={{ backgroundColor: color }} 
                 title={`Cor: ${color}`}
+                role="img"
+                aria-label={`Cor disponível: ${color}`}
               />
             ))}
           </div>
@@ -97,3 +109,5 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     </div>
   );
 };
+
+export const ProductCard = React.memo(ProductCardComponent);
