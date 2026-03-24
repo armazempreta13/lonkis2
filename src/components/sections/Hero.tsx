@@ -108,12 +108,12 @@ const ProductImage = () => (
     initial={{ opacity: 0, scale: 0.95, rotateY: 20 }}
     animate={{ opacity: 1, scale: 1, rotateY: 0 }}
     transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-    className="relative flex items-center justify-center perspective-1000"
+    className="relative flex items-center justify-center perspective-1000 hidden sm:flex"
   >
     <motion.div
       animate={{ y: [0, -20, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      className="group relative w-full max-w-[700px]"
+      className="group relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[700px]"
     >
       {/* Glow */}
       <div
@@ -145,9 +145,9 @@ const ScrollIndicator = () => (
     animate={{ opacity: 1 }}
     transition={{ delay: 1.5, duration: 1 }}
     aria-hidden="true"
-    className="absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3"
+    className="absolute bottom-8 sm:bottom-12 left-1/2 hidden sm:flex -translate-x-1/2 flex-col items-center gap-3"
   >
-    <span className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20">
+    <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/20">
       Scroll
     </span>
     <motion.div
@@ -166,17 +166,17 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-12 pt-24">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-8 sm:pb-12 pt-24 sm:pt-32 px-6">
       <BackgroundFx />
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl grid-cols-1 gap-20 px-6 lg:grid lg:grid-cols-2 lg:items-center">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center gap-12 sm:gap-16">
         {/* Left column — copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center lg:text-left"
+          className="text-center lg:text-left order-2 sm:order-1"
         >
           <BadgeRow />
           <Heading />
@@ -185,7 +185,9 @@ export const Hero = () => {
         </motion.div>
 
         {/* Right column — image */}
-        <ProductImage />
+        <motion.div className="order-1 sm:order-2">
+          <ProductImage />
+        </motion.div>
       </div>
 
       <ScrollIndicator />
