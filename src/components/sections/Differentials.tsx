@@ -6,7 +6,7 @@ import { siteConfig } from '../../siteConfig';
 export const Differentials = () => {
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.differentials;
   return (
-    <section id="differentials" className="py-32 px-6 bg-white overflow-hidden">
+    <section id="differentials" className="py-16 sm:py-24 md:py-32 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
           <motion.div

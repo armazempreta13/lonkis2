@@ -15,13 +15,13 @@ export const Services = () => {
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
   return (
-    <section id="services" className="py-32 px-6 bg-black relative overflow-hidden">
+    <section id="services" className="py-16 sm:py-24 md:py-32 px-6 bg-black relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-20 gap-6 sm:gap-8">
           <div className="space-y-4">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}

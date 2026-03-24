@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 
 export const CTASection = () => {
   return (
-    <section className="py-32 px-6 bg-black overflow-hidden relative">
+    <section className="py-16 sm:py-24 md:py-32 px-6 bg-black overflow-hidden relative">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>

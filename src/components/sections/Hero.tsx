@@ -29,7 +29,7 @@ const BackgroundFx = () => (
 );
 
 const BadgeRow = () => (
-  <div className="mb-8 sm:mb-10 flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:items-start">
+  <div className="mb-4 sm:mb-6 flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:items-start">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ const Heading = () => {
   return (
     <>
       <style>{animationConfig.animation.css}</style>
-      <h1 className={`mb-10 font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
+      <h1 className={`mb-5 sm:mb-7 font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
         {siteConfig.pages.home.hero.title}
         <br />
         <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
@@ -73,7 +73,7 @@ const Heading = () => {
 };
 
 const Subtitle = () => (
-  <p className="mx-auto mb-8 sm:mb-12 max-w-lg text-sm sm:text-base font-medium leading-relaxed text-white/40 md:text-lg lg:mx-0">
+  <p className="mx-auto mb-5 sm:mb-8 max-w-lg text-sm sm:text-base font-medium leading-relaxed text-white/40 md:text-lg lg:mx-0">
     {siteConfig.pages.home.hero.subtitle}
   </p>
 );
@@ -166,11 +166,11 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-8 sm:pb-12 pt-24 sm:pt-32 px-6">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-6 sm:pb-10 pt-20 sm:pt-32 px-6">
       <BackgroundFx />
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center gap-12 sm:gap-16">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center gap-6 sm:gap-12">
         {/* Left column — copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

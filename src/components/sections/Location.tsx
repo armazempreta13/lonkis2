@@ -4,9 +4,9 @@ import { siteConfig } from '../../siteConfig';
 
 export const Location = () => {
   return (
-    <section id="location" className="py-32 px-6 bg-black border-t border-white/5 overflow-hidden">
+    <section id="location" className="py-16 sm:py-24 md:py-32 px-6 bg-black border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-20 gap-6 sm:gap-8">
           <div className="space-y-4">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
