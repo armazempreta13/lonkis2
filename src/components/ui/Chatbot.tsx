@@ -38,16 +38,16 @@ const TypingDots = memo(() => (
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-    className="flex items-end gap-3"
+    className="flex items-end gap-2 sm:gap-3"
   >
-    <div className="lk-avatar" style={{ width: 32, height: 32 }}>
-      <Bot size={15} className="text-black" />
+    <div className="lk-avatar" style={{ width: '24px', height: '24px', minWidth: '24px' }}>
+      <Bot size={12} className="text-black" />
     </div>
-    <div className="flex items-center gap-2 px-5 py-4 rounded-2xl rounded-tl-sm lk-bubble-bot" style={{ background: 'rgba(255,255,255,0.08)' }}>
+    <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-4 rounded-2xl rounded-tl-sm lk-bubble-bot" style={{ background: 'rgba(255,255,255,0.08)' }}>
       {[0, 0.15, 0.3].map((d, i) => (
         <motion.span
           key={i}
-          className="w-2 h-2 rounded-full"
+          className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
           style={{ background: 'var(--lk-green)' }}
           animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.1, 0.8] }}
           transition={{ duration: 1, delay: d, repeat: Infinity, ease: 'easeInOut' }}
@@ -61,10 +61,10 @@ TypingDots.displayName = 'TypingDots';
 // ─── Notice pill ───────────────────────────────────────────────────────────────
 
 const Notice = memo(({ text }: { text: string }) => (
-  <div className="flex justify-center my-1">
+  <div className="flex justify-center my-0.5 sm:my-1">
     <div className="lk-notice">
-      <Info size={9} style={{ color: 'var(--lk-muted)' }} />
-      <span style={{ color: 'var(--lk-muted)' }} className="text-[9px] uppercase tracking-[0.18em] font-semibold">{text}</span>
+      <Info size={8} className="sm:size-[9px]" style={{ color: 'var(--lk-muted)' }} />
+      <span style={{ color: 'var(--lk-muted)' }} className="text-[7px] sm:text-[9px] uppercase tracking-[0.18em] font-semibold">{text}</span>
     </div>
   </div>
 ));
@@ -73,12 +73,12 @@ Notice.displayName = 'Notice';
 // ─── Inline table ──────────────────────────────────────────────────────────────
 
 const MsgTable = memo(({ table }: { table: NonNullable<ChatMessage['table']> }) => (
-  <div className="mt-3 rounded-xl overflow-hidden lk-table-wrap">
-    <table className="w-full text-[11px] border-collapse">
+  <div className="mt-2 sm:mt-3 rounded-xl overflow-hidden lk-table-wrap">
+    <table className="w-full text-[9px] sm:text-[11px] border-collapse">
       <thead>
         <tr className="lk-table-head">
           {table.headers.map((h, i) => (
-            <th key={i} className="py-2 px-3 text-left font-bold uppercase tracking-widest lk-table-th">{h}</th>
+            <th key={i} className="py-1.5 sm:py-2 px-2 sm:px-3 text-left font-bold uppercase tracking-widest lk-table-th text-[7px] sm:text-[9px]">{h}</th>
           ))}
         </tr>
       </thead>
@@ -86,7 +86,7 @@ const MsgTable = memo(({ table }: { table: NonNullable<ChatMessage['table']> }) 
         {table.rows.map((row, i) => (
           <tr key={i} className={i < table.rows.length - 1 ? 'lk-table-row' : ''}>
             {row.map((cell, j) => (
-              <td key={j} className="py-2.5 px-3 font-medium lk-table-td">{cell}</td>
+              <td key={j} className="py-1.5 sm:py-2.5 px-2 sm:px-3 font-medium lk-table-td text-[7px] sm:text-[9px]">{cell}</td>
             ))}
           </tr>
         ))}
@@ -146,10 +146,10 @@ const Bubble = memo(({ msg, onFormSubmit, onMediaLoad }: { msg: ChatMessage; onF
 
       <div className={`flex flex-col max-w-[82%] ${isUser ? 'items-end' : 'items-start'}`}>
         <div className={isUser ? 'lk-bubble-user' : 'lk-bubble-bot'} style={{ 
-          padding: '14px 18px',
+          padding: 'clamp(10px, 2vw, 14px) clamp(12px, 3vw, 18px)',
           boxShadow: isUser ? '0 10px 25px -5px rgba(0,229,160,0.3)' : '0 10px 25px -5px rgba(0,0,0,0.2)'
         }}>
-          <div className="whitespace-pre-wrap break-words text-[14px] leading-[1.6] font-medium">
+          <div className="whitespace-pre-wrap break-words text-[13px] sm:text-[14px] leading-[1.6] font-medium">
             {renderContent(msg.content)}
           </div>
           
@@ -583,14 +583,20 @@ export const Chatbot = () => {
         }
         .lk-toggle {
           position: relative;
-          width: 74px; height: 74px;
-          border-radius: 24px;
+          width: 60px; height: 60px;
+          border-radius: 20px;
           display: flex; align-items: center; justify-content: center;
           background: linear-gradient(145deg, var(--lk-green) 0%, var(--lk-green-dk) 100%);
           box-shadow: 0 12px 38px rgba(0,229,160,0.45), 0 0 0 1px rgba(0,229,160,0.2);
           border: none; cursor: pointer; outline: none;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           animation: lk-pulse-glow 2.5s infinite;
+        }
+        @media (min-width: 640px) {
+          .lk-toggle {
+            width: 74px; height: 74px;
+            border-radius: 24px;
+          }
         }
         .lk-toggle:hover {
           transform: translateY(-4px) scale(1.05);
@@ -752,44 +758,45 @@ export const Chatbot = () => {
               {/* Header */}
               <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '16px 18px',
+                padding: '12px 12px 12px 14px',
                 borderBottom: theme === 'light' ? '1px solid rgba(0,0,0,0.05)' : '1px solid rgba(255,255,255,0.06)',
                 flexShrink: 0,
+                gap: '8px',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
                   {/* Logomark */}
-                  <div style={{ position: 'relative' }}>
+                  <div style={{ position: 'relative', flexShrink: 0 }}>
                     <div style={{
-                      width: 40, height: 40, borderRadius: 12,
+                      width: '32px', height: '32px', borderRadius: '8px',
                       background: 'linear-gradient(135deg, #00e5a0 0%, #009e6e 100%)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       boxShadow: '0 4px 18px rgba(0,229,160,0.3)',
                     }}>
-                      <Zap size={18} style={{ color: '#000' }} fill="#000" />
+                      <Zap size={16} style={{ color: '#000' }} fill="#000" />
                     </div>
                     <span style={{
                       position: 'absolute', bottom: -2, right: -2,
-                      width: 11, height: 11, borderRadius: '50%',
+                      width: '8px', height: '8px', borderRadius: '50%',
                       background: '#00e5a0', border: theme === 'light' ? '2px solid #fff' : '2px solid #0d0d11',
                     }} />
                   </div>
 
-                  <div>
-                    <p className="lk-syne" style={{ color: theme === 'light' ? '#111' : 'white', fontSize: 15, fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>
+                  <div style={{ minWidth: 0 }}>
+                    <p className="lk-syne" style={{ color: theme === 'light' ? '#111' : 'white', fontSize: '12px', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>
                       LK Imports
                     </p>
-                    <p style={{ color: '#00e5a0', fontSize: 10, fontWeight: 600, marginTop: 5, textTransform: 'uppercase', letterSpacing: '0.15em', lineHeight: 1 }}>
-                      Assistente Técnico • Online
+                    <p style={{ color: '#00e5a0', fontSize: '8px', fontWeight: 600, marginTop: '3px', textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1 }}>
+                      Online
                     </p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
                   <button
                     onClick={toggleTheme}
                     title="Alternar Tema"
                     style={{
-                      width: 32, height: 32, borderRadius: 9,
+                      width: '28px', height: '28px', borderRadius: '6px',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: 'transparent', border: 'none', cursor: 'pointer',
                       color: theme === 'light' ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.2)', transition: 'all 0.18s',
@@ -797,38 +804,38 @@ export const Chatbot = () => {
                     onMouseEnter={e => (e.currentTarget.style.background = theme === 'light' ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.06)', e.currentTarget.style.color = theme === 'light' ? 'rgba(0,0,0,0.8)' : 'rgba(255,255,255,0.6)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent', e.currentTarget.style.color = theme === 'light' ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.2)')}
                   >
-                    {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+                    {theme === 'dark' ? <Sun size={12} /> : <Moon size={12} />}
                   </button>
 
                   <button
                     onClick={onClear}
-                  title="Reiniciar conversa"
-                  style={{
-                    width: 32, height: 32, borderRadius: 9,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: 'transparent', border: 'none', cursor: 'pointer',
-                    color: 'rgba(255,255,255,0.2)', transition: 'all 0.18s',
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)', e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent', e.currentTarget.style.color = 'rgba(255,255,255,0.2)')}
-                >
-                  <RotateCcw size={14} />
-                </button>
+                    title="Reiniciar conversa"
+                    style={{
+                      width: '28px', height: '28px', borderRadius: '6px',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      background: 'transparent', border: 'none', cursor: 'pointer',
+                      color: 'rgba(255,255,255,0.2)', transition: 'all 0.18s',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)', e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'transparent', e.currentTarget.style.color = 'rgba(255,255,255,0.2)')}
+                  >
+                    <RotateCcw size={12} />
+                  </button>
+                </div>
               </div>
-            </div>
 
               {/* Messages */}
               <div
                 ref={scrollRef}
                 className="scrollbar-hide"
-                style={{ flex: 1, overflowY: 'auto', padding: '16px', display: 'flex', flexDirection: 'column', gap: 12, overscrollBehavior: 'contain' }}
+                style={{ flex: 1, overflowY: 'auto', padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px', overscrollBehavior: 'contain' }}
               >
                 {messages.length === 0 && !isTyping && (
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12, opacity: 0.12 }}>
-                    <div style={{ width: 52, height: 52, borderRadius: 16, background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Zap size={24} style={{ color: 'white' }} />
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: 0.12 }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Zap size={18} style={{ color: 'white' }} />
                     </div>
-                    <p className="lk-syne" style={{ color: 'white', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.3em' }}>Iniciando…</p>
+                    <p className="lk-syne" style={{ color: 'white', fontSize: '8px', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Iniciando…</p>
                   </div>
                 )}
 
@@ -851,34 +858,35 @@ export const Chatbot = () => {
               {/* Input */}
               <div style={{
                 flexShrink: 0,
-                padding: '12px 16px 14px',
+                padding: '10px 12px 12px',
                 borderTop: theme === 'light' ? '1px solid rgba(0,0,0,0.05)' : '1px solid rgba(255,255,255,0.06)',
                 background: theme === 'light' ? '#f8f9fa' : 'transparent',
               }}>
                 <form onSubmit={onSubmit} style={{ 
-                  display: 'flex', alignItems: 'center', gap: 8,
+                  display: 'flex', alignItems: 'center', gap: '6px',
                   background: theme === 'light' ? '#fff' : 'rgba(255,255,255,0.05)',
                   border: theme === 'light' ? '1px solid rgba(0,0,0,0.1)' : '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '24px',
-                  padding: '6px 6px 6px 16px',
+                  borderRadius: '20px',
+                  padding: '5px 5px 5px 12px',
                   opacity: isInputDisabled ? 0.6 : 1,
                   transition: 'all 0.2s',
                   boxShadow: theme === 'light' ? '0 2px 6px rgba(0,0,0,0.02)' : 'none',
-                  cursor: isInputDisabled ? 'not-allowed' : 'text'
+                  cursor: isInputDisabled ? 'not-allowed' : 'text',
+                  minHeight: '40px',
                 }}>
                   <input
                     ref={inputRef}
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     disabled={isInputDisabled}
-                    placeholder={isTyping ? "Aguarde..." : hasForm ? "Preencha o formulário acima..." : "Digite sua mensagem..."}
+                    placeholder={isTyping ? "Aguarde..." : hasForm ? "Form acima..." : "Mensagem..."}
                     aria-label="Mensagem"
                     style={{
                       flex: 1, minWidth: 0,
                       background: 'transparent',
                       border: 'none', outline: 'none',
                       color: theme === 'light' ? '#1a1a1a' : 'rgba(255,255,255,0.88)',
-                      fontSize: 14, fontWeight: 500,
+                      fontSize: '12px', fontWeight: 500,
                       fontFamily: 'DM Sans, sans-serif',
                       caretColor: '#00e5a0',
                       pointerEvents: isInputDisabled ? 'none' : 'auto'
@@ -892,7 +900,7 @@ export const Chatbot = () => {
                     aria-label="Enviar"
                     style={{
                       flexShrink: 0,
-                      width: 36, height: 36, borderRadius: '18px',
+                      width: '32px', height: '32px', borderRadius: '16px',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       border: 'none', 
                       cursor: input.trim() && !isInputDisabled ? 'pointer' : 'not-allowed',
@@ -902,15 +910,17 @@ export const Chatbot = () => {
                       boxShadow: input.trim() && !isInputDisabled ? '0 4px 14px rgba(0,229,160,0.4)' : 'none',
                       transition: 'all 0.2s',
                       color: input.trim() && !isInputDisabled ? '#000' : (theme === 'light' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)'),
+                      minHeight: '32px',
+                      minWidth: '32px',
                     }}
                   >
-                    <Send size={16} />
+                    <Send size={14} />
                   </motion.button>
                 </form>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 10, opacity: 0.3 }}>
-                  <Shield size={10} style={{ color: theme === 'light' ? '#000' : 'white' }} />
-                  <span className="lk-syne" style={{ color: theme === 'light' ? '#000' : 'white', fontSize: 8, textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 600 }}>Atendimento Seguro</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', marginTop: '8px', opacity: 0.3 }}>
+                  <Shield size={8} style={{ color: theme === 'light' ? '#000' : 'white' }} />
+                  <span className="lk-syne" style={{ color: theme === 'light' ? '#000' : 'white', fontSize: '7px', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>Seguro</span>
                 </div>
               </div>
 

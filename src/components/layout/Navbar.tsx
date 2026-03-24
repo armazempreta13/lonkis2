@@ -33,7 +33,7 @@ export const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 md:px-12 py-4 flex justify-between items-center"
+        className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 px-4 sm:px-6 md:px-12 py-3 sm:py-4 flex justify-between items-center min-h-[60px]"
       >
       <Link 
         to="/" 
@@ -89,11 +89,11 @@ export const Navbar = () => {
         </div>
 
         <button 
-          className="lg:hidden p-2 text-white"
+          className="lg:hidden p-2.5 sm:p-3 text-white min-h-[44px] min-w-[44px] flex items-center justify-center"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
-          <Menu className="w-6 h-6" />
+          <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
@@ -135,7 +135,7 @@ export const Navbar = () => {
                   <Link
                     to={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl sm:text-4xl font-display font-black uppercase tracking-tighter transition-all block py-3 ${
+                    className={`text-lg sm:text-2xl font-display font-black uppercase tracking-tighter transition-all block py-2 sm:py-3 md:py-4 min-h-[44px] flex items-center ${
                       location.pathname === item.href ? 'text-white' : 'text-white/20 active:text-white'
                     }`}
                   >
@@ -145,39 +145,39 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="mt-auto pt-8 sm:pt-10 border-t border-white/10 space-y-8 sm:space-y-10">
-              <div className="space-y-5 sm:space-y-6">
-                <span className="text-[9px] uppercase tracking-[0.3em] text-white/20 font-black">Contato Direto</span>
+            <div className="mt-auto pt-4 sm:pt-6 md:pt-8 border-t border-white/10 space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4">
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-white/20 font-black">Contato Direto</span>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <a href={`tel:${siteConfig.contact.phone}`} className="flex items-center gap-5 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 active:bg-white active:text-black transition-all">
-                      <Phone className="w-6 h-6" />
+                  <a href={`tel:${siteConfig.contact.phone}`} className="flex items-center gap-3 sm:gap-4 md:gap-5 group min-h-[44px]">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 active:bg-white active:text-black transition-all min-h-[44px] min-w-[44px]">
+                      <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[9px] uppercase tracking-[0.3em] text-white/40 font-bold">Ligue Agora</span>
-                      <span className="text-xl font-black tracking-tight">{siteConfig.contact.phoneDisplay}</span>
+                      <span className="text-[7px] sm:text-[8px] uppercase tracking-[0.3em] text-white/40 font-bold">Ligue Agora</span>
+                      <span className="text-base sm:text-lg font-black tracking-tight">{siteConfig.contact.phoneDisplay}</span>
                     </div>
                   </a>
                 </motion.div>
               </div>
 
-              <div className="space-y-6">
-                <span className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-black">Redes Sociais</span>
+              <div className="space-y-2 sm:space-y-3 md:space-y-4">
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-white/20 font-black">Redes Sociais</span>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="flex gap-4"
+                  className="flex gap-2 sm:gap-3"
                 >
-                  <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
-                    <Instagram className="w-7 h-7" />
+                  <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all min-h-[44px] min-w-[44px] hover:bg-white/10" aria-label="Instagram">
+                    <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
                   </a>
-                  <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all">
-                    <Facebook className="w-7 h-7" />
+                  <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 border border-white/10 active:bg-white active:text-black transition-all min-h-[44px] min-w-[44px] hover:bg-white/10" aria-label="Facebook">
+                    <Facebook className="w-6 h-6 sm:w-7 sm:h-7" />
                   </a>
                 </motion.div>
               </div>

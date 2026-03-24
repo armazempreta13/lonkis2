@@ -29,14 +29,14 @@ const BackgroundFx = () => (
 );
 
 const BadgeRow = () => (
-  <div className="mb-4 sm:mb-6 flex flex-col items-center gap-4 sm:gap-6 lg:flex-row lg:items-start">
+  <div className="mb-3 sm:mb-5 md:mb-6 flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:flex-row lg:items-start">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.2 }}
-      className="inline-block rounded-full border border-white/10 bg-white/5 px-3 sm:px-4 py-1 backdrop-blur-md"
+      className="inline-block rounded-full border border-white/10 bg-white/5 px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 backdrop-blur-md"
     >
-      <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/60">
+      <span className="text-[7px] sm:text-[8px] md:text-[10px] font-bold uppercase tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em] text-white/60">
         {siteConfig.pages.home.hero.badge}
       </span>
     </motion.div>
@@ -45,10 +45,10 @@ const BadgeRow = () => (
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.4 }}
-      className="flex items-center gap-2 text-emerald-500/80"
+      className="flex items-center gap-1.5 sm:gap-2 text-emerald-500/80"
     >
-      <Award className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
-      <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em]">
+      <Award className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4" aria-hidden="true" />
+      <span className="text-[7px] sm:text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em]">
         {siteConfig.pages.home.hero.experience}
       </span>
     </motion.div>
@@ -61,7 +61,7 @@ const Heading = () => {
   return (
     <>
       <style>{animationConfig.animation.css}</style>
-      <h1 className={`mb-5 sm:mb-7 font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
+      <h1 className={`mb-3 sm:mb-5 md:mb-7 font-display text-2xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
         {siteConfig.pages.home.hero.title}
         <br />
         <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
@@ -73,7 +73,7 @@ const Heading = () => {
 };
 
 const Subtitle = () => (
-  <p className="mx-auto mb-5 sm:mb-8 max-w-lg text-sm sm:text-base font-medium leading-relaxed text-white/40 md:text-lg lg:mx-0">
+  <p className="mx-auto mb-3 sm:mb-5 md:mb-8 max-w-lg text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed text-white/40 lg:mx-0">
     {siteConfig.pages.home.hero.subtitle}
   </p>
 );
@@ -83,9 +83,9 @@ interface CtaGroupProps {
 }
 
 const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
-  <div className="flex flex-col gap-3 sm:gap-6 sm:flex-row lg:justify-start">
+  <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 sm:flex-row lg:justify-start">
     <Button
-      className="rounded-2xl px-8 sm:px-12 py-4 sm:py-6 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
+      className="rounded-xl sm:rounded-2xl px-4 sm:px-8 md:px-12 py-2.5 sm:py-4 md:py-6 text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
       onClick={onQuoteClick}
       ariaLabel={siteConfig.pages.home.hero.ctaPrimary}
     >
@@ -94,7 +94,7 @@ const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
 
     <Button
       variant="outline"
-      className="rounded-2xl border-white/10 px-8 sm:px-12 py-4 sm:py-6 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all hover:border-white hover:bg-white/5"
+      className="rounded-xl sm:rounded-2xl border-white/10 px-4 sm:px-8 md:px-12 py-2.5 sm:py-4 md:py-6 text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] transition-all hover:border-white hover:bg-white/5"
       onClick={scrollToServices}
       ariaLabel={siteConfig.pages.home.hero.ctaSecondary}
     >
@@ -145,15 +145,15 @@ const ScrollIndicator = () => (
     animate={{ opacity: 1 }}
     transition={{ delay: 1.5, duration: 1 }}
     aria-hidden="true"
-    className="absolute bottom-8 sm:bottom-12 left-1/2 hidden sm:flex -translate-x-1/2 flex-col items-center gap-3"
+    className="absolute bottom-4 sm:bottom-8 md:bottom-12 left-1/2 hidden sm:flex -translate-x-1/2 flex-col items-center gap-2 sm:gap-3"
   >
-    <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/20">
+    <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.4em] text-white/20">
       Scroll
     </span>
     <motion.div
       animate={{ y: [0, 10, 0] }}
       transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-      className="h-12 w-px bg-gradient-to-b from-white/20 via-white/40 to-transparent"
+      className="h-10 sm:h-12 w-px bg-gradient-to-b from-white/20 via-white/40 to-transparent"
     />
   </motion.div>
 );
@@ -166,11 +166,11 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-6 sm:pb-10 pt-20 sm:pt-32 px-6">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-4 sm:pb-8 md:pb-10 pt-16 sm:pt-24 md:pt-32 px-4 sm:px-6">
       <BackgroundFx />
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center gap-6 sm:gap-12">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 md:gap-20 lg:items-center gap-4 sm:gap-8 md:gap-12">
         {/* Left column — copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
