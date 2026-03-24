@@ -198,20 +198,20 @@ export const ProductsPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-32 px-6 md:px-12 relative z-10">
+      <section className="pt-20 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-20"
+            className="mb-12 sm:mb-16 md:mb-20"
           >
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-block px-4 py-1 bg-white/5 backdrop-blur-md rounded-full mb-6 border border-white/10"
+              className="inline-block px-2.5 sm:px-3 md:px-4 py-0.5 sm:py-1 bg-white/5 backdrop-blur-md rounded-full mb-4 sm:mb-6 border border-white/10"
             >
-              <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">
+              <span className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/40 font-black">
                 {siteConfig.pages.products.hero.badge}
               </span>
             </motion.span>
@@ -220,7 +220,7 @@ export const ProductsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.85]"
+              className="font-display text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-3 sm:mb-4 md:mb-6 text-white leading-[0.85]"
             >
               {siteConfig.pages.products.hero.title} <br />
               <span className="text-white/20">{siteConfig.pages.products.hero.titleAccent}</span>
@@ -230,7 +230,7 @@ export const ProductsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="max-w-2xl text-white/40 text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed"
+              className="max-w-2xl text-white/40 text-[9px] sm:text-xs md:text-sm lg:text-base font-medium leading-relaxed"
             >
               {siteConfig.pages.products.hero.subtitle}
             </motion.p>
@@ -239,26 +239,26 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <section className="px-6 md:px-12 relative z-10">
+      <section className="px-4 sm:px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Information Banner */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-8 sm:mb-10 md:mb-12 p-4 sm:p-6 md:p-8 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 rounded-2xl sm:rounded-3xl backdrop-blur-sm"
+            className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 p-3 sm:p-4 md:p-6 lg:p-8 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 rounded-lg sm:rounded-2xl md:rounded-3xl backdrop-blur-sm"
           >
-            <div className="flex gap-3 sm:gap-4 md:gap-6 items-start">
-              <div className="flex-shrink-0 mt-1">
-                <div className="flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-amber-500/20">
-                  <span className="text-base sm:text-lg">ℹ️</span>
+            <div className="flex gap-2 sm:gap-3 md:gap-4 lg:gap-6 items-start">
+              <div className="flex-shrink-0 mt-0.5">
+                <div className="flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full bg-amber-500/20">
+                  <span className="text-sm sm:text-base">ℹ️</span>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xs sm:text-sm md:text-base font-black text-amber-400 uppercase tracking-widest mb-1 sm:mb-2">
+                <h3 className="text-[8px] sm:text-[9px] md:text-xs lg:text-sm font-black text-amber-400 uppercase tracking-widest mb-0.5 sm:mb-1 md:mb-2">
                   Importante - Loja Física
                 </h3>
-                <p className="text-[11px] sm:text-xs md:text-sm text-white/70 leading-relaxed">
+                <p className="text-[8px] sm:text-[9px] md:text-xs lg:text-sm text-white/70 leading-relaxed">
                   <span className="text-white font-semibold">Os produtos mostrados aqui são do nosso mostruário.</span> Todas as compras são realizadas presencialmente em nossa loja física. Não realizamos envios pelos Correios ou qualquer outro serviço de entrega. Visite-nos para conhecer os produtos e finalizar sua compra!
                 </p>
               </div>
@@ -266,24 +266,24 @@ export const ProductsPage: React.FC = () => {
           </motion.div>
 
           {/* Controls Bar */}
-          <div className="mb-8 md:mb-12">
-            <div className="flex flex-col gap-4 md:gap-6 md:grid md:grid-cols-2 md:items-end md:justify-between">
+          <div className="mb-6 sm:mb-8 md:mb-12">
+            <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 md:grid md:grid-cols-2 md:items-end md:justify-between">
               {/* Search and Sort on Desktop */}
-              <div className="flex-1 flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <div className="flex-1 flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                 {/* Search */}
                 <div className="flex-1 relative group">
-                  <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-white transition-colors" size={18} />
+                  <Search className="absolute left-3 sm:left-4 md:left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-white transition-colors w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" />
                   <input 
                     type="text" 
                     placeholder="BUSCAR PRODUTOS..." 
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 sm:py-5 pl-14 pr-6 text-[10px] sm:text-xs text-white focus:outline-none focus:border-white/40 transition-all font-medium placeholder:text-white/10 focus:bg-white/10"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl py-2.5 sm:py-3 md:py-4 pl-10 sm:pl-12 md:pl-14 pr-4 sm:pr-5 md:pr-6 text-[8px] sm:text-[9px] md:text-xs lg:text-sm text-white focus:outline-none focus:border-white/40 transition-all font-medium placeholder:text-white/10 focus:bg-white/10 min-h-[44px] flex items-center"
                   />
                   {searchTerm && (
                     <button 
                       onClick={() => setSearchTerm('')}
-                      className="absolute right-5 top-1/2 -translate-y-1/2 text-white/20 hover:text-white transition-colors"
+                      className="absolute right-3 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 text-white/20 hover:text-white transition-colors w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5"
                     >
                       <X size={16} />
                     </button>
@@ -291,11 +291,11 @@ export const ProductsPage: React.FC = () => {
                 </div>
 
                 {/* Sort */}
-                <div className="sm:min-w-[220px] relative">
+                <div className="sm:min-w-[200px] md:min-w-[220px] relative">
                   <select 
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 sm:py-5 px-5 pr-12 text-[10px] sm:text-xs font-black text-white focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all cursor-pointer appearance-none uppercase tracking-widest"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl py-2.5 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 pr-8 sm:pr-10 md:pr-12 text-[8px] sm:text-[9px] md:text-xs font-black text-white focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all cursor-pointer appearance-none uppercase tracking-widest min-h-[44px] flex items-center"
                   >
                     <option value="name" className="bg-zinc-900">Nome (A-Z)</option>
                     <option value="price-asc" className="bg-zinc-900">Menor Preço</option>
@@ -303,7 +303,7 @@ export const ProductsPage: React.FC = () => {
                     <option value="newest" className="bg-zinc-900">Mais Novo</option>
                     <option value="random" className="bg-zinc-900">Aleatório</option>
                   </select>
-                  <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+                  <div className="absolute right-3 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20 w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5">
                     <ChevronDown size={16} />
                   </div>
                 </div>
@@ -312,15 +312,15 @@ export const ProductsPage: React.FC = () => {
               {/* Filter Toggle Button with Active Filters Badge */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="md:hidden flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-[10px] font-black text-white/40 hover:text-white hover:border-white/30 uppercase tracking-[0.3em] transition-all relative"
+                className="md:hidden flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl py-2.5 sm:py-3 px-4 sm:px-5 md:px-6 text-[8px] sm:text-[9px] font-black text-white/40 hover:text-white hover:border-white/30 uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all relative min-h-[44px]"
               >
-                <SlidersHorizontal size={18} />
+                <SlidersHorizontal size={16} className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 Filtros
                 {(searchTerm || selectedMainCategory || selectedSubcategory || maxPrice !== maxProductPrice || sortBy !== 'name') && (
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-2 -right-2 bg-emerald-500 text-black text-[7px] font-black px-2 py-1 rounded-full h-5 w-5 flex items-center justify-center"
+                    className="absolute -top-2 -right-2 bg-emerald-500 text-black text-[6px] sm:text-[7px] font-black px-1.5 py-0.5 rounded-full h-5 w-5 flex items-center justify-center"
                   >
                     {[searchTerm ? 1 : 0, selectedMainCategory ? 1 : 0, selectedSubcategory ? 1 : 0, maxPrice !== maxProductPrice ? 1 : 0, sortBy !== 'name' ? 1 : 0].reduce((a, b) => a + b, 0)}
                   </motion.div>
@@ -335,11 +335,11 @@ export const ProductsPage: React.FC = () => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="mt-6 p-6 bg-zinc-900/40 backdrop-blur-sm border border-white/10 rounded-2xl md:hidden"
+                  className="mt-4 sm:mt-6 p-4 sm:p-5 md:p-6 bg-zinc-900/40 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl md:hidden"
                 >
                   {/* Categories - Now using CategorySidebar for mobile */}
-                  <div className="mb-8">
-                    <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-4">Categorias</label>
+                  <div className="mb-6 sm:mb-8">
+                    <label className="block text-[8px] font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">Categorias</label>
                     <CategorySidebar
                       categories={categories}
                       selectedMainCategory={selectedMainCategory}
@@ -351,9 +351,9 @@ export const ProductsPage: React.FC = () => {
 
                   {/* Price Range */}
                   <div>
-                    <div className="flex justify-between items-center mb-6">
-                      <label className="text-[9px] font-black text-white/20 uppercase tracking-[0.3em]">Preço Máximo</label>
-                      <span className="text-[10px] font-black text-white">R$ {maxPrice.toLocaleString('pt-BR')}</span>
+                    <div className="flex justify-between items-center mb-4 sm:mb-6">
+                      <label className="text-[8px] font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em]">Preço Máximo</label>
+                      <span className="text-[9px] sm:text-[10px] font-black text-white">R$ {maxPrice.toLocaleString('pt-BR')}</span>
                     </div>
                     <input 
                       type="range" 
@@ -361,11 +361,11 @@ export const ProductsPage: React.FC = () => {
                       max={maxProductPrice} 
                       value={maxPrice} 
                       onChange={(e) => setMaxPrice(Number(e.target.value))}
-                      className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-white"
+                      className="w-full h-1 sm:h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-white"
                     />
-                    <div className="flex justify-between mt-4">
-                      <span className="text-[9px] font-black text-white/10">R$ 0</span>
-                      <span className="text-[9px] font-black text-white/10">R$ {maxProductPrice.toLocaleString('pt-BR')}</span>
+                    <div className="flex justify-between mt-3 sm:mt-4">
+                      <span className="text-[8px] font-black text-white/10">R$ 0</span>
+                      <span className="text-[8px] font-black text-white/10">R$ {maxProductPrice.toLocaleString('pt-BR')}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -374,35 +374,35 @@ export const ProductsPage: React.FC = () => {
           </div>
 
           {/* Desktop Filters Sidebar */}
-          <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 sm:gap-8 md:gap-12 lg:gap-12">
             <aside className="hidden lg:block">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-zinc-900/40 backdrop-blur-sm p-10 rounded-[2.5rem] border border-white/5 shadow-2xl sticky top-32"
+                className="bg-zinc-900/40 backdrop-blur-sm p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-[2.5rem] border border-white/5 shadow-2xl sticky top-32"
               >
-                <h2 className="font-display text-2xl font-black mb-10 flex items-center gap-3 tracking-tight text-white uppercase">
-                  <SlidersHorizontal size={20} className="text-white/20" /> Filtros
+                <h2 className="font-display text-xl md:text-2xl font-black mb-6 md:mb-8 lg:mb-10 flex items-center gap-2.5 md:gap-3 tracking-tight text-white uppercase">
+                  <SlidersHorizontal size={18} className="w-5 h-5 md:w-5.5 md:h-5.5 text-white/20" /> Filtros
                 </h2>
                 
                 {/* Search */}
-                <div className="mb-12">
-                  <label className="block text-[9px] font-black text-white/20 uppercase tracking-[0.3em] mb-4">Busca</label>
+                <div className="mb-8 md:mb-10 lg:mb-12">
+                  <label className="block text-[8px] md:text-[9px] font-black text-white/20 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4">Busca</label>
                   <div className="relative group">
-                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-white transition-colors" size={16} />
+                    <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-white transition-colors w-4 h-4 md:w-4.5 md:h-4.5" />
                     <input 
                       type="text" 
                       placeholder="O QUE VOCÊ PROCURA?" 
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-[10px] text-white focus:outline-none focus:border-white/40 transition-all font-medium placeholder:text-white/10"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl py-2.5 md:py-3 pl-9 md:pl-11 pr-3 md:pr-4 text-[9px] md:text-xs text-white focus:outline-none focus:border-white/40 transition-all font-medium placeholder:text-white/10 min-h-[44px] flex items-center"
                     />
                   </div>
                 </div>
 
                 {/* Category Sidebar */}
-                <div className="mb-12">
+                <div className="mb-8 md:mb-10 lg:mb-12">
                   <CategorySidebar
                     categories={categories}
                     selectedMainCategory={selectedMainCategory}
@@ -413,14 +413,14 @@ export const ProductsPage: React.FC = () => {
                 </div>
 
                 {/* Price Range */}
-                <div className="mb-12">
-                  <div className="flex justify-between items-center mb-6">
-                    <label className="text-[9px] font-black text-white/20 uppercase tracking-[0.3em]">Preço Máximo</label>
+                <div className="mb-8 md:mb-10 lg:mb-12">
+                  <div className="flex justify-between items-center mb-4 md:mb-6">
+                    <label className="text-[8px] md:text-[9px] font-black text-white/20 uppercase tracking-[0.2em] md:tracking-[0.3em]">Preço Máximo</label>
                     <motion.span 
                       key={maxPrice}
                       initial={{ scale: 1.2, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      className="text-[10px] font-black text-emerald-400"
+                      className="text-[9px] md:text-[10px] font-black text-emerald-400"
                     >
                       R$ {maxPrice.toLocaleString('pt-BR')}
                     </motion.span>
@@ -431,11 +431,11 @@ export const ProductsPage: React.FC = () => {
                     max={maxProductPrice} 
                     value={maxPrice} 
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500 hover:accent-emerald-400 transition-colors"
+                    className="w-full h-1.5 md:h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500 hover:accent-emerald-400 transition-colors"
                   />
-                  <div className="flex justify-between mt-4">
-                    <span className="text-[9px] font-black text-white/10">R$ 0</span>
-                    <span className="text-[9px] font-black text-white/10">R$ {maxProductPrice.toLocaleString('pt-BR')}</span>
+                  <div className="flex justify-between mt-3 md:mt-4">
+                    <span className="text-[8px] md:text-[9px] font-black text-white/10">R$ 0</span>
+                    <span className="text-[8px] md:text-[9px] font-black text-white/10">R$ {maxProductPrice.toLocaleString('pt-BR')}</span>
                   </div>
                 </div>
 
@@ -445,7 +445,7 @@ export const ProductsPage: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onClick={handleClearFilters}
-                    className="w-full py-3 px-5 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 rounded-2xl text-[9px] font-black text-white/60 hover:text-white uppercase tracking-[0.2em] transition-all duration-300"
+                    className="w-full py-2 md:py-2.5 lg:py-3 px-3 md:px-4 lg:px-5 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 rounded-lg md:rounded-xl text-[8px] md:text-[9px] font-black text-white/60 hover:text-white uppercase tracking-[0.15em] md:tracking-[0.2em] transition-all duration-300 min-h-[44px] flex items-center justify-center"
                   >
                     Limpar Filtros
                   </motion.button>
@@ -459,10 +459,10 @@ export const ProductsPage: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-8 flex items-center justify-between"
+                className="mb-6 sm:mb-8 md:mb-12 flex items-center justify-between"
               >
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                  <p className="text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/40">
                     Exibindo <span className="text-white">{startIndex + 1}</span> a <span className="text-white">{Math.min(endIndex, filteredProducts.length)}</span> de <span className="text-white">{filteredProducts.length}</span> produtos
                   </p>
                 </div>
@@ -473,7 +473,7 @@ export const ProductsPage: React.FC = () => {
                 <>
                   <motion.div 
                     layout
-                    className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
                   >
                     <AnimatePresence mode="popLayout">
                       {paginatedProducts.map((product, index) => (
