@@ -219,7 +219,11 @@ export const siteConfig = {
     mapsUrl: "https://www.google.com/maps/place/Lk+Imports+-+Assistência+Técnica+e+Acessórios/@-15.893565,-48.1421581,20z/data=!4m6!3m5!1s0x935bd31145795cd3:0xec1f82b4bcf6bef9!8m2!3d-15.8934821!4d-48.1423218!16s%2Fg%2F11z3w0h8k0?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
     mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2713.392310647244!2d-48.14510482001694!3d-15.892496707851043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bd31145795cd3%3A0xec1f82b4bcf6bef9!2sLk%20Imports%20-%20Assist%C3%AAncia%20T%C3%A9cnica%20e%20Acess%C3%B3rios!5e0!3m2!1spt-BR!2sbr!4v1774462765631!5m2!1spt-BR!2sbr",
     hours: {
-      mondayToFriday: "08:00 — 19:30",
+      monday: "08:30 — 19:30",
+      tuesday: "08:00 — 19:30",
+      wednesday: "08:00 — 19:30",
+      thursday: "08:00 — 19:30",
+      friday: "08:00 — 19:30",
       saturday: "08:00 — 19:30",
       sunday: "08:00 — 15:00",
       holiday: "Consulte no WhatsApp",
@@ -434,9 +438,9 @@ export const siteConfig = {
             "Com mais de 2 anos de experiência, nos tornamos referência em Samambaia, Ceilândia e Taguatinga pela qualidade de nossos reparos e pela transparência no atendimento.",
             "Nossa missão é garantir que você nunca fique desconectado. Por isso, investimos constantemente em treinamento técnico e em componentes de primeira linha para oferecer soluções rápidas e definitivas."
           ],
-          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
+          image: "https://i.imgur.com/BgjzVSd.jpeg",
           imageBadge: {
-            title: "Fundada em 2007",
+            title: "Fundada em 2024",
             subtitle: "Tradição & Inovação"
           }
         },
@@ -553,7 +557,7 @@ export const siteConfig = {
         addressTitle: "Endereço Físico",
         addressDesc: "Visite nossa loja",
         hoursTitle: "Horários",
-        hoursDesc: "Segunda a Sábado, 08:00 - 19:30; Domingo, 08:00 - 15:00",
+        hoursDesc: "Segunda: 08:30 - 19:30; Terça a Sábado: 08:00 - 19:30; Domingo: 08:00 - 15:00",
         socialTitle: "Redes Sociais",
         socialDesc: "Acompanhe nosso trabalho"
       }
