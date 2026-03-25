@@ -390,8 +390,8 @@ export const siteConfig = {
         badge: "Avaliações Reais",
         title: "O que dizem",
         titleAccent: "Nossos Clientes",
-        googleRating: "4.9",
-        totalReviews: "150+",
+        googleRating: "5.0",
+        totalReviews: "4",
         ctaText: "Ver todas as avaliações",
         items: [
           { name: "Alexandre Pinuca", text: "Excelente atendimento e serviço de alta qualidade. O reparo foi feito com rapidez e eficiência, demonstrando muito profissionalismo. Fiquei muito satisfeito com o resultado final do meu telefone. Recomendo com confiança!", rating: 5, image: "https://lh3.googleusercontent.com/a/ACg8ocKml1BbA6rEzJbXfm8YYnDB90hvgofAhIQ-Dyx4784gBnCdMA=w36-h36-p-rp-mo-br100" },
