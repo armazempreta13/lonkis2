@@ -29,7 +29,7 @@ const BackgroundFx = () => (
 );
 
 const BadgeRow = () => (
-  <div className="flex flex-col items-center gap-2 sm:gap-4 md:gap-6 lg:flex-row lg:items-start">
+  <div className="flex flex-col items-center gap-1 sm:gap-4 md:gap-6 lg:flex-row lg:items-start">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -83,7 +83,7 @@ interface CtaGroupProps {
 }
 
 const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
-  <div className="flex flex-col gap-1.5 sm:gap-4 md:gap-6 sm:flex-row lg:justify-start pt-1 sm:pt-0 md:pt-0">
+  <div className="flex flex-col gap-1 sm:gap-4 md:gap-6 sm:flex-row lg:justify-start pt-0.5 sm:pt-0 md:pt-0">
     <Button
       className="rounded-xl sm:rounded-2xl px-4 sm:px-8 md:px-12 py-2.5 sm:py-4 md:py-6 text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
       onClick={onQuoteClick}
@@ -166,17 +166,17 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-2 sm:pb-8 md:pb-10 pt-16 sm:pt-24 md:pt-32 px-4 sm:px-6">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-0 sm:pb-8 md:pb-10 pt-12 sm:pt-24 md:pt-32 px-4 sm:px-6">
       <BackgroundFx />
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 md:gap-20 lg:items-center gap-2 sm:gap-8 md:gap-12">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 md:gap-20 lg:items-center gap-1 sm:gap-8 md:gap-12">
         {/* Left column — copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center lg:text-left order-2 sm:order-1 space-y-1.5 sm:space-y-3 md:space-y-4"
+          className="text-center lg:text-left order-2 sm:order-1 space-y-0.5 sm:space-y-3 md:space-y-4"
         >
           <BadgeRow />
           <Heading />

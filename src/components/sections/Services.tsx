@@ -15,14 +15,14 @@ export const Services = () => {
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
   return (
-    <section id="services" className="py-6 sm:py-20 md:py-28 px-4 sm:px-6 bg-black relative overflow-hidden">
+    <section id="services" className="py-4 sm:py-20 md:py-28 px-4 sm:px-6 bg-black relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 md:mb-16 gap-3 sm:gap-6 md:gap-8">
-          <div className="space-y-2 sm:space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 sm:mb-12 md:mb-16 gap-2 sm:gap-6 md:gap-8">
+          <div className="space-y-1 sm:space-y-4">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +52,7 @@ export const Services = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 md:gap-8">
           {items.map((service, index) => {
             const Icon = service.icon;
             return (
