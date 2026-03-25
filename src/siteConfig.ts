@@ -386,7 +386,7 @@ export const siteConfig = {
         ]
       },
       testimonials: {
-        enabled: false,
+        enabled: true,
         badge: "Avaliações Reais",
         title: "O que dizem",
         titleAccent: "Nossos Clientes",

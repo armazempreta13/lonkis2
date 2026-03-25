@@ -6,13 +6,34 @@ import { identifyIntent, getResponseForIntent } from '../../services/chatbotLogi
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
 
-const STORAGE_KEY  = 'lk_chatbot_history';
-const SESSION_MS   = 30 * 60 * 1000;
-const MIN_DELAY_MS = 700;
-const MAX_DELAY_MS = 2000;
+const STORAGE_KEY        = 'lk_chatbot_history';
+const SESSION_KEY        = 'lk_chatbot_session_id';
+const SESSION_MS         = 30 * 60 * 1000;
+const MIN_DELAY_MS       = 700;
+const MAX_DELAY_MS       = 2000;
+const MAX_INPUT          = 500;
+const INPUT_THROTTLE_MS  = 2000;
+const MAX_HISTORY        = 20;
 
 const IconMap: Record<string, React.ElementType> = {
   Wrench, Package, MapPin, CreditCard, Clock, Shield, Zap, FileText, RotateCcw, Smartphone, Download,
+};
+
+// ─── Session & Logging ──────────────────────────────────────────────────────────
+
+const getSessionId = (): string => {
+  let sid = localStorage.getItem(SESSION_KEY);
+  if (!sid) {
+    sid = `session_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+    localStorage.setItem(SESSION_KEY, sid);
+  }
+  return sid;
+};
+
+const chatLog = (action: string, data?: any) => {
+  const timestamp = new Date().toISOString();
+  const sessionId = getSessionId();
+  console.log(`[${timestamp}] [${sessionId}] CHATBOT: ${action}`, data || '');
 };
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
@@ -26,9 +47,34 @@ const build = (msg: Omit<ChatMessage, 'id' | 'timestamp'>): ChatMessage => ({
   ...msg, id: uid(), timestamp: new Date(),
 });
 
-const loadHistory = (): ChatMessage[] | null => null;
+const loadHistory = (): ChatMessage[] | null => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return null;
+    const history = JSON.parse(stored) as ChatMessage[];
+    chatLog('history_loaded', { count: history.length });
+    return history;
+  } catch (err) {
+    chatLog('history_load_error', err instanceof Error ? err.message : String(err));
+    return null;
+  }
+};
 
-const persist = (msgs: ChatMessage[]) => {};
+const persist = (msgs: ChatMessage[]) => {
+  try {
+    const toStore = msgs.slice(-MAX_HISTORY);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
+    chatLog('history_saved', { count: toStore.length });
+  } catch (err) {
+    chatLog('history_save_error', err instanceof Error ? err.message : String(err));
+  }
+};
+
+const validateInput = (text: string): { valid: boolean; reason?: string } => {
+  if (!text || !text.trim()) return { valid: false, reason: 'empty' };
+  if (text.length > MAX_INPUT) return { valid: false, reason: 'too_long' };
+  return { valid: true };
+};
 
 // ─── Typing dots ───────────────────────────────────────────────────────────────
 
@@ -415,14 +461,15 @@ Toggle.displayName = 'Toggle';
 // ─── Main component ────────────────────────────────────────────────────────────
 
 export const Chatbot = () => {
-  const [isOpen,   setIsOpen]   = useState(false);
-  const [theme,    setTheme]    = useState<'dark' | 'light'>('dark');
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [isTyping, setIsTyping] = useState(false);
-  const [input,    setInput]    = useState('');
-  const scrollRef               = useRef<HTMLDivElement>(null);
-  const inputRef                = useRef<HTMLInputElement>(null);
-  const initialized             = useRef(false);
+  const [isOpen,        setIsOpen]        = useState(false);
+  const [theme,         setTheme]         = useState<'dark' | 'light'>('dark');
+  const [messages,      setMessages]      = useState<ChatMessage[]>([]);
+  const [isTyping,      setIsTyping]      = useState(false);
+  const [input,         setInput]         = useState('');
+  const scrollRef                         = useRef<HTMLDivElement>(null);
+  const inputRef                          = useRef<HTMLInputElement>(null);
+  const initialized                       = useRef(false);
+  const lastMessageTime                   = useRef<number>(0);
 
   const scrollDown = useCallback((b: ScrollBehavior = 'auto') => {
     if (!scrollRef.current) return;
@@ -458,21 +505,33 @@ export const Chatbot = () => {
   }, []);
 
   const botReply = useCallback(async (stepId: string) => {
-    setIsTyping(true);
-    const step = CHAT_SCRIPT[stepId] ?? CHAT_SCRIPT['start'];
-    await new Promise(r => setTimeout(r, typeMs(step.message)));
-    setIsTyping(false);
-    push({ 
-      type: 'bot', 
-      content: step.message, 
-      image: step.image, 
-      video: step.video,
-      audio: step.audio,
-      file: step.file,
-      quickReplies: step.quickReplies, 
-      table: step.table,
-      form: step.form
-    });
+    try {
+      chatLog('bot_reply_start', { stepId });
+      setIsTyping(true);
+      const step = CHAT_SCRIPT[stepId] ?? CHAT_SCRIPT['start'];
+      await new Promise(r => setTimeout(r, typeMs(step.message)));
+      setIsTyping(false);
+      push({ 
+        type: 'bot', 
+        content: step.message, 
+        image: step.image, 
+        video: step.video,
+        audio: step.audio,
+        file: step.file,
+        quickReplies: step.quickReplies, 
+        table: step.table,
+        form: step.form
+      });
+      chatLog('bot_reply_done', { stepId });
+    } catch (err) {
+      chatLog('bot_reply_error', err instanceof Error ? err.message : String(err));
+      setIsTyping(false);
+      push({
+        type: 'bot',
+        content: 'Oops, algo deu errado 😅 Tenta denovo!',
+        quickReplies: CHAT_SCRIPT['start'].quickReplies,
+      });
+    }
   }, [push]);
 
   const reset = useCallback(() => { setMessages([]); botReply('start'); }, [botReply]);
@@ -480,41 +539,93 @@ export const Chatbot = () => {
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
-    reset();
+    
+    // 📋 Load history from localStorage on init
+    const history = loadHistory();
+    if (history && history.length > 0) {
+      setMessages(history);
+      chatLog('history_restored', { count: history.length });
+    } else {
+      reset();
+    }
   }, [reset]);
 
-  // No longer persisting history
-  // useEffect(() => { if (messages.length) persist(messages); }, [messages]);
+  // 💾 Persist history on every message change
+  useEffect(() => {
+    if (messages.length > 0) {
+      persist(messages);
+    }
+  }, [messages]);
 
   const onChip = useCallback((r: QuickReply) => {
+    chatLog('quick_reply_selected', { action: r.action, id: r.id });
+    lastMessageTime.current = Date.now();
+    
     if (r.action === 'form') {
       botReply(r.value);
       return;
     }
     push({ type: 'user', content: r.label });
-    if (r.action === 'message')     botReply(r.value);
-    else if (r.action === 'link') { window.open(r.value, '_blank', 'noopener,noreferrer'); push({ type: 'system', content: `Abrindo ${r.label}…` }); }
-    else if (r.action === 'reset')  reset();
-    else                            botReply('start');
+    if (r.action === 'message') {
+      botReply(r.value);
+    } else if (r.action === 'link') {
+      window.open(r.value, '_blank', 'noopener,noreferrer');
+      push({ type: 'system', content: `Abrindo ${r.label}…` });
+    } else if (r.action === 'reset') {
+      reset();
+    } else {
+      botReply('start');
+    }
   }, [push, botReply, reset]);
 
   const onSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     const text = input.trim();
-    if (!text || isTyping) return;
+    
+    // ✓ Validate input
+    const validation = validateInput(text);
+    if (!validation.valid) {
+      if (validation.reason === 'empty') return;
+      if (validation.reason === 'too_long') {
+        chatLog('input_validation_failed', { reason: 'too_long', length: text.length });
+        return;
+      }
+    }
+    
+    // ✓ Throttle messages (prevent rapid spam)
+    const now = Date.now();
+    if (now - lastMessageTime.current < INPUT_THROTTLE_MS) {
+      chatLog('input_throttled', { gaps_ms: now - lastMessageTime.current });
+      return;
+    }
+    lastMessageTime.current = now;
+    
+    if (isTyping) return;
+    
+    // 📤 Send message
     push({ type: 'user', content: text });
+    chatLog('message_sent', { length: text.length });
     setInput('');
+    
+    // 🧠 Identify intent and reply
     const intent = identifyIntent(text);
-    if (intent) botReply(getResponseForIntent(intent));
-    else setTimeout(() => push({
-      type: 'bot',
-      content: 'Não entendi bem 🤔 Escolhe uma opção abaixo!',
-      quickReplies: CHAT_SCRIPT['start'].quickReplies,
-    }), 380);
+    chatLog('intent_identified', { intent });
+    
+    if (intent) {
+      botReply(getResponseForIntent(intent));
+    } else {
+      setTimeout(() => push({
+        type: 'bot',
+        content: 'Não entendi bem 🤔 Escolhe uma opção abaixo!',
+        quickReplies: CHAT_SCRIPT['start'].quickReplies,
+      }), 380);
+      chatLog('fallback_triggered', { reason: 'no_intent' });
+    }
   }, [input, isTyping, push, botReply]);
 
   const onClear = useCallback(() => {
     localStorage.removeItem(STORAGE_KEY);
+    chatLog('history_cleared', {});
     reset();
   }, [reset]);
 
