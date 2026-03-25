@@ -113,19 +113,19 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
   const handleTouchEnd = () => {
     setIsDragging(false);
 
-    // Apply momentum scrolling
-    if (scrollContainerRef.current && Math.abs(velocityRef.current) > 0.1) {
-      const friction = 0.95;
+    // Apply momentum scrolling - subtle version
+    if (scrollContainerRef.current && Math.abs(velocityRef.current) > 0.5) {
+      const friction = 0.85;
       let currentVelocity = velocityRef.current;
       let scrollAmount = 0;
 
       const animate = () => {
-        if (Math.abs(currentVelocity) < 0.1 || !scrollContainerRef.current) {
+        if (Math.abs(currentVelocity) < 0.5 || !scrollContainerRef.current) {
           velocityRef.current = 0;
           return;
         }
 
-        scrollAmount += currentVelocity * 50;
+        scrollAmount += currentVelocity * 15;
         scrollContainerRef.current.scrollLeft -= scrollAmount;
         currentVelocity *= friction;
 
