@@ -220,8 +220,8 @@ export const siteConfig = {
     mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2713.392310647244!2d-48.14510482001694!3d-15.892496707851043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bd31145795cd3%3A0xec1f82b4bcf6bef9!2sLk%20Imports%20-%20Assist%C3%AAncia%20T%C3%A9cnica%20e%20Acess%C3%B3rios!5e0!3m2!1spt-BR!2sbr!4v1774462765631!5m2!1spt-BR!2sbr",
     hours: {
       mondayToFriday: "08:00 — 19:30",
-      saturday: "08:00 — 14:00",
-      sunday: "Fechado",
+      saturday: "08:00 — 19:30",
+      sunday: "08:00 — 15:00",
       holiday: "Consulte no WhatsApp",
     },
     support: {
@@ -553,7 +553,7 @@ export const siteConfig = {
         addressTitle: "Endereço Físico",
         addressDesc: "Visite nossa loja",
         hoursTitle: "Horários",
-        hoursDesc: "Segunda a Sexta, 08:00 - 19:30",
+        hoursDesc: "Segunda a Sábado, 08:00 - 19:30; Domingo, 08:00 - 15:00",
         socialTitle: "Redes Sociais",
         socialDesc: "Acompanhe nosso trabalho"
       }
