@@ -34,9 +34,12 @@ export const SEO = ({
       addressCountry: "BR",
     },
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "MondayToFriday", opens: "08:00", closes: "19:30" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "14:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "00:00", closes: "00:00" }
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "08:30", closes: "19:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "08:00", closes: "19:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "08:00", closes: "19:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "08:00", closes: "19:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "08:00", closes: "19:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "19:30" }
     ],
     sameAs: siteConfig.seo.socialProfiles,
     priceRange: "R$",

@@ -59,8 +59,8 @@ export const Location = () => {
                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white/40 group-hover:text-white" />
               </div>
               <h3 className="font-display text-sm sm:text-base md:text-lg lg:text-xl font-black uppercase text-white group-hover:text-black mb-2 sm:mb-2.5 md:mb-3 lg:mb-4 tracking-tight">Horários</h3>
-              <p className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium uppercase tracking-widest whitespace-pre-line">
-                {`Segunda a Sexta: ${siteConfig.contact.hours.mondayToFriday}\nSábado: ${siteConfig.contact.hours.saturday}\nDomingo: ${siteConfig.contact.hours.sunday}\nFeriados: ${siteConfig.contact.hours.holiday}`}
+              <p className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium tracking-widest whitespace-pre-line">
+                {`Segunda: ${siteConfig.contact.hours.monday}\nTerça: ${siteConfig.contact.hours.tuesday}\nQuarta: ${siteConfig.contact.hours.wednesday}\nQuinta: ${siteConfig.contact.hours.thursday}\nSexta: ${siteConfig.contact.hours.friday}\nSábado: ${siteConfig.contact.hours.saturday}\nDomingo: ${siteConfig.contact.hours.sunday}\nFeriados: ${siteConfig.contact.hours.holiday}`}
               </p>
             </motion.div>
 
