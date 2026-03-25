@@ -28,7 +28,7 @@ export const ServicesPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="pt-32 pb-24 px-6 bg-black min-h-screen relative overflow-hidden"
+      className="pt-32 sm:pt-40 md:pt-48 pb-24 px-4 sm:px-6 md:px-12 bg-black min-h-screen relative overflow-hidden"
     >
       <SEO 
         title={`Serviços | ${siteConfig.brand.name}`}

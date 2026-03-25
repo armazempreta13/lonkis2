@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
@@ -24,8 +24,14 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
   onSubcategoryChange,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, scrollLeft: 0 });
+  const [velocity, setVelocity] = useState(0);
+  const velocityRef = useRef(0);
+  const lastTouchX = useRef(0);
+  const lastTouchTime = useRef(0);
 
   const categoryList = Object.values(categories);
   const selectedCategory = selectedMainCategory ? categories[selectedMainCategory] : null;
@@ -59,11 +65,76 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
     checkScroll();
   };
 
+  // Touch/Mouse events para drag
+  const handleTouchStart = (e: React.TouchEvent | React.MouseEvent) => {
+    setIsDragging(true);
+    const clientX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+    lastTouchX.current = clientX;
+    lastTouchTime.current = Date.now();
+    
+    if (scrollContainerRef.current) {
+      setDragStart({
+        x: clientX,
+        scrollLeft: scrollContainerRef.current.scrollLeft,
+      });
+    }
+
+    // Trigger haptic feedback on mobile
+    if ('vibrate' in navigator && 'touches' in e) {
+      navigator.vibrate(10);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent | React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+
+    const clientX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+    const diff = dragStart.x - clientX;
+    
+    // Calculate velocity
+    const timeDiff = Date.now() - lastTouchTime.current;
+    if (timeDiff > 0) {
+      velocityRef.current = (clientX - lastTouchX.current) / timeDiff;
+    }
+    lastTouchX.current = clientX;
+    lastTouchTime.current = Date.now();
+
+    scrollContainerRef.current.scrollLeft = dragStart.scrollLeft + diff;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+
+    // Apply momentum scrolling
+    if (scrollContainerRef.current && Math.abs(velocityRef.current) > 0.1) {
+      const friction = 0.95;
+      let currentVelocity = velocityRef.current;
+      let scrollAmount = 0;
+
+      const animate = () => {
+        if (Math.abs(currentVelocity) < 0.1 || !scrollContainerRef.current) {
+          velocityRef.current = 0;
+          return;
+        }
+
+        scrollAmount += currentVelocity * 50;
+        scrollContainerRef.current.scrollLeft -= scrollAmount;
+        currentVelocity *= friction;
+
+        requestAnimationFrame(animate);
+      };
+
+      requestAnimationFrame(animate);
+    }
+
+    setTimeout(checkScroll, 100);
+  };
+
   return (
     <div className="w-full space-y-4">
       {/* Main Categories - Horizontal Scroll */}
       <div className="relative">
-        {/* Left Scroll Button */}
+        {/* Left Scroll Button - Desktop Only */}
         <AnimatePresence>
           {canScrollLeft && (
             <motion.button
@@ -71,14 +142,14 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-gradient-to-r from-black to-transparent flex items-center justify-center hover:from-black/80"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-gradient-to-r from-black to-transparent flex items-center justify-center hover:from-black/80 hidden sm:flex"
             >
               <ChevronLeft size={20} className="text-white/60 hover:text-white" />
             </motion.button>
           )}
         </AnimatePresence>
 
-        {/* Right Scroll Button */}
+        {/* Right Scroll Button - Desktop Only */}
         <AnimatePresence>
           {canScrollRight && (
             <motion.button
@@ -86,7 +157,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-gradient-to-l from-black to-transparent flex items-center justify-center hover:from-black/80"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-gradient-to-l from-black to-transparent flex items-center justify-center hover:from-black/80 hidden sm:flex"
             >
               <ChevronRight size={20} className="text-white/60 hover:text-white" />
             </motion.button>
@@ -97,7 +168,20 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex gap-2 sm:gap-3 overflow-x-auto scroll-smooth scrollbar-hide px-2"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleTouchStart}
+          onMouseMove={handleTouchMove}
+          onMouseUp={handleTouchEnd}
+          onMouseLeave={handleTouchEnd}
+          className={`flex gap-2 sm:gap-3 overflow-x-auto scroll-smooth scrollbar-hide px-2 ${
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
+          style={{
+            scrollBehavior: isDragging ? 'auto' : 'smooth',
+            WebkitOverflowScrolling: 'touch', // Enable momentum scrolling on iOS
+          }}
         >
           {/* Clear/All Button */}
           <motion.button
@@ -107,7 +191,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
               onMainCategoryChange(null);
               onSubcategoryChange(null);
             }}
-            className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 ${
+            className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 active:scale-95 ${
               selectedMainCategory === null
                 ? 'bg-white/20 text-white border border-white/40 shadow-lg'
                 : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10 hover:border-white/20'
@@ -128,7 +212,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.92 }}
                 onClick={() => {
                   if (selectedMainCategory === cat.id) {
                     onMainCategoryChange(null);
@@ -138,7 +222,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                     onSubcategoryChange(null);
                   }
                 }}
-                className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 border ${
+                className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 border active:scale-95 ${
                   isSelected
                     ? `bg-gradient-to-r ${cat.color} text-white border-white/40 shadow-lg`
                     : 'bg-white/5 text-white/70 hover:bg-white/10 border-white/10 hover:border-white/20'

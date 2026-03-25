@@ -3,7 +3,7 @@ import { Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-black pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 md:px-12 relative overflow-hidden">
+    <div className="min-h-screen bg-black pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-20 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
       </div>

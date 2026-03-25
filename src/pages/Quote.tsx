@@ -40,7 +40,7 @@ export const Quote = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 bg-black min-h-screen relative overflow-hidden"
+      className="pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 bg-black min-h-screen relative overflow-hidden"
     >
       <SEO
         title={`Orçamento | ${siteConfig.brand.name}`}

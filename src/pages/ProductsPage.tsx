@@ -199,7 +199,7 @@ export const ProductsPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 relative z-10">
+      <section className="pt-32 sm:pt-40 md:pt-48 px-4 sm:px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
