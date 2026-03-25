@@ -4,10 +4,10 @@ import { siteConfig } from '../../siteConfig';
 
 export const Location = () => {
   return (
-    <section id="location" className="py-12 sm:py-20 md:py-28 px-4 sm:px-6 bg-black border-t border-white/5 overflow-hidden">
+    <section id="location" className="py-8 sm:py-20 md:py-28 px-4 sm:px-6 bg-black border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6 md:gap-8">
-          <div className="space-y-3 sm:space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 md:mb-16 gap-3 sm:gap-6 md:gap-8">
+          <div className="space-y-2 sm:space-y-4">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -32,7 +32,7 @@ export const Location = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

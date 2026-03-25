@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 
 export const CTASection = () => {
   return (
-    <section className="py-12 sm:py-20 md:py-28 px-4 sm:px-6 bg-black overflow-hidden relative">
+    <section className="py-8 sm:py-20 md:py-28 px-4 sm:px-6 bg-black overflow-hidden relative">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>
@@ -16,9 +16,9 @@ export const CTASection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-6 sm:space-y-8 md:space-y-10"
+          className="space-y-5 sm:space-y-8 md:space-y-10"
         >
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
+          <div className="space-y-3 sm:space-y-5 md:space-y-6">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
