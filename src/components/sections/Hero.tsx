@@ -166,7 +166,7 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-0 sm:pb-8 md:pb-10 pt-12 sm:pt-24 md:pt-32 px-4 sm:px-6">
+      <section className="relative flex sm:min-h-screen items-end sm:items-center justify-center overflow-hidden bg-black pb-3 sm:pb-8 md:pb-10 pt-8 sm:pt-24 md:pt-32 px-4 sm:px-6">
       <BackgroundFx />
 
       {/* Content grid */}
@@ -176,7 +176,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center lg:text-left order-2 sm:order-1 space-y-0.5 sm:space-y-3 md:space-y-4"
+          className="text-center lg:text-left order-2 sm:order-1 space-y-1.5 sm:space-y-3 md:space-y-4"
         >
           <BadgeRow />
           <Heading />
