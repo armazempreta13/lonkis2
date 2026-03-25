@@ -76,10 +76,12 @@ async function startServer() {
   };
 
   const connectSrcForCSP = () => {
-    const sources = ["'self'"];
+    const sources = ["'self'", "https:"];
     
     if (process.env.NODE_ENV === 'production') {
-      // Production: only allow self
+      // Production: allow self and https, plus Google Maps APIs
+      sources.push("https://maps.googleapis.com");
+      sources.push("https://maps.gstatic.com");
       return sources;
     }
 
@@ -92,6 +94,10 @@ async function startServer() {
     
     // Add production ports for backup HMR
     sources.push('ws://localhost:24683', 'ws://localhost:24690', 'ws://localhost:24691', 'ws://localhost:24692');
+    
+    // Add Google Maps APIs
+    sources.push("https://maps.googleapis.com");
+    sources.push("https://maps.gstatic.com");
     
     return sources;
   };
@@ -129,22 +135,39 @@ async function startServer() {
   app.use(compressionMiddleware);
 
   // 4. Security headers (Helmet)
+  // Build CSP directives with dev/prod differences
+  const scriptSrcDirectives = [
+    "'self'",
+    "https://cdn.jsdelivr.net",
+    "https://cdnjs.cloudflare.com",
+    "https://maps.googleapis.com",
+    "https://maps.gstatic.com"
+  ];
+  
+  // Add unsafe-inline for development (needed for Vite HMR preamble)
+  if (process.env.NODE_ENV !== 'production') {
+    scriptSrcDirectives.push("'unsafe-inline'");
+  }
+
   app.use(helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        defaultSrc: ["'self'", "https:"],
+        scriptSrc: scriptSrcDirectives,
+        styleSrc: ["'self'", "'unsafe-inline'", "https:"],
         connectSrc,
         imgSrc: ["'self'", "data:", "https:", "blob:"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com"],
-        frameSrc: ["'self'", "https://www.google.com"],
+        fontSrc: ["'self'", "https:"],
+        frameSrc: ["'self'", "https:"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
         formAction: ["'self'"],
         frameAncestors: ["'self'"],
         mediaSrc: ["'self'", "https:"],
-        childSrc: ["'self'"]
+        childSrc: ["'self'"],
+        workerSrc: ["'self'", "blob:"],
+        styleSrcElem: ["'self'", "'unsafe-inline'", "https:"],
+        scriptSrcElem: scriptSrcDirectives
       },
     },
     hsts: {
@@ -155,8 +178,9 @@ async function startServer() {
     noSniff: true,
     xssFilter: true,
     referrerPolicy: { policy: "strict-origin-when-cross-origin" },
-    crossOriginEmbedderPolicy: true,
-    crossOriginOpenerPolicy: true,
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginResourcePolicy: false,
     permissionsPolicy: {
       geolocation: [],
       microphone: [],
@@ -164,6 +188,18 @@ async function startServer() {
       payment: []
     }
   }));
+
+  // Remove COEP/COOP headers that block cross-origin resources
+  app.use((req, res, next) => {
+    res.removeHeader('Cross-Origin-Embedder-Policy');
+    res.removeHeader('Cross-Origin-Opener-Policy');
+    res.removeHeader('Cross-Origin-Resource-Policy');
+    // Allow cross-origin images
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    next();
+  });
 
   // 5. Additional security headers
   app.use(responseSecurityHeaders);

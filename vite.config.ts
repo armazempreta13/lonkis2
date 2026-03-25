@@ -43,8 +43,12 @@ export default defineConfig(({mode}) => {
       copyPublicDir: true,
     },
     server: {
-      hmr: process.env.DISABLE_HMR !== 'true',
       middlewareMode: true,
+      hmr: {
+        host: 'localhost',
+        port: 24690,
+        protocol: 'ws'
+      }
     },
     optimizeDeps: {
       include: ['react', 'react-dom', 'react-router-dom', 'motion/react', 'lucide-react'],
