@@ -394,9 +394,9 @@ export const siteConfig = {
         totalReviews: "150+",
         ctaText: "Ver todas as avaliações",
         items: [
-          { name: "Carlos Silva", text: "Excelente atendimento! Meu iPhone estava condenado e a LK Imports recuperou a placa. Preço justo e muita transparência.", rating: 5, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" },
-          { name: "Mariana Costa", text: "Troquei a tela do meu Samsung e ficou perfeito. O serviço foi super rápido, entregaram no mesmo dia. Recomendo!", rating: 5, image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" },
-          { name: "João Pedro", text: "Profissionais de verdade. Levei meu Apple Watch que não ligava e resolveram o problema da bateria rapidamente.", rating: 5, image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" },
+          { name: "Alexandre Pinuca", text: "Excelente atendimento e serviço de alta qualidade. O reparo foi feito com rapidez e eficiência, demonstrando muito profissionalismo. Fiquei muito satisfeito com o resultado final do meu telefone. Recomendo com confiança!", rating: 5, image: "https://lh3.googleusercontent.com/a/ACg8ocKml1BbA6rEzJbXfm8YYnDB90hvgofAhIQ-Dyx4784gBnCdMA=w36-h36-p-rp-mo-br100" },
+          { name: "Andreara Souza", text: "Gostaria de parabenizar pelo excelente atendimento. O serviço foi realizado com agilidade e qualidade, superando minhas expectativas. Estou extremamente satisfeita com o resultado do meu telefone.", rating: 5, image: "https://lh3.googleusercontent.com/a/ACg8ocJc8qF_84Lzxpz39i5eRA6ur-c29vV4At-UDbInVRtcd8qBRQ=w36-h36-p-rp-mo-br100" },
+          { name: "Ágata Souza", text: "Muito bom o trabalhoe rápido a entrega do celular", rating: 5, image: "https://lh3.googleusercontent.com/a-/ALV-UjVgMqYIjjjnPNK7pslZtopl0XTzk7GIeLGvYKcxDPhZtMiBqeCI0Q=w36-h36-p-rp-mo-br100" },
         ]
       },
       location: {
