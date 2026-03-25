@@ -78,8 +78,8 @@ function getCacheHeaders(format: string): Record<string, string> {
 function addSecurityHeaders(headers: Record<string, string>): Record<string, string> {
   return {
     ...headers,
-    'X-Content-Type-Options': 'nosniff',
-    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Content-Type': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
   };

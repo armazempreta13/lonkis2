@@ -346,7 +346,7 @@ export const requestFingerprinting = (req: Request, res: Response, next: NextFun
 export const responseSecurityHeaders = (req: Request, res: Response, next: NextFunction) => {
   // Additional security headers beyond Helmet
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
