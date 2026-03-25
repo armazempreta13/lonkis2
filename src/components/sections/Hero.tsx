@@ -29,7 +29,7 @@ const BackgroundFx = () => (
 );
 
 const BadgeRow = () => (
-  <div className="mb-3 sm:mb-5 md:mb-6 flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:flex-row lg:items-start">
+  <div className="flex flex-col items-center gap-2 sm:gap-4 md:gap-6 lg:flex-row lg:items-start">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ const Heading = () => {
   return (
     <>
       <style>{animationConfig.animation.css}</style>
-      <h1 className={`mb-3 sm:mb-5 md:mb-7 font-display text-2xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
+      <h1 className={`font-display text-2xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
         {siteConfig.pages.home.hero.title}
         <br />
         <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
@@ -73,7 +73,7 @@ const Heading = () => {
 };
 
 const Subtitle = () => (
-  <p className="mx-auto mb-3 sm:mb-5 md:mb-8 max-w-lg text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed text-white/40 lg:mx-0">
+  <p className="mx-auto max-w-lg text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed text-white/40 lg:mx-0">
     {siteConfig.pages.home.hero.subtitle}
   </p>
 );
@@ -83,7 +83,7 @@ interface CtaGroupProps {
 }
 
 const CtaGroup = ({ onQuoteClick }: CtaGroupProps) => (
-  <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 sm:flex-row lg:justify-start">
+  <div className="flex flex-col gap-1.5 sm:gap-4 md:gap-6 sm:flex-row lg:justify-start pt-1 sm:pt-0 md:pt-0">
     <Button
       className="rounded-xl sm:rounded-2xl px-4 sm:px-8 md:px-12 py-2.5 sm:py-4 md:py-6 text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] shadow-2xl shadow-white/5 transition-all"
       onClick={onQuoteClick}
@@ -166,17 +166,17 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-4 sm:pb-8 md:pb-10 pt-16 sm:pt-24 md:pt-32 px-4 sm:px-6">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black pb-2 sm:pb-8 md:pb-10 pt-16 sm:pt-24 md:pt-32 px-4 sm:px-6">
       <BackgroundFx />
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 md:gap-20 lg:items-center gap-4 sm:gap-8 md:gap-12">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 md:gap-20 lg:items-center gap-2 sm:gap-8 md:gap-12">
         {/* Left column — copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center lg:text-left order-2 sm:order-1"
+          className="text-center lg:text-left order-2 sm:order-1 space-y-1.5 sm:space-y-3 md:space-y-4"
         >
           <BadgeRow />
           <Heading />

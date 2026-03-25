@@ -15,7 +15,7 @@ export const Services = () => {
   const { badge, title, titleAccent, description, ctaText, items } = siteConfig.pages.home.services;
 
   return (
-    <section id="services" className="py-8 sm:py-20 md:py-28 px-4 sm:px-6 bg-black relative overflow-hidden">
+    <section id="services" className="py-6 sm:py-20 md:py-28 px-4 sm:px-6 bg-black relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
       </div>

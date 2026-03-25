@@ -4,7 +4,7 @@ import { siteConfig } from '../../siteConfig';
 
 export const Location = () => {
   return (
-    <section id="location" className="py-8 sm:py-20 md:py-28 px-4 sm:px-6 bg-black border-t border-white/5 overflow-hidden">
+    <section id="location" className="py-6 sm:py-20 md:py-28 px-4 sm:px-6 bg-black border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 md:mb-16 gap-3 sm:gap-6 md:gap-8">
           <div className="space-y-2 sm:space-y-4">
