@@ -108,6 +108,20 @@ async function startServer() {
     app.set('trust proxy', 1);
   }
 
+  // 1.5. HTTPS Redirect middleware (enforce HTTPS in production)
+  if (process.env.NODE_ENV === 'production') {
+    app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+      // Check if request came via HTTPS or has X-Forwarded-Proto header (Cloudflare/proxy)
+      const isSecure = req.proto === 'https' || req.headers['x-forwarded-proto'] === 'https';
+      if (!isSecure && req.method === 'GET') {
+        // Redirect to HTTPS
+        const url = `https://${req.get('host')}${req.originalUrl}`;
+        return res.redirect(301, url);
+      }
+      next();
+    });
+  }
+
   // 2. Request timeout
   app.use(requestTimeoutMiddleware);
 
@@ -119,13 +133,16 @@ async function startServer() {
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         connectSrc,
         imgSrc: ["'self'", "data:", "https:", "blob:"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        frameSrc: ["'self'", "https://www.google.com", "https://www.google.com/maps"],
-        objectSrc: ["'none'"]
+        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com"],
+        frameSrc: ["'self'", "https://www.google.com"],
+        objectSrc: ["'none'"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+        frameAncestors: ["'self'"]
       },
     },
     hsts: {
@@ -135,7 +152,15 @@ async function startServer() {
     },
     noSniff: true,
     xssFilter: true,
-    referrerPolicy: { policy: "strict-origin-when-cross-origin" }
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+    crossOriginEmbedderPolicy: true,
+    crossOriginOpenerPolicy: true,
+    permissionsPolicy: {
+      geolocation: [],
+      microphone: [],
+      camera: [],
+      payment: []
+    }
   }));
 
   // 5. Additional security headers
