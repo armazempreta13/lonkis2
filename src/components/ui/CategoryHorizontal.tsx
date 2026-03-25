@@ -32,6 +32,8 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
   const velocityRef = useRef(0);
   const lastTouchX = useRef(0);
   const lastTouchTime = useRef(0);
+  const draggedRef = useRef(false);
+  const dragThresholdRef = useRef(5); // Threshold mínimo de pixels para considerar como drag
 
   const categoryList = Object.values(categories);
   const selectedCategory = selectedMainCategory ? categories[selectedMainCategory] : null;
@@ -68,6 +70,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
   // Touch/Mouse events para drag
   const handleTouchStart = (e: React.TouchEvent | React.MouseEvent) => {
     setIsDragging(true);
+    draggedRef.current = false; // Reset drag flag
     const clientX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
     lastTouchX.current = clientX;
     lastTouchTime.current = Date.now();
@@ -90,6 +93,11 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
 
     const clientX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
     const diff = dragStart.x - clientX;
+    
+    // Detectar se movimento é significativo (threshold)
+    if (Math.abs(diff) > dragThresholdRef.current) {
+      draggedRef.current = true;
+    }
     
     // Calculate velocity
     const timeDiff = Date.now() - lastTouchTime.current;
@@ -127,7 +135,21 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
       requestAnimationFrame(animate);
     }
 
+    // Reset drag flag após feedback
+    setTimeout(() => {
+      draggedRef.current = false;
+    }, 50);
+
     setTimeout(checkScroll, 100);
+  };
+
+  // Wrapper para onClick que previne click se houver drag
+  const handleCategoryClick = (callback: () => void) => {
+    return () => {
+      if (!draggedRef.current) {
+        callback();
+      }
+    };
   };
 
   return (
@@ -187,10 +209,10 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
+            onClick={handleCategoryClick(() => {
               onMainCategoryChange(null);
               onSubcategoryChange(null);
-            }}
+            })}
             className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 active:scale-95 ${
               selectedMainCategory === null
                 ? 'bg-white/20 text-white border border-white/40 shadow-lg'
@@ -213,7 +235,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                 transition={{ delay: idx * 0.05 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.92 }}
-                onClick={() => {
+                onClick={handleCategoryClick(() => {
                   if (selectedMainCategory === cat.id) {
                     onMainCategoryChange(null);
                     onSubcategoryChange(null);
@@ -221,7 +243,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                     onMainCategoryChange(cat.id);
                     onSubcategoryChange(null);
                   }
-                }}
+                })}
                 className={`flex-shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-tight transition-all whitespace-nowrap min-h-[44px] flex items-center gap-2 border active:scale-95 ${
                   isSelected
                     ? `bg-gradient-to-r ${cat.color} text-white border-white/40 shadow-lg`
@@ -253,7 +275,7 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => onSubcategoryChange(null)}
+                onClick={handleCategoryClick(() => onSubcategoryChange(null))}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-[10px] sm:text-xs uppercase tracking-tight transition-all min-h-[36px] flex items-center ${
                   selectedSubcategory === null
                     ? `bg-gradient-to-r ${selectedCategory.color} text-white shadow-lg`
@@ -275,11 +297,11 @@ export const CategoryHorizontal: React.FC<CategoryHorizontalProps> = ({
                     transition={{ delay: idx * 0.05 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() =>
+                    onClick={handleCategoryClick(() =>
                       onSubcategoryChange(
                         selectedSubcategory === subcat ? null : subcat
                       )
-                    }
+                    )}
                     className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-[10px] sm:text-xs uppercase tracking-tight transition-all min-h-[36px] flex items-center ${
                       isSubSelected
                         ? `bg-gradient-to-r ${selectedCategory.color} text-white shadow-lg`
