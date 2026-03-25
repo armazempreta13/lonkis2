@@ -414,7 +414,7 @@ export const siteConfig = {
         subtitle2: "Oferecemos soluções seguras para melhorar a performance do seu dispositivo.",
         subtitle3: "Equipe especializada e componentes de qualidade para resolver problemas com rapidez e preço acessível!",
         buttonText: "Solicitar Orçamento via WhatsApp",
-        image: "https://www.gizmodo.com.br/app/uploads/2025/07/iPhone-17-deve-chegar-com-paleta-ousada-e-tons-ineditos-960x640.png",
+        image: "https://i.imgur.com/rLZbrsm.png",
         floatingBadge: {
           number: "2",
           text: "Anos de\nExperiência"
