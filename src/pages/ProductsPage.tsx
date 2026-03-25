@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ProductCard } from '../components/ui/ProductCard';
 import { CategorySidebar } from '../components/ui/CategorySidebar';
+import { CategoryHorizontal } from '../components/ui/CategoryHorizontal';
 import { Search, SlidersHorizontal, X, ChevronDown } from 'lucide-react';
 
 import { SEO } from '../components/ui/SEO';
@@ -265,6 +266,22 @@ export const ProductsPage: React.FC = () => {
             </div>
           </motion.div>
 
+          {/* Horizontal Categories Filter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mb-8 sm:mb-10 md:mb-12 lg:mb-14 p-4 sm:p-5 md:p-6 bg-gradient-to-r from-black/40 to-black/20 backdrop-blur-md border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl"
+          >
+            <CategoryHorizontal
+              categories={categories}
+              selectedMainCategory={selectedMainCategory}
+              selectedSubcategory={selectedSubcategory}
+              onMainCategoryChange={setSelectedMainCategory}
+              onSubcategoryChange={setSelectedSubcategory}
+            />
+          </motion.div>
+
           {/* Controls Bar */}
           <div className="mb-6 sm:mb-8 md:mb-12">
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 md:grid md:grid-cols-2 md:items-end md:justify-between">
@@ -328,19 +345,18 @@ export const ProductsPage: React.FC = () => {
               </button>
             </div>
 
-            {/* Mobile Filters Dropdown */}
+            {/* Mobile Filters Dropdown - Horizontal */}
             <AnimatePresence>
               {showFilters && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="mt-4 sm:mt-6 p-4 sm:p-5 md:p-6 bg-zinc-900/40 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl md:hidden"
+                  className="mt-4 sm:mt-6 p-3 sm:p-4 md:p-6 bg-zinc-900/40 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl md:hidden"
                 >
-                  {/* Categories - Now using CategorySidebar for mobile */}
-                  <div className="mb-6 sm:mb-8">
-                    <label className="block text-[8px] font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">Categorias</label>
-                    <CategorySidebar
+                  {/* Horizontal Categories Filter */}
+                  <div className="mb-4 sm:mb-5">
+                    <CategoryHorizontal
                       categories={categories}
                       selectedMainCategory={selectedMainCategory}
                       selectedSubcategory={selectedSubcategory}
@@ -349,10 +365,10 @@ export const ProductsPage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Price Range */}
-                  <div>
-                    <div className="flex justify-between items-center mb-4 sm:mb-6">
-                      <label className="text-[8px] font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em]">Preço Máximo</label>
+                  {/* Price Range - Optional */}
+                  <div className="pt-3 sm:pt-4 border-t border-white/10">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                      <label className="text-[8px] font-black text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em]">Preço Máx</label>
                       <span className="text-[9px] sm:text-[10px] font-black text-white">R$ {maxPrice.toLocaleString('pt-BR')}</span>
                     </div>
                     <input 
@@ -363,10 +379,6 @@ export const ProductsPage: React.FC = () => {
                       onChange={(e) => setMaxPrice(Number(e.target.value))}
                       className="w-full h-1 sm:h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-white"
                     />
-                    <div className="flex justify-between mt-3 sm:mt-4">
-                      <span className="text-[8px] font-black text-white/10">R$ 0</span>
-                      <span className="text-[8px] font-black text-white/10">R$ {maxProductPrice.toLocaleString('pt-BR')}</span>
-                    </div>
                   </div>
                 </motion.div>
               )}
