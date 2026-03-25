@@ -166,7 +166,7 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-      <section className="relative flex sm:min-h-screen items-start sm:items-center justify-center overflow-hidden bg-black pb-3 sm:pb-8 md:pb-10 pt-20 sm:pt-24 md:pt-32 px-4 sm:px-6">
+      <section className="relative flex sm:min-h-screen items-start sm:items-center justify-center overflow-hidden bg-black pb-3 sm:pb-8 md:pb-10 pt-32 sm:pt-24 md:pt-32 px-4 sm:px-6">
       <BackgroundFx />
 
       {/* Content grid */}
