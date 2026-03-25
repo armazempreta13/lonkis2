@@ -61,7 +61,7 @@ const Heading = () => {
   return (
     <>
       <style>{animationConfig.animation.css}</style>
-      <h1 className={`font-display text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
+      <h1 className={`font-display text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black uppercase leading-[0.8] tracking-tighter text-white ${animationConfig.animation.className}`}>
         {siteConfig.pages.home.hero.title}
         <br />
         <span className="text-white/20 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">

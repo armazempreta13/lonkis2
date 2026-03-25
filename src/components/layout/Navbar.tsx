@@ -81,10 +81,10 @@ export const Navbar = () => {
         
         <div className="flex items-center gap-4">
           <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Instagram">
-            <Instagram className="w-5 h-5" />
+            <Instagram className="w-6 h-6" />
           </a>
           <a href={siteConfig.social.facebook.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-white hover:text-black transition-all border border-white/10" aria-label="Siga-nos no Facebook">
-            <Facebook className="w-5 h-5" />
+            <Facebook className="w-6 h-6" />
           </a>
         </div>
 

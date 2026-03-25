@@ -42,11 +42,11 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-16 sm:pt-20 md:pt-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-20 md:pt-24 relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-16 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 md:gap-10 lg:gap-16 mb-6 sm:mb-16 md:mb-20 lg:mb-24">
           {/* Brand Info */}
-          <div className="space-y-4 sm:space-y-6 md:space-y-8 text-center sm:text-left">
+          <div className="space-y-2 sm:space-y-6 md:space-y-8 text-center sm:text-left">
             <Link to="/" className="inline-block group transition-transform duration-500 hover:scale-105" aria-label="Ir para a página inicial">
               <img 
                 src={siteConfig.brand.logo} 
@@ -63,8 +63,8 @@ export const Footer = () => {
 
           {/* Useful Links */}
           <div>
-            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6 md:mb-10 text-white/20">{siteConfig.footer.quickLinksTitle}</h4>
-            <ul className="space-y-3 sm:space-y-4 md:space-y-5 text-[10px] sm:text-xs md:text-sm text-white/40 font-bold uppercase tracking-widest">
+            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-6 md:mb-10 text-white/20">{siteConfig.footer.quickLinksTitle}</h4>
+            <ul className="space-y-1.5 sm:space-y-4 md:space-y-5 text-[10px] sm:text-xs md:text-sm text-white/40 font-bold uppercase tracking-widest">
               {siteConfig.navbar.navItems.map((item) => (
                 <li key={item.label}><Link to={item.href} className="hover:text-white transition-all hover:translate-x-2 inline-block min-h-[44px] flex items-center">{item.label}</Link></li>
               ))}
@@ -73,8 +73,8 @@ export const Footer = () => {
 
           {/* Contacts */}
           <div>
-            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6 md:mb-10 text-white/20">{siteConfig.footer.contactTitle}</h4>
-            <ul className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 text-[10px] sm:text-xs md:text-sm text-white/40 font-bold">
+            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-6 md:mb-10 text-white/20">{siteConfig.footer.contactTitle}</h4>
+            <ul className="space-y-2 sm:space-y-5 md:space-y-6 lg:space-y-8 text-[10px] sm:text-xs md:text-sm text-white/40 font-bold">
               <li className="flex items-start gap-3 sm:gap-4 group min-h-[44px]">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white/20 group-hover:text-white transition-colors shrink-0 mt-1" />
                 <span className="leading-relaxed group-hover:text-white transition-colors">{siteConfig.contact.address}</span>
@@ -91,8 +91,8 @@ export const Footer = () => {
           </div>
 
           {/* Social & CTA */}
-          <div className="space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
-            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6 md:mb-10 text-white/20">Siga-nos</h4>
+          <div className="space-y-2 sm:space-y-8 md:space-y-10 lg:space-y-12">
+            <h4 className="font-display font-black uppercase text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-6 md:mb-10 text-white/20">Siga-nos</h4>
             <div className="flex items-center justify-center sm:justify-start gap-4 sm:gap-6 md:gap-8">
               <a href={siteConfig.social.instagram.url} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-all hover:scale-125 min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Instagram">
                 <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -102,7 +102,7 @@ export const Footer = () => {
               </a>
             </div>
             
-            <div className="pt-4 sm:pt-6">
+            <div className="pt-2 sm:pt-6">
               <div className="inline-block bg-white/5 px-5 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-sm">
                 <p className="text-[9px] sm:text-[10px] text-white/60 uppercase tracking-[0.3em] font-black mb-1.5 sm:mb-2">Horário</p>
                 <p className="text-[10px] sm:text-xs text-white font-bold whitespace-pre-line leading-relaxed">
@@ -113,7 +113,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-12 sm:pt-16 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+        <div className="pt-6 sm:pt-16 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-8">
           <p className="text-[9px] sm:text-[10px] text-white/20 uppercase tracking-[0.3em] font-black">
             {siteConfig.footer.copyright}
           </p>
