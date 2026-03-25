@@ -34,42 +34,52 @@ const CACHE_KEY = 'lk_imports_google_reviews';
  */
 export const fetchGoogleReviews = async (): Promise<TransformedReview[]> => {
   // @ts-ignore
-  const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-  // @ts-ignore
   const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID;
   // @ts-ignore
   const maxReviews = import.meta.env.VITE_MAX_REVIEWS || '3';
 
-  // Validar credenciais
-  if (!apiKey || !placeId) {
-    console.warn('⚠️ Google Reviews: Credenciais não configuradas. Usando avaliações mockadas.');
+  console.log('🔍 Debug fetchGoogleReviews:');
+  console.log('  Place ID:', placeId);
+  console.log('  Max Reviews:', maxReviews);
+
+  if (!placeId) {
+    console.warn('⚠️ Google Reviews: Place ID não configurado. Usando avaliações mockadas.');
     return [];
   }
 
   try {
-    // Verificar cache
+    // Verificar cache local
     const cachedData = localStorage.getItem(CACHE_KEY);
     if (cachedData) {
       const { data, timestamp } = JSON.parse(cachedData);
       if (Date.now() - timestamp < CACHE_DURATION) {
-        console.log('✅ Google Reviews: Using cached data');
+        console.log('✅ Google Reviews: Usando dados em cache');
         return data;
       }
     }
 
-    // Buscar da API
-    const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}&fields=reviews,rating,user_ratings_total`
-    );
+    // Chamar proxy local em vez de chamar a API do Google diretamente
+    const proxyUrl = `/api/google-reviews/details?placeId=${placeId}&fields=reviews,rating,user_ratings_total`;
+    console.log('📡 Chamando proxy:', proxyUrl);
+    
+    const response = await fetch(proxyUrl);
+
+    console.log('📡 Response status:', response.status, response.statusText);
 
     if (!response.ok) {
-      throw new Error(`Google Places API error: ${response.status}`);
+      throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
+    console.log('📡 Proxy response:', data);
 
-    if (data.status !== 'OK') {
-      console.warn(`⚠️ Google API Status: ${data.status}`);
+    if (data.error) {
+      console.warn(`⚠️ Google API Error: ${data.error}`, data.details);
+      return [];
+    }
+
+    if (!data.result) {
+      console.warn('⚠️ Sem result na resposta do proxy');
       return [];
     }
 
@@ -92,7 +102,7 @@ export const fetchGoogleReviews = async (): Promise<TransformedReview[]> => {
       })
     );
 
-    console.log(`✅ Google Reviews: ${reviews.length} reviews fetched`);
+    console.log(`✅ Google Reviews: ${reviews.length} avaliações carregadas`);
     return reviews;
   } catch (error) {
     console.error('❌ Google Reviews Error:', error);
@@ -112,20 +122,24 @@ export const clearReviewsCache = () => {
  */
 export const fetchGoogleRating = async (): Promise<{ rating: number; totalReviews: number } | null> => {
   // @ts-ignore
-  const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-  // @ts-ignore
   const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID;
 
-  if (!apiKey || !placeId) return null;
+  if (!placeId) return null;
 
   try {
+    // Chamar proxy local
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}&fields=rating,user_ratings_total`
+      `/api/google-reviews/details?placeId=${placeId}&fields=rating,user_ratings_total`
     );
 
     const data = await response.json();
 
-    if (data.status === 'OK') {
+    if (data.error) {
+      console.warn(`⚠️ Error fetching rating: ${data.error}`);
+      return null;
+    }
+
+    if (data.result) {
       return {
         rating: data.result?.rating || 0,
         totalReviews: data.result?.user_ratings_total || 0,

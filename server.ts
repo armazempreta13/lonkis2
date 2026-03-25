@@ -25,6 +25,7 @@ import productRoutes from './routes/products.js';
 import quoteRoutes from './routes/quotes.js';
 import repairRoutes from './routes/repairs.js';
 import userRoutes from './routes/users.js';
+import googleReviewsRoutes from './routes/googleReviews.js';
 
 dotenv.config();
 
@@ -214,6 +215,9 @@ async function startServer() {
 
   // User routes (stricter rate limiting + circuit breaker)
   app.use('/api/users', rateLimiters.api, circuitBreaker('users'), userRoutes);
+
+  // Google Reviews proxy routes (no rate limiting, cached)
+  app.use('/api/google-reviews', googleReviewsRoutes);
 
   // =========================================================================
   // HEALTH CHECK & METRICS ENDPOINTS

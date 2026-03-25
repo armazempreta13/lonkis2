@@ -416,7 +416,7 @@ export const CHAT_SCRIPT: Record<string, ChatStep> = {
     id: 'localizacao',
     message: 'Venha tomar um café com a gente! ☕📍\n\n**Endereço:**\nSamambaia Norte (QR 429)\nBrasília – DF\n\n🗓️ **Funcionamento:** Segunda a Sábado, das 09h às 18h.\n*(Fechado aos domingos e feriados)*\n\nAh, e se você não for de Brasília, nós atendemos via Correios (SEDEX) para todo o Brasil!',
     quickReplies: [
-      { id: 'qr_maps',    label: '🗺️ Abrir no Google Maps', action: 'link',    value: 'https://maps.google.com/?q=Samambaia+Norte+QR+429+Brasilia' },
+      { id: 'qr_maps',    label: '🗺️ Abrir no Google Maps', action: 'link',    value: 'https://www.google.com/maps/place/Lk+Imports+-+Assistência+Técnica+e+Acessórios/@-15.893565,-48.1421581,20z/data=!4m14!1m7!3m6!1s0x935bcd54e47cc401:0x2b23311d0b5d68fe!2s4V45%2BJ3+-+Samambaia+Norte,+Brasília+-+DF,+72318-300!3b1!8m2!3d-15.8934375!4d-48.1423125!3m5!1s0x935bd31145795cd3:0xec1f82b4bcf6bef9!8m2!3d-15.8934821!4d-48.1423218!16s%2Fg%2F11z3w0h8k0?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D' },
       { id: 'qr_horario', label: '🕐 Ver Horários',          action: 'message', value: 'horario', icon: 'Clock' },
       { id: 'qr_correios',label: '📦 Envio pelos Correios',  action: 'message', value: 'faq_correios'            },
       BACK_TO_MENU,

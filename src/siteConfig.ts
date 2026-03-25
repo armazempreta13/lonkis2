@@ -212,12 +212,12 @@ export const siteConfig = {
   contact: {
     phone: "+556195191308",
     phoneDisplay: "(61) 9519-1308",
-    email: "contato@lkimports.com.br",
+    email: "lonkisimports@gmail.com",
     whatsapp: "https://wa.me/556195191308",
     address: "QR 429 Conjunto 16 Loja 01, Samambaia Norte",
     city: "Brasília - DF, 72322-516",
-    mapsUrl: "https://www.google.com/maps/place/LK+Imports+-+Assist%C3%AAncia+T%C3%A9cnica+de+Celulares/@-15.867958,-48.106456,17z",
-    mapsEmbed: "https://www.google.com/maps?q=QR+429+Conjunto+16+Loja+01+Brasilia+DF&output=embed",
+    mapsUrl: "https://www.google.com/maps/place/Lk+Imports+-+Assistência+Técnica+e+Acessórios/@-15.893565,-48.1421581,20z/data=!4m6!3m5!1s0x935bd31145795cd3:0xec1f82b4bcf6bef9!8m2!3d-15.8934821!4d-48.1423218!16s%2Fg%2F11z3w0h8k0?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
+    mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2713.392310647244!2d-48.14510482001694!3d-15.892496707851043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bd31145795cd3%3A0xec1f82b4bcf6bef9!2sLk%20Imports%20-%20Assist%C3%AAncia%20T%C3%A9cnica%20e%20Acess%C3%B3rios!5e0!3m2!1spt-BR!2sbr!4v1774462765631!5m2!1spt-BR!2sbr",
     hours: {
       mondayToFriday: "08:00 — 19:30",
       saturday: "08:00 — 14:00",
@@ -226,7 +226,7 @@ export const siteConfig = {
     },
     support: {
       phone: "+556195191308",
-      email: "suporte@lkimports.net",
+      email: "lonkisimports@gmail.com",
       responseTime: "Até 2 horas em horário comercial",
     },
   },
@@ -386,7 +386,7 @@ export const siteConfig = {
         ]
       },
       testimonials: {
-        enabled: false, // Desabilitado - componente não está funcionando corretamente
+        enabled: false,
         badge: "Avaliações Reais",
         title: "O que dizem",
         titleAccent: "Nossos Clientes",
@@ -414,7 +414,7 @@ export const siteConfig = {
         subtitle2: "Oferecemos soluções seguras para melhorar a performance do seu dispositivo.",
         subtitle3: "Equipe especializada e componentes de qualidade para resolver problemas com rapidez e preço acessível!",
         buttonText: "Solicitar Orçamento via WhatsApp",
-        image: "https://images.unsplash.com/photo-1556656793-062ff9878258?q=80&w=1000&auto=format&fit=crop",
+        image: "https://www.gizmodo.com.br/app/uploads/2025/07/iPhone-17-deve-chegar-com-paleta-ousada-e-tons-ineditos-960x640.png",
         floatingBadge: {
           number: "2",
           text: "Anos de\nExperiência"
