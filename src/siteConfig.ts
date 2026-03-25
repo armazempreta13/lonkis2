@@ -557,7 +557,7 @@ export const siteConfig = {
         addressTitle: "Endereço Físico",
         addressDesc: "Visite nossa loja",
         hoursTitle: "Horários",
-        hoursDesc: "Segunda: 08:30 - 19:30; Terça a Sábado: 08:00 - 19:30; Domingo: 08:00 - 15:00",
+        hoursDesc: "Segunda: 08:30 — 19:30 | Terça: 08:00 — 19:30 | Quarta: 08:00 — 19:30 | Quinta: 08:00 — 19:30 | Sexta: 08:00 — 19:30 | Sábado: 08:00 — 19:30 | Domingo: 08:00 — 15:00",
         socialTitle: "Redes Sociais",
         socialDesc: "Acompanhe nosso trabalho"
       }
