@@ -514,15 +514,16 @@ export const siteConfig = {
         titleAccent: "Premium",
         subtitle: "Acessórios e dispositivos seminovos com garantia e procedência verificada pela nossa equipe técnica."
       },
-      // Novos dados indexados por ID para facilitar busca
+      // Categorias organizadas com subcategorias bem definidas
       categories: {
-        smartphones: { id: "smartphones", name: "Smartphones", icon: Smartphone, color: "from-teal-600/70 to-teal-700/60", subcategories: ["iPhone", "Samsung", "Xiaomi", "Motorola", "Outros"] },
-        tablets: { id: "tablets", name: "Tablets", icon: Smartphone, color: "from-cyan-600/60 to-teal-700/50", subcategories: ["iPad", "Samsung Galaxy Tab", "Outros"] },
+        smartphones: { id: "smartphones", name: "Smartphones", icon: Smartphone, color: "from-teal-600/70 to-teal-700/60", subcategories: ["iPhone", "Samsung", "Xiaomi", "Realme", "Outros"] },
+        tablets: { id: "tablets", name: "Tablets", icon: Smartphone, color: "from-cyan-600/60 to-teal-700/50", subcategories: ["iPad", "Samsung", "Redmi", "Outros"] },
         wearables: { id: "wearables", name: "Wearables", icon: Watch, color: "from-rose-600/60 to-rose-700/50", subcategories: ["Apple Watch", "Smartband", "Relógios"] },
-        audio: { id: "audio", name: "Áudio", icon: Speaker, color: "from-teal-600/60 to-cyan-700/50", subcategories: ["Fones Bluetooth", "Caixas de Som", "Headphones", "Auriculares"] },
-        acessorios: { id: "acessorios", name: "Acessórios", icon: Battery, color: "from-rose-600/50 to-pink-700/40", subcategories: ["Carregadores", "Cabos", "Capinhas", "Película de Vidro", "Suportes"] },
-        gaming: { id: "gaming", name: "Gaming", icon: Zap, color: "from-rose-600/60 to-rose-700/50", subcategories: ["PlayStation", "Xbox", "Acessórios Gamer"] },
-        smart_home: { id: "smart_home", name: "Smart Home", icon: Wifi, color: "from-teal-600/50 to-teal-700/40", subcategories: ["Assistentes", "Câmeras", "Controles Inteligentes"] },
+        audio: { id: "audio", name: "Áudio", icon: Speaker, color: "from-teal-600/60 to-cyan-700/50", subcategories: ["Fones Bluetooth", "Caixas de Som", "Headphones", "Microfones"] },
+        acessorios: { id: "acessorios", name: "Acessórios", icon: Battery, color: "from-rose-600/50 to-pink-700/40", subcategories: ["Carregadores", "Cabos", "Capinhas", "Proteção de Tela", "Suportes", "Canetas"] },
+        computadores: { id: "computadores", name: "Computadores", icon: Cpu, color: "from-amber-600/50 to-orange-700/40", subcategories: ["MacBook", "iMac", "Mac Mini", "Acessórios"] },
+        gaming: { id: "gaming", name: "Gaming", icon: Zap, color: "from-rose-600/60 to-rose-700/50", subcategories: ["PlayStation", "Xbox", "Nintendo", "VR"] },
+        smart_home: { id: "smart_home", name: "Smart Home", icon: Wifi, color: "from-teal-600/50 to-teal-700/40", subcategories: ["Conectividade", "Rastreadores", "Robôs"] },
         outros: { id: "outros", name: "Outros", icon: Package, color: "from-zinc-600/50 to-zinc-700/40", subcategories: ["Diversos"] },
       },
       items: products,

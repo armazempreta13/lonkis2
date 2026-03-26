@@ -281,79 +281,144 @@ Bubble.displayName = 'Bubble';
 
 const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r: QuickReply) => void }) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const dragStartX = useRef(0);
-  const scrollStartX = useRef(0);
-  const dragging = useRef(false);
-  const velocity = useRef(0);
-  const lastX = useRef(0);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const startScrollRef = useRef(0);
+  const lastXRef = useRef(0);
+  const lastTimeRef = useRef(0);
+  const velocityRef = useRef(0);
+  const animFrameRef = useRef<number | null>(null);
+  const pointerIdRef = useRef<number | null>(null);
+  const movedRef = useRef(false);
 
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+  const cancelMomentum = useCallback(() => {
+    if (animFrameRef.current) {
+      cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    }
+    velocityRef.current = 0;
+  }, []);
+
+  const applyInertia = useCallback(() => {
+    if (!trackRef.current || Math.abs(velocityRef.current) < 1) return;
+
+    cancelMomentum();
+
+    let vel = velocityRef.current;
+    let lastTime = Date.now();
+
+    const animate = () => {
+      const now = Date.now();
+      const deltaTime = Math.min(now - lastTime, 16);
+      lastTime = now;
+
+      // Apply friction with exponential decay
+      vel *= 0.95; // 5% friction per frame at 60fps
+
+      // Continue if velocity is still significant
+      if (Math.abs(vel) > 0.5 && trackRef.current) {
+        trackRef.current.scrollLeft -= vel;
+        animFrameRef.current = requestAnimationFrame(animate);
+      } else {
+        cancelMomentum();
+      }
+    };
+
+    animFrameRef.current = requestAnimationFrame(animate);
+  }, [cancelMomentum]);
+
+  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (!trackRef.current) return;
-    
-    // Check if the click target is a button (chip) - if so, don't initiate drag
-    const target = event.target as HTMLElement;
-    if (target.closest('button')) {
-      return;
-    }
-    
-    dragging.current = true;
-    dragStartX.current = event.clientX;
-    lastX.current = event.clientX;
-    scrollStartX.current = trackRef.current.scrollLeft;
-    velocity.current = 0;
-    trackRef.current.setPointerCapture(event.pointerId);
-    trackRef.current.style.cursor = 'grabbing';
-    if (trackRef.current.style) trackRef.current.style.scrollBehavior = 'auto';
-  };
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragging.current || !trackRef.current) return;
-    
-    const target = event.target as HTMLElement;
-    if (target.closest('button')) {
-      endDrag();
-      return;
-    }
-    
-    const dx = event.clientX - dragStartX.current;
-    velocity.current = event.clientX - lastX.current;
-    lastX.current = event.clientX;
-    trackRef.current.scrollLeft = scrollStartX.current - dx;
-  };
+    cancelMomentum();
+    isDraggingRef.current = true;
+    movedRef.current = false;
+    pointerIdRef.current = e.pointerId;
 
-  const endDrag = () => {
-    if (!trackRef.current) return;
-    
-    dragging.current = false;
-    trackRef.current.style.cursor = 'grab';
-    if (trackRef.current.style) trackRef.current.style.scrollBehavior = 'smooth';
-    
-    // Inertia scrolling
-    if (Math.abs(velocity.current) > 2) {
-      let currentVelocity = velocity.current;
-      const friction = 0.95;
-      const interval = setInterval(() => {
-        currentVelocity *= friction;
-        if (trackRef.current && Math.abs(currentVelocity) > 0.1) {
-          trackRef.current.scrollLeft -= currentVelocity;
-        } else {
-          clearInterval(interval);
-        }
-      }, 16);
+    startXRef.current = e.clientX;
+    lastXRef.current = e.clientX;
+    lastTimeRef.current = Date.now();
+    startScrollRef.current = trackRef.current.scrollLeft;
+    velocityRef.current = 0;
+
+    trackRef.current.setPointerCapture(e.pointerId);
+    trackRef.current.style.scrollBehavior = 'auto';
+  }, [cancelMomentum]);
+
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !trackRef.current || pointerIdRef.current !== e.pointerId) return;
+
+    const now = Date.now();
+    const deltaTime = now - lastTimeRef.current;
+
+    // Calculate movement
+    const currentX = e.clientX;
+    const totalDelta = currentX - startXRef.current;
+    const lastDelta = currentX - lastXRef.current;
+
+    // Only mark as moved if there's significant horizontal movement (>5px)
+    if (Math.abs(totalDelta) > 5) {
+      movedRef.current = true;
+      e.preventDefault();
     }
-  };
+
+    // Calculate velocity only while moving
+    if (movedRef.current && deltaTime > 0) {
+      // Direct velocity in pixels per millisecond
+      velocityRef.current = lastDelta / deltaTime;
+
+      // Apply scroll immediately
+      trackRef.current.scrollLeft = startScrollRef.current - totalDelta;
+    }
+
+    lastXRef.current = currentX;
+    lastTimeRef.current = now;
+  }, []);
+
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (pointerIdRef.current !== e.pointerId) return;
+
+      if (trackRef.current) {
+        trackRef.current.releasePointerCapture(e.pointerId);
+        trackRef.current.style.scrollBehavior = 'smooth';
+      }
+
+      // Apply momentum only if was actually dragged
+      if (movedRef.current && Math.abs(velocityRef.current) > 0.1) {
+        applyInertia();
+      }
+
+      isDraggingRef.current = false;
+      pointerIdRef.current = null;
+    },
+    [applyInertia]
+  );
+
+  const handlePointerLeave = useCallback(() => {
+    if (isDraggingRef.current && trackRef.current) {
+      isDraggingRef.current = false;
+      trackRef.current.releasePointerCapture(pointerIdRef.current);
+      pointerIdRef.current = null;
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col items-start w-full lk-chips-wrap py-2">
+    <div className="flex flex-col items-start w-full lk-chips-wrap py-2 select-none">
       <div
         ref={trackRef}
-        className="flex gap-2 w-full overflow-x-auto no-scrollbar px-2 py-1.5 cursor-grab active:cursor-grabbing transition-[cursor] lk-chips-track"
+        className="flex gap-2 w-full overflow-x-auto no-scrollbar px-2 py-1.5 cursor-grab lk-chips-track"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
-        onPointerUp={endDrag}
-        onPointerLeave={endDrag}
-        onPointerCancel={endDrag}
-        style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerLeave}
+        onPointerCancel={handlePointerUp}
+        style={{
+          WebkitOverflowScrolling: 'touch',
+          scrollBehavior: 'smooth',
+          touchAction: 'pan-x',
+          userSelect: 'none',
+        }}
       >
         {replies.map((r, idx) => {
           const Icon = r.icon ? IconMap[r.icon] : null;
@@ -364,15 +429,27 @@ const Chips = memo(({ replies, onSelect }: { replies: QuickReply[]; onSelect: (r
               key={r.id}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.02 }}
-              whileHover={{ y: -0.5, scale: 1.02 }}
-              whileTap={{ scale: 0.95, y: 0 }}
+              transition={{
+                delay: idx * 0.03,
+                type: 'spring',
+                stiffness: 400,
+                damping: 25,
+              }}
+              whileHover={{ y: -2, scale: 1.04 }}
+              whileTap={{ scale: 0.93 }}
               onClick={() => onSelect(r)}
-              className={`lk-chip flex-none flex flex-col items-center justify-center gap-0.5 p-1.5 text-center select-none ${isPrimary ? 'lk-chip-primary' : ''}`}
-              style={{ minWidth: '75px', maxWidth: '110px', minHeight: '46px' }}
+              className={`lk-chip flex-none flex flex-col items-center justify-center gap-0.5 p-2 text-center select-none pointer-events-auto ${isPrimary ? 'lk-chip-primary' : ''}`}
+              style={{
+                minWidth: '78px',
+                maxWidth: '114px',
+                minHeight: '54px',
+                userSelect: 'none',
+                WebkitUserSelect: 'none',
+              }}
+              draggable={false}
             >
-              {Icon && <Icon size={13} strokeWidth={isPrimary ? 2.5 : 2} />}
-              <span className="font-semibold text-[9px] leading-tight break-words w-full">{r.label}</span>
+              {Icon && <Icon size={14} strokeWidth={isPrimary ? 2.5 : 2} />}
+              <span className="font-semibold text-[9.5px] leading-tight break-words w-full">{r.label}</span>
             </motion.button>
           );
         })}
@@ -794,44 +871,88 @@ export const Chatbot = () => {
         .lk-chips-wrap .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         .lk-chip {
-          padding: 6px 10px;
-          border-radius: 10px;
-          font-size: 9px; font-weight: 700;
+          padding: 8px 12px;
+          border-radius: 12px;
+          font-size: 9.5px;
+          font-weight: 700;
           color: var(--lk-text);
           border: 1px solid var(--lk-border);
           background: rgba(255,255,255,0.05);
           white-space: normal;
-          cursor: grab;
+          cursor: pointer;
           outline: none;
-          transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+          transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
           font-family: 'DM Sans', sans-serif;
           backdrop-filter: blur(12px);
-          min-width: 75px;
-          max-width: 110px;
-          min-height: 46px;
+          min-width: 78px;
+          max-width: 114px;
+          min-height: 54px;
           justify-content: center;
           user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
           text-transform: capitalize;
-          letter-spacing: 0.02em;
-        }
-        .lk-chip:active {
-          cursor: grabbing;
+          letter-spacing: 0.03em;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          flex-shrink: 0;
+          will-change: background, border-color, box-shadow;
+          -webkit-touch-callout: none;
+          -webkit-tap-highlight-color: transparent;
         }
         .lk-chip:hover {
-          background: rgba(255,255,255,0.1);
-          border-color: rgba(255,255,255,0.25);
-          color: white;
-          transform: translateY(-1px);
+          background: rgba(255,255,255,0.12);
+          border-color: rgba(255,255,255,0.35);
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px -4px rgba(255,255,255,0.1);
+          cursor: pointer;
+        }
+        .lk-chip:active {
+          transform: translateY(0px) scale(0.96);
+          cursor: pointer;
         }
         .lk-chip-primary {
-          background: rgba(0,229,160,0.12);
-          border-color: rgba(0,229,160,0.3);
+          background: linear-gradient(135deg, rgba(0,229,160,0.15) 0%, rgba(0,229,160,0.08) 100%);
+          border-color: rgba(0,229,160,0.4);
           color: var(--lk-green);
+          font-weight: 800;
         }
         .lk-chip-primary:hover {
-          background: rgba(0,229,160,0.18);
-          border-color: rgba(0,229,160,0.5);
-          box-shadow: 0 6px 16px -4px rgba(0,229,160,0.2);
+          background: linear-gradient(135deg, rgba(0,229,160,0.22) 0%, rgba(0,229,160,0.14) 100%);
+          border-color: rgba(0,229,160,0.6);
+          box-shadow: 0 10px 24px -4px rgba(0,229,160,0.3);
+          transform: translateY(-3px);
+        }
+        .lk-chips-track {
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255,255,255,0.1) transparent;
+          cursor: grab;
+        }
+        .lk-chips-track:active {
+          cursor: grabbing;
+        }
+        .lk-chips-track::-webkit-scrollbar {
+          height: 4px;
+        }
+        .lk-chips-track::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .lk-chips-track::-webkit-scrollbar-thumb {
+          background: rgba(255,255,255,0.15);
+          border-radius: 2px;
+        }
+        .lk-chips-track::-webkit-scrollbar-thumb:hover {
+          background: rgba(255,255,255,0.25);
+        }
+        .lk-chips-track > button {
+          scroll-snap-align: start;
+          scroll-snap-stop: auto;
         }
       `}</style>
 

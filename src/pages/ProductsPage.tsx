@@ -56,14 +56,14 @@ export const ProductsPage: React.FC = () => {
       'TABLETS': 'tablets',
       'RELÓGIOS': 'wearables',
       'CANETAS': 'acessorios',
-      'COMPUTADORES': 'acessorios',
+      'COMPUTADORES': 'computadores',
       'GAMER': 'gaming',
       'SMARTWATCH': 'wearables',
-      'APARELHOS PARA TV': 'acessorios',
-      'RASTREADORES': 'acessorios',
-      'ROBÔ ASPIRADOR': 'acessorios',
+      'APARELHOS PARA TV': 'outros',
+      'RASTREADORES': 'smart_home',
+      'ROBÔ ASPIRADOR': 'smart_home',
       'STARLINK': 'smart_home',
-      'CLIMATIZADORES': 'acessorios',
+      'CLIMATIZADORES': 'outros',
     };
     return categoryMap[productCategory] || null;
   };
@@ -76,13 +76,14 @@ export const ProductsPage: React.FC = () => {
       if (name.includes('IPHONE')) return 'iPhone';
       if (name.includes('SAMSUNG') || name.includes('GALAXY')) return 'Samsung';
       if (name.includes('XIAOMI') || name.includes('REDMI') || name.includes('POCO') || name.includes('NOTE')) return 'Xiaomi';
-      if (name.includes('MOTOROLA')) return 'Motorola';
+      if (name.includes('REALME')) return 'Realme';
       return 'Outros';
     }
     
     if (mainCategory === 'tablets') {
       if (name.includes('IPAD') || name.includes('MAGIC KEYBOARD')) return 'iPad';
-      if (name.includes('SAMSUNG') || name.includes('GALAXY TAB')) return 'Samsung Galaxy Tab';
+      if (name.includes('SAMSUNG') || name.includes('GALAXY')) return 'Samsung';
+      if (name.includes('REDMI')) return 'Redmi';
       return 'Outros';
     }
     
@@ -96,8 +97,8 @@ export const ProductsPage: React.FC = () => {
     if (mainCategory === 'audio') {
       if (name.includes('AIRPODS')) return 'Fones Bluetooth';
       if (name.includes('JBL') || name.includes('CAIXA') || name.includes('BOOMBOX')) return 'Caixas de Som';
-      if (name.includes('FONE') || name.includes('HEADPHONES')) return 'Headphones';
-      if (name.includes('MICROFONE') || name.includes('LAPELA')) return 'Auriculares';
+      if (name.includes('FONE')) return 'Headphones';
+      if (name.includes('MICROFONE') || name.includes('LAPELA')) return 'Microfones';
       return 'Fones Bluetooth';
     }
     
@@ -105,24 +106,38 @@ export const ProductsPage: React.FC = () => {
       if (name.includes('CARREGADOR') || name.includes('FONTE') || name.includes('ANATEL')) return 'Carregadores';
       if (name.includes('CABO') || name.includes('USB')) return 'Cabos';
       if (name.includes('CAPA') || name.includes('CAPINHA')) return 'Capinhas';
-      if (name.includes('PELÍCULA') || name.includes('VIDRO') || name.includes('PROTETOR')) return 'Película de Vidro';
+      if (name.includes('PELÍCULA') || name.includes('VIDRO') || name.includes('PROTETOR')) return 'Proteção de Tela';
       if (name.includes('SUPORTE') || name.includes('MALA') || name.includes('BOLSA')) return 'Suportes';
       if (name.includes('PENCIL') || name.includes('CANETA')) return 'Canetas';
       return 'Diversos';
     }
     
+    if (mainCategory === 'computadores') {
+      if (name.includes('MACBOOK')) return 'MacBook';
+      if (name.includes('IMAC')) return 'iMac';
+      if (name.includes('MINI')) return 'Mac Mini';
+      return 'Acessórios';
+    }
+    
     if (mainCategory === 'gaming') {
       if (name.includes('PS5') || name.includes('PLAYSTATION')) return 'PlayStation';
       if (name.includes('XBOX')) return 'Xbox';
-      if (name.includes('NINTENDO') || name.includes('VR') || name.includes('CONTROLE') || name.includes('FONE')) return 'Acessórios Gamer';
-      return 'Acessórios Gamer';
+      if (name.includes('NINTENDO') || name.includes('SWITCH')) return 'Nintendo';
+      if (name.includes('VR') || name.includes('QUEST')) return 'VR';
+      return 'VR';
     }
     
     if (mainCategory === 'smart_home') {
-      if (name.includes('STARLINK')) return 'Assistentes';
-      if (name.includes('CÂMERA')) return 'Câmeras';
-      if (name.includes('WIFI') || name.includes('CONTROLE')) return 'Controles Inteligentes';
-      return 'Assistentes';
+      if (name.includes('STARLINK')) return 'Conectividade';
+      if (name.includes('AIRTAG') || name.includes('RASTREADOR')) return 'Rastreadores';
+      if (name.includes('ROBOT') || name.includes('ASPIRADOR')) return 'Robôs';
+      return 'Conectividade';
+    }
+    
+    if (mainCategory === 'outros') {
+      if (name.includes('CLIMATIZADOR')) return 'Diversos';
+      if (name.includes('APARELHOS PARA TV') || name.includes('TV')) return 'Diversos';
+      return 'Diversos';
     }
     
     return null;
@@ -266,12 +281,12 @@ export const ProductsPage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Horizontal Categories Filter */}
+          {/* Horizontal Categories Filter - Mobile Only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-8 sm:mb-10 md:mb-12 lg:mb-14 p-4 sm:p-5 md:p-6 bg-gradient-to-r from-black/40 to-black/20 backdrop-blur-md border border-white/10 rounded-lg sm:rounded-xl md:rounded-2xl"
+            className="md:hidden mb-8 sm:mb-10 p-4 sm:p-5 bg-gradient-to-r from-black/40 to-black/20 backdrop-blur-md border border-white/10 rounded-lg sm:rounded-xl"
           >
             <CategoryHorizontal
               categories={categories}

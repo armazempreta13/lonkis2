@@ -36,6 +36,13 @@
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FF50C643C-F54A-4393-BD77-8D88BB8D2E3E.jpg?alt=media"
   },
   {
+    "name": "MALA BOOMBOX",
+    "category": "ACESSÓRIOS",
+    "price": 200.0,
+    "image": "",
+    "id": 135
+  },
+  {
     "id": 6,
     "name": "MALA ENCORE 1/2",
     "category": "ACESSÓRIOS",
@@ -247,6 +254,20 @@
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/zYftv192eKWgLnB7rVnOezprUI72%2F03DEDEFC-3308-44B5-A1F2-9AEB4AD56732.jpg?alt=media"
   },
   {
+    "name": "IPHONE 16 128GB CPO",
+    "category": "CELULARES",
+    "price": 4270.0,
+    "image": "",
+    "id": 114
+  },
+  {
+    "name": "IPHONE 16 256GB",
+    "category": "CELULARES",
+    "price": 5120.0,
+    "image": "",
+    "id": 113
+  },
+  {
     "id": 36,
     "name": "IPHONE 16 PLUS 128GB",
     "category": "CELULARES",
@@ -401,6 +422,13 @@
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2FDE2E766E-1DEF-4B23-8123-BB54ED4D442F.jpg?alt=media"
   },
   {
+    "name": "POCO C71 (3RAM ) 64GB",
+    "category": "CELULARES",
+    "price": 780.0,
+    "image": "",
+    "id": 115
+  },
+  {
     "id": 58,
     "name": "POCO C71 (4RAM ) 128GB",
     "category": "CELULARES",
@@ -420,6 +448,118 @@
     "category": "CELULARES",
     "price": 1860.0,
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/arS0jUbnCndy7ODNTg9LqIch0hA2%2FAE3F1700-43A7-4AC0-865D-F0BABD43A339.jpg?alt=media"
+  },
+  {
+    "name": "POCO X7 (12RAM) 512GB",
+    "category": "CELULARES",
+    "price": 2100.0,
+    "image": "",
+    "id": 116
+  },
+  {
+    "name": "POCO X7 PRO 5G (12 RAM) 512GB",
+    "category": "CELULARES",
+    "price": 2630.0,
+    "image": "",
+    "id": 117
+  },
+  {
+    "name": "POCO X7 PRO 5G (8 RAM) 256GB",
+    "category": "CELULARES",
+    "price": 2150.0,
+    "image": "",
+    "id": 118
+  },
+  {
+    "name": "REALME C75 (8RAM ) 256GB",
+    "category": "CELULARES",
+    "price": 1420.0,
+    "image": "",
+    "id": 119
+  },
+  {
+    "name": "REALME C75X (8RAM ) 256GB",
+    "category": "CELULARES",
+    "price": 1320.0,
+    "image": "",
+    "id": 120
+  },
+  {
+    "name": "REALME C85 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1560.0,
+    "image": "",
+    "id": 121
+  },
+  {
+    "name": "REALME C85 PRO (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1630.0,
+    "image": "",
+    "id": 122
+  },
+  {
+    "name": "REALME NOTE 60x (3RAM ) 64GB",
+    "category": "CELULARES",
+    "price": 790.0,
+    "image": "",
+    "id": 123
+  },
+  {
+    "name": "REALME NOTE 60x (4RAM ) 128GB",
+    "category": "CELULARES",
+    "price": 890.0,
+    "image": "",
+    "id": 124
+  },
+  {
+    "name": "REALME NOTE 70 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1150.0,
+    "image": "",
+    "id": 125
+  },
+  {
+    "name": "REDMI 13X 256GB 8RAM",
+    "category": "CELULARES",
+    "price": 1120.0,
+    "image": "",
+    "id": 126
+  },
+  {
+    "name": "REDMI 15 (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1260.0,
+    "image": "",
+    "id": 127
+  },
+  {
+    "name": "REDMI 15C (8RAM) 256GB",
+    "category": "CELULARES",
+    "price": 1120.0,
+    "image": "",
+    "id": 128
+  },
+  {
+    "name": "SAMSUNG A07 (4RAM) 128GB",
+    "category": "CELULARES",
+    "price": 900.0,
+    "image": "",
+    "id": 129
+  },
+  {
+    "name": "SAMSUNG A17 (4RAM) 128GB",
+    "category": "CELULARES",
+    "price": 1080.0,
+    "image": "",
+    "id": 130
+  },
+  {
+    "name": "SAMSUNG S25 ULTRA (12RAM) 256GB",
+    "category": "CELULARES",
+    "price": 6320.0,
+    "image": "",
+    "id": 131
   },
   {
     "id": 61,
@@ -674,6 +814,20 @@
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F74A2DA8F-8577-47A8-A787-03FB62228A75.jpg?alt=media"
   },
   {
+    "name": "APPLE WATCH SE 2 44MM",
+    "category": "RELÓGIOS",
+    "price": 1750.0,
+    "image": "",
+    "id": 134
+  },
+  {
+    "name": "APPLE WATCH SE 2 TAM 40MM",
+    "category": "RELÓGIOS",
+    "price": 1650.0,
+    "image": "",
+    "id": 132
+  },
+  {
     "id": 97,
     "name": "APPLE WATCH SE 3 40MM",
     "category": "RELÓGIOS",
@@ -688,6 +842,13 @@
     "image": ""
   },
   {
+    "name": "APPLE WATCH ULTRA 3",
+    "category": "RELÓGIOS",
+    "price": 4950.0,
+    "image": "",
+    "id": 133
+  },
+  {
     "id": 99,
     "name": "XIAOMI ROBOT VACUM X20 MAX",
     "category": "ROBÔ ASPIRADOR",
@@ -700,6 +861,20 @@
     "category": "STARLINK",
     "price": 840.0,
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F2E4258AA-F75A-41CC-BFB2-3B93633BD82B.jpg?alt=media"
+  },
+  {
+    "name": "GALAXY TAB A11 (4RAM) 64GB",
+    "category": "TABLETS",
+    "price": 1160.0,
+    "image": "",
+    "id": 136
+  },
+  {
+    "name": "GALAXY TAB S10 FE (8RAM) 128G",
+    "category": "TABLETS",
+    "price": 2660.0,
+    "image": "",
+    "id": 137
   },
   {
     "id": 101,
@@ -784,180 +959,5 @@
     "category": "TABLETS",
     "price": 2190.0,
     "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/RLu01dEK1oPTgecdUeT75IwRDek1%2F8AEAD874-5EEB-485C-BC5D-267AA6758EB7.jpg?alt=media"
-  },
-  {
-    "name": "IPHONE 16 256GB",
-    "category": "CELULARES",
-    "price": 5120.0,
-    "image": "",
-    "id": 113
-  },
-  {
-    "name": "IPHONE 16 128GB CPO",
-    "category": "CELULARES",
-    "price": 4270.0,
-    "image": "",
-    "id": 114
-  },
-  {
-    "name": "POCO C71 (3RAM ) 64GB",
-    "category": "CELULARES",
-    "price": 780.0,
-    "image": "",
-    "id": 115
-  },
-  {
-    "name": "POCO X7 (12RAM) 512GB",
-    "category": "CELULARES",
-    "price": 2100.0,
-    "image": "",
-    "id": 116
-  },
-  {
-    "name": "POCO X7 PRO 5G (12 RAM) 512GB",
-    "category": "CELULARES",
-    "price": 2630.0,
-    "image": "",
-    "id": 117
-  },
-  {
-    "name": "POCO X7 PRO 5G (8 RAM) 256GB",
-    "category": "CELULARES",
-    "price": 2150.0,
-    "image": "",
-    "id": 118
-  },
-  {
-    "name": "REALME C75 (8RAM ) 256GB",
-    "category": "CELULARES",
-    "price": 1420.0,
-    "image": "",
-    "id": 119
-  },
-  {
-    "name": "REALME C75X (8RAM ) 256GB",
-    "category": "CELULARES",
-    "price": 1320.0,
-    "image": "",
-    "id": 120
-  },
-  {
-    "name": "REALME C85 (8RAM) 256GB",
-    "category": "CELULARES",
-    "price": 1560.0,
-    "image": "",
-    "id": 121
-  },
-  {
-    "name": "REALME C85 PRO (8RAM) 256GB",
-    "category": "CELULARES",
-    "price": 1630.0,
-    "image": "",
-    "id": 122
-  },
-  {
-    "name": "REALME NOTE 60x (3RAM ) 64GB",
-    "category": "CELULARES",
-    "price": 790.0,
-    "image": "",
-    "id": 123
-  },
-  {
-    "name": "REALME NOTE 60x (4RAM ) 128GB",
-    "category": "CELULARES",
-    "price": 890.0,
-    "image": "",
-    "id": 124
-  },
-  {
-    "name": "REALME NOTE 70 (8RAM) 256GB",
-    "category": "CELULARES",
-    "price": 1150.0,
-    "image": "",
-    "id": 125
-  },
-  {
-    "name": "REDMI 13X 256GB 8RAM",
-    "category": "CELULARES",
-    "price": 1120.0,
-    "image": "",
-    "id": 126
-  },
-  {
-    "name": "REDMI 15 (8RAM) 256GB",
-    "category": "CELULARES",
-    "price": 1260.0,
-    "image": "",
-    "id": 127
-  },
-  {
-    "name": "REDMI 15C (8RAM) 256GB",
-    "category": "CELULARES",
-    "price": 1120.0,
-    "image": "",
-    "id": 128
-  },
-  {
-    "name": "SAMSUNG A07 (4RAM) 128GB",
-    "category": "CELULARES",
-    "price": 900.0,
-    "image": "",
-    "id": 129
-  },
-  {
-    "name": "SAMSUNG A17 (4RAM) 128GB",
-    "category": "CELULARES",
-    "price": 1080.0,
-    "image": "",
-    "id": 130
-  },
-  {
-    "name": "SAMSUNG S25 ULTRA (12RAM) 256GB",
-    "category": "CELULARES",
-    "price": 6320.0,
-    "image": "",
-    "id": 131
-  },
-  {
-    "name": "APPLE WATCH SE 2 TAM 40MM",
-    "category": "RELÓGIOS",
-    "price": 1650.0,
-    "image": "",
-    "id": 132
-  },
-  {
-    "name": "APPLE WATCH ULTRA 3",
-    "category": "RELÓGIOS",
-    "price": 4950.0,
-    "image": "",
-    "id": 133
-  },
-  {
-    "name": "APPLE WATCH SE 2 44MM",
-    "category": "RELÓGIOS",
-    "price": 1750.0,
-    "image": "",
-    "id": 134
-  },
-  {
-    "name": "MALA BOOMBOX",
-    "category": "ACESSÓRIOS",
-    "price": 200.0,
-    "image": "",
-    "id": 135
-  },
-  {
-    "name": "GALAXY TAB A11 (4RAM) 64GB",
-    "category": "TABLETS",
-    "price": 1160.0,
-    "image": "",
-    "id": 136
-  },
-  {
-    "name": "GALAXY TAB S10 FE (8RAM) 128G",
-    "category": "TABLETS",
-    "price": 2660.0,
-    "image": "",
-    "id": 137
   }
 ]
