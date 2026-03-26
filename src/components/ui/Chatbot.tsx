@@ -635,7 +635,7 @@ export const Chatbot = () => {
   }, [messages]);
 
   const onChip = useCallback((r: QuickReply) => {
-    chatLog('quick_reply_selected', { action: r.action, id: r.id });
+    chatLog('quick_reply_selected', { action: r.action, id: r.id, analytics: r.analytics });
     lastMessageTime.current = Date.now();
     
     if (r.action === 'form') {
@@ -648,6 +648,14 @@ export const Chatbot = () => {
     } else if (r.action === 'link') {
       window.open(r.value, '_blank', 'noopener,noreferrer');
       push({ type: 'system', content: `Abrindo ${r.label}…` });
+    } else if (r.action === 'phone') {
+      // Handle phone calls
+      window.location.href = `tel:${r.value}`;
+      push({ type: 'system', content: `Chamando ${r.label}…` });
+    } else if (r.action === 'email') {
+      // Handle email
+      window.location.href = `mailto:${r.value}`;
+      push({ type: 'system', content: `Abrindo cliente de e-mail…` });
     } else if (r.action === 'reset') {
       reset();
     } else {
