@@ -114,7 +114,7 @@ export const siteConfig = {
     },
     socialProfiles: [
       "https://www.facebook.com/lkimports",
-      "https://www.instagram.com/lkimports_061",
+      "https://www.instagram.com/lkimportsbr__/",
       "https://www.tiktok.com/@lkimports",
       "https://www.linkedin.com/company/lkimports"
     ],
@@ -286,7 +286,7 @@ export const siteConfig = {
   // ---------------------------------------------------------------------------
   social: {
     instagram: {
-      url: "https://www.instagram.com/lkimports_061?igsh=MWR5dWZ2bjFkOGxsZQ%3D%3D&utm_source=qr",
+      url: "https://www.instagram.com/lkimportsbr__/",
       ariaLabel: "Siga-nos no Instagram",
     },
     facebook: {
