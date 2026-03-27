@@ -112,6 +112,33 @@ export const Footer = () => {
       <footer className="bg-black text-white border-t border-white/5 overflow-hidden relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
+        {/* Map Section */}
+        <div className="w-full h-[300px] sm:h-[400px] overflow-hidden border-b border-white/5 relative group">
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
+          <iframe 
+            src={siteConfig.contact.mapsEmbed}
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.2)' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={`Localização ${siteConfig.brand.name}`}
+            className="grayscale invert opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:invert-0 transition-all duration-1000 absolute inset-0"
+          ></iframe>
+          <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-3rem)] sm:w-auto">
+            <a 
+              href={siteConfig.contact.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-2xl hover:bg-emerald-500 hover:text-white transition-all active:scale-95 whitespace-nowrap"
+            >
+              <MapPin size={18} />
+              Abrir no Google Maps
+            </a>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-20 relative z-10">
           
           {/* Main Content Grid - More Compact */}

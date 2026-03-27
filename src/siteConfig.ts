@@ -67,15 +67,15 @@ export const siteConfig = {
   brand: {
     name: "LK Imports",
     // Use uma imagem com fundo transparente (PNG)
-    logo: "https://i.imgur.com/Ga4bMmk.png",
+    logo: "https://i.imgur.com/sVXDNs5.png",
     // Tamanho da logo em pixels (altura). A largura será ajustada proporcionalmente.
     // Defina valores para desktop e mobile.
     logoSize: {
       desktop: 80, // Ex: 80px de altura em telas grandes
       mobile: 60,  // Ex: 60px de altura em telas pequenas
       navbar: {
-        desktop: 72,
-        mobile: 60,
+        desktop: 56,
+        mobile: 48,
       },
       footer: {
         desktop: 96,
@@ -108,7 +108,7 @@ export const siteConfig = {
     twitterHandle: "@lkimports_061",
     facebookAppId: "1234567890",
     googleSiteVerification: "abcde12345verify",
-    logo: "https://i.imgur.com/Ga4bMmk.png",
+    logo: "https://i.imgur.com/sVXDNs5.png",
     company: {
       name: "LK Imports",
       legalName: "LK Imports Ltda",

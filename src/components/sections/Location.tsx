@@ -1,8 +1,36 @@
 import { motion } from 'motion/react';
 import { MapPin, Clock, Phone } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { siteConfig } from '../../siteConfig';
 
 export const Location = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Calculate current business status
+  useEffect(() => {
+    const updateStatus = () => {
+      const now = new Date();
+      const day = now.getDay();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const totalMinutes = hours * 60 + minutes;
+
+      const openTime = 8 * 60; // 08:00
+      const closeSatDay = 19 * 60 + 30; // 19:30
+      const closeSunday = 15 * 60; // 15:00
+
+      if (day === 0) {
+        setIsOpen(totalMinutes >= openTime && totalMinutes < closeSunday);
+      } else {
+        setIsOpen(totalMinutes >= openTime && totalMinutes < closeSatDay);
+      }
+    };
+
+    updateStatus();
+    const interval = setInterval(updateStatus, 60000); // Update every minute
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="location" className="py-4 sm:py-20 md:py-28 px-4 sm:px-6 bg-black border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -33,43 +61,63 @@ export const Location = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-4 md:gap-6">
-            <motion.div 
+            {/* ENDEREÇO - Clicável para Google Maps */}
+            <motion.a 
+              href={siteConfig.contact.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl"
+              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl cursor-pointer"
+              title="Clique para abrir no Google Maps"
+              aria-label="Ver endereço no Google Maps"
             >
               <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-white/5 rounded-lg sm:rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 group-hover:bg-black group-hover:scale-110 transition-all duration-500">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white/40 group-hover:text-white" />
               </div>
               <h3 className="font-display text-sm sm:text-base md:text-lg lg:text-xl font-black uppercase text-white group-hover:text-black mb-2 sm:mb-2.5 md:mb-3 lg:mb-4 tracking-tight">Endereço</h3>
-              <p className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium uppercase tracking-widest whitespace-pre-line">
+              <address className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium uppercase tracking-widest whitespace-pre-line not-italic">
                 {siteConfig.contact.address}
-              </p>
-            </motion.div>
+              </address>
+              <p className="text-emerald-500/0 group-hover:text-emerald-500 text-[8px] font-black tracking-widest pt-3 transition-all duration-500">→ ABRIR MAPA</p>
+            </motion.a>
 
+            {/* HORÁRIOS - Com Status Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl"
+              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl relative"
             >
+              {/* Status Indicator - Subtle */}
+              <div className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-8 md:right-8 lg:top-10 lg:right-10 flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full transition-all duration-500 ${isOpen ? 'bg-emerald-500 animate-pulse' : 'bg-red-500/50'}`}></div>
+                <span className={`text-[7px] font-black tracking-widest uppercase transition-all duration-500 ${isOpen ? 'text-emerald-500' : 'text-red-500/50'}`}>
+                  {isOpen ? 'Aberto' : 'Fechado'}
+                </span>
+              </div>
+
               <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-white/5 rounded-lg sm:rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 group-hover:bg-black group-hover:scale-110 transition-all duration-500">
                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white/40 group-hover:text-white" />
               </div>
               <h3 className="font-display text-sm sm:text-base md:text-lg lg:text-xl font-black uppercase text-white group-hover:text-black mb-2 sm:mb-2.5 md:mb-3 lg:mb-4 tracking-tight">Horários</h3>
-              <p className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium tracking-widest whitespace-pre-line">
+              <time className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium tracking-widest whitespace-pre-line">
                 {`Segunda: ${siteConfig.contact.hours.monday}\nTerça: ${siteConfig.contact.hours.tuesday}\nQuarta: ${siteConfig.contact.hours.wednesday}\nQuinta: ${siteConfig.contact.hours.thursday}\nSexta: ${siteConfig.contact.hours.friday}\nSábado: ${siteConfig.contact.hours.saturday}\nDomingo: ${siteConfig.contact.hours.sunday}\nFeriados: ${siteConfig.contact.hours.holiday}`}
-              </p>
+              </time>
             </motion.div>
 
-            <motion.div 
+            {/* CONTATO - Clicável para Ligar */}
+            <motion.a 
+              href={`tel:${siteConfig.contact.phone}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl"
+              className="p-4 sm:p-5 md:p-8 lg:p-10 bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] group hover:bg-white transition-all duration-700 hover:shadow-2xl cursor-pointer"
+              title="Clique para ligar"
+              aria-label="Ligar para LK Imports"
             >
               <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-white/5 rounded-lg sm:rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 group-hover:bg-black group-hover:scale-110 transition-all duration-500">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white/40 group-hover:text-white" />
@@ -78,7 +126,8 @@ export const Location = () => {
               <p className="text-white/40 group-hover:text-black/60 text-[9px] sm:text-xs md:text-sm leading-relaxed font-medium uppercase tracking-widest">
                 {siteConfig.contact.phoneDisplay}
               </p>
-            </motion.div>
+              <p className="text-emerald-500/0 group-hover:text-emerald-500 text-[8px] font-black tracking-widest pt-3 transition-all duration-500">→ LIGAR</p>
+            </motion.a>
           </div>
         </div>
       </div>
