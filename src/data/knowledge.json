@@ -1,0 +1,1137 @@
+{
+  "empresa": {
+    "nome": "LK Imports",
+    "slogan": "Assistente técnico especializado",
+    "endereco": "Samambaia Norte (QR 429), Brasília – DF",
+    "whatsapp": "556195191308",
+    "horario": "Segunda a Sábado, das 09h às 18h",
+    "garantia_dias": 90
+  },
+  "supported_devices": {
+    "Apple": [
+      "iPhone 15 Pro Max",
+      "iPhone 15 Pro",
+      "iPhone 15 Plus",
+      "iPhone 15",
+      "iPhone 14 Pro Max",
+      "iPhone 14 Pro",
+      "iPhone 14 Plus",
+      "iPhone 14",
+      "iPhone 13 Pro Max",
+      "iPhone 13 Pro",
+      "iPhone 13 mini",
+      "iPhone 13",
+      "iPhone 12 Pro Max",
+      "iPhone 12 Pro",
+      "iPhone 12 mini",
+      "iPhone 12",
+      "iPhone 11 Pro Max",
+      "iPhone 11 Pro",
+      "iPhone 11",
+      "iPhone XS Max",
+      "iPhone XS",
+      "iPhone XR",
+      "iPhone X",
+      "iPhone 8 Plus",
+      "iPhone 8",
+      "iPhone 7 Plus",
+      "iPhone 7"
+    ],
+    "Samsung": [
+      "Galaxy S24 Ultra",
+      "Galaxy S24+",
+      "Galaxy S24",
+      "Galaxy S23 Ultra",
+      "Galaxy S23+",
+      "Galaxy S23",
+      "Galaxy S22 Ultra",
+      "Galaxy S22+",
+      "Galaxy S22",
+      "Galaxy S21 Ultra",
+      "Galaxy S21+",
+      "Galaxy S21",
+      "Galaxy A54",
+      "Galaxy A34",
+      "Galaxy A14",
+      "Galaxy M54",
+      "Galaxy M34",
+      "Galaxy M14",
+      "Galaxy Z Fold 5",
+      "Galaxy Z Flip 5"
+    ],
+    "Xiaomi": [
+      "Xiaomi 14 Ultra",
+      "Xiaomi 14",
+      "Xiaomi 13T Pro",
+      "Xiaomi 13T",
+      "Redmi Note 13 Pro+",
+      "Redmi Note 13 Pro",
+      "Redmi Note 13",
+      "Redmi Note 12 Pro+",
+      "Redmi Note 12 Pro",
+      "Redmi Note 12",
+      "Poco F5 Pro",
+      "Poco F5",
+      "Poco X6 Pro",
+      "Poco X6"
+    ],
+    "Motorola": [
+      "Edge 40 Pro",
+      "Edge 40",
+      "Edge 30 Ultra",
+      "Edge 30 Fusion",
+      "Moto G84",
+      "Moto G54",
+      "Moto G73",
+      "Moto G53",
+      "Razr 40 Ultra",
+      "Razr 40"
+    ]
+  },
+  "troubleshooting_tree": {
+    "reparo_placa": [
+      {
+        "question": "O aparelho sofreu alguma queda recentemente?",
+        "yes": "Quedas podem causar microfissuras na placa. Recomendamos uma análise técnica imediata.",
+        "no": null
+      },
+      {
+        "question": "O aparelho teve contato com algum líquido?",
+        "yes": "Líquidos causam oxidação rápida. Desligue o aparelho e traga o quanto antes!",
+        "no": null
+      },
+      {
+        "question": "O problema começou após uma atualização de sistema?",
+        "yes": "Pode ser uma falha de software ou erro crítico de gravação na memória.",
+        "no": "Pode ser um componente em curto. Recomendamos análise física."
+      }
+    ],
+    "troca_tela": [
+      {
+        "question": "A tela está com manchas pretas ou coloridas?",
+        "yes": "Isso indica que o display interno (LCD/OLED) vazou. A troca completa é necessária.",
+        "no": null
+      },
+      {
+        "question": "O touch (toque) funciona em alguma parte da tela?",
+        "yes": "Se o touch falha em partes, o digitalizador está danificado.",
+        "no": "Se nada funciona, o conector ou o display estão totalmente comprometidos."
+      }
+    ],
+    "troca_bateria": [
+      {
+        "question": "A bateria parece estar estufada (empurrando a tela ou tampa)?",
+        "yes": "⚠️ **PERIGO:** Pare de usar agora! Baterias estufadas podem explodir. Traga com urgência.",
+        "no": null
+      },
+      {
+        "question": "O aparelho desliga sozinho mesmo com carga?",
+        "yes": "Isso é um sinal claro de que a bateria não consegue mais manter a tensão necessária.",
+        "no": "Pode ser um problema de software ou consumo excessivo de algum app."
+      }
+    ],
+    "troca_conector": [
+      {
+        "question": "O cabo fica 'frouxo' ou precisa de 'jeitinho' para carregar?",
+        "yes": "O conector está com desgaste físico ou sujeira interna.",
+        "no": null
+      },
+      {
+        "question": "Você já testou com outro cabo e carregador originais?",
+        "yes": "Se o problema persiste com outros cabos, o defeito é realmente no conector.",
+        "no": "Teste com outro cabo primeiro, pode ser apenas o acessório!"
+      }
+    ]
+  },
+  "closing": [
+    "Perfeito! Vou te encaminhar para o nosso WhatsApp para finalizarmos o agendamento. Clique aqui: {link}",
+    "Ótimo! Para garantir sua peça e horário, finalize o agendamento pelo WhatsApp: {link}",
+    "Tudo pronto! Clique no link para falar com um de nossos técnicos e confirmar seu horário: {link}"
+  ],
+  "services": [
+    {
+      "id": "reparo_placa",
+      "nome": "Reparos em Placa Lógica",
+      "emoji": "🔬",
+      "prioridade": "alta",
+      "keywords": [
+        "placa",
+        "logica",
+        "circuito",
+        "curto",
+        "nao liga",
+        "componente",
+        "solda",
+        "microsoldagem",
+        "placa mae",
+        "placa logica",
+        "componente queimado",
+        "nao carrega e nao liga",
+        "placa queimada",
+        "curto circuito",
+        "nao funciona"
+      ],
+      "descricao": "Reparo especializado em circuitos internos e componentes da placa lógica.",
+      "solucao": "Análise técnica avançada e microsoldagem de componentes SMD.",
+      "possiveis_causas": [
+        "Curto-circuito",
+        "Queda",
+        "Contato com líquido",
+        "Superaquecimento",
+        "Tensão elétrica irregular"
+      ],
+      "tempo_estimado": "2 a 5 dias úteis",
+      "urgente": true,
+      "recomendacao": "⚠️ **ATENÇÃO:** Se o aparelho não liga ou apresenta comportamento instável, **NÃO force** várias tentativas de ligar ou carregar. Isso pode agravar curto-circuitos. Traga o quanto antes para análise."
+    },
+    {
+      "id": "troca_tela",
+      "nome": "Troca de Tela / Display",
+      "emoji": "📱",
+      "prioridade": "media",
+      "keywords": [
+        "tela",
+        "display",
+        "vidro",
+        "quebrada",
+        "trincada",
+        "touch",
+        "mancha",
+        "listra",
+        "escuro",
+        "imagem",
+        "vidro quebrado",
+        "tela rachada",
+        "tela preta",
+        "tela apagada",
+        "sem imagem",
+        "touch nao funciona",
+        "tela nao responde",
+        "pixel morto",
+        "linha na tela",
+        "tela vazando",
+        "luz de fundo",
+        "backlight"
+      ],
+      "descricao": "Substituição do display frontal com restauração da qualidade de imagem e sensibilidade ao toque.",
+      "solucao": "Substituição por tela premium (OLED/AMOLED/LCD) com garantia de 90 dias.",
+      "possiveis_causas": [
+        "Queda",
+        "Impacto lateral",
+        "Pressão excessiva",
+        "Falha interna no display"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "⚠️ **Cuidado:** Não continue usando o aparelho com vidro estilhaçado. Pode ferir os dedos e os fragmentos podem danificar sensores internos."
+    },
+    {
+      "id": "troca_conector",
+      "nome": "Troca de Conector de Carga",
+      "emoji": "🔌",
+      "prioridade": "media",
+      "keywords": [
+        "conector",
+        "carga",
+        "carregar",
+        "carregador",
+        "entrada",
+        "mau contato",
+        "nao carrega",
+        "dock",
+        "porta",
+        "usb",
+        "tipo c",
+        "lightning",
+        "nao encaixa",
+        "carregador nao entra",
+        "nao reconhece carregador",
+        "carregamento intermitente"
+      ],
+      "descricao": "Restauração da porta de carregamento para conexão eficiente e segura.",
+      "solucao": "Troca do dock de carga ou reparo do conector soldado diretamente na placa.",
+      "possiveis_causas": [
+        "Uso de cabos paralelos ou danificados",
+        "Sujeira e acúmulo de resíduos",
+        "Desgaste natural por uso",
+        "Inserção inadequada do cabo"
+      ],
+      "tempo_estimado": "1 a 3 horas",
+      "urgente": false,
+      "recomendacao": "❌ **NUNCA** tente limpar o conector com agulha, palito de metal ou objeto pontiagudo. Isso pode causar curto-circuito grave."
+    },
+    {
+      "id": "troca_bateria",
+      "nome": "Troca de Bateria",
+      "emoji": "🔋",
+      "prioridade": "media",
+      "keywords": [
+        "bateria",
+        "viciada",
+        "descarregando",
+        "estufada",
+        "saude",
+        "porcentagem",
+        "reiniciando",
+        "descarrega rapido",
+        "bateria fraca",
+        "nao segura carga",
+        "apaga sozinho",
+        "desliga sozinho",
+        "carrega devagar",
+        "tampa levantando",
+        "inchada",
+        "inflada",
+        "autonomia ruim",
+        "nao dura"
+      ],
+      "descricao": "Substituição da bateria por nova certificada para restaurar a autonomia do aparelho.",
+      "solucao": "Instalação de bateria nova com célula certificada e lacre de qualidade.",
+      "possiveis_causas": [
+        "Ciclos de carga excedidos",
+        "Uso de carregadores de baixa qualidade",
+        "Exposição excessiva ao calor",
+        "Carregamento overnight frequente"
+      ],
+      "tempo_estimado": "30 minutos a 1 hora",
+      "urgente": false,
+      "recomendacao": "⚠️ **BATERIA ESTUFADA:** Pare de usar o aparelho, não conecte ao carregador e traga com urgência para avaliação técnica. **Risco de incêndio!**"
+    },
+    {
+      "id": "troca_tampa",
+      "nome": "Troca de Tampa Traseira",
+      "emoji": "📱",
+      "prioridade": "baixa",
+      "keywords": [
+        "tampa",
+        "traseira",
+        "vidro traseiro",
+        "quebrado",
+        "riscado"
+      ],
+      "descricao": "Substituição da tampa traseira danificada.",
+      "solucao": "Troca da tampa traseira.",
+      "possiveis_causas": [
+        "Queda",
+        "Impacto"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Proteja seu aparelho com uma capa."
+    },
+    {
+      "id": "limpeza_desoxidacao",
+      "nome": "Limpeza e Desoxidação",
+      "emoji": "💧",
+      "prioridade": "alta",
+      "keywords": [
+        "limpeza",
+        "desoxidacao",
+        "molhou",
+        "agua",
+        "liquido"
+      ],
+      "descricao": "Limpeza química para remover oxidação.",
+      "solucao": "Desoxidação química.",
+      "possiveis_causas": [
+        "Contato com líquido",
+        "Umidade"
+      ],
+      "tempo_estimado": "2 horas",
+      "urgente": true,
+      "recomendacao": "Traga imediatamente após o contato com líquido."
+    },
+    {
+      "id": "desbloqueio",
+      "nome": "Desbloqueio de Conta",
+      "emoji": "🔓",
+      "prioridade": "media",
+      "keywords": [
+        "desbloqueio",
+        "conta",
+        "google",
+        "icloud",
+        "senha"
+      ],
+      "descricao": "Desbloqueio de contas de usuário.",
+      "solucao": "Procedimento de desbloqueio.",
+      "possiveis_causas": [
+        "Esquecimento de senha"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Tenha em mãos a nota fiscal do aparelho."
+    },
+    {
+      "id": "troca_camera",
+      "nome": "Troca de Câmera",
+      "emoji": "📷",
+      "prioridade": "media",
+      "keywords": [
+        "camera",
+        "foto",
+        "foco",
+        "embaçada"
+      ],
+      "descricao": "Substituição da câmera danificada.",
+      "solucao": "Troca da câmera.",
+      "possiveis_causas": [
+        "Queda",
+        "Impacto"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Evite usar a câmera se estiver danificada."
+    },
+    {
+      "id": "troca_audio",
+      "nome": "Troca de Alto-falante",
+      "emoji": "🔊",
+      "prioridade": "media",
+      "keywords": [
+        "audio",
+        "som",
+        "alto-falante",
+        "ruido"
+      ],
+      "descricao": "Substituição do alto-falante.",
+      "solucao": "Troca do alto-falante.",
+      "possiveis_causas": [
+        "Desgaste",
+        "Líquido"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Evite ouvir som no volume máximo por muito tempo."
+    },
+    {
+      "id": "troca_microfone",
+      "nome": "Troca de Microfone",
+      "emoji": "🎤",
+      "prioridade": "media",
+      "keywords": [
+        "microfone",
+        "voz",
+        "chamada",
+        "mudo"
+      ],
+      "descricao": "Substituição do microfone.",
+      "solucao": "Troca do microfone.",
+      "possiveis_causas": [
+        "Desgaste",
+        "Líquido"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Verifique se não há sujeira no orifício do microfone."
+    },
+    {
+      "id": "troca_botoes",
+      "nome": "Troca de Botões",
+      "emoji": "🔘",
+      "prioridade": "baixa",
+      "keywords": [
+        "botoes",
+        "power",
+        "volume",
+        "nao funciona"
+      ],
+      "descricao": "Substituição dos botões.",
+      "solucao": "Troca dos botões.",
+      "possiveis_causas": [
+        "Desgaste",
+        "Uso excessivo"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Evite pressionar com muita força."
+    },
+    {
+      "id": "troca_vibra",
+      "nome": "Troca de Motor de Vibração",
+      "emoji": "📳",
+      "prioridade": "baixa",
+      "keywords": [
+        "vibra",
+        "vibracao",
+        "nao vibra"
+      ],
+      "descricao": "Substituição do motor de vibração.",
+      "solucao": "Troca do motor de vibração.",
+      "possiveis_causas": [
+        "Desgaste",
+        "Queda"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Verifique as configurações de vibração."
+    },
+    {
+      "id": "troca_slot",
+      "nome": "Troca de Slot de Chip",
+      "emoji": "💳",
+      "prioridade": "media",
+      "keywords": [
+        "chip",
+        "slot",
+        "sim",
+        "nao le"
+      ],
+      "descricao": "Substituição do slot de chip.",
+      "solucao": "Troca do slot de chip.",
+      "possiveis_causas": [
+        "Uso incorreto",
+        "Desgaste"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Use o adaptador correto para o chip."
+    },
+    {
+      "id": "troca_antena",
+      "nome": "Troca de Antena",
+      "emoji": "📡",
+      "prioridade": "media",
+      "keywords": [
+        "antena",
+        "sinal",
+        "wifi",
+        "bluetooth"
+      ],
+      "descricao": "Substituição da antena.",
+      "solucao": "Troca da antena.",
+      "possiveis_causas": [
+        "Queda",
+        "Impacto"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Verifique se o sinal está fraco em outros locais."
+    },
+    {
+      "id": "reparo_biometria",
+      "nome": "Reparo de Biometria",
+      "emoji": "🔏",
+      "prioridade": "media",
+      "keywords": [
+        "biometria",
+        "digital",
+        "nao le"
+      ],
+      "descricao": "Reparo do sensor de biometria.",
+      "solucao": "Reparo ou troca do sensor.",
+      "possiveis_causas": [
+        "Queda",
+        "Desgaste"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Mantenha o sensor limpo."
+    },
+    {
+      "id": "carregamento_lento",
+      "nome": "Reparo de Carregamento Lento",
+      "emoji": "⚡",
+      "prioridade": "baixa",
+      "keywords": [
+        "carregamento",
+        "lento",
+        "demora"
+      ],
+      "descricao": "Reparo do circuito de carregamento.",
+      "solucao": "Reparo do circuito.",
+      "possiveis_causas": [
+        "Carregador ruim",
+        "Cabo ruim"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Use carregadores originais."
+    },
+    {
+      "id": "superaquecimento",
+      "nome": "Reparo de Superaquecimento",
+      "emoji": "🌡️",
+      "prioridade": "media",
+      "keywords": [
+        "esquenta",
+        "quente",
+        "superaquecimento"
+      ],
+      "descricao": "Reparo de superaquecimento.",
+      "solucao": "Análise de componentes.",
+      "possiveis_causas": [
+        "Uso excessivo",
+        "Falha de bateria"
+      ],
+      "tempo_estimado": "2 a 4 horas",
+      "urgente": true,
+      "recomendacao": "Evite usar o aparelho enquanto carrega."
+    },
+    {
+      "id": "formatacao",
+      "nome": "Formatação",
+      "emoji": "💾",
+      "prioridade": "baixa",
+      "keywords": [
+        "formatacao",
+        "limpeza",
+        "lento"
+      ],
+      "descricao": "Formatação do sistema.",
+      "solucao": "Formatação.",
+      "possiveis_causas": [
+        "Sistema lento",
+        "Vírus"
+      ],
+      "tempo_estimado": "1 a 2 horas",
+      "urgente": false,
+      "recomendacao": "Faça backup dos seus dados."
+    },
+    {
+      "id": "recuperacao_sistema",
+      "nome": "Recuperação de Sistema",
+      "emoji": "🔄",
+      "prioridade": "alta",
+      "keywords": [
+        "recuperacao",
+        "sistema",
+        "travado"
+      ],
+      "descricao": "Recuperação do sistema operacional.",
+      "solucao": "Recuperação.",
+      "possiveis_causas": [
+        "Falha de atualização"
+      ],
+      "tempo_estimado": "2 a 4 horas",
+      "urgente": true,
+      "recomendacao": "Faça backup regularmente."
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq_diagnose_problema",
+      "category": "diagnóstico",
+      "priority": "alta",
+      "keywords": [
+        "diagnostico",
+        "diagnosticar",
+        "problema",
+        "qual",
+        "oque",
+        "porque"
+      ],
+      "question": "Como funciona seu diagnóstico?",
+      "answer": "📋 Nosso diagnóstico é GRATUITO e sem compromisso!\n\nVocê traz o aparelho e nossos especialistas com equipamentos profissionais identificam:\n✓ O problema exato\n✓ Peças a serem substituídas\n✓ Tempo estimado\n✓ Preço justo\n\nApenas DEPOIS você decide se quer fazer o reparo.",
+      "follow_ups": [
+        "agendamento",
+        "valores",
+        "garantia"
+      ]
+    },
+    {
+      "id": "faq_tempo_medio",
+      "category": "tempo",
+      "priority": "media",
+      "keywords": [
+        "quanto tempo",
+        "quanto demora",
+        "pronto quando",
+        "leva quanto"
+      ],
+      "question": "Quanto tempo demora para ficar pronto?",
+      "answer": "⏱️ Tempo médio de reparos:\n\n- Troca de Bateria: 30min - 1h\n- Troca de Tela: 1h - 2h\n- Conector: 1h - 3h\n- Limpeza/Desoxidação: 2h - 4h\n- Placa Lógica: 2-5 dias úteis\n- Desbloqueio: 1-2 horas\n\nExceto fins de semana e feriados, entregamos dentro dos prazos. Você recebe aviso quando fica pronto!",
+      "follow_ups": [
+        "agendar",
+        "preco"
+      ]
+    },
+    {
+      "id": "faq_valores",
+      "category": "preço",
+      "priority": "alta",
+      "keywords": [
+        "preco",
+        "valor",
+        "custa",
+        "quanto",
+        "caro",
+        "tabela"
+      ],
+      "question": "Qual é o valor do reparo?",
+      "answer": "💰 Os preços variam conforme o problema e o modelo do aparelho.\n\nPor exemplo:\n- Bateria: R$150 - R$350\n- Trocas de tela: R$200 - R$800\n- Conector: R$120 - R$400\n- Desoxidação: R$180 - R$500\n\n⚠️ Esses são valores aproximados. O preço final só é confirmado APÓS o diagnóstico.\n\n📄 Quer nossa tabela completa de preços?",
+      "follow_ups": [
+        "diagnose",
+        "agendar",
+        "catalogo"
+      ]
+    },
+    {
+      "id": "faq_garantia",
+      "category": "garantia",
+      "priority": "alta",
+      "keywords": [
+        "garantia",
+        "protecao",
+        "reparado",
+        "voltar",
+        "problema pós-reparo"
+      ],
+      "question": "Qual é a garantia?",
+      "answer": "✅ **GARANTIA DE 90 DIAS** em todas as peças e mão de obra!\n\nSe a peça que trocamos tiver defeito de fabricação OU o problema voltar por culpa nossa, a gente corrige GRÁTIS nos primeiros 90 dias.\n\nO que NÃO está coberto:\n❌ Quedas após o reparo\n❌ Contato com água após o reparo\n❌ Problemas causados por terceiros\n\nVocê recebe um comprovante de garantia que vale tanto em nossa loja quanto para terceiros!",
+      "follow_ups": [
+        "confianca",
+        "experencia"
+      ]
+    },
+    {
+      "id": "faq_como_funciona",
+      "category": "processo",
+      "priority": "media",
+      "keywords": [
+        "como",
+        "funciona",
+        "processo",
+        "passo",
+        "etapa",
+        "sequencia"
+      ],
+      "question": "Como é o processo?",
+      "answer": "🔄 **Nosso Processo Simples:**\n\n1️⃣ Você traz o aparelho com o problema\n2️⃣ Fazemos um diagnóstico GRÁTIS\n3️⃣ Você aprova ou recusa o orçamento\n4️⃣ Começamos o reparo (você é avisado quando fica pronto)\n5️⃣ Você retira o aparelho funcionando 100%\n6️⃣ Ganha comprovante de garantia de 90 dias\n\nNunca cobramos por diagnóstico ou orçamento!",
+      "follow_ups": [
+        "endereco",
+        "horario"
+      ]
+    },
+    {
+      "id": "faq_modem_aparelho",
+      "category": "compatibilidade",
+      "priority": "media",
+      "keywords": [
+        "qual aparelho",
+        "modelo",
+        "compativel",
+        "seucomum",
+        "vocês consertam"
+      ],
+      "question": "Vocês consertam qual marca?",
+      "answer": "📱 Atendemos TODOS os modelos:\n\n✓ Apple (iPhone 7 ao 16 Pro Max)\n✓ Samsung (Galaxy S, A, M, Z Fold/Flip)\n✓ Xiaomi, Redmi, Poco\n✓ Motorola (Moto G, Edge, Razr)\n✓ LG, Realme, Asus, OnePlus e mais!\n\nSe você tem um celular de marca reconhecida, a gente conserta com confiança.",
+      "follow_ups": [
+        "marca_especifica",
+        "reparos"
+      ]
+    },
+    {
+      "id": "faq_loja_fisica",
+      "category": "informação",
+      "priority": "media",
+      "keywords": [
+        "loja",
+        "fisica",
+        "online",
+        "envio",
+        "correios",
+        "compra"
+      ],
+      "question": "Vocês vendem online ou fazem envio?",
+      "answer": "🏪 Somos uma loja FÍSICA!\n\nNão fazemos envios pelos Correios ou transportadoras. Você precisa vir até nós para:\n✓ Comprar produtos do mostruário\n✓ Deixar um aparelho para reparo\n✓ Importar acessórios e peças\n\n📍 Estamos em Samambaia Norte, QR 429 Loja 01\n⏰ Seg-Sáb: 9h às 18h\n\nPor isso oferecemos WhatsApp para esclarecer dúvidas antes você vir!",
+      "follow_ups": [
+        "endereco",
+        "horario"
+      ]
+    },
+    {
+      "id": "faq_dados_pessoais",
+      "category": "privacidade",
+      "priority": "alta",
+      "keywords": [
+        "dados",
+        "privacidade",
+        "senha",
+        "icloud",
+        "google",
+        "cuenta"
+      ],
+      "question": "Minhas informações estão seguras?",
+      "answer": "🔐 **SIM! Seus dados estão 100% protegidos.**\n\nNunca pedimos senhas de iCloud, Google ou outra conta. Nosso processo:\n1️⃣ Você mesmo insere suas credenciais (a gente não vê)\n2️⃣ Autorizamos o desbloqueio de iCloud/Find My\n3️⃣ Você controla tudo o tempo todo\n\n📋 Sua privacidade é lei para a gente. Todos os técnicos têm treinamento de sigilo.",
+      "follow_ups": [
+        "confianca",
+        "desbloqueio"
+      ]
+    },
+    {
+      "id": "faq_problema_gravidade",
+      "category": "diagnóstico",
+      "priority": "media",
+      "keywords": [
+        "grave",
+        "conserta",
+        "nao liga",
+        "danificado",
+        "recuperavel",
+        "salva"
+      ],
+      "question": "Existe problema que vocês não consertam?",
+      "answer": "🤔 A maioria SIM, a gente conserta!\n\nProblemas que somos bons em resolver:\n✅ Telas quebradas\n✅ Baterias ruins\n✅ Problemas de carga\n✅ Não liga (placa)\n✅ Molhado/Oxidado\n✅ Lentidão/Software\n\nProblemas RAROS (aviamos):\n❌ Carcaça muito danificada (achamos peças)\n❌ Dano irreversível em chip (raro)\n\nMesmo em casos extremos, a gente tenta e é honesto se não for possível.",
+      "follow_ups": [
+        "diagnostico",
+        "caso_especial"
+      ]
+    },
+    {
+      "id": "faq_apos_reparo",
+      "category": "procedimento",
+      "priority": "media",
+      "keywords": [
+        "dia",
+        "apos",
+        "depois",
+        "cuidado",
+        "recomendacao"
+      ],
+      "question": "Quais cuidados tomar após o reparo?",
+      "answer": "⚠️ **Cuidados IMPORTANTES pós-reparo:**\n\n✓ PRIMEIRA 24h: Evite molhar o aparelho\n✓ PRIMEIRA 48h: Use com cuidado (solda fresca)\n✓ Se trocamos tela: Evite dormir com pressão nela\n✓ Se trocamos bateria: OK usar normalmente\n✓ Se foi molhado: Não teste na água ainda\n\n🚫 NUNCA:\n- Abra o aparelho (já vem vedado/testado)\n- Use películas de vidro diferente da trocada\n- Carregue enquanto estiver quente\n- Durma com o aparelho embaixo do travesseiro\n\nQualquer dúvida? Chama a gente!",
+      "follow_ups": [
+        "suporte",
+        "problema"
+      ]
+    }
+  ],
+  "intents": {
+    "saudacao": [
+      "oi",
+      "ola",
+      "bom dia",
+      "boa tarde",
+      "boa noite",
+      "opa",
+      "hey",
+      "salve",
+      "eai",
+      "e ai",
+      "tudo bem",
+      "tudo bom",
+      "boas",
+      "oie",
+      "olá"
+    ],
+    "agradecimento": [
+      "obrigado",
+      "obrigada",
+      "valeu",
+      "vlw",
+      "grato",
+      "agradeço",
+      "thanks",
+      "brigado",
+      "muito obrigado"
+    ],
+    "despedida": [
+      "tchau",
+      "ate mais",
+      "flw",
+      "falou",
+      "ate logo",
+      "adeus",
+      "encerrando",
+      "ta bom",
+      "por enquanto"
+    ],
+    "urgencia": [
+      "urgente",
+      "desesperado",
+      "preciso pra ontem",
+      "socorro",
+      "ajuda rapida",
+      "muito urgente",
+      "emergencia"
+    ],
+    "orcamento": [
+      "preco",
+      "valor",
+      "quanto",
+      "orcamento",
+      "custo",
+      "fica",
+      "conserto",
+      "tabela",
+      "custa",
+      "investimento",
+      "quanto custa",
+      "qual o valor",
+      "me passa o preco"
+    ],
+    "pagamento": [
+      "pagar",
+      "pagamento",
+      "cartao",
+      "pix",
+      "dinheiro",
+      "parcelar",
+      "aceita cartao"
+    ],
+    "tempo": [
+      "demora",
+      "quanto tempo",
+      "fica pronto",
+      "prazo",
+      "quando fica",
+      "express"
+    ],
+    "endereco": [
+      "endereco",
+      "onde",
+      "localizacao",
+      "fica a loja",
+      "como chegar"
+    ],
+    "garantia": [
+      "garantia",
+      "tempo de garantia",
+      "cobertura",
+      "garantido"
+    ]
+  },
+  "quickReplies": {
+    "initial": [
+      {
+        "label": "💰 Solicitar Orçamento",
+        "msg": "Quero um orçamento"
+      },
+      {
+        "label": "🔧 Relatar Problema",
+        "msg": "Meu celular tem um problema"
+      },
+      {
+        "label": "📍 Localização e Horários",
+        "msg": "Qual o endereço e horário de funcionamento?"
+      },
+      {
+        "label": "✅ Política de Garantia",
+        "msg": "Qual é a garantia dos serviços?"
+      }
+    ],
+    "problems": [
+      {
+        "label": "📱 Tela Quebrada",
+        "msg": "A tela do meu celular está quebrada"
+      },
+      {
+        "label": "🔋 Bateria com Problema",
+        "msg": "A bateria está com problema"
+      },
+      {
+        "label": "🔌 Não Está Carregando",
+        "msg": "O celular não está carregando"
+      },
+      {
+        "label": "💧 Caiu na Água",
+        "msg": "O celular caiu na água"
+      },
+      {
+        "label": "🚫 Aparelho Não Liga",
+        "msg": "O celular não liga"
+      },
+      {
+        "label": "📷 Câmera com Defeito",
+        "msg": "A câmera está com problema"
+      },
+      {
+        "label": "🔊 Sem Som",
+        "msg": "O celular está sem som"
+      },
+      {
+        "label": "🔓 Desbloqueio de Conta",
+        "msg": "Preciso desbloquear uma conta"
+      },
+      {
+        "label": "🌡️ Esquentando Muito",
+        "msg": "O celular está esquentando demais"
+      },
+      {
+        "label": "🔄 Sistema Travado",
+        "msg": "O celular travou no logo e não sai"
+      }
+    ],
+    "brands": [
+      {
+        "label": "📱 Apple (iPhone)",
+        "msg": "É um iPhone"
+      },
+      {
+        "label": "📱 Samsung Galaxy",
+        "msg": "É um Samsung Galaxy"
+      },
+      {
+        "label": "📱 Xiaomi / Redmi",
+        "msg": "É um Xiaomi ou Redmi"
+      },
+      {
+        "label": "📱 Motorola",
+        "msg": "É um Motorola"
+      },
+      {
+        "label": "📱 Outro modelo",
+        "msg": "É outra marca"
+      }
+    ],
+    "confirmation": [
+      {
+        "label": "✅ Quero Agendar!",
+        "msg": "Sim, quero agendar o serviço"
+      },
+      {
+        "label": "💬 Falar com Técnico",
+        "msg": "Quero falar com um técnico"
+      },
+      {
+        "label": "❓ Outra Dúvida",
+        "msg": "Tenho outra dúvida"
+      },
+      {
+        "label": "🕐 Vou Pensar",
+        "msg": "Vou pensar, obrigado"
+      }
+    ],
+    "yesno": [
+      {
+        "label": "✅ Sim",
+        "msg": "Sim"
+      },
+      {
+        "label": "❌ Não",
+        "msg": "Não"
+      },
+      {
+        "label": "🤔 Não sei dizer",
+        "msg": "Não sei dizer"
+      }
+    ],
+    "closed": [
+      {
+        "label": "🔧 Outro Problema",
+        "msg": "Tenho outro problema"
+      },
+      {
+        "label": "❓ Outra Dúvida",
+        "msg": "Tenho outra dúvida"
+      },
+      {
+        "label": "👋 Encerrar",
+        "msg": "Obrigado, tchau!"
+      }
+    ],
+    "faq": [
+      {
+        "label": "📍 Endereço",
+        "msg": "Qual o endereço da loja?"
+      },
+      {
+        "label": "✅ Garantia",
+        "msg": "Qual a garantia dos serviços?"
+      },
+      {
+        "label": "⏱️ Tempo de Reparo",
+        "msg": "Quanto tempo demora o reparo?"
+      },
+      {
+        "label": "💳 Formas de Pagamento",
+        "msg": "Quais são as formas de pagamento?"
+      },
+      {
+        "label": "🎉 Orçamento Grátis?",
+        "msg": "O orçamento é gratuito?"
+      },
+      {
+        "label": "📱 Marcas Atendidas",
+        "msg": "Quais marcas vocês atendem?"
+      }
+    ]
+  },
+  "respostas": {
+    "saudacoes": [
+      "Olá! Seja bem-vindo à **LK Imports**! 👋\n\nSou o assistente técnico virtual. Estou aqui para te ajudar com o diagnóstico do seu aparelho, orçamentos e agendamentos. Como posso te auxiliar hoje?",
+      "Olá! É um prazer receber você na **LK Imports**! 😊\n\nComo posso cuidar do seu dispositivo hoje?",
+      "Bem-vindo à **LK Imports**! Estou à disposição para ajudar com o seu aparelho. O que está acontecendo? 📱",
+      "Oi! Bem-vindo! Aqui na **LK Imports** a gente cuida do seu aparelho com cuidado e garantia. Me conta o que está acontecendo! 🔧",
+      "Olá! Que bom te ver por aqui. Precisa de uma mãozinha com seu celular? Estou pronto para ajudar! 🚀"
+    ],
+    "agradecimentos": [
+      "Fico feliz em ajudar! 😊 Se precisar de qualquer suporte adicional, é só chamar.",
+      "Por nada! A **LK Imports** está sempre à sua disposição. 👍",
+      "Disponha! Qualquer outra dúvida, estou aqui. 😉",
+      "Que bom que pude ajudar! Cuide bem do seu aparelho. 😄",
+      "Imagina! É um prazer garantir que seu aparelho volte a funcionar perfeitamente. Conte conosco!"
+    ],
+    "despedidas": [
+      "Até mais! Foi um prazer. Se precisar de assistência técnica, pode contar conosco. 👋",
+      "Até logo! Cuide bem do seu aparelho. A **LK Imports** está sempre aqui. 😄",
+      "Até logo! Se surgir qualquer problema, nossa equipe estará pronta para ajudar. ✨",
+      "Valeu pelo contato! Qualquer coisa, é só chamar. 👊",
+      "Tchau! Estarei aqui caso precise de mais alguma coisa. Tenha um ótimo dia!"
+    ],
+    "fallbacks": [
+      "Desculpe, não entendi muito bem. Poderia reformular ou escolher uma das opções abaixo?",
+      "Hmm, não consegui identificar o problema com essa descrição. Pode detalhar melhor o que está acontecendo? 🤔",
+      "Ainda estou aprendendo! Para te ajudar melhor, você gostaria de solicitar um orçamento ou tirar uma dúvida?",
+      "Não entendi direito... Pode me contar o que está acontecendo com o aparelho com mais detalhes?",
+      "Poxa, essa informação ainda não tenho. Que tal tentarmos descrever o problema de outra forma ou ver nossas opções?"
+    ],
+    "urgencia": "🚨 **Entendemos a urgência!** Nossa equipe está pronta para te atender o mais rápido possível. Entre em contato agora pelo **WhatsApp**: **wa.me/61995191308** e informe que é urgente — daremos prioridade ao seu caso.",
+    "identificou_problema": [
+      "Entendi! Problemas de {servico} são comuns e podemos resolver. Vamos ver o que podemos fazer!",
+      "Certo, {servico} é algo que cuidamos com frequência. Vamos avançar com o diagnóstico.",
+      "Compreendido. {servico} é um serviço que realizamos com excelência. Vamos verificar os detalhes."
+    ],
+    "pedir_modelo": [
+      "Para eu te dar um orçamento mais preciso, qual é a marca e o modelo do seu aparelho? (Ex: iPhone 13, Galaxy A54)",
+      "Pode me informar o modelo do seu celular? Assim consigo verificar a disponibilidade de peças e o valor.",
+      "Qual o modelo exato do aparelho? Isso ajuda muito no nosso diagnóstico inicial!"
+    ],
+    "garantia": [
+      "✅ Todos os nossos serviços possuem **garantia de 90 dias** cobrindo a peça instalada e a mão de obra. Qualquer problema relacionado ao reparo nesse período, nossa equipe resolve sem custo adicional.",
+      "Nossa garantia é de **90 dias**. Queremos que você saia daqui tranquilo com o serviço realizado!"
+    ],
+    "tempo_reparo": [
+      "⏱️ A maioria dos reparos simples (tela, bateria, conector) fica pronta **em 1 a 2 horas no mesmo dia**. Reparos avançados em placa levam de **2 a 5 dias úteis**. Você será informado a cada etapa."
+    ]
+  },
+  "inteligencia": {
+    "similarity_threshold": 0.65,
+    "fuzzy_matching": true,
+    "context_memory": true,
+    "learning_enabled": true
+  },
+  "resposta_padrao": {
+    "nao_entendi": "Humm, não entendi direito! 🤔\n\nVocê poderia reformular sua pergunta? Ou me fala qual é o problema do seu aparelho que eu tento ajudar melhor!",
+    "sem_resposta": "Boa pergunta! Esse assunto é específico demais para meu conhecimento automático.\n\nVou chamar um atendente humano para conversar com você direto.",
+    "desculpas": "Desculpa aí! Vou tentar entender melhor. Pode me detalhar mais?"
+  },
+  "contexto_conversas": {
+    "rastreador_problemas": {
+      "molhou": [
+        "desoxidacao",
+        "urgencia",
+        "nao_ligar"
+      ],
+      "tela_quebrada": [
+        "protecao_futura",
+        "vidro_temporal"
+      ],
+      "bateria": [
+        "duracao",
+        "cuidados"
+      ],
+      "nao_liga": [
+        "placa",
+        "bateria",
+        "urgencia"
+      ]
+    },
+    "recomendacoes": {
+      "apos_diagnostico": "Quer agendar o reparo agora mesmo ou quer pensar um pouco?",
+      "apos_reparo": "Como ficou seu aparelho? Tudo funcionando?",
+      "sem_urgencia": "Sem pressa não, mas é bom trazer em breve para não piorar o problema."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import { siteConfig } from './siteConfig';
+export const LOGO_URL = siteConfig.brand.logo;
+export const BRAND_NAME = siteConfig.brand.name;
+export const PHONE_NUMBER = siteConfig.contact.phone;
+export const WHATSAPP_LINK = siteConfig.contact.whatsapp;
+export const INSTAGRAM_LINK = siteConfig.social.instagram;
+export const FACEBOOK_LINK = siteConfig.social.facebook;
+export const ADDRESS = siteConfig.contact.address;
+export const MAPS_URL = siteConfig.contact.mapsUrl;
+export const MAPS_EMBED = siteConfig.contact.mapsEmbed;

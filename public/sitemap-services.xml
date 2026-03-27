@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================================
+       SERVIÇOS - Sitemap Especializado
+       Categorias e serviços individuais para melhor indexação
+       ============================================================================ -->
+
+  <!-- CATEGORIA: Reparos em Placa -->
+  <url>
+    <loc>https://lkimports.net/servicos</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Ga4bMmk.png</image:loc>
+      <image:title>Serviços da LK Imports</image:title>
+      <image:caption>Catálogo completo de serviços de assistência técnica</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

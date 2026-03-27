@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================================
+       PRODUTOS - Sitemap Especializado
+       Página de produtos para melhor indexação
+       ============================================================================ -->
+
+  <!-- Página de Produtos -->
+  <url>
+    <loc>https://lkimports.net/produtos</loc>
+    <lastmod>2026-03-22T10:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://picsum.photos/seed/iphone15promax/400/400</image:loc>
+      <image:title>Produtos Premium - LK Imports</image:title>
+      <image:caption>iPhone, PlayStation 5, AirPods e mais produtos com garantia</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

@@ -1,0 +1,99 @@
+# LK IMPORTS - Robots.txt
+# Configurações de crawling para Google, Bing e outros search engines
+# Última atualização: 2026-03-22
+
+# ============================================================================
+# REGRAS PADRÃO - Aplicam-se a todos os bots
+# ============================================================================
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /servicos
+Allow: /produtos
+Allow: /sobre
+Allow: /contato
+Allow: /orcamento
+Allow: /privacidade
+Allow: /termos
+Allow: /cookies
+
+# Diretórios sensíveis - Bloqueados
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /dist-server/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /public/sw.js
+Disallow: /api/
+Disallow: /.well-known/
+
+# Parâmetros de rastreamento - Podem ser ignorados
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Delay de crawling (em segundos)
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# ============================================================================
+# REGRAS ESPECÍFICAS - Google Bot
+# ============================================================================
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+Request-rate: unlimited
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0
+
+# ============================================================================
+# REGRAS ESPECÍFICAS - Bing Bot
+# ============================================================================
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# ============================================================================
+# BLOQUEAR BOTS INDESEJADOS
+# ============================================================================
+
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+Disallow: /
+
+# ============================================================================
+# SITEMAP & FEEDS
+# ============================================================================
+
+# Sitemap Index - Referencia todos os sitemaps
+Sitemap: https://lkimports.net/sitemap-index.xml
+
+# Sitemaps Específicos
+Sitemap: https://lkimports.net/sitemap.xml
+Sitemap: https://lkimports.net/sitemap-services.xml
+Sitemap: https://lkimports.net/sitemap-products.xml
+
+# RSS Feed (se disponível)
+# Sitemap: https://lkimports.net/feed.xml
+
+# ============================================================================
+# NOTAS ADICIONAIS
+# ============================================================================
+# - A página inicial (/) é a mais importante - high priority
+# - Páginas de serviços e orçamento são URLs de conversão
+# - Conteúdo legal tem prioridade baixa mas deve ser indexado
+# - Imagens são importantes para SEO local e Google Images
+# - Mobile-first indexing ativado por padrão
+

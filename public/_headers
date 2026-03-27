@@ -1,0 +1,60 @@
+# Cloudflare Pages Headers for Image Optimization
+# This file configures caching and security headers for static assets
+
+# Image optimization and caching
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+# Regular images (not hashed)
+/images/*
+  Cache-Control: public, max-age=604800
+  CDN-Cache-Control: max-age=604800
+
+# Static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+
+# Global Security Headers
+/*
+  # HTTPS enforcement
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Prevent clickjacking attacks
+  X-Frame-Options: SAMEORIGIN
+  
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+  
+  # XSS Protection
+  X-XSS-Protection: 1; mode=block
+  
+  # Referrer Policy
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Permissions Policy
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  
+  # Content Security Policy - Permissive for development, blocks harmful content
+  Content-Security-Policy: default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' https:; connect-src 'self' https: ws: wss:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'self' https:; child-src 'self'; worker-src 'self' blob: https:;
+
+# Enable Cloudflare Image Optimization for all images
+/*
+  Image-Optimization: true
